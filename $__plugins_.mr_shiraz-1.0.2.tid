@@ -4,7 +4,7 @@ created: 20181108134227799
 creator: Mohammad
 description: Shiraz
 list: readme tutorial license release
-modified: 20181108174729853
+modified: 20181108192733282
 modifier: Mohammad
 plugin-type: plugin
 title: $:/plugins/.mr/shiraz
@@ -43,15 +43,6 @@ version: 1.0.2
             "modified": "20181021041820073",
             "creator": "Mohammad",
             "created": "20180907071314793"
-        },
-        "$:/plugins/.mr/shiraz/tutorial": {
-            "created": "20180907045232431",
-            "creator": "Mohammad",
-            "text": "Shiraz plugin contains several macros, and extended markups and customization and can be used as a starter kit. Below is a demo of some features.\n\n<<tabs \"[all[shadows+tiddlers]search:title[.mr/shiraz/demo/]sort[caption]]\" \"\" class:\"tc-vertical\">>",
-            "title": "$:/plugins/.mr/shiraz/tutorial",
-            "tags": "kookma",
-            "modifier": "Mohammad",
-            "modified": "20181108133744448"
         },
         "$:/plugins/.mr/shiraz/to-do-list": {
             "text": "<div style=\"float:right;\"><$button>\n<$action-sendmessage $message=\"tm-new-tiddler\" title=<<now format:\"DDth MMM YYYY\">> tags=\"task\" text=\"\"/>\n<span style=\"color:blue;\">''New Task''</span>\n</$button></div>\n\n! Outstanding tasks\n//Drag the tasks to re-order them//\n\n<<list-tagged-draggable tag:\"task\" subFilter:\"!has[draft.of]!tag[done]\" itemTemplate:\"$:/plugins/.mr/shiraz/template/task-management-draggable\" emptyMessage:\"You don't have any active tasks\">>\n\n! Completed tasks\n\n//(Listed in reverse order of completion)//\n\n<$list filter=\"[!has[draft.of]tag[task]tag[done]!sort[created]] -[[ToDos]]\">\n<$checkbox tag=\"done\">\n<span style=\"color:green\">{{!!title}}<$link to={{!!title}}></$link></span>\n<div style=\"background-color:#ffffcc44\">\n<$transclude tiddler=<<currentTiddler>> filed=\"text\" mode=\"block\"/>\n</div>\n</$checkbox>\n</$list>\n",
@@ -217,15 +208,6 @@ version: 1.0.2
             "description": "Show a toggle button for view fields",
             "creator": "Mohammad",
             "created": "20181010190533135"
-        },
-        "$:/plugins/.mr/shiraz/readme": {
-            "created": "20181108100430291",
-            "creator": "Mohammad",
-            "text": "!! Shiraz\nShiraz is a small TW5 plugin contains several macros, stylesheets, templates, snippets and acts as a starter kit. Some of its features are given below\n\n* Macro\n** alert boxes (bootstrap alert classes)\n** clasic notes (danger, warning, info)\n** gradient (for dividing section in text)\n** footnote (creates footnotes)\n** tc, bc (text with forgeground and background colors)\n** wikitext-example (documentation macro to show code, rendered result, and underlaying html code)\n** wikitext-example-without-html (documentation macro to show code, and rendered result)\n\n* Customized css \n** notes\n** float class for images\n** Resoved floating images (overflow and cross tiddler borders)\n** Customized control buttons (shown as mouse hover)\n\n* ~ToDo\n* A todo list ([[ToDos|$:/plugins/.mr/shiraz/demo/todo]]) is set of macro and template to create tasks, list them and manupulate them!\n\n!! Howto\n* [[Tutorial|$:/plugins/.mr/shiraz/tutorial]] shows a demo of some of shiraz features\n* To use Shiraz in your own wiki install the Shiraz plugin\n\n!! Install\nSimply drag and drop the below tiddler to your wiki\n\n* $:/plugins/.mr/shiraz\n\n!! Acknowledgements\nMany people help directly or indirectly to bring this plugin into work. Their help and comments through [[Tiddlywiki forum|http://groups.google.com/group/TiddlyWiki]] are highly appreciated.\n\n* The //view filed// code is incorporated from [[Ton Gerner|http://tongerner.tiddlyspot.com/]]\n* Jeremy Ruston\n* Eric Shulman\n* Mario Pietsch\n* Simon Huber\n* Anthony Muscio\n* And many more",
-            "title": "$:/plugins/.mr/shiraz/readme",
-            "tags": "",
-            "modifier": "Mohammad",
-            "modified": "20181108173012638"
         },
         "$:/plugins/.mr/shiraz/release": {
             "created": "20180905085705897",
@@ -439,16 +421,6 @@ version: 1.0.2
             "created": "20180909044910836",
             "caption": "Wikitext macro"
         },
-        "$:/plugins/.mr/shiraz/demo/wizard": {
-            "text": "!! How to use wizard\nTo create a wizard or guided steps or a //linked list// of tiddlers do as below\n\n* Create your tiddlers (you can use any of existing ones)\n* Tag those tiddlers you like to have in your wizard (the //linked list//)  with `wizard`\n* Add two fields `next` and `previous` to each tiddler in the linked list\n* Fill in the fields of each tiddlers with the tiddler name of //next// / //previous// items\n** If a tiddler has no //previous// item, delete its `previous` field or leave it blank\n** If a tiddler has no //next// item, delete its `next` filed or leave it blank",
-            "title": "$:/plugins/.mr/shiraz/demo/wizard",
-            "tags": "",
-            "modifier": "Mohammad",
-            "modified": "20181029045823236",
-            "creator": "Mohammad",
-            "created": "20180709100107565",
-            "caption": "Wizard how to use"
-        },
         "$:/plugins/.mr/shiraz/dictionary/abbreviations": {
             "text": "WHO:World Health Organization\nCSS: Casecading Style Sheet",
             "type": "application/x-tiddler-dictionary",
@@ -488,27 +460,6 @@ version: 1.0.2
             "creator": "Mohammad",
             "created": "20181022144613056",
             "caption": "Standout macro"
-        },
-        "$:/plugins/.mr/shiraz/demo/steps": {
-            "text": "The steps macro can be called from any tiddler using the below syntax:\n\n```\n<<steps \"filter\">> or\n<<steps \"filter\" \"mode\">> or\n<<steps \"filter\" \"mode\" \"class\">>\n```\nThis macro creates and uses a field in the target tiddler named current-item. filter is the standard Tiddlywiki filter expression like `[tag[png]]` and class is a html5 class attribute.\n\n!! Examples\n<<<\nStep in all tiddlers tagged with `png`<br>\n`<<steps \"[tag[png]]\">>`\n\nStep in all tiddlers have `demo` keyword in their title<br>\n`<<steps \"[search:title[demo]]\">>`\n\nSteps in and keep all titlers have `png` as tag but not `kookma`<br>\n`<<steps \"[tag[png]!tag[kookma]]\" \"keep\">>`\n\nSteps in all `.svg` tiddlers and use the `.tc-tiddler-frame` class<br>\n`<<steps filter:\"[search:title[.svg]]\" class:\"tc-tiddler-frame\">>`\n<<<",
-            "title": "$:/plugins/.mr/shiraz/demo/steps",
-            "tags": "",
-            "modifier": "Mohammad",
-            "modified": "20181021084330024",
-            "creator": "Mohammad",
-            "created": "20181021053108742",
-            "caption": "Steps"
-        },
-        "$:/plugins/.mr/shiraz/demo/sticky-footer": {
-            "text": "!! Fixed/Sticky Footer Example\n\nThere is two tiddlers to implement the sticky footer\n<<list-links \"[search:title[sticky-footer]]\" type:\"ol\">>\n\n!! How to use\nEach tiddler has a `sticky-footer` field will show a sticky footer at the bottom of that tiddler with the contents come from `sticky-footer` filed.\n\n!! Mechanism\nThe mechanism is to use a css [[stylesheet/sticky-footer]] that defines the stylesheet and a tiddler tagged with `$:/tags/ViewTemplate` to conditionally apply the footer to tiddlers has the `sticky-footer` field.\n\n!! Example\n[[This tiddler|$:/plugins/.mr/shiraz/demo/sticky-footer]] has a `sticky-footer` filed, see the footer at the tiddler bottom.\n",
-            "title": "$:/plugins/.mr/shiraz/demo/sticky-footer",
-            "tags": "",
-            "sticky-footer": "''Hello'', this is a sticky footer. //<<now>>//",
-            "modifier": "Mohammad",
-            "modified": "20181021085515076",
-            "creator": "Mohammad",
-            "created": "20180907065146246",
-            "caption": "Sticky footer"
         },
         "$:/plugins/.mr/shiraz/demo/tables": {
             "text": "!! Custom Table Styles\nThe kookma Shiraz plugin has several tables classes. The following examples show some of the custom styles for tables. More classes can be found in [[lines and borderless classes|$:/plugins/.mr/shiraz/demo/tables-borderless]]. \n\n* Basic custom classes\n<<<\n* ''thead-maroon'': (header white on maroon)\n* ''thead-teal'':   (header white on teal)\n* ''thead-navy'':   (header white on navy)\n* ''thead-orange'': (header black on orange)\n* ''table-hover'':  (yellow backgroud color on mouse hover)\n* ''table-striped-row'': (even rows in gray color)\n* ''table-striped-col'': (odd columns in gray color)\n* ''centered'': (put the table center in tiddler)\n* ''caption-top'': (put caption at top of table using a bigger font size)\n<<<\n\n!!! Syntax\n\n```\n|your-table-class|k\n|table caption here |c\n|table |header| here|h\n|text  |goses | here|\n|text  |goses | here|\n|table |footer| here|f\n```\n\n!!! Demo\n* ''Simple table''\nThis is the basic Tiddlywiki table\n\n|This is a sample table|c\n|One|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten|h\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|f\n\n* ''Maroon''\n|thead-maroon|k\n|This is a sample table|c\n|One|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten|h\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|f\n\n* ''Teal''\n|thead-teal|k\n|This is a sample table|c\n|One|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten|h\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|f\n\n* ''Navy''\n|thead-navy|k\n|This is a sample table|c\n|One|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten|h\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|f\n\n* ''Orange''\n|thead-orange|k\n|This is a sample table|c\n|One|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten|h\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|f\n\n\n* ''Table striped row''\n|table-striped-row|k\n|This is a sample table|c\n|One|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten|h\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|f\n\n\n* ''Table striped column''\n|table-striped-col|k\n|This is a sample table|c\n|One|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten|h\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|f\n\n* ''Table hoverable''\nHover the mouse to see the color change\n\n|table-hover|k\n|This is a sample table|c\n|One|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten|h\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|f\n\n!! Centered table\nCenetered table are located horizontally in the center of tiddler.\n\n|centered|k\n|This is a centerd table|c\n|One|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten|h\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|f\n\n!! Table with caption at top\n|caption-top|k\n|This is a table with caption located at top|c\n|One|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten|h\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|f\n\n!! Use two or more classes\nYou can use two or more classes in tables. For example you can apply `w3-card-4` and `thead-maroon` as below\n\n<<wikitext-example-without-html \n\"\"\"|thead-maroon w3-card-4|k\n|This table uses two classes|c\n|One|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten|h\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|f\n\"\"\">>",
@@ -580,16 +531,6 @@ version: 1.0.2
             "created": "20181101170023905",
             "caption": "Details macro"
         },
-        "$:/plugins/.mr/shiraz/demo/footnote": {
-            "text": "! Footnote macro\nFootnote macro can accept a title and a text and show them in a smaller font size at the bottom of page.\n\n!!!''Syntax''\n```\n<<footnote text:\"\" title:\"\">>\n```\n\n!!!! ''Example 1''\n```\n<<footnote \"This is a footnote\" \"Test Note:\">>\n```\n\n<<footnote \"This is a footnote\" \"Test Note:\">>\n\n\n!!!! ''Example 2''\n\n```\n<<footnote \"\n# This is a footnote\n# Call you at [[Home]]\n\">>\n```\n\n<<footnote \"\n# This is a footnote\n# Call you at [[Home]]\n\">>",
-            "title": "$:/plugins/.mr/shiraz/demo/footnote",
-            "tags": "",
-            "modifier": "Mohammad",
-            "modified": "20181021084156692",
-            "creator": "Mohammad",
-            "created": "20180830162917069",
-            "caption": "Footnote"
-        },
         "$:/plugins/.mr/shiraz/demo/gradient": {
             "text": "The `gradient` macro create a linear gradient background. \n\nAt the moment three different colors (red, green, blue) are supported and the default color is //green//.\n. Check and change for macro\n<$macrocall $name=\"wikitext-example-without-html\" src=\"\"\"\n<<gradient \"This a gradient with defualt color\">>\n<<gradient \"This is a blue gradient\" blue>>\n<<gradient \"This is a red gradient\" red>>\n<<gradient \"This is a green gradient\" green>>\n\"\"\">>",
             "title": "$:/plugins/.mr/shiraz/demo/gradient",
@@ -619,6 +560,64 @@ version: 1.0.2
             "creator": "Mohammad",
             "created": "20181108121502893",
             "caption": "Table of Contents"
+        },
+        "$:/plugins/.mr/shiraz/demo/footnote": {
+            "text": "! Footnote macro\nFootnote macro can accept a title and a text and show them in a smaller font size at the bottom of page.\n\n!!!''Syntax''\n```\n<<footnote text:\"\" title:\"\">>\n```\n\n!!!! ''Example 1''\n```\n<<footnote \"This is a footnote\" \"Test Note:\">>\n```\n\n<<footnote \"This is a footnote\" \"Test Note:\">>\n\n\n!!!! ''Example 2''\n\n<$macrocall $name=\"wikitext-example-without-html\" src=\"\"\"<<footnote \"\n# This is a footnote\n# Shiraz is plugin with many useful tools\n\">>\n\"\"\" />",
+            "title": "$:/plugins/.mr/shiraz/demo/footnote",
+            "tags": "",
+            "modifier": "Mohammad",
+            "modified": "20181108181633482",
+            "creator": "Mohammad",
+            "created": "20180830162917069",
+            "caption": "Footnote"
+        },
+        "$:/plugins/.mr/shiraz/demo/steps": {
+            "text": "The steps macro can be called from any tiddler using the below syntax:\n\n```\n<<steps \"filter\">> or\n<<steps \"filter\" \"mode\">> or\n<<steps \"filter\" \"mode\" \"class\">>\n```\nThis macro creates and uses a field in the target tiddler named current-item. filter is the standard Tiddlywiki filter expression like `[tag[png]]` and class is a html5 class attribute.\n\n!! Examples\n<<<\nStep in all tiddlers tagged with `png`<br>\n`<<steps \"[tag[png]]\">>`\n\nStep in all tiddlers have `demo` keyword in their title<br>\n`<<steps \"[search:title[demo]]\">>`\n\nSteps in and keep all titlers have `png` as tag but not `kookma`<br>\n`<<steps \"[tag[png]!tag[kookma]]\" \"keep\">>`\n\nSteps in all `.svg` tiddlers and use the `.tc-tiddler-frame` class<br>\n`<<steps filter:\"[search:title[.svg]]\" class:\"tc-tiddler-frame\">>`\n<<<\n\n<<vspace 2cm>>\n<<footnote\n\"Find more example on: https://kookma.github.io/Reveal-Gradually/\">>",
+            "title": "$:/plugins/.mr/shiraz/demo/steps",
+            "tags": "",
+            "modifier": "Mohammad",
+            "modified": "20181108185136812",
+            "creator": "Mohammad",
+            "created": "20181021053108742",
+            "caption": "Steps"
+        },
+        "$:/plugins/.mr/shiraz/demo/sticky-footer": {
+            "text": "!! Fixed/Sticky Footer Example\n\nThere is two tiddlers to implement the sticky footer\n<<list-links \"[search:title[sticky-footer]]\" type:\"ol\">>\n\n!! How to use\nEach tiddler has a `sticky-footer` field will show a sticky footer at the bottom of that tiddler with the contents come from `sticky-footer` filed.\n\n!! Mechanism\nThe mechanism is to use a css [[$:/plugins/.mr/shiraz/stylesheet/sticky-footer]] that defines the stylesheet and a [[viewtemplate tiddler|$:/plugins/.mr/shiraz/viewtemplate/sticky-footer]] tagged with `$:/tags/ViewTemplate` to conditionally apply the footer to tiddlers has the `sticky-footer` field.\n\n!! Example\n[[This tiddler|$:/plugins/.mr/shiraz/demo/sticky-footer]] has a `sticky-footer` filed, see the footer at the tiddler bottom.\n",
+            "title": "$:/plugins/.mr/shiraz/demo/sticky-footer",
+            "tags": "sticky-footer",
+            "sticky-footer": "''Hello'', this is a sticky footer. //<<now>>//",
+            "modifier": "Mohammad",
+            "modified": "20181108181133363",
+            "creator": "Mohammad",
+            "created": "20180907065146246",
+            "caption": "Sticky footer"
+        },
+        "$:/plugins/.mr/shiraz/demo/wizard": {
+            "text": "!! How to use wizard\nTo create a wizard or guided steps or a //linked list// of tiddlers do as below\n\n* Create your tiddlers (you can use any of existing ones)\n* Tag those tiddlers you like to have in your wizard (the //linked list//)  with `wizard`\n* Add two fields `next` and `previous` to each tiddler in the linked list\n* Fill in the fields of each tiddlers with the tiddler name of //next// / //previous// items\n** If a tiddler has no //previous// item, delete its `previous` field or leave it blank\n** If a tiddler has no //next// item, delete its `next` filed or leave it blank\n\n<<vspace 2cm>>\n<<footnote\n\"Find more example on: https://kookma.github.io/Reveal-Gradually/\">>",
+            "title": "$:/plugins/.mr/shiraz/demo/wizard",
+            "tags": "",
+            "modifier": "Mohammad",
+            "modified": "20181108185204344",
+            "creator": "Mohammad",
+            "created": "20180709100107565",
+            "caption": "Wizard how to use"
+        },
+        "$:/plugins/.mr/shiraz/tutorial": {
+            "text": "Shiraz plugin contains several macros, and extended markups and customization and can be used as a starter kit. Below is a demo of some features.\n\n<<tabs \"[all[shadows+tiddlers]search:title[.mr/shiraz/demo/]sort[caption]]\" \"\" class:\"tc-vertical\">>",
+            "title": "$:/plugins/.mr/shiraz/tutorial",
+            "modifier": "Mohammad",
+            "modified": "20181108182936271",
+            "creator": "Mohammad",
+            "created": "20180907045232431"
+        },
+        "$:/plugins/.mr/shiraz/readme": {
+            "created": "20181108100430291",
+            "creator": "Mohammad",
+            "text": "! Shiraz\nShiraz is a small TW5 plugin contains several macros, stylesheets, templates, snippets and acts as a starter kit. Some of its features are given below\n\n* Macro\n** abbreviation (abbr) and details macro\n** alert boxes (bootstrap alert classes)\n** classic notes (danger, warning, info)\n** gradient (for dividing section in text)\n** footnote (creates footnotes)\n** tc, bc (text with foreground and background colors)\n** documentation macro to show code, rendered result, and underlying html code)\n\n* Reveal gradually ( walkthrough  , guided help, linked list)\n** Steps\n** Wizard\n\n* Customized css \n** notes\n** float class for images\n** Resolved floating images (overflow and cross tiddler borders)\n** Customized control buttons (shown as mouse hover)\n\n* ~ToDo\n** A todo list ([[ToDos|$:/plugins/.mr/shiraz/demo/todo]]) is set of macro and template to create tasks, list them and manipulate them!\n\n* Customized table classes\n** Colored header\n** Striped row table\n** Striped column table\n** Borderless table\n** Hoverable table\n\n* Others\n** Show fields in view mode (From Ton Gerner)\n** Notebook tiddler\n** Standout markup\n** Sticky footer\n** Utility macros (.lorem, vspace, hspace,...)\n\n!! Howto\n* [[Tutorial|$:/plugins/.mr/shiraz/tutorial]] shows a demo of some of Shiraz features\n* To use Shiraz in your own wiki install the Shiraz plugin\n\n!! Install\nSimply drag and drop the below tiddler to your wiki\n\n* $:/plugins/.mr/shiraz\n\n!! Acknowledgements\nMany people help directly or indirectly to bring this plugin into work. Their help and comments and ideas through [[Tiddlywiki forum|http://groups.google.com/group/TiddlyWiki]] are highly appreciated, among them are:\n\n* Jeremy Ruston\n* Eric Shulman\n* Mario Pietsch\n* Simon Huber\n* Anthony Muscio\n* Mark S\n* Josiah (~TiddlyTweeter)\nAnd many more ...\n\n!!! Codes \nCodes from these projects are incorporated\n\n* Documentation macros from [[Tiddlywiki.com|https://tiddlywiki.com/]]\n* The //view filed// code is incorporated from [[Ton Gerner|http://tongerner.tiddlyspot.com/]]",
+            "title": "$:/plugins/.mr/shiraz/readme",
+            "tags": "",
+            "modifier": "Mohammad",
+            "modified": "20181108192358786"
         }
     }
 }

@@ -1,0 +1,624 @@
+author: Mohammad Rahmani
+core-version: 4.1.17
+created: 20181108134227799
+creator: Mohammad
+description: Shiraz
+list: readme tutorial license release
+modified: 20181108174729853
+modifier: Mohammad
+plugin-type: plugin
+title: $:/plugins/.mr/shiraz
+type: application/json
+version: 1.0.2
+
+{
+    "tiddlers": {
+        "$:/plugins/.mr/shiraz/viewtemplate/wizard": {
+            "text": "<$list filter=\"[all[current]tag[wizard]]\">\n<div class=\"wizard-footer\">\n  <div class=\"wizard-item\">\n    <$link to={{!!previous}} tooltip=\"Previous item: {{!!previous}}\" >{{!!previous}}</$link>\n  </div>\n  <div class=\"wizard-item\">\n    <$link to={{!!next}} tooltip=\"Next item: {{!!next}}\">{{!!next}}</$link>\n  </div>\n</div>\n</$list>",
+            "type": "application/x-tiddler",
+            "title": "$:/plugins/.mr/shiraz/viewtemplate/wizard",
+            "tags": "$:/tags/ViewTemplate",
+            "modifier": "Mohammad",
+            "modified": "20181029044934697",
+            "list-after": "$:/core/ui/ViewTemplate/body",
+            "creator": "twMat",
+            "created": "20180709082448874"
+        },
+        "$:/plugins/.mr/shiraz/viewtemplate/view-fields": {
+            "text": "\\define lingo-base() $:/language/EditTemplate/\n\\define config-title()\n$:/config/EditTemplateFields/Visibility/$(currentField)$\n\\end\n\n\\define config-filter()\n[[hide]] -[title{$(config-title)$}]\n\\end\n\n\\define new-field()\n<$vars name={{$:/temp/newfieldname}}>\n<$reveal type=\"nomatch\" text=\"\" default=<<name>>>\n<$button>\n<$action-sendmessage $message=\"tm-add-field\"\n$name=<<name>>\n$value={{$:/temp/newfieldvalue}}/>\n<$action-deletetiddler $tiddler=\"$:/temp/newfieldname\"/>\n<$action-deletetiddler $tiddler=\"$:/temp/newfieldvalue\"/>\n<<lingo Fields/Add/Button>>\n</$button>\n</$reveal>\n<$reveal type=\"match\" text=\"\" default=<<name>>>\n<$button>\n<<lingo Fields/Add/Button>>\n</$button>\n</$reveal>\n</$vars>\n\\end\n\n<div class=\"tc-edit-fields\">\n<table class=\"tc-edit-fields\">\n<tbody>\n<$list filter=\"[all[current]fields[]] +[sort[title]]\" variable=\"currentField\">\n<$list filter=<<config-filter>> variable=\"temp\">\n<tr class=\"tc-edit-field\">\n<td class=\"tc-edit-field-name\">\n<$text text=<<currentField>>/>:</td>\n<td class=\"tc-edit-field-value\">\n<$edit-text tiddler=<<currentTiddler>> field=<<currentField>> placeholder={{$:/language/EditTemplate/Fields/Add/Value/Placeholder}}/>\n</td>\n<td class=\"tc-edit-field-remove\">\n<$button class=\"tc-btn-invisible\" tooltip={{$:/language/EditTemplate/Field/Remove/Hint}} aria-label={{$:/language/EditTemplate/Field/Remove/Caption}}>\n<$action-deletefield $field=<<currentField>>/>\n{{$:/core/images/delete-button}}\n</$button>\n</td>\n</tr>\n</$list>\n</$list>\n</tbody>\n</table>\n</div>\n\n<$fieldmangler>\n<div class=\"tc-edit-field-add\">\n<em class=\"tc-edit\">\n<<lingo Fields/Add/Prompt>>\n</em>\n<span class=\"tc-edit-field-add-name\">\n<$edit-text tiddler=\"$:/temp/newfieldname\" tag=\"input\" default=\"\" placeholder={{$:/language/EditTemplate/Fields/Add/Name/Placeholder}} focusPopup=<<qualify \"$:/state/popup/field-dropdown\">> class=\"tc-edit-texteditor tc-popup-handle\"/>\n</span>\n<$button popup=<<qualify \"$:/state/popup/field-dropdown\">> class=\"tc-btn-invisible tc-btn-dropdown\" tooltip={{$:/language/EditTemplate/Field/Dropdown/Hint}} aria-label={{$:/language/EditTemplate/Field/Dropdown/Caption}}>{{$:/core/images/down-arrow}}</$button>\n<$reveal state=<<qualify \"$:/state/popup/field-dropdown\">> type=\"nomatch\" text=\"\" default=\"\">\n<div class=\"tc-block-dropdown tc-edit-type-dropdown\">\n<$linkcatcher to=\"$:/temp/newfieldname\">\n<div class=\"tc-dropdown-item\">\n<<lingo Fields/Add/Dropdown/User>>\n</div>\n<$list filter=\"[!is[shadow]!is[system]fields[]search:title{$:/temp/newfieldname}sort[]] -created -creator -draft.of -draft.title -modified -modifier -tags -text -title -type\"  variable=\"currentField\">\n<$link to=<<currentField>>>\n<<currentField>>\n</$link>\n</$list>\n<div class=\"tc-dropdown-item\">\n<<lingo Fields/Add/Dropdown/System>>\n</div>\n<$list filter=\"[fields[]search:title{$:/temp/newfieldname}sort[]] -[!is[shadow]!is[system]fields[]]\" variable=\"currentField\">\n<$link to=<<currentField>>>\n<<currentField>>\n</$link>\n</$list>\n</$linkcatcher>\n</div>\n</$reveal>\n<span class=\"tc-edit-field-add-value\">\n<$edit-text tiddler=\"$:/temp/newfieldvalue\" tag=\"input\" default=\"\" placeholder={{$:/language/EditTemplate/Fields/Add/Value/Placeholder}} class=\"tc-edit-texteditor\"/>\n</span>\n<span class=\"tc-edit-field-add-button\">\n<$macrocall $name=\"new-field\"/>\n</span>\n</div>\n</$fieldmangler>\n",
+            "title": "$:/plugins/.mr/shiraz/viewtemplate/view-fields",
+            "tags": "kookma",
+            "modifier": "Mohammad",
+            "modified": "20181108121331922",
+            "list-after": "$:/core/ui/ViewTemplate/tags",
+            "description": "Toggle field handling in view mode",
+            "creator": "Mohammad",
+            "created": "20181010162537613"
+        },
+        "$:/plugins/.mr/shiraz/viewtemplate/sticky-footer": {
+            "text": "<$list filter=\"[is[current]has[sticky-footer]]\">\n<div class=\"sticky-footer\">\n{{!!sticky-footer}}\n</div>\n</$list>\n",
+            "title": "$:/plugins/.mr/shiraz/viewtemplate/sticky-footer",
+            "tags": "$:/tags/ViewTemplate",
+            "modifier": "Mohammad",
+            "modified": "20181021041820073",
+            "creator": "Mohammad",
+            "created": "20180907071314793"
+        },
+        "$:/plugins/.mr/shiraz/tutorial": {
+            "created": "20180907045232431",
+            "creator": "Mohammad",
+            "text": "Shiraz plugin contains several macros, and extended markups and customization and can be used as a starter kit. Below is a demo of some features.\n\n<<tabs \"[all[shadows+tiddlers]search:title[.mr/shiraz/demo/]sort[caption]]\" \"\" class:\"tc-vertical\">>",
+            "title": "$:/plugins/.mr/shiraz/tutorial",
+            "tags": "kookma",
+            "modifier": "Mohammad",
+            "modified": "20181108133744448"
+        },
+        "$:/plugins/.mr/shiraz/to-do-list": {
+            "text": "<div style=\"float:right;\"><$button>\n<$action-sendmessage $message=\"tm-new-tiddler\" title=<<now format:\"DDth MMM YYYY\">> tags=\"task\" text=\"\"/>\n<span style=\"color:blue;\">''New Task''</span>\n</$button></div>\n\n! Outstanding tasks\n//Drag the tasks to re-order them//\n\n<<list-tagged-draggable tag:\"task\" subFilter:\"!has[draft.of]!tag[done]\" itemTemplate:\"$:/plugins/.mr/shiraz/template/task-management-draggable\" emptyMessage:\"You don't have any active tasks\">>\n\n! Completed tasks\n\n//(Listed in reverse order of completion)//\n\n<$list filter=\"[!has[draft.of]tag[task]tag[done]!sort[created]] -[[ToDos]]\">\n<$checkbox tag=\"done\">\n<span style=\"color:green\">{{!!title}}<$link to={{!!title}}></$link></span>\n<div style=\"background-color:#ffffcc44\">\n<$transclude tiddler=<<currentTiddler>> filed=\"text\" mode=\"block\"/>\n</div>\n</$checkbox>\n</$list>\n",
+            "title": "$:/plugins/.mr/shiraz/to-do-list",
+            "tags": "kookma",
+            "modifier": "Mohammad",
+            "modified": "20181108103710424",
+            "creator": "Mohammad",
+            "created": "20180615032251583"
+        },
+        "$:/plugins/.mr/shiraz/template/task-management-draggable": {
+            "text": "<$checkbox tag=\"done\"> <$link to={{!!title}}><$view field=\"title\"/></$link></$checkbox>",
+            "type": "text/vnd.tiddlywiki",
+            "title": "$:/plugins/.mr/shiraz/template/task-management-draggable",
+            "tags": "",
+            "modifier": "Mohammad",
+            "modified": "20181021045435674",
+            "creator": "Mohammad",
+            "created": "20180307153530187"
+        },
+        "$:/plugins/.mr/shiraz/stylesheet/wizard": {
+            "text": ".wizard-footer {\n  display:flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.wizard-footer{  \n  position: absolute;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  box-sizing: border-box;\n  width: 100%;\n  padding: 5px;\n  background-color: #efefef;\n opacity: 0.55;\n}\n\n.wizard-footer:hover{\n  opacity: 1.0;   \n}\n\n.wizard-item{} /* to be completed later*/\n",
+            "type": "text/css",
+            "title": "$:/plugins/.mr/shiraz/stylesheet/wizard",
+            "tags": "$:/tags/Stylesheet",
+            "modifier": "Mohammad",
+            "modified": "20181029044830896",
+            "creator": "Mohammad",
+            "created": "20181024040914000"
+        },
+        "$:/plugins/.mr/shiraz/stylesheet/wikitext-macro": {
+            "text": ".doc-example { margin: 1em 0; padding: 0.8em 0; } .doc-example:hover { background-color: #f7f7f9; } .doc-example ul { margin-bottom: 0; padding-bottom: 0; margin-top: 0.2em; } .doc-example pre:first-child { margin-top: 0; } .doc-example-result { border-left: 5px solid #bbb; border-right: 5px solid #bbb; margin-left: 0; margin-right: 0; padding: 0 10px; } .doc-example-result ul { margin-left: 0; padding-left: 10px; } .doc-example-result ol { margin-left: 0; padding-left: 20px; }",
+            "type": "text/css",
+            "title": "$:/plugins/.mr/shiraz/stylesheet/wikitext-macro",
+            "tags": "$:/tags/Stylesheet kookma",
+            "modifier": "Mohammad",
+            "modified": "20181021074953340",
+            "creator": "Mohammad",
+            "created": "20180909042646908"
+        },
+        "$:/plugins/.mr/shiraz/stylesheet/tw-version": {
+            "text": "<pre>/* TW-version added to site title */\n.tc-site-title:before {\n  content:\"TW <<version>>\";\n  position:absolute;\n  margin-top:-1.9em;\n  color:silver;\n  font-size:13px;\n}\n</pre>",
+            "title": "$:/plugins/.mr/shiraz/stylesheet/tw-version",
+            "tags": "$:/tags/Stylesheet",
+            "modifier": "Mohammad",
+            "modified": "20181021064233482",
+            "creator": "Mohammad",
+            "created": "20180906042308596"
+        },
+        "$:/plugins/.mr/shiraz/stylesheet/tw-adjustment": {
+            "text": "/*\nThis tiddler apply the custom stylesheet for Tiddlywiki.\n*/\n\n\n/* TextArea Setting */\n/* un-comment when Codemirror is not installed\n.tc-tiddler-frame input.tc-edit-texteditor,\n.tc-tiddler-frame textarea.tc-edit-texteditor,\n.tc-tiddler-frame iframe.tc-edit-texteditor{\nline-height: 1.4em; \nfont-size:0.90em;\nfont-family:monospace;}\n**/\n\n/*Edit Buttons As Traffic Lights*/\n.tc-tiddler-controls .tc-image-delete-button {fill:#ebb;}\n.tc-tiddler-controls .tc-image-cancel-button {fill:#ed9;}\n.tc-tiddler-controls .tc-image-done-button {fill:#beb;}\n\n/*Four more button in beautiful color*/\n.tc-tiddler-controls .tc-image-edit-button { fill:#F37B1D; }/*edit tiddler*/\n.tc-tiddler-controls .tc-image-info-button { fill: #0e90d2; } /*Info button*/\n.tc-page-controls .tc-image-new-button { fill: #5EB95E; } /*New tiddler button*/\n.tc-page-controls .tc-image-options-button { fill:#8058A5; } /*Open control pannel*/\n\n\n/* Mouseover Toolbar Visibility: Tobias Beer*/\n.tc-tiddler-frame .tc-titlebar button {\nopacity: 0;\ntransition: opacity .5s ease-in-out;\n}\n.tc-tiddler-frame:hover .tc-titlebar button {\nzoom: 1;\nfilter: alpha(opacity=100);\nopacity: 1;\n}\n\n/* This hack is for adjustment the position of icon in tag-button. \nvertical-align: text-bottom; chnaged to\n*/\n\n.tc-tag-label svg, .tc-tag-label img{\n    vertical-align: middle;\n}\n\n/* Resolve issue for floating objects which cross the tiddler frame!\nThe below code should force the tiddler to always wrap around floating elements, so that they are always inside\nRef: https://groups.google.com/d/msg/tiddlywiki/5bZwwj6cyac/2LzFeA7AAwAJ\n*/\n\n.tc-tiddler-body:before, .tc-tiddler-body:after {\n\tcontent: \"\";\n\tdisplay: table;\n}\n.tc-tiddler-body:after {\n\tclear: both;\n}\n.tc-tiddler-body {\n\tzoom: 1;\n}\n",
+            "type": "text/css",
+            "title": "$:/plugins/.mr/shiraz/stylesheet/tw-adjustment",
+            "tags": "$:/tags/Stylesheet kookma",
+            "modifier": "Mohammad",
+            "modified": "20181101153528697",
+            "creator": "Mohammad",
+            "created": "20170625125742486"
+        },
+        "$:/plugins/.mr/shiraz/stylesheet/tables": {
+            "text": "/*\nThis tiddler defines the custom stylesheet for tables \nApril 13, 2018\n*/\n\n/* Table text font size */\ntable.centered {\n    margin:0 auto;\n}\n\n/* Table caption at top\nNeed revision*/\ntable.caption-top caption {\n caption-side:top;\n font-size:0.9em;\n font-weight:700;\n  margin-bottom:0.2rem;\n}\n\n/* Table with colored header */\n.thead-dark thead td{ color: #ffffff;}\n.thead-maroon thead td{background-color: #800000; color: #ffffff;}\n.thead-teal   thead td{background-color: #008080; color: #ffffff;}\n.thead-navy   thead td{background-color: #000080; color: #ffffff;}\n.thead-orange thead td{background-color: #FFA500; color: #ffffff;}\n\n/* Table hover (yellow background on mouse over) */\n.table-hover tr:hover{background-color: #ffff80;} /* 75% yellow */\n\n/* Stripped row table */\n.table-striped-row tr:nth-child(even) td{\n  background-color:#F3F6F6; \n}\n\n/* Stripped column table */\n.table-striped-col td { background-color: transparent;} /*Clear the default background*/\n.table-striped-col tr td:nth-child(odd) {background-color: #F3F6F6;}\n\n\n/* White lines table for abbreviations and two column layout */\n.table-lines {\n   background: white; \n   border-collapse: collapse;\n   border-color:white;\n }\n.table-lines thead td{\n   background-color:white;\n   border-color:white;\n   border-bottom: 2px solid #446699;\n   color: #446699;padding:10px;\n   }\n.table-lines td{\n   background: white; \n   border-color:white;\n   border-bottom: 1px solid #ccc;\n   color: #000;\n   padding: 6px 8px;\n   min-width:150px;\n   }\n\n/*Borderless table*/\n.table-borderless, \n.table-borderless th, \n.table-borderless tr, \n.table-borderless td{\n  border:0;\n}\n",
+            "type": "text/css",
+            "title": "$:/plugins/.mr/shiraz/stylesheet/tables",
+            "tags": "$:/tags/Stylesheet",
+            "modifier": "Mohammad",
+            "modified": "20181107125044642",
+            "creator": "Mohammad",
+            "created": "20180413092232257"
+        },
+        "$:/plugins/.mr/shiraz/stylesheet/sticky-footer": {
+            "text": ".sticky-footer {\n  position: absolute;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  padding: 0.5rem;\n  background-color: #efefef;\n  text-align: center;\n  margin-top: 5px;\n  box-sizing: border-box;\n  width: 100%;\n}\n",
+            "type": "text/css",
+            "title": "$:/plugins/.mr/shiraz/stylesheet/sticky-footer",
+            "tags": "$:/tags/Stylesheet",
+            "modifier": "Mohammad",
+            "modified": "20181021035559141",
+            "creator": "Mohammad",
+            "created": "20180907070611557"
+        },
+        "$:/plugins/.mr/shiraz/stylesheet/standout-span": {
+            "text": "/* idea taken from MSD Mozilla */\n.standout-span {    \n    background-color: #333;\n    color: #fff;\n    font-weight: 400;\n    font-size: 1.20em;\n    line-height: 1.25;\n    padding: 0 4px 0 20px;\n}",
+            "type": "text/css",
+            "title": "$:/plugins/.mr/shiraz/stylesheet/standout-span",
+            "tags": "$:/tags/Stylesheet",
+            "modifier": "Mohammad",
+            "modified": "20181101151138495",
+            "creator": "Mohammad",
+            "created": "20181022142712844"
+        },
+        "$:/plugins/.mr/shiraz/stylesheet/shortcuts": {
+            "text": "/*\n\n*/\n",
+            "type": "text/css",
+            "title": "$:/plugins/.mr/shiraz/stylesheet/shortcuts",
+            "tags": "$:/tags/Stylesheet kookma",
+            "modifier": "Mohammad",
+            "modified": "20181101153612889",
+            "creator": "Mohammad",
+            "created": "20181101153533029"
+        },
+        "$:/plugins/.mr/shiraz/stylesheet/shadow-card": {
+            "text": "/* Taken from w3.css */\n\n/* to create shadow and shadow on hover */\n.w3-card-4,\n.w3-hover-shadow:hover{\n  box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19)\n}\n.w3-card-2{\n  box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)\n}",
+            "type": "text/css",
+            "title": "$:/plugins/.mr/shiraz/stylesheet/shadow-card",
+            "tags": "$:/tags/Stylesheet kookma",
+            "modifier": "Mohammad",
+            "modified": "20181101151805339",
+            "creator": "Mohammad",
+            "created": "20181022070914603"
+        },
+        "$:/plugins/.mr/shiraz/stylesheet/notebook": {
+            "text": "/* Added Oct 15, 2018. Mohammad \nNotebook background by pure css3\nRef:\n[1] http://lea.verou.me/css3patterns\n[2] https://codepen.io/designcouch/pen/vlpiC\n*/\n\n[data-tags ~= \"notebook\"] .tc-tiddler-body {\n  /*background-color:#ffffff;*/\n  padding-left: 35px;\n /* border-left: 2px solid #abced4; */\n  background-image: \n  linear-gradient(#eee .01em, transparent .1em); \n  background-size: 100%  1.5em;\n  position:relative;\n}   \n/* 1.2em is the space between horizontal lines*/\n  [data-tags ~= \"notebook\"] .tc-tiddler-body::before {\n    content:'';\n    display:block;\n    position:absolute;\n    z-index:1;\n    top:0;\n    left:25px;\n    height:100%;\n    width:2px;\n    background:#abced4;\n  }",
+            "type": "text/css",
+            "title": "$:/plugins/.mr/shiraz/stylesheet/notebook",
+            "tags": "$:/tags/Stylesheet",
+            "modifier": "Mohammad",
+            "modified": "20181021080130963",
+            "creator": "Mohammad",
+            "created": "20180412105446259"
+        },
+        "$:/plugins/.mr/shiraz/stylesheet/note": {
+            "text": "/***\nClasic notes pluging contains css for\n- success (like tip and information)\n- warning\n- danger\n***/\n\n/*\n  Author: Olivier Cortes <olive@deep-ocean.net>\n  Adapted for tiddlywiki: Mohammad Rahmani <m.rahmani@aut.ac.ir>\n  Rev: 0.1, March 11, 2010\n  \n  Rev 0.2, Aug 30, 2018\n  The imgae data uri is used instead of external images\n  The note name has been changed\n  Adopted for TW 5.1.17 and above\n  \n*/\n.note-danger, .note-warning, .note-success {\n  display: block;\n  margin: 2em;\n  margin-left: auto;\n  margin-right: auto;\n  width: 70% !important;\n  min-height: 40px;\n  clear: both;\n  text-align: left;\n  vertical-align: middle;\n  border-collapse: collapse;\n  padding: 17px 20px 17px 80px;\n  background-position: 20px 50%;\n  background-repeat: no-repeat;\n  -moz-border-radius: 20px;\n  -khtml-border-radius: 20px;\n  border-radius: 20px;\n}\n\n.note-warning {\n  /*border: 1px solid #ff0;*/\nbackground-color: #ffc;}\n\n.note-danger {\n  /*border: 1px solid #d99;*/\nbackground-color: #fdd;}\n\n.note-success {\n  /*border: 1px solid #9d9;*/\nbackground-color: #dfd;}\n  \n  \n/* Background image uri data */  \n\n.note-warning {\n  background-image: url(data:image/png;base64,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);\n}\n\n.note-danger {  \n  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAMZklEQVR42tWae3BVVZbGf+fcF5DcJCCv8JJRNHTbMIy2bYONiIAoWhohBBgpBC2gaTPWtLblDGAA7VaqHeQljMGxR5maQUBgpMQRKE0IkOkaCImM2G1I6JBEQkhCbnJz7zn3PPaeP3KTzn0lN0j/MadqVVJ1dvb5vrXW/tbaewf+nz/K9/g7BVBvwlwy/FOEf5d/aQJKaWnpsk2bNr1v2za2bXegkPKG0DscDu65557XX3nllc1AO2D1lUSfwJeXlz/7/PPPywsXLsjORwjRo9m2ndDq6urk008/LVevXr0VGA64v0c0ewe/YsUKeeXKlZsC3rZtaVmWrK2tlUuWLJFr1qzZBmT+JUgohYWFK/Py8rrAdwep67rUNC3CgsFgl5mmKU3TjAu+u+Xm5vaZhJKk55ft3Lnz/YKCgoh8NwyDQCBAY2Mjpml2/YHH48HpdEZMoqoqAwYM6Mr79PR0hBCo6p91oL6+npdffpmxY8e+s3HjxjeAZsDsaU0oSXh+xZ49e94tKCiIWKiaptHQ0MCl48fRV67sc0jH5uczPj8/VpKkZNmyZWRlZW1+9dVX3+qNhKM38AcOHHh3586dEeCDwSBNTU2U796NeOmlG5I134kTWIrC4GnTIsADZGdns2XLlsmLFy9WCwsLy4BQWGaTJqAUFhau2Lt377s7duyI8XxjYyPnfvc7HBs2dAl3dwGXSVrLiROYqsrgqVNjAOTm5lJQUDA5JyfHWVRUdC4RiXgElKNHj/784MGD/7xjx46IF5qmUV1dzR/27kVZvz5hVeqL+YqKMA2DIQ89FDPX3Llz2bp160+XLl3KF198UR6PRDQBZffu3b8sLi7etm3btogXwWCQK1euUHnwINbatQkBVQMbgALgo3ACpwEpgDMB4ZbTpzGlZOiDD8ash9zcXLZu3Tpl4cKFPUYCQDly5MjzL7zwQoyWBwIBWVFRIQ+tWyc/hhjbDvKhsGWBfHvtStlYc1H6mhvkh9tel8NBTgE5A+RykP8O8kAcO7dmjTRNUxqGEWPz58+Xb7755j9FS2xnBJQDBw7kFRUVbd+8eXPctPnjRx9hbtgQw/pPwOvAB0WfMeHRmbzz8Sf84heruHPifdimiaW1MO6OUfxy6xbmvfQrzlsaX54tY3yciLScPInR3s6wWbNivjNlyhR27do1JTqdHACHDh2KCz4YDFJbW0vVoUNoYcmLTpndwKflpxh3170MGTqMwR6DsbfdSebI0eit9Vy7Wo2Bm0k/mUqqN42f3Ps3FJX/F77qFkbFWTctv/89pmkybPr0CCxer5f58+ezefPmKYsWLXKE08lQAd54443tW7ZsifF8ZWUll/bvp33NGmQ48bpbp+p4+qciLIOQv4nBA9NQbA0hTGxLR5UKbqcTVXViGxrtLY3cPXkyHwLrgDrAjpr34saNfLV2bcRa6FTCTZs2cezYsb8HbgVSVIAxY8ZEgDcMg5qaGr47fBhffn4M8E6zwyQURRIK+tB9VzECPpAWSAlCoCoKiugYaQR9fFN+mh/cPYOqhu/YeeQA7wBXonppCVT+9rd8tWZNTJc7dOhQUlJSAEYBXjU61yzLorKykqq9e2nJz09KCh2qAsJGChspQkhhd0sOG2GZSCFA2jg9Kfz4vqm43P354YS/ZvnfPYc/PDLaQRVvvcVXr72WqBamAO64BJxOJ83r1yf0fHeLCLOQ2JaBbVkgBUiBbVsI2blngH6e/jiUjnF60E9ACeFPMLcEKn7zG1wuVzwCKqCo0brbXZ+TIdARBaVjKocD1e3p2F5JiW0JbCGwbbsrjy9eKEUIG2FoBNuaafM1JO2keBsnZ6IXog+dn7AluhZAoDJ8xO04FCf1l6uwjHba/BoO1YmwLYRUsCyrg7S0kcJECBs1QacmewFP1J6215YgYQSkQFgmDk8qI279IamDhuP3+7Gkk9SBo3A4ndRVXcA2dVyuASgoKEqnQxxJRSDRltWZiEB0BEygBQiEWTvCJbEjNAppQ0Yx0OFi5O0qiqqConSsCdtG19ppabhCU3MztupEIMG2EFIghIES53vJdrVJE/hvYOav1yFvGci15mbKjx3ldPH/UAcYWjvCygBLw+HygMOFqrpQVRWHw4PT5cLjGYDf18TwkX+F5m/F43EhpIiIdk/pkzSBzsUWPcFhYMNTcxk8cjRSStoXLuLkf37Mul/l823ZaX50z/30698f94A0FKcbh8NGdbpRHQoOVQW3m/SBg5n84Gy0tkaCvlbMkE7Q10hqou6srwS651n0hKOAKzWXyRg+ApfTifeWTGYsWkLWHbfx3s7FwGvcdudEBg4bjSclA6lKbMtGouBQ3KiqA8Xtpn/aQFwuB3rgOq2tLYAWUdV7PUSKWgtqTyrU3SYD9dcasPQAwgwhhIGzXwojf3w/f5v3r1T+4SuOHvo3fE0NhLRguJiJDvEHFEVBQQUpURCoiooQEqF2lrtIS1RrklahaKUZD2x8Zjn1dTWYIQ1pmyjSwt0vlay7p/NIzgq8GYP4YOd6zhZ/TpvvOkLYSCm6zBYWthkM90kGeiiIEfxTr4rXkwrFEFAUJUZGBeAC7gWO7duHqQWxTQNpWyAMXJ7+DBo5nvtnZpO7OI9bb7+Ddl8zwXY/UkqEEB3FyzKRtollhDB0DV0Lgt170ezpiSHgdrtRVTXuRHcAH256h7OnTqJrAWwrhBQWCBO328XQsRMZPGIcA1LSSE1LxamCsDp6I9syESE/lqmjBfy0trbQ2tKE0OkqZImsTwSklGRkZDBy9uy4nsgB8pf+nIt/vIBthpCWiZQ2CAtVEaTeMhJv2iBcLheK0rEGbMtAhAKYpoGhBdGDAdp8PjS/n6FKR1eWyPuT8vKSJ9CZZxkZGfz0vffInDkzxhupwDRg6eMLqbtUQSjYFvayCbaBKnTc/T24Pf1wOFQQJtJox9DbMbQAetBP87UGfNcbkEYAoyIxgQnPPcf9W7YQCoV6VqHuG4bOU7TMzEzuKyggc8aMmIlHAIuAnIee4pvzZzHafVihAMI2OnocKTtUR0psK0RID6DrAQL+6zTUf8fV+hpsM8jBgncxr3cQiHbUuMceY/quXV1rsjv47qd5ToC2tra44RkzZgzs2sWZ5cu5/OWXEe8ygFwgb94KBg+CXZ99Slr6IJxud7hFULBtG8Mw0LUgesBPY2MdLdfqUWydfTu2YVyGcfxZRjufSUuWMOuDD5BSYhhGhHMVRUEI0SWUDoBLly69X1ZW9uLChQtj1oPX6yV12jRaz5+ntbo6YmH1A34EODT4x3/5D4YM8TBq1EiEbRP0t9HWch1/awvB1ibamq/iu3YZzX+dfa8U4LzeoWrRnX7WY48xZ9++uOCrqqqYN28ep06dWgvUAHWd8UkFxmZnZ//v/v3742puTU0NJc8+S21xcdya0RDeGnrHwr5q0KLG9ANGh6V4QLiyu6PGjH/8cbIPH0ZKGZH3AO3t7WRnZ1NSUvIqcBG4AFQr3dZCKnDrE088cX779u1kZmbGAK2rq+PEM8/w3cmTN/2Oa/ycOTz16acIITAMIwb8I488wrlz5zrBfwNcBgKObs2fCWjffvvtnqqqqlULFiyI+ZjX6yVj+nTayspoqanp8zFiok3L+EcfZe6RIwAxnq+qqiInJycueMB2RM1lAlpFRcWesrKyVQ888ABerzdCAdLT0/FOm0bruXP4amv7VHTibZTGz57NvM8+A0DX9YixlZWVrFy5kjNnzsQFH+9sNIJEZWXlqqysLIYNGxapQBkZDJwxA39pKS21tTd8uPuDWbOY//nnCcEvXbqUM2fOrAaq4oFPdDodQeLq1aurpk6d2hWJzictLY3R2dn4SkpoihOJ3izrZz9jQViao8GXlJSQl5fXmTYJwZNEm5EGTHjyySfl8ePHZSgU6jJd17ust4u8ni74ut+lBYNBWVxcLCdNmiSBtcACYEIYh6NPW8qwOrYDlz/55JOJUsrzAFPjXEZ0vx9L5r440ZizZ8/y4osvUl5evhq4lIznHUmsuS510nV9lW3b3HXXXX0Clsz7w4cPk5+fT2lpaZ/SxplEKnVFYv/+/RNdLtd5p9PJnDlzbgp4RVEoLCzk7bffprS0NGnP38i/GnQVu4cffvj8tWvX0DTtexcyj8eDEIKvv/76H8IXPH1asH29De8kMQa4DUjvPKP8njxsoDXs/Zq+qM2NfFgNtzPp4RZHuQkEBKCHSQT7csryf9rJyMK9PONvAAAAAElFTkSuQmCC);\n}\n\n.note-success {  \n  background-image: url(data:image/png;base64,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);\n}\n",
+            "type": "text/css",
+            "title": "$:/plugins/.mr/shiraz/stylesheet/note",
+            "tags": "$:/tags/Stylesheet",
+            "modifier": "Mohammad",
+            "modified": "20181022183917085",
+            "creator": "Mohammad",
+            "created": "20180413192610637"
+        },
+        "$:/plugins/.mr/shiraz/macro/text-back-colors": {
+            "text": "\\define standout(text:\"\") <h3><span class=\"standout-span\">$text$</span></h3>\n\\define tc(text:\"\", color:\"red\") <span style=\"color:$color$;\">$text$</span>\n\\define bc(text:\"\", color:\"yellow\") <span style=\"background-color:$color$;\">$text$</span>\n\n\\define gradient(text:\"\", color:\"green\") \n<$set name=\"gradient-color\" filter=\"[[$color$]addprefix[linear-gradient-]]\" emptyValue=\"linear-gradient-green\">\n <$reveal type=\"match\" text=<<gradient-color>> default=\"linear-gradient-red\")>\n    <div class=\"gradient linear-gradient-red\">$text$</div>\n </$reveal>\n <$reveal type=\"match\" text=<<gradient-color>> default=\"linear-gradient-blue\")>\n    <div class=\"gradient linear-gradient-blue\">$text$</div>\n </$reveal> \n <$reveal type=\"match\" text=<<gradient-color>> default=\"linear-gradient-green\")>\n    <div class=\"gradient linear-gradient-green\">$text$</div>\n </$reveal>\n</$set> \n\\end \n\n!! Foreground, background and gradients\nThis tiddler contains the user defined macros. Edit to see the code.\n\n* standout(text)\n* tc(text, color)\n* bc(text, color)\n* gradient(text, color)\n** for gradient only //red//, //blue// and //green// are supported now\n** when no color passed, green is used\n\n",
+            "title": "$:/plugins/.mr/shiraz/macro/text-back-colors",
+            "tags": "$:/tags/Macro",
+            "modifier": "Mohammad",
+            "modified": "20181101163521323",
+            "creator": "Mohammad",
+            "created": "20181101154956345"
+        },
+        "$:/plugins/.mr/shiraz/macro/utility": {
+            "text": "\\define .lorem()\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\\end\n\n\\define vspace(height)\n<p style=\"margin-bottom: $height$;\"></p>\n\\end\n\n\\define hspace(width)\n<span style=\"margin-left: $width$;\"></span>\n\\end\n\n!! Utility macros\nThis tiddler contains the user defined macros. Edit to see the code.\n\n|table-borderless|k\n|''.lorem'' |create a dummy text |\n|''vspace(height)'' |create a vertical space using an empty paragraph |\n|''hspace(width)'' |create horizontal space using an empty span |",
+            "title": "$:/plugins/.mr/shiraz/macro/utility",
+            "tags": "$:/tags/Macro",
+            "modifier": "Mohammad",
+            "modified": "20181101164743000",
+            "creator": "Mohammad",
+            "created": "20170629183034888"
+        },
+        "$:/plugins/.mr/shiraz/macro/wikitext-macros": {
+            "text": "\\define wikitext-example(src)\n<div class=\"doc-example\">\n\n<$macrocall $name=\"copy-to-clipboard-above-right\" src=<<__src__>>/>\n\n```\n$src$\n```\n\nThat renders as:\n\n$src$\n\\end\n\n\\define wikitext-example-without-html(src)\n<div class=\"doc-example\">\n\n<$macrocall $name=\"copy-to-clipboard-above-right\" src=<<__src__>>/>\n\n```\n$src$\n```\n\nThat renders as:\n\n$src$\n</div>\n\\end\n\n; Credit\n:Jeremy Ruston TW 5.1.18\n\nThe wiki-text macros are set of macro for documenting TW codes. Edit this tiddler to see the macro codes.\n\n* wikitext-example(src)\n* wikitext-example-without-html(src)\n\n<<alert-warning \"Use macrocall if the src contains a macro iteself.\">>",
+            "title": "$:/plugins/.mr/shiraz/macro/wikitext-macros",
+            "tags": "$:/tags/Macro",
+            "modifier": "Mohammad",
+            "modified": "20181021040026810",
+            "creator": "Mohammad",
+            "created": "20150117184156000"
+        },
+        "$:/plugins/.mr/shiraz/pagecontrol/view-fields": {
+            "text": "<$reveal type=\"nomatch\" state=\"$:/state/toggle-view-fields\" text=\"show\">\n <$button class=\"tc-btn-invisible\" \n   set=\"$:/state/toggle-view-fields\" \n   setTo=\"show\"\n   tooltip=\"Show tiddler fields\"   \n >\n   {{$:/plugins/.mr/shiraz/images/view-fields.svg}}\n   <$action-setfield $tiddler=\"$:/plugins/.mr/shiraz/viewtemplate/view-fields\" tags=\"kookma $:/tags/ViewTemplate\"/>\n </$button>\n</$reveal>\n<$reveal type=\"match\" state=\"$:/state/toggle-view-fields\" text=\"show\">\n <$button class=\"tc-btn-invisible\" \n   set=\"$:/state/toggle-view-fields\" \n   setTo=\"hide\"\n   tooltip=\"Hide tiddler fields\"\n >\n   <span style=\"fill:yellow;\">\n    {{$:/plugins/.mr/shiraz/images/view-fields.svg}}\n   </span>\n   <$action-setfield $tiddler=\"$:/plugins/.mr/shiraz/viewtemplate/view-fields\" tags=\"kookma\"/>\n </$button>\n</$reveal>\n",
+            "title": "$:/plugins/.mr/shiraz/pagecontrol/view-fields",
+            "tags": "$:/tags/PageControls kookma",
+            "modifier": "Mohammad",
+            "modified": "20181029045652252",
+            "description": "Show a toggle button for view fields",
+            "creator": "Mohammad",
+            "created": "20181010190533135"
+        },
+        "$:/plugins/.mr/shiraz/readme": {
+            "created": "20181108100430291",
+            "creator": "Mohammad",
+            "text": "!! Shiraz\nShiraz is a small TW5 plugin contains several macros, stylesheets, templates, snippets and acts as a starter kit. Some of its features are given below\n\n* Macro\n** alert boxes (bootstrap alert classes)\n** clasic notes (danger, warning, info)\n** gradient (for dividing section in text)\n** footnote (creates footnotes)\n** tc, bc (text with forgeground and background colors)\n** wikitext-example (documentation macro to show code, rendered result, and underlaying html code)\n** wikitext-example-without-html (documentation macro to show code, and rendered result)\n\n* Customized css \n** notes\n** float class for images\n** Resoved floating images (overflow and cross tiddler borders)\n** Customized control buttons (shown as mouse hover)\n\n* ~ToDo\n* A todo list ([[ToDos|$:/plugins/.mr/shiraz/demo/todo]]) is set of macro and template to create tasks, list them and manupulate them!\n\n!! Howto\n* [[Tutorial|$:/plugins/.mr/shiraz/tutorial]] shows a demo of some of shiraz features\n* To use Shiraz in your own wiki install the Shiraz plugin\n\n!! Install\nSimply drag and drop the below tiddler to your wiki\n\n* $:/plugins/.mr/shiraz\n\n!! Acknowledgements\nMany people help directly or indirectly to bring this plugin into work. Their help and comments through [[Tiddlywiki forum|http://groups.google.com/group/TiddlyWiki]] are highly appreciated.\n\n* The //view filed// code is incorporated from [[Ton Gerner|http://tongerner.tiddlyspot.com/]]\n* Jeremy Ruston\n* Eric Shulman\n* Mario Pietsch\n* Simon Huber\n* Anthony Muscio\n* And many more",
+            "title": "$:/plugins/.mr/shiraz/readme",
+            "tags": "",
+            "modifier": "Mohammad",
+            "modified": "20181108173012638"
+        },
+        "$:/plugins/.mr/shiraz/release": {
+            "created": "20180905085705897",
+            "creator": "Mohammad",
+            "text": "!! Revision 1.0.2 \n<<<\n* Date: [8th Nov 2018]\n* New demo for making Table of Contents\n* New macros: details, abbr, hspace\n* Change name to Shiraz\n<<<\n\n!! Revision 1.0.1 \n<<<\n* Date: [1st Nov 2018]\n* A rewrite and cleanup the code\n<<<\n\n!! Revision 1.0.0\n<<<\n* Date: [5th Oct 2018]\n* New favorites plugin\n* New timestamp plugin\n* New notebook tiddler\n<<<\n",
+            "version": "1.2",
+            "title": "$:/plugins/.mr/shiraz/release",
+            "modifier": "Mohammad",
+            "modified": "20181108134549449"
+        },
+        "$:/plugins/.mr/shiraz/snippet/alert": {
+            "text": "<<alert-NAME text:\"\" width:\"100\">>",
+            "title": "$:/plugins/.mr/shiraz/snippet/alert",
+            "tags": "$:/tags/TextEditor/Snippet",
+            "modifier": "Mohammad",
+            "modified": "20181021042310357",
+            "creator": "Mohammad",
+            "created": "20180905115529625",
+            "caption": "Alert"
+        },
+        "$:/plugins/.mr/shiraz/snippet/simple-list": {
+            "text": "<$list filter=\"\" variable=\"\">\n</$list>",
+            "title": "$:/plugins/.mr/shiraz/snippet/simple-list",
+            "tags": "$:/tags/TextEditor/Snippet",
+            "modifier": "Mohammad",
+            "modified": "20181021042350570",
+            "creator": "Mohammad",
+            "created": "20180629042746842",
+            "caption": "Simple list"
+        },
+        "$:/plugins/.mr/shiraz/stylesheet/abbr": {
+            "text": "/* Taken from https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3 */ \nabbr[title] {\n    color: inherit;\n    font-style: italic;\n    text-decoration: none;\n    border-bottom: 1px dotted #aaa;\n    cursor: help;\n}",
+            "type": "text/css",
+            "title": "$:/plugins/.mr/shiraz/stylesheet/abbr",
+            "tags": "$:/tags/Stylesheet",
+            "modifier": "Mohammad",
+            "modified": "20181022134408090",
+            "creator": "Mohammad",
+            "created": "20181022085407237"
+        },
+        "$:/plugins/.mr/shiraz/stylesheet/alerts": {
+            "text": "/*Was taken from bootstrap 4.1.3*/\n.alert {\n  position: relative;\n  padding: 0.75rem 1.25rem;\n  margin-bottom: 1rem;\n  border: 1px solid transparent;\n  border-radius: 0.25rem;\n}\n.alert-primary {\n  color: #004085;\n  background-color: #cce5ff;\n  border-color: #b8daff;\n}\n\n.alert-primary hr {\n  border-top-color: #9fcdff;\n}\n.alert-secondary {\n  color: #383d41;\n  background-color: #e2e3e5;\n  border-color: #d6d8db;\n}\n\n.alert-secondary hr {\n  border-top-color: #c8cbcf;\n}\n\n.alert-success {\n  color: #155724;\n  background-color: #d4edda;\n  border-color: #c3e6cb;\n}\n\n.alert-success hr {\n  border-top-color: #b1dfbb;\n}\n.alert-info {\n  color: #0c5460;\n  background-color: #d1ecf1;\n  border-color: #bee5eb;\n}\n\n.alert-info hr {\n  border-top-color: #abdde5;\n}\n.alert-warning {\n  color: #856404;\n  background-color: #fff3cd;\n  border-color: #ffeeba;\n}\n\n.alert-warning hr {\n  border-top-color: #ffe8a1;\n}\n\n.alert-danger {\n  color: #721c24;\n  background-color: #f8d7da;\n  border-color: #f5c6cb;\n}\n\n.alert-danger hr {\n  border-top-color: #f1b0b7;\n}\n.alert-light {\n  color: #818182;\n  background-color: #fefefe;\n  border-color: #fdfdfe;\n}\n\n.alert-light hr {\n  border-top-color: #ececf6;\n}\n.alert-dark {\n  color: #1b1e21;\n  background-color: #d6d8d9;\n  border-color: #c6c8ca;\n}\n\n.alert-dark hr {\n  border-top-color: #b9bbbe;\n}\n",
+            "type": "text/css",
+            "title": "$:/plugins/.mr/shiraz/stylesheet/alerts",
+            "tags": "bootstrap $:/tags/Stylesheet",
+            "modifier": "Mohammad",
+            "modified": "20181021035740477",
+            "creator": "Mohammad",
+            "created": "20180820171551129"
+        },
+        "$:/plugins/.mr/shiraz/stylesheet/details": {
+            "text": "/*details html5 macro*/\ndetails > summary {\n  padding: 2px 6px;\n  background-color: #efebe9;\n  font-weight:500;\n  outline:none;\n}\ndetails > div {\n  background-color: #fffef9;\n  padding: 2px 6px;\n  margin: 0;\n}\n",
+            "type": "text/css",
+            "title": "$:/plugins/.mr/shiraz/stylesheet/details",
+            "tags": "$:/tags/Stylesheet",
+            "modifier": "Mohammad",
+            "modified": "20181101190221281",
+            "creator": "Mohammad",
+            "created": "20181101185908941"
+        },
+        "$:/plugins/.mr/shiraz/stylesheet/footnote": {
+            "text": "/* To be renamed correctly */\n\n/* Footnote class, a colorful box for creating footnote - Mohammad */\n.footnote{\n display: block;\n  margin: 0.5em;\n  margin-right: auto;\n  width: 100% !important;\n  border-collapse: collapse;\n  padding: 15px 15px 15px 25px; /* The last is left padding*/\n  border-width:  0px;\n  border-style: solid;\n  border-left-width: 1px;\n  background-color:  rgb(255,248,220);\n  color: rgb(91,49,7);\n  line-height: 1.2em; \n  font-size:0.9em;\n}",
+            "type": "text/css",
+            "title": "$:/plugins/.mr/shiraz/stylesheet/footnote",
+            "tags": "$:/tags/Stylesheet",
+            "modifier": "Mohammad",
+            "modified": "20181021035754121",
+            "creator": "Mohammad",
+            "created": "20180414114355072"
+        },
+        "$:/plugins/.mr/shiraz/stylesheet/gradient": {
+            "text": ".gradient{\npadding:10px;\ncolor:#ffffff;\nfont-weight:400;\nfont-size:1.2em;\n}\n\n.linear-gradient-red{\n background-image: linear-gradient(to left, #FF057C 0%, #8D0B93 50%, #321575 100%);\n}\n.linear-gradient-green {\n  background-image: linear-gradient(to right, #002400 0%,#005700 15%,#008a00 29%,#52b152 56%,#83c783 68%,#b4ddb4 100%);\n}\n.linear-gradient-blue{\n  background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);\n}\n",
+            "type": "text/css",
+            "title": "$:/plugins/.mr/shiraz/stylesheet/gradient",
+            "tags": "$:/tags/Stylesheet",
+            "modifier": "Mohammad",
+            "modified": "20181022154243105",
+            "creator": "Mohammad",
+            "created": "20180831064501941"
+        },
+        "$:/plugins/.mr/shiraz/stylesheet/mono": {
+            "text": ".mono {\ncolor:unset;\n    background-color: #f7f7f9;\n    border: 1px solid #e1e1e8;\n    white-space: pre-wrap;\n    padding: 0 3px 2px;\n    border-radius: 3px;\n    font-family: \"SFMono-Regular\",Consolas,\n                 \"Liberation Mono\",\n                 Menlo,Courier,monospace;\n}",
+            "type": "text/css",
+            "title": "$:/plugins/.mr/shiraz/stylesheet/mono",
+            "tags": "$:/tags/Stylesheet kookma",
+            "modifier": "Mohammad",
+            "modified": "20181021035627550",
+            "creator": "Mohammad",
+            "created": "20181010192406005"
+        },
+        "$:/plugins/.mr/shiraz/images/view-fields.svg": {
+            "text": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"22pt\" height=\"22pt\" viewBox=\"0 0 24 24\"><path d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M7 11H1v2h6v-2zm2.17-3.24L7.05 5.64 5.64 7.05l2.12 2.12 1.41-1.41zM13 1h-2v6h2V1zm5.36 6.05l-1.41-1.41-2.12 2.12 1.41 1.41 2.12-2.12zM17 11v2h6v-2h-6zm-5-2c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm2.83 7.24l2.12 2.12 1.41-1.41-2.12-2.12-1.41 1.41zm-9.19.71l1.41 1.41 2.12-2.12-1.41-1.41-2.12 2.12zM11 23h2v-6h-2v6z\"/></svg>",
+            "type": "image/svg+xml",
+            "title": "$:/plugins/.mr/shiraz/images/view-fields.svg",
+            "tags": "",
+            "modifier": "Mohammad",
+            "modified": "20181021044626922",
+            "creator": "Mohammad",
+            "created": "20181010193706723"
+        },
+        "$:/plugins/.mr/shiraz/license": {
+            "text": "Distributed under an MIT license.\n\nCopyright (c) 2018 [[Mohammad Rahmani|https://github.com/kookma]]\n\n<<<\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n<<<\n",
+            "type": "application/x-tiddler",
+            "title": "$:/plugins/.mr/shiraz/license",
+            "tags": "kookma",
+            "modifier": "Mohammad",
+            "modified": "20181108100006681",
+            "creator": "Mohammad",
+            "created": "20181101134530634"
+        },
+        "$:/plugins/.mr/shiraz/macro/abbr": {
+            "text": "\\define abbr(term:\"\")\n<$set name=\"abbreviation\" value={{$:/plugins/.mr/shiraz/dictionary/abbreviations##$term$}} emptyValue=\"Term not found\">\n<abbr title=<<abbreviation>> >$term$</abbr>\n</$set>\n\\end\n\n",
+            "title": "$:/plugins/.mr/shiraz/macro/abbr",
+            "tags": "$:/tags/Macro",
+            "modifier": "Mohammad",
+            "modified": "20181022091210043",
+            "creator": "Mohammad",
+            "created": "20181022071907838"
+        },
+        "$:/plugins/.mr/shiraz/macro/alerts": {
+            "text": "\\define alert(text:\"\", width:\"100%\", type:\"alert-secondary\")\n<div class=\"alert $type$\" style=\"width:$width$;\">\n$text$\n</div>\n\\end\n\n\\define alert-primary(text, width:\"100%\")\n<<alert text:\"\"\"$text$\"\"\" type:\"alert-primary\" width:\"$width$\">>\n\\end\n\n\\define alert-secondary(text, width:\"100%\")\n<<alert text:\"\"\"$text$\"\"\" type:\"alert-secondary\" width:\"$width$\">>\n\\end\n\n\\define alert-success(text, width:\"100%\")\n<<alert text:\"\"\"$text$\"\"\" type:\"alert-success\" width:\"$width$\">>\n\\end\n\n\\define alert-danger(text, width:\"100%\")\n<<alert text:\"\"\"$text$\"\"\" type:\"alert-danger\" width:\"$width$\">>\n\\end\n\n\\define alert-warning(text, width:\"100%\")\n<<alert text:\"\"\"$text$\"\"\" type:\"alert-warning\" width:\"$width$\">>\n\\end\n\n\\define alert-info(text, width:\"100%\")\n<<alert text:\"\"\"$text$\"\"\" type:\"alert-info\" width:\"$width$\">>\n\\end\n\n\\define alert-light(text, width:\"100%\")\n<<alert text:\"\"\"$text$\"\"\" type:\"alert-light\" width:\"$width$\">>\n\\end\n\n\\define alert-dark(text, width:\"100%\")\n<<alert text:\"\"\"$text$\"\"\" type:\"alert-dark\" width:\"$width$\">>\n\\end\n",
+            "title": "$:/plugins/.mr/shiraz/macro/alerts",
+            "tags": "bootstrap $:/tags/Macro",
+            "modifier": "Mohammad",
+            "modified": "20181021035443513",
+            "creator": "Mohammad",
+            "created": "20180821095049685"
+        },
+        "$:/plugins/.mr/shiraz/macro/classic-note": {
+            "text": "\\define success(text:\"\") <div class=\"note-success\">$text$</div>\n\\define warning(text:\"\") <div class=\"note-warning\">$text$</div>\n\\define danger(text:\"\")  <div class=\"note-danger\">$text$</div>\n\n!! Classic notes\n* success (text)\n* warning (text)\n* danger  (text)\n",
+            "title": "$:/plugins/.mr/shiraz/macro/classic-note",
+            "tags": "$:/tags/Macro",
+            "modifier": "Mohammad",
+            "modified": "20181101154943325",
+            "creator": "Mohammad",
+            "created": "20181101154757067"
+        },
+        "$:/plugins/.mr/shiraz/macro/details": {
+            "text": "\\define details(sum:\"\",text:\"\",class:\"\")\n<details>\n <summary>$sum$</summary>\n  <div class=\"$class$\">\n   $text$\n  </div>\n</details>\n\\end",
+            "title": "$:/plugins/.mr/shiraz/macro/details",
+            "tags": "$:/tags/Macro",
+            "modifier": "Mohammad",
+            "modified": "20181101185856872",
+            "creator": "Mohammad",
+            "created": "20181101185833098"
+        },
+        "$:/plugins/.mr/shiraz/macro/footnote": {
+            "text": "\\define footnote(text:\"\" title:\"Footnote\")\n---\n!!! $title$\n@@.footnote\n$text$\n@@\n\\end\n\n!! Footnote macro\n* footnote  (text, title)\n** when title not provided, `Footnote` is used",
+            "title": "$:/plugins/.mr/shiraz/macro/footnote",
+            "tags": "$:/tags/Macro",
+            "modifier": "Mohammad",
+            "modified": "20181101163941874",
+            "creator": "Mohammad",
+            "created": "20181101163809830"
+        },
+        "$:/plugins/.mr/shiraz/macro/mono": {
+            "text": "\\define mono(text)\n<code class=\"mono\">$text$</code>\n\\end\n\n!! Usage\n<$macrocall $name=\"wikitext-example-without-html\" \nsrc=\"\"\"<<mono \"text\">>\"\"\">>\n",
+            "title": "$:/plugins/.mr/shiraz/macro/mono",
+            "tags": "$:/tags/Macro",
+            "modifier": "Mohammad",
+            "modified": "20181021041801717",
+            "creator": "Mohammad",
+            "created": "20181010052504360"
+        },
+        "$:/plugins/.mr/shiraz/macro/steps": {
+            "text": "\\define _nextItem(filter)\n     <!-- \n     _nextItem sets the filed `current-item` to the next tiddler\n     in a list of tiddlers which is the output of filter run. \n     -->\n    <$set\n    tiddler=<<currentTiddler>>\n    field=\"current-item\"\n    name=currentIndex\n    emptyValue={{{$filter$ +[first[]]}}}\n    >\n      <$set\n      filter={{{$filter$ +[after{!!current-item}]}}}\n      name=newIndex\n      emptyValue=<<currentIndex>>\n      >\n      <$action-setfield\n      $tiddler={{!!title}}\n      current-item=<<newIndex>>\n      />\n      </$set>\n    </$set>\n\\end\n\n\\define _previousItem(filter)\n     <!-- \n     _previousItem sets the filed `current-item` to the previous tiddler\n     in a list of tiddlers which is the output of filter run. \n     -->   \n    <$set\n    filter={{{$filter$ +[before{!!current-item}]}}}\n    name=newIndex\n    emptyValue={{{$filter$ +[first[]]}}}\n    >\n      <$action-setfield\n      $tiddler={{!!title}}\n      current-item=<<newIndex>>\n      />\n    </$set>\n\\end\n\n\\define _show-and-replace(filter:\"\", class:\"\")\n    <!-- \n      _show-and-replace shows all tiddlers which are the output of filter run\n      one by one and replace the current item with the\n      next or previous one.\n    -->\n <div class=\"$class$\">\n\n <$list filter=\"$filter$ +[allbefore:include{!!current-item}!limit[1]]\" \n   variable=\"myTid\" emptyMessage=\"Empty output\">\n   <$transclude tiddler=<<myTid>> mode=\"block\"/>\n </$list></div>\n <div>\t \n   <$button actions=<<_previousItem $filter$>>>\n     {{$:/core/images/left-arrow}} \n   </$button>\n   <$button actions=<<_nextItem $filter$>> >\n     {{$:/core/images/right-arrow}} \n   </$button>\n </div>\n\\end\n\n\n\\define _show-and-keep(filter:\"\", class:\"\")\n    <!-- \n     _show-and-keep shows all tiddlers which are the output of filter run\n     one by one and keep the previous ones while shows the\n     next one or remove the last one.\n     -->\n  <div class=\"$class$\">\n\n  <$list filter=\"$filter$ +[allbefore:include{!!current-item}]\" \n    variable=\"myTid\" emptyMessage=\"Empty output\">\n    <$transclude tiddler=<<myTid>> mode=\"block\"/>\n  </$list></div>\n  <div>\t \n    <$button actions=<<_previousItem $filter$>>>\n      {{$:/core/images/up-arrow}}\n    </$button>\n    <$button actions=<<_nextItem $filter$>> >\n      {{$:/core/images/down-arrow}} \n    </$button>\n  </div>\n\\end\n\n\n\\define steps(filter, mode:\"replace\", class:\"\")\n <$reveal type=\"match\" text=$mode$ default=\"replace\")>\n    <<_show-and-replace $filter$ \"\"\"$class$\"\"\">>\n </$reveal>\n <$reveal type=\"match\" text=$mode$ default=\"keep\")>\n    <<_show-and-keep $filter$ \"\"\"$class$\"\"\">>\n </$reveal>\n\\end\n\n\n! Description\nThis tiddler contains the macros and explain the ''steps'' mechanism.\nThe `steps` itself contains below macro\n\n* `_nextItem`: to get the next item in the list\n* `_previousItem`: to get the previous item in the list\n* `_show-and-replace`: show the left-right arrows and steps in the list of tiddlers, show one at a time\n* `_show-and-keep`: show the down-up arrows and steps in the list of tiddlers while keep those are displayed before\n* `steps`: the main macro, it has two modes\n** mode=`replace`: to steps in list of tiddlers show one at a time and replace the current one with previous/next item\n** mode=`keep`: to steps in the list of tiddlers show the next/previous item while other items are displayed at the same time\n\nThe `steps` macro can be called from any tiddler using the below syntax:\n\n<<<\n*`<<steps \"filter\">>` or \n*`<<steps \"filter\" \"mode\">>` or\n*`<<steps \"filter\" \"mode\" \"class\">>`\n<<<\nThis macro creates and uses a field in the target tiddler named `current-item`. `filter` is the standard Tiddlywiki filter expression like `[tag[png]]` and `class` is a html5 class attribute.\n\nThe `class` can be used to customize the output. Colors, fonts, alignment, border and like that can be set.\n\n@@background-color:black;color:white;width:70%;padding:10px;\n''Important Note'': The macros with underscore (_) in their name are private macros and should not be called outside this tiddler. Only ''steps'' is allowed to be called.\n@@\n\n!! Troubleshooting\n* Multiple call to `steps` in the same tiddler is ''not recommended'' as they shares the same filed `current-item` and this causes confusion\n* At first use, if it does not show anything, click the next/previous buttons to start displaying items\n* If the `steps` does not show anything check the filter you provided. Make sure there are tiddlers as output of provided filter.\n\n@@background-color:black;color:white;width:70%;padding:10px;\n;Revision History\n:Rev: 0.4, 20th October 2018 (added filter attribute)\n@@",
+            "title": "$:/plugins/.mr/shiraz/macro/steps",
+            "tags": "$:/tags/Macro kookma",
+            "modifier": "Mohammad",
+            "modified": "20181021041905825",
+            "creator": "Mohammad",
+            "created": "20181017044435624"
+        },
+        "$:/plugins/.mr/shiraz/demo/todo": {
+            "text": "! Tasks and to do list\nShiraz has a builin to-do-list. It uses a template to create new tasks, list taks and shows completed ones.\n\nTo create your own list of tasks\n\n# Create a tiddler and name it what you wish, for example `My ToDos`\n# Inside it put `{{$:/plugins/.mr/shiraz/to-do-list}}`\n# If you like to have your `My ToDos` in sidebar tag it with `$:/tags/Sidebar`\n# To create new tasks, in the new `My ToDo` click `New Task`\n# Organize you list by drag and drop\n# You can also drag any tiddlers from sidebar into the //Outstanding tasks// to add it to the list of tasks.\n\nTo see the to do list tiddler open: $:/plugins/.mr/shiraz/to-do-list\n",
+            "title": "$:/plugins/.mr/shiraz/demo/todo",
+            "tags": "",
+            "modifier": "Mohammad",
+            "modified": "20181108103612544",
+            "creator": "Mohammad",
+            "created": "20181108102251426",
+            "caption": "Task and to do list"
+        },
+        "$:/plugins/.mr/shiraz/demo/utility": {
+            "text": "There some utility macros in kookma. Here are examples to use them\n\n* ''.lorem''\ncreates a dummy text\n\n<$macrocall $name=\"wikitext-example-without-html\" src=\"<<.lorem>>\" />\n\n* ''vspace''\ncreates a vertical space. You can pass any uints\n\n<$macrocall $name=\"wikitext-example-without-html\" \nsrc=\"Hello this 2 cm spaces\n<<vspace 2cm>>\nand here is the next line of text.\" />\n\n* ''hspace''\ncreates a horizontal space. You can pass any uints\n\n<$macrocall $name=\"wikitext-example-without-html\" \nsrc=\"Hello this 2 cm horizontal spaces <<hspace 2cm>> and here is the remaining text.\" />",
+            "title": "$:/plugins/.mr/shiraz/demo/utility",
+            "tags": "",
+            "modifier": "Mohammad",
+            "modified": "20181101170007981",
+            "creator": "Mohammad",
+            "created": "20181101165227068",
+            "caption": "Utility macro"
+        },
+        "$:/plugins/.mr/shiraz/demo/view-fields": {
+            "text": "The `Toggle view fields` is a feature in kookma lets you to view and edit tiddler fields in the view mode. \n\nIt adds a button ({{$:/plugins/.mr/shiraz/images/view-fields.svg}}) to the page control and you can show/hide fileds by clicking on it.\n",
+            "title": "$:/plugins/.mr/shiraz/demo/view-fields",
+            "tags": "",
+            "modifier": "Mohammad",
+            "modified": "20181022042631769",
+            "creator": "Mohammad",
+            "created": "20181022042221905",
+            "caption": "Toggle view fields"
+        },
+        "$:/plugins/.mr/shiraz/demo/wikitext-macro": {
+            "text": "! Documentation macro\nThere are two documentation macros. These are copied directly from TW 5.1.16 and the credit goes to Jeremy Ruston. These macros are perfect to demonstrate a code and its result when TW renders it.\n\n; wikitext-example\n:The `wikitext-example` gets a text and shows it, its html raw code and its rendered result\n; wikitext-example-without-html\n:The `wikitext-example-without-html` gets a text and shows it and its rendered result but //NOT// the html raw code\n\n\n!!! ''Syntax''\n```\n<<wikitext-example \"//Example code//\">>\n<<wikitext-example-without-html \"//Example code//\">>\n```\n\n!!! ''Example 1''\n<<<\n```\n<<wikitext-example \n\"\n*one\n*two\">>\n```\n\n!!! ''Results''\n<<wikitext-example \n\"* one\n* two\">>\n<<<\n\n!!! ''Example 2''\n<<<\n```\n<<wikitext-example-without-html \n\"* one\n * two\">>\n```\n\n!!! ''Results''\n<<wikitext-example-without-html  \n\"* one\n * two\">>\n <<<",
+            "title": "$:/plugins/.mr/shiraz/demo/wikitext-macro",
+            "tags": "",
+            "modifier": "Mohammad",
+            "modified": "20181021085605350",
+            "creator": "Mohammad",
+            "created": "20180909044910836",
+            "caption": "Wikitext macro"
+        },
+        "$:/plugins/.mr/shiraz/demo/wizard": {
+            "text": "!! How to use wizard\nTo create a wizard or guided steps or a //linked list// of tiddlers do as below\n\n* Create your tiddlers (you can use any of existing ones)\n* Tag those tiddlers you like to have in your wizard (the //linked list//)  with `wizard`\n* Add two fields `next` and `previous` to each tiddler in the linked list\n* Fill in the fields of each tiddlers with the tiddler name of //next// / //previous// items\n** If a tiddler has no //previous// item, delete its `previous` field or leave it blank\n** If a tiddler has no //next// item, delete its `next` filed or leave it blank",
+            "title": "$:/plugins/.mr/shiraz/demo/wizard",
+            "tags": "",
+            "modifier": "Mohammad",
+            "modified": "20181029045823236",
+            "creator": "Mohammad",
+            "created": "20180709100107565",
+            "caption": "Wizard how to use"
+        },
+        "$:/plugins/.mr/shiraz/dictionary/abbreviations": {
+            "text": "WHO:World Health Organization\nCSS: Casecading Style Sheet",
+            "type": "application/x-tiddler-dictionary",
+            "title": "$:/plugins/.mr/shiraz/dictionary/abbreviations",
+            "tags": "",
+            "modifier": "Mohammad",
+            "modified": "20181022084629468",
+            "creator": "Mohammad",
+            "created": "20181022071930579"
+        },
+        "$:/plugins/.mr/shiraz/demo/note": {
+            "text": "! Note macro\nThere is three note macro can be used for colorful notes like\n\n* success (tip, information, success)\n* warning (hint, warning)\n* danger (important, danger)\n\n\n!!! ''Syntax''\n```\n<<success \"Success, this is a tip.\">>\n<<warning \"Warning, be aware\">>\n<<danger \"Danger, this is very important, be causious\">>\n```\n<<success \"Success, this is a tip.\">>\n<<warning \"Warning, be aware\">>\n<<danger \"Danger, this is very important, be causious\">>\n\n!!! ''Example with long text''\n\n<<success \"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\">>\n",
+            "title": "$:/plugins/.mr/shiraz/demo/note",
+            "tags": "",
+            "modifier": "Mohammad",
+            "modified": "20181022184020144",
+            "creator": "Mohammad",
+            "created": "20180830165701839",
+            "caption": "Note macros"
+        },
+        "$:/plugins/.mr/shiraz/demo/notebook": {
+            "text": "! Homework\n[[This|$:/plugins/.mr/shiraz/demo/notebook]] is a demo of notebook style background.\n\nEach tiddler tagged with `notebook` gets automatically a notebook style background.\n\n```\ndef fun(x)\n  return 2x;\n```\n\n* One\n* Two\n<<textcolor text:\"\"\"\n\n;Due Date\n:26th October 2018\"\"\" color:\"darkred\">>",
+            "title": "$:/plugins/.mr/shiraz/demo/notebook",
+            "tags": "notebook",
+            "modifier": "Mohammad",
+            "modified": "20181022183631090",
+            "creator": "Mohammad",
+            "created": "20180412105840293",
+            "caption": "Notebook tiddler"
+        },
+        "$:/plugins/.mr/shiraz/demo/standout": {
+            "text": "Standout macro can be used instead of heading. It uses a block mode in black background and white color.\n\n<$macrocall $name=\"wikitext-example-without-html\" \n  src=\"\"\"<<standout Hello>>\"\"\"/>\n  \n!! More example  \nThis is another demo\n\n<<<\n<<standout \"Part One\">>\n<<.lorem>>\n\n<<standout \"Another Part\">>\n<<.lorem>>\n<<<\n",
+            "title": "$:/plugins/.mr/shiraz/demo/standout",
+            "tags": "",
+            "modifier": "Mohammad",
+            "modified": "20181022154842311",
+            "creator": "Mohammad",
+            "created": "20181022144613056",
+            "caption": "Standout macro"
+        },
+        "$:/plugins/.mr/shiraz/demo/steps": {
+            "text": "The steps macro can be called from any tiddler using the below syntax:\n\n```\n<<steps \"filter\">> or\n<<steps \"filter\" \"mode\">> or\n<<steps \"filter\" \"mode\" \"class\">>\n```\nThis macro creates and uses a field in the target tiddler named current-item. filter is the standard Tiddlywiki filter expression like `[tag[png]]` and class is a html5 class attribute.\n\n!! Examples\n<<<\nStep in all tiddlers tagged with `png`<br>\n`<<steps \"[tag[png]]\">>`\n\nStep in all tiddlers have `demo` keyword in their title<br>\n`<<steps \"[search:title[demo]]\">>`\n\nSteps in and keep all titlers have `png` as tag but not `kookma`<br>\n`<<steps \"[tag[png]!tag[kookma]]\" \"keep\">>`\n\nSteps in all `.svg` tiddlers and use the `.tc-tiddler-frame` class<br>\n`<<steps filter:\"[search:title[.svg]]\" class:\"tc-tiddler-frame\">>`\n<<<",
+            "title": "$:/plugins/.mr/shiraz/demo/steps",
+            "tags": "",
+            "modifier": "Mohammad",
+            "modified": "20181021084330024",
+            "creator": "Mohammad",
+            "created": "20181021053108742",
+            "caption": "Steps"
+        },
+        "$:/plugins/.mr/shiraz/demo/sticky-footer": {
+            "text": "!! Fixed/Sticky Footer Example\n\nThere is two tiddlers to implement the sticky footer\n<<list-links \"[search:title[sticky-footer]]\" type:\"ol\">>\n\n!! How to use\nEach tiddler has a `sticky-footer` field will show a sticky footer at the bottom of that tiddler with the contents come from `sticky-footer` filed.\n\n!! Mechanism\nThe mechanism is to use a css [[stylesheet/sticky-footer]] that defines the stylesheet and a tiddler tagged with `$:/tags/ViewTemplate` to conditionally apply the footer to tiddlers has the `sticky-footer` field.\n\n!! Example\n[[This tiddler|$:/plugins/.mr/shiraz/demo/sticky-footer]] has a `sticky-footer` filed, see the footer at the tiddler bottom.\n",
+            "title": "$:/plugins/.mr/shiraz/demo/sticky-footer",
+            "tags": "",
+            "sticky-footer": "''Hello'', this is a sticky footer. //<<now>>//",
+            "modifier": "Mohammad",
+            "modified": "20181021085515076",
+            "creator": "Mohammad",
+            "created": "20180907065146246",
+            "caption": "Sticky footer"
+        },
+        "$:/plugins/.mr/shiraz/demo/tables": {
+            "text": "!! Custom Table Styles\nThe kookma Shiraz plugin has several tables classes. The following examples show some of the custom styles for tables. More classes can be found in [[lines and borderless classes|$:/plugins/.mr/shiraz/demo/tables-borderless]]. \n\n* Basic custom classes\n<<<\n* ''thead-maroon'': (header white on maroon)\n* ''thead-teal'':   (header white on teal)\n* ''thead-navy'':   (header white on navy)\n* ''thead-orange'': (header black on orange)\n* ''table-hover'':  (yellow backgroud color on mouse hover)\n* ''table-striped-row'': (even rows in gray color)\n* ''table-striped-col'': (odd columns in gray color)\n* ''centered'': (put the table center in tiddler)\n* ''caption-top'': (put caption at top of table using a bigger font size)\n<<<\n\n!!! Syntax\n\n```\n|your-table-class|k\n|table caption here |c\n|table |header| here|h\n|text  |goses | here|\n|text  |goses | here|\n|table |footer| here|f\n```\n\n!!! Demo\n* ''Simple table''\nThis is the basic Tiddlywiki table\n\n|This is a sample table|c\n|One|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten|h\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|f\n\n* ''Maroon''\n|thead-maroon|k\n|This is a sample table|c\n|One|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten|h\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|f\n\n* ''Teal''\n|thead-teal|k\n|This is a sample table|c\n|One|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten|h\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|f\n\n* ''Navy''\n|thead-navy|k\n|This is a sample table|c\n|One|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten|h\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|f\n\n* ''Orange''\n|thead-orange|k\n|This is a sample table|c\n|One|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten|h\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|f\n\n\n* ''Table striped row''\n|table-striped-row|k\n|This is a sample table|c\n|One|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten|h\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|f\n\n\n* ''Table striped column''\n|table-striped-col|k\n|This is a sample table|c\n|One|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten|h\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|f\n\n* ''Table hoverable''\nHover the mouse to see the color change\n\n|table-hover|k\n|This is a sample table|c\n|One|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten|h\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|f\n\n!! Centered table\nCenetered table are located horizontally in the center of tiddler.\n\n|centered|k\n|This is a centerd table|c\n|One|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten|h\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|f\n\n!! Table with caption at top\n|caption-top|k\n|This is a table with caption located at top|c\n|One|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten|h\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|f\n\n!! Use two or more classes\nYou can use two or more classes in tables. For example you can apply `w3-card-4` and `thead-maroon` as below\n\n<<wikitext-example-without-html \n\"\"\"|thead-maroon w3-card-4|k\n|This table uses two classes|c\n|One|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten|h\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|\n|1|2|3|4|5|6|7|8|9|10|f\n\"\"\">>",
+            "title": "$:/plugins/.mr/shiraz/demo/tables",
+            "tags": "",
+            "modifier": "Mohammad",
+            "modified": "20181107125023544",
+            "creator": "Mohammad",
+            "created": "20180413091837322",
+            "caption": "Tables"
+        },
+        "$:/plugins/.mr/shiraz/demo/tables-borderless": {
+            "text": "Also see [[Table classes|$:/plugins/.mr/shiraz/demo/tables]]\n\n! Class table-lines\nThe ''table-lines'' class is a custom table style for definition, abbreviation and description in those a two columns layout is required.\n\n!! Syntax\n\n```\n|table-lines|k\n|term|definition|\n|term|description|\n|term|explanation|\n```\n\n!! Demo\n|table-lines|k\n|TiddlyFor|A new edition of TiddlyWiki for fortran programmer|\n|Github|A web-based hosting service for version control using git|\n|CSS|Cascading Style Sheets is a style sheet language|\n\n\n\n!!! Example with header row\n\n|table-lines|k\n|Source|Description|h\n|TiddlyFor|A new edition of TiddlyWiki for fortran programmer|\n|Github|A web-based hosting service for version control using git|\n|CSS|Cascading Style Sheets is a style sheet language|\n\n\n!! Class table-borderless\nThe ''table-borderless'' class is a custom table style without border.\n!!! Syntax\n\n```\n|table-borderless|k\n|TiddlyFor|A new edition of TiddlyWiki for fortran programmer|\n|Github|A web-based hosting service for version control using git|\n|CSS|Cascading Style Sheets is a style sheet language|\n```\n\n!!! Demo\n\n|table-borderless|k\n|TiddlyFor|A new edition of TiddlyWiki for fortran programmer|\n|Github|A web-based hosting service for version control using git|\n|CSS|Cascading Style Sheets is a style sheet language|\n\n\n",
+            "title": "$:/plugins/.mr/shiraz/demo/tables-borderless",
+            "tags": "",
+            "modifier": "Mohammad",
+            "modified": "20181022130212168",
+            "creator": "Mohammad",
+            "created": "20180414104629468",
+            "caption": "Tables borderless"
+        },
+        "$:/plugins/.mr/shiraz/demo/text-background-colors": {
+            "text": "! Colorify macros\nThere are two macros for changing the text and background color.\n\n!!! ''Syntax''\n```\n<<tc text:\"\" color:\"\">>\n<<bc text:\"\" color:\"\">>\n```\nThe color parameter is optional.\n\n!!!! ''Example''\n```\n<<tc \"Hello world!\">>\n<<bc \"Hi, I have a different background color\">>\n```\n<<tc \"Hello world!\">>\n\n<<bc \"Hi, I have a different background color\">>.\n\n!!!! ''Changing color''\n```\n<<tc \"Hello world!\" color:\"blue\">>\n<<bc \"Hi, I have a different background color\" color:\"lightgreen\">>\n```\n<<tc \"Hello world!\" color:\"blue\">> <<bc \"Hi, I have a different background color\" color:\"lightgreen\">>\n\n```\n<<tc \"Hello world!\" color:\"#db44aa\">>\n<<bc \"Hi, I have a different background color\" color:\"#fc9\">>\n```\n\n<<tc \"Hello world!\" color:\"#db44aa\">> <<bc \"Hi, I have a different background color\" color:\"#fc9\">>.\n",
+            "title": "$:/plugins/.mr/shiraz/demo/text-background-colors",
+            "tags": "",
+            "modifier": "Mohammad",
+            "modified": "20181101163722607",
+            "creator": "Mohammad",
+            "created": "20180830150744862",
+            "caption": "Text and background colors"
+        },
+        "$:/plugins/.mr/shiraz/demo/abbr": {
+            "text": "! Abbreviation\nAbbreviation is a macro to provide an expansion or definition outside the flow of the document's content. This macro uses the `abbr` tag from html5.\n\nThe maco uses a dictionary tiddler ([[Abbreviations|$:/plugins/.mr/shiraz/dictionary/abbreviations]]) to implement the full human-readable description or expansion of the abbreviation.\n\n* Syntax\n```\n<<abbr term>>\n```\n\n* Example\n<$macrocall $name=\"wikitext-example-without-html\" src=\"\"\"\nThis is <<abbr CSS>> test.\n\"\"\">>",
+            "title": "$:/plugins/.mr/shiraz/demo/abbr",
+            "tags": "",
+            "modifier": "Mohammad",
+            "modified": "20181101150015018",
+            "creator": "Mohammad",
+            "created": "20181022084725397",
+            "caption": "Abbreviation"
+        },
+        "$:/plugins/.mr/shiraz/demo/alert": {
+            "text": "!!! ''Syntax''\n```\n<<alert-primary \"text\">>\n<<alert-secondary \"text\">>\n<<alert-success \"text\">>\n<<alert-danger \"text\">>\n<<alert-warning \"text\">>\n<<alert-info \"text\">>\n<<alert-light \"text\">>\n<<alert-dark \"text\">>\n```\n\n!!! ''Example''\n\n<<alert-primary   \"This is a simple ''primary'' alert\" 45%>>\n<<alert-secondary \"This is a simple ''secondary'' alert\" 45%>>\n<<alert-success \"This is a simple ''success'' alert\" 45%>>\n<<alert-danger \"This is a simple ''danger'' alert\" 45%>>\n<<alert-warning \"This is a simple ''warning'' alert\" 45%>>\n<<alert-info \"This is a simple ''info'' alert\" 45%>>\n<<alert-light \"This is a simple ''light'' alert\" 45%>>\n<<alert-dark \"This is a simple ''dark'' alert\" 45%>>\n\n! More example with longer paragraph\n\n<$macrocall $name=\"alert-warning\" text=<<.lorem>> width=\"50%\" />\n",
+            "title": "$:/plugins/.mr/shiraz/demo/alert",
+            "tags": "bootstrap",
+            "modifier": "Mohammad",
+            "modified": "20181021085533070",
+            "creator": "Mohammad",
+            "created": "20180821095648852",
+            "caption": "Alert macros"
+        },
+        "$:/plugins/.mr/shiraz/demo/alert-hline": {
+            "text": "Alerst with horizontal line creates a divider and divide text in two separate parts. The syntax is as below (just use a `---` whenever you like and divide your alert in two parts)\n\n```\n<<alert-primary \"\ntext upper part\n\n---\ntext lower part\n\">>\n```\n\n<<alert-primary \"\n! Alert Primary\nAww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.\n\n---\nWhenever you need to, be sure to use margin utilities to keep things nice and tidy.\">>\n\n<<alert-warning \"\n! Alert Warning\nAww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.\n\n---\nWhenever you need to, be sure to use margin utilities to keep things nice and tidy.\">>\n\n<<alert-secondary \"\"\"\n! Sample Code\nThis is a sample Python code. As you see it is possible to show different elements using the alert macro\n\n```\ndef fun(x)\n  return x*2;\n```\nIt is ''easy'' to add other //wikitext// here, like ordered / unordered lists, etc.\n\n---\nThis is just for illusteration! For more example see [[Home]]\"\"\">>",
+            "title": "$:/plugins/.mr/shiraz/demo/alert-hline",
+            "tags": "bootstrap",
+            "modifier": "Mohammad",
+            "modified": "20181021090442048",
+            "creator": "Mohammad",
+            "created": "20180821132907233",
+            "caption": "Alert with horizontal line"
+        },
+        "$:/plugins/.mr/shiraz/demo/detials": {
+            "text": "The `details` macro is used to resemble the details tag in html5. It gets three parameters\n\n* sum: summary\n* text: the text to be disclosed\n* class: a css class to be used for div element showing the disclosed text\n** All alert-classes can be used\n\n<$macrocall $name=\"wikitext-example-without-html\"\nsrc=\"\"\"\n<<details sum:\"Default\" \"This is a test!\">>\n<<details sum:\"Primary\" \"This is a test!\" class:\"alert-primary\">>\n<<details sum:\"Secondary\" \"This is a test!\" class:\"alert-secondary\">>\n<<details sum:\"success\" \"This is a test!\" class:\"alert-success\">>\n<<details sum:\"info\" \"This is a test!\" class:\"alert-info\">>\n<<details sum:\"warning\" \"This is a test!\" class:\"alert-warning\">>\n<<details sum:\"danger\" \"This is a test!\" class:\"alert-danger\">>\n<<details sum:\"light\" \"This is a test!\" class:\"alert-light\">>\n<<details sum:\"dark\" \"This is a test!\" class:\"alert-dark\">>\n\"\"\"/>\n\n",
+            "title": "$:/plugins/.mr/shiraz/demo/detials",
+            "tags": "",
+            "modifier": "Mohammad",
+            "modified": "20181101191659715",
+            "creator": "Mohammad",
+            "created": "20181101170023905",
+            "caption": "Details macro"
+        },
+        "$:/plugins/.mr/shiraz/demo/footnote": {
+            "text": "! Footnote macro\nFootnote macro can accept a title and a text and show them in a smaller font size at the bottom of page.\n\n!!!''Syntax''\n```\n<<footnote text:\"\" title:\"\">>\n```\n\n!!!! ''Example 1''\n```\n<<footnote \"This is a footnote\" \"Test Note:\">>\n```\n\n<<footnote \"This is a footnote\" \"Test Note:\">>\n\n\n!!!! ''Example 2''\n\n```\n<<footnote \"\n# This is a footnote\n# Call you at [[Home]]\n\">>\n```\n\n<<footnote \"\n# This is a footnote\n# Call you at [[Home]]\n\">>",
+            "title": "$:/plugins/.mr/shiraz/demo/footnote",
+            "tags": "",
+            "modifier": "Mohammad",
+            "modified": "20181021084156692",
+            "creator": "Mohammad",
+            "created": "20180830162917069",
+            "caption": "Footnote"
+        },
+        "$:/plugins/.mr/shiraz/demo/gradient": {
+            "text": "The `gradient` macro create a linear gradient background. \n\nAt the moment three different colors (red, green, blue) are supported and the default color is //green//.\n. Check and change for macro\n<$macrocall $name=\"wikitext-example-without-html\" src=\"\"\"\n<<gradient \"This a gradient with defualt color\">>\n<<gradient \"This is a blue gradient\" blue>>\n<<gradient \"This is a red gradient\" red>>\n<<gradient \"This is a green gradient\" green>>\n\"\"\">>",
+            "title": "$:/plugins/.mr/shiraz/demo/gradient",
+            "tags": "",
+            "modifier": "Mohammad",
+            "modified": "20181101163309204",
+            "creator": "Mohammad",
+            "created": "20181022151114346",
+            "caption": "Gradient macro"
+        },
+        "$:/plugins/.mr/shiraz/demo/more-on-tables": {
+            "text": "! Use shadow class\nThe below examples show how to use the card style and shadows for tables\n\n!! Shadow on hover\n<<wikitext-example-without-html \"\n|thead-teal w3-hover-shadow|k\n|Call |Number |h\n|0912 358 5703 |Mohammad|\n|+21 912 369 587 |Tehran |\n\">>\n\n!! Thick shadow\n<<wikitext-example-without-html \"\n|thead-maroon w3-card-4|k\n|Call |Number |h\n|0912 358 5703 |Mohammad|\n|+21 912 369 587 |Tehran |\n\">>\n\n\n!! Thin shadow\n<<wikitext-example-without-html \"\n|table-lines w3-card-2|k\n|Call |Number |h\n|0912 358 5703 |Mohammad|\n|+21 912 369 587 |Tehran |\n|+21 912 369 587 |Isfahan |\n\">>\n",
+            "title": "$:/plugins/.mr/shiraz/demo/more-on-tables",
+            "tags": "",
+            "modifier": "Mohammad",
+            "modified": "20181101152348843",
+            "creator": "Mohammad",
+            "created": "20181022052610699",
+            "caption": "Tables with card styles and shadow"
+        },
+        "$:/plugins/.mr/shiraz/demo/toc": {
+            "text": "! How to create a table of content\n* Create a new tiddler (give a favorite title you like)\n* Add the caption filed and fill it with a maeningful label\n* Add the `$:/tags/SideBar`\n* Copy the below code and paste inside the new tiddler\n<<<\n\n```\n<div class=\"tc-table-of-contents\">\n<<toc-selective-expandable \".toc\">>\n</div>\n```\n<<<\n\n! How populate your table of contents\n* Any first lavel toc should be taggaed with `.toc` (this can be changed if you like)\n* Any second level toc should be tagged with one first level toc and so on\n\n! Example\nAssume you want to make a table of contents as below\n\n```\n- One\n- Two\n  - Two-one\n  - Two-two\n-Three\n  - Three-one\n  - Three-two\n```\nDo as below:\n\n<<<\n * One  (tagged with `.toc`)\n * Two  (tagged with `.toc`)\n * Two-one (tagged with `Two`)\n * Two-two (tagged with `Two`)\n * Three (tagged with `.toc`)\n * Three-one (tagged with `Three`)\n * Three-two (tagged with `Three`)\n<<<\n\n\n<<alert-success width:50% \"\"\" For more information and other types of table of contents have a look at: [[Tiddlywiki.com|https://tiddlywiki.com/#Table-of-Contents%20Macros]]\"\"\">>",
+            "title": "$:/plugins/.mr/shiraz/demo/toc",
+            "tags": "",
+            "modifier": "Mohammad",
+            "modified": "20181108133403489",
+            "creator": "Mohammad",
+            "created": "20181108121502893",
+            "caption": "Table of Contents"
+        }
+    }
+}

@@ -187,11 +187,7 @@ Error message and password prompt
 
 <li>$:/plugins/.mr/shiraz</li>
 
-<li>$:/plugins/.mr/shiraz/demo/sticky-footer</li>
-
 <li>$:/plugins/ahahn/tinka</li>
-
-<li>$:/plugins/ahahn/tinka/temp/.mr/shiraz - Help Tab</li>
 
 <li>$:/plugins/ajh/favorites</li>
 
@@ -220,6 +216,8 @@ Error message and password prompt
 <li>$:/state/plugin-info--1524366594-$:/plugins/.mr/shiraz---1643783354</li>
 
 <li>$:/state/popup-$:/state/plugin-info-77467299-$:/plugins/.mr/shiraz</li>
+
+<li>$:/state/popup-$:/state/plugin-info-77467299-$:/plugins/tongerner/timestamp-button</li>
 
 <li>$:/state/showeditpreview</li>
 
@@ -9135,7 +9133,7 @@ $:/plugins/.mr/shiraz/tutorial</pre>
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[$:/plugins/ahahn/tinka]]</pre>
+# [[$:/tesseract/tc-extra/stylesheet]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
@@ -9159,7 +9157,7 @@ kookma Shiraz is part of TW kookma app.
 
 For learning and using kookma Shiraz see [[Tutorial|$:/plugins/.mr/kookma/tutorial]]</pre>
 </div>
-<div author="Mohammad Rahmani" core-version="4.1.17" created="20181108134227799" creator="Mohammad" description="Shiraz" list="readme tutorial license release" modified="20181108202048829" modifier="Mohammad" plugin-type="plugin" title="$:/plugins/.mr/shiraz" type="application/json" version="1.0.2">
+<div author="Mohammad Rahmani" core-version="4.1.17" created="20181108134227799" creator="Mohammad" description="Shiraz" list="readme tutorial license release acknowledgements" modified="20181109210141247" modifier="Mohammad" plugin-type="plugin" title="$:/plugins/.mr/shiraz" type="application/json" version="1.0.2">
 <pre>{
     &quot;tiddlers&quot;: {
         &quot;$:/plugins/.mr/shiraz/viewtemplate/wizard&quot;: {
@@ -9172,17 +9170,6 @@ For learning and using kookma Shiraz see [[Tutorial|$:/plugins/.mr/kookma/tutori
             &quot;list-after&quot;: &quot;$:/core/ui/ViewTemplate/body&quot;,
             &quot;creator&quot;: &quot;twMat&quot;,
             &quot;created&quot;: &quot;20180709082448874&quot;
-        },
-        &quot;$:/plugins/.mr/shiraz/viewtemplate/view-fields&quot;: {
-            &quot;text&quot;: &quot;\\define lingo-base() $:/language/EditTemplate/\n\\define config-title()\n$:/config/EditTemplateFields/Visibility/$(currentField)$\n\\end\n\n\\define config-filter()\n[[hide]] -[title{$(config-title)$}]\n\\end\n\n\\define new-field()\n&lt;$vars name={{$:/temp/newfieldname}}&gt;\n&lt;$reveal type=\&quot;nomatch\&quot; text=\&quot;\&quot; default=&lt;&lt;name&gt;&gt;&gt;\n&lt;$button&gt;\n&lt;$action-sendmessage $message=\&quot;tm-add-field\&quot;\n$name=&lt;&lt;name&gt;&gt;\n$value={{$:/temp/newfieldvalue}}/&gt;\n&lt;$action-deletetiddler $tiddler=\&quot;$:/temp/newfieldname\&quot;/&gt;\n&lt;$action-deletetiddler $tiddler=\&quot;$:/temp/newfieldvalue\&quot;/&gt;\n&lt;&lt;lingo Fields/Add/Button&gt;&gt;\n&lt;/$button&gt;\n&lt;/$reveal&gt;\n&lt;$reveal type=\&quot;match\&quot; text=\&quot;\&quot; default=&lt;&lt;name&gt;&gt;&gt;\n&lt;$button&gt;\n&lt;&lt;lingo Fields/Add/Button&gt;&gt;\n&lt;/$button&gt;\n&lt;/$reveal&gt;\n&lt;/$vars&gt;\n\\end\n\n&lt;div class=\&quot;tc-edit-fields\&quot;&gt;\n&lt;table class=\&quot;tc-edit-fields\&quot;&gt;\n&lt;tbody&gt;\n&lt;$list filter=\&quot;[all[current]fields[]] +[sort[title]]\&quot; variable=\&quot;currentField\&quot;&gt;\n&lt;$list filter=&lt;&lt;config-filter&gt;&gt; variable=\&quot;temp\&quot;&gt;\n&lt;tr class=\&quot;tc-edit-field\&quot;&gt;\n&lt;td class=\&quot;tc-edit-field-name\&quot;&gt;\n&lt;$text text=&lt;&lt;currentField&gt;&gt;/&gt;:&lt;/td&gt;\n&lt;td class=\&quot;tc-edit-field-value\&quot;&gt;\n&lt;$edit-text tiddler=&lt;&lt;currentTiddler&gt;&gt; field=&lt;&lt;currentField&gt;&gt; placeholder={{$:/language/EditTemplate/Fields/Add/Value/Placeholder}}/&gt;\n&lt;/td&gt;\n&lt;td class=\&quot;tc-edit-field-remove\&quot;&gt;\n&lt;$button class=\&quot;tc-btn-invisible\&quot; tooltip={{$:/language/EditTemplate/Field/Remove/Hint}} aria-label={{$:/language/EditTemplate/Field/Remove/Caption}}&gt;\n&lt;$action-deletefield $field=&lt;&lt;currentField&gt;&gt;/&gt;\n{{$:/core/images/delete-button}}\n&lt;/$button&gt;\n&lt;/td&gt;\n&lt;/tr&gt;\n&lt;/$list&gt;\n&lt;/$list&gt;\n&lt;/tbody&gt;\n&lt;/table&gt;\n&lt;/div&gt;\n\n&lt;$fieldmangler&gt;\n&lt;div class=\&quot;tc-edit-field-add\&quot;&gt;\n&lt;em class=\&quot;tc-edit\&quot;&gt;\n&lt;&lt;lingo Fields/Add/Prompt&gt;&gt;\n&lt;/em&gt;\n&lt;span class=\&quot;tc-edit-field-add-name\&quot;&gt;\n&lt;$edit-text tiddler=\&quot;$:/temp/newfieldname\&quot; tag=\&quot;input\&quot; default=\&quot;\&quot; placeholder={{$:/language/EditTemplate/Fields/Add/Name/Placeholder}} focusPopup=&lt;&lt;qualify \&quot;$:/state/popup/field-dropdown\&quot;&gt;&gt; class=\&quot;tc-edit-texteditor tc-popup-handle\&quot;/&gt;\n&lt;/span&gt;\n&lt;$button popup=&lt;&lt;qualify \&quot;$:/state/popup/field-dropdown\&quot;&gt;&gt; class=\&quot;tc-btn-invisible tc-btn-dropdown\&quot; tooltip={{$:/language/EditTemplate/Field/Dropdown/Hint}} aria-label={{$:/language/EditTemplate/Field/Dropdown/Caption}}&gt;{{$:/core/images/down-arrow}}&lt;/$button&gt;\n&lt;$reveal state=&lt;&lt;qualify \&quot;$:/state/popup/field-dropdown\&quot;&gt;&gt; type=\&quot;nomatch\&quot; text=\&quot;\&quot; default=\&quot;\&quot;&gt;\n&lt;div class=\&quot;tc-block-dropdown tc-edit-type-dropdown\&quot;&gt;\n&lt;$linkcatcher to=\&quot;$:/temp/newfieldname\&quot;&gt;\n&lt;div class=\&quot;tc-dropdown-item\&quot;&gt;\n&lt;&lt;lingo Fields/Add/Dropdown/User&gt;&gt;\n&lt;/div&gt;\n&lt;$list filter=\&quot;[!is[shadow]!is[system]fields[]search:title{$:/temp/newfieldname}sort[]] -created -creator -draft.of -draft.title -modified -modifier -tags -text -title -type\&quot;  variable=\&quot;currentField\&quot;&gt;\n&lt;$link to=&lt;&lt;currentField&gt;&gt;&gt;\n&lt;&lt;currentField&gt;&gt;\n&lt;/$link&gt;\n&lt;/$list&gt;\n&lt;div class=\&quot;tc-dropdown-item\&quot;&gt;\n&lt;&lt;lingo Fields/Add/Dropdown/System&gt;&gt;\n&lt;/div&gt;\n&lt;$list filter=\&quot;[fields[]search:title{$:/temp/newfieldname}sort[]] -[!is[shadow]!is[system]fields[]]\&quot; variable=\&quot;currentField\&quot;&gt;\n&lt;$link to=&lt;&lt;currentField&gt;&gt;&gt;\n&lt;&lt;currentField&gt;&gt;\n&lt;/$link&gt;\n&lt;/$list&gt;\n&lt;/$linkcatcher&gt;\n&lt;/div&gt;\n&lt;/$reveal&gt;\n&lt;span class=\&quot;tc-edit-field-add-value\&quot;&gt;\n&lt;$edit-text tiddler=\&quot;$:/temp/newfieldvalue\&quot; tag=\&quot;input\&quot; default=\&quot;\&quot; placeholder={{$:/language/EditTemplate/Fields/Add/Value/Placeholder}} class=\&quot;tc-edit-texteditor\&quot;/&gt;\n&lt;/span&gt;\n&lt;span class=\&quot;tc-edit-field-add-button\&quot;&gt;\n&lt;$macrocall $name=\&quot;new-field\&quot;/&gt;\n&lt;/span&gt;\n&lt;/div&gt;\n&lt;/$fieldmangler&gt;\n&quot;,
-            &quot;title&quot;: &quot;$:/plugins/.mr/shiraz/viewtemplate/view-fields&quot;,
-            &quot;tags&quot;: &quot;kookma&quot;,
-            &quot;modifier&quot;: &quot;Mohammad&quot;,
-            &quot;modified&quot;: &quot;20181108121331922&quot;,
-            &quot;list-after&quot;: &quot;$:/core/ui/ViewTemplate/tags&quot;,
-            &quot;description&quot;: &quot;Toggle field handling in view mode&quot;,
-            &quot;creator&quot;: &quot;Mohammad&quot;,
-            &quot;created&quot;: &quot;20181010162537613&quot;
         },
         &quot;$:/plugins/.mr/shiraz/viewtemplate/sticky-footer&quot;: {
             &quot;text&quot;: &quot;&lt;$list filter=\&quot;[is[current]has[sticky-footer]]\&quot;&gt;\n&lt;div class=\&quot;sticky-footer\&quot;&gt;\n{{!!sticky-footer}}\n&lt;/div&gt;\n&lt;/$list&gt;\n&quot;,
@@ -9670,16 +9657,6 @@ For learning and using kookma Shiraz see [[Tutorial|$:/plugins/.mr/kookma/tutori
             &quot;created&quot;: &quot;20180821132907233&quot;,
             &quot;caption&quot;: &quot;Alert with horizontal line&quot;
         },
-        &quot;$:/plugins/.mr/shiraz/demo/detials&quot;: {
-            &quot;text&quot;: &quot;The `details` macro is used to resemble the details tag in html5. It gets three parameters\n\n* sum: summary\n* text: the text to be disclosed\n* class: a css class to be used for div element showing the disclosed text\n** All alert-classes can be used\n\n&lt;$macrocall $name=\&quot;wikitext-example-without-html\&quot;\nsrc=\&quot;\&quot;\&quot;\n&lt;&lt;details sum:\&quot;Default\&quot; \&quot;This is a test!\&quot;&gt;&gt;\n&lt;&lt;details sum:\&quot;Primary\&quot; \&quot;This is a test!\&quot; class:\&quot;alert-primary\&quot;&gt;&gt;\n&lt;&lt;details sum:\&quot;Secondary\&quot; \&quot;This is a test!\&quot; class:\&quot;alert-secondary\&quot;&gt;&gt;\n&lt;&lt;details sum:\&quot;success\&quot; \&quot;This is a test!\&quot; class:\&quot;alert-success\&quot;&gt;&gt;\n&lt;&lt;details sum:\&quot;info\&quot; \&quot;This is a test!\&quot; class:\&quot;alert-info\&quot;&gt;&gt;\n&lt;&lt;details sum:\&quot;warning\&quot; \&quot;This is a test!\&quot; class:\&quot;alert-warning\&quot;&gt;&gt;\n&lt;&lt;details sum:\&quot;danger\&quot; \&quot;This is a test!\&quot; class:\&quot;alert-danger\&quot;&gt;&gt;\n&lt;&lt;details sum:\&quot;light\&quot; \&quot;This is a test!\&quot; class:\&quot;alert-light\&quot;&gt;&gt;\n&lt;&lt;details sum:\&quot;dark\&quot; \&quot;This is a test!\&quot; class:\&quot;alert-dark\&quot;&gt;&gt;\n\&quot;\&quot;\&quot;/&gt;\n\n&quot;,
-            &quot;title&quot;: &quot;$:/plugins/.mr/shiraz/demo/detials&quot;,
-            &quot;tags&quot;: &quot;&quot;,
-            &quot;modifier&quot;: &quot;Mohammad&quot;,
-            &quot;modified&quot;: &quot;20181101191659715&quot;,
-            &quot;creator&quot;: &quot;Mohammad&quot;,
-            &quot;created&quot;: &quot;20181101170023905&quot;,
-            &quot;caption&quot;: &quot;Details macro&quot;
-        },
         &quot;$:/plugins/.mr/shiraz/demo/gradient&quot;: {
             &quot;text&quot;: &quot;The `gradient` macro create a linear gradient background. \n\nAt the moment three different colors (red, green, blue) are supported and the default color is //green//.\n. Check and change for macro\n&lt;$macrocall $name=\&quot;wikitext-example-without-html\&quot; src=\&quot;\&quot;\&quot;\n&lt;&lt;gradient \&quot;This a gradient with defualt color\&quot;&gt;&gt;\n&lt;&lt;gradient \&quot;This is a blue gradient\&quot; blue&gt;&gt;\n&lt;&lt;gradient \&quot;This is a red gradient\&quot; red&gt;&gt;\n&lt;&lt;gradient \&quot;This is a green gradient\&quot; green&gt;&gt;\n\&quot;\&quot;\&quot;&gt;&gt;&quot;,
             &quot;title&quot;: &quot;$:/plugins/.mr/shiraz/demo/gradient&quot;,
@@ -9748,44 +9725,58 @@ For learning and using kookma Shiraz see [[Tutorial|$:/plugins/.mr/kookma/tutori
             &quot;creator&quot;: &quot;Mohammad&quot;,
             &quot;created&quot;: &quot;20180907045232431&quot;
         },
-        &quot;$:/plugins/.mr/shiraz/readme&quot;: {
-            &quot;created&quot;: &quot;20181108100430291&quot;,
-            &quot;creator&quot;: &quot;Mohammad&quot;,
-            &quot;text&quot;: &quot;! Shiraz\nShiraz is a small TW5 plugin contains several macros, stylesheets, templates, snippets and acts as a starter kit. Some of its features are given below\n\n* Macro\n** abbreviation (abbr) and details macro\n** alert boxes (bootstrap alert classes)\n** classic notes (danger, warning, info)\n** gradient (for dividing section in text)\n** footnote (creates footnotes)\n** tc, bc (text with foreground and background colors)\n** documentation macro to show code, rendered result, and underlying html code)\n\n* Reveal gradually ( walkthrough  , guided help, linked list)\n** Steps\n** Wizard\n\n* Customized css \n** notes\n** float class for images\n** Resolved floating images (overflow and cross tiddler borders)\n** Customized control buttons (shown as mouse hover)\n\n* ~ToDo\n** A todo list ([[ToDos|$:/plugins/.mr/shiraz/demo/todo]]) is set of macro and template to create tasks, list them and manipulate them!\n\n* Customized table classes\n** Colored header\n** Striped row table\n** Striped column table\n** Borderless table\n** Hoverable table\n\n* Others\n** Show fields in view mode (From Ton Gerner)\n** Notebook tiddler\n** Standout markup\n** Sticky footer\n** Utility macros (.lorem, vspace, hspace,...)\n\n!! Howto\n* [[Tutorial|$:/plugins/.mr/shiraz/tutorial]] shows a demo of some of Shiraz features\n* To use Shiraz in your own wiki install the Shiraz plugin\n\n!! Install\nSimply drag and drop the below tiddler to your wiki\n\n* $:/plugins/.mr/shiraz\n\n!! Acknowledgements\nMany people help directly or indirectly to bring this plugin into work. Their help and comments and ideas through [[Tiddlywiki forum|http://groups.google.com/group/TiddlyWiki]] are highly appreciated, among them are:\n\n* Jeremy Ruston\n* Eric Shulman\n* Mario Pietsch\n* Simon Huber\n* Anthony Muscio\n* Mark S\n* Thomas Elmiger\n* Josiah (~TiddlyTweeter)\nAnd many more ...\n\n!!! Codes \nCodes from these projects are incorporated\n\n* Documentation macros from [[Tiddlywiki.com|https://tiddlywiki.com/]]\n* The //view filed// code is incorporated from [[Ton Gerner|http://tongerner.tiddlyspot.com/]]&quot;,
-            &quot;title&quot;: &quot;$:/plugins/.mr/shiraz/readme&quot;,
-            &quot;tags&quot;: &quot;&quot;,
-            &quot;modifier&quot;: &quot;Mohammad&quot;,
-            &quot;modified&quot;: &quot;20181108200208651&quot;
-        },
         &quot;$:/plugins/.mr/shiraz/demo/sticky-footer&quot;: {
             &quot;text&quot;: &quot;!! Fixed/Sticky Footer Example\n\nThere is two tiddlers to implement the sticky footer\n&lt;&lt;list-links \&quot;[search:title[sticky-footer]]\&quot; type:\&quot;ol\&quot;&gt;&gt;\n\n!! How to use\nEach tiddler has a `sticky-footer` field will show a sticky footer at the bottom of that tiddler with the contents come from `sticky-footer` filed.\n\n!! Mechanism\nThe mechanism is to use a css [[$:/plugins/.mr/shiraz/stylesheet/sticky-footer]] that defines the stylesheet and a [[viewtemplate tiddler|$:/plugins/.mr/shiraz/viewtemplate/sticky-footer]] tagged with `$:/tags/ViewTemplate` to conditionally apply the footer to tiddlers has the `sticky-footer` field.\n\n!! Example\n[[This tiddler|$:/plugins/.mr/shiraz/demo/sticky-footer]] has a `sticky-footer` filed, see the footer at the tiddler bottom.\n&quot;,
             &quot;title&quot;: &quot;$:/plugins/.mr/shiraz/demo/sticky-footer&quot;,
             &quot;tags&quot;: &quot;sticky-footer&quot;,
             &quot;sticky-footer&quot;: &quot;''Hello'', this is a sticky footer. //&lt;&lt;now&gt;&gt;//&quot;,
             &quot;modifier&quot;: &quot;Mohammad&quot;,
-            &quot;modified&quot;: &quot;20181108201710194&quot;,
+            &quot;modified&quot;: &quot;20181108202137727&quot;,
             &quot;creator&quot;: &quot;Mohammad&quot;,
             &quot;created&quot;: &quot;20180907065146246&quot;,
             &quot;caption&quot;: &quot;Sticky footer&quot;
+        },
+        &quot;$:/plugins/.mr/shiraz/viewtemplate/view-fields&quot;: {
+            &quot;created&quot;: &quot;20181010162537613&quot;,
+            &quot;creator&quot;: &quot;Mohammad&quot;,
+            &quot;text&quot;: &quot;\\define lingo-base() $:/language/EditTemplate/\n\\define config-title()\n$:/config/EditTemplateFields/Visibility/$(currentField)$\n\\end\n\n\\define config-filter()\n[[hide]] -[title{$(config-title)$}]\n\\end\n\n\\define new-field()\n&lt;$vars name={{$:/temp/newfieldname}}&gt;\n&lt;$reveal type=\&quot;nomatch\&quot; text=\&quot;\&quot; default=&lt;&lt;name&gt;&gt;&gt;\n&lt;$button&gt;\n&lt;$action-sendmessage $message=\&quot;tm-add-field\&quot;\n$name=&lt;&lt;name&gt;&gt;\n$value={{$:/temp/newfieldvalue}}/&gt;\n&lt;$action-deletetiddler $tiddler=\&quot;$:/temp/newfieldname\&quot;/&gt;\n&lt;$action-deletetiddler $tiddler=\&quot;$:/temp/newfieldvalue\&quot;/&gt;\n&lt;&lt;lingo Fields/Add/Button&gt;&gt;\n&lt;/$button&gt;\n&lt;/$reveal&gt;\n&lt;$reveal type=\&quot;match\&quot; text=\&quot;\&quot; default=&lt;&lt;name&gt;&gt;&gt;\n&lt;$button&gt;\n&lt;&lt;lingo Fields/Add/Button&gt;&gt;\n&lt;/$button&gt;\n&lt;/$reveal&gt;\n&lt;/$vars&gt;\n\\end\n\n&lt;div class=\&quot;tc-edit-fields\&quot;&gt;\n&lt;table class=\&quot;tc-edit-fields\&quot;&gt;\n&lt;tbody&gt;\n&lt;$list filter=\&quot;[all[current]fields[]] +[sort[title]]\&quot; variable=\&quot;currentField\&quot;&gt;\n&lt;$list filter=&lt;&lt;config-filter&gt;&gt; variable=\&quot;temp\&quot;&gt;\n&lt;tr class=\&quot;tc-edit-field\&quot;&gt;\n&lt;td class=\&quot;tc-edit-field-name\&quot;&gt;\n&lt;$text text=&lt;&lt;currentField&gt;&gt;/&gt;:&lt;/td&gt;\n&lt;td class=\&quot;tc-edit-field-value\&quot;&gt;\n&lt;$edit-text tiddler=&lt;&lt;currentTiddler&gt;&gt; field=&lt;&lt;currentField&gt;&gt; placeholder={{$:/language/EditTemplate/Fields/Add/Value/Placeholder}}/&gt;\n&lt;/td&gt;\n&lt;td class=\&quot;tc-edit-field-remove\&quot;&gt;\n&lt;$button class=\&quot;tc-btn-invisible\&quot; tooltip={{$:/language/EditTemplate/Field/Remove/Hint}} aria-label={{$:/language/EditTemplate/Field/Remove/Caption}}&gt;\n&lt;$action-deletefield $field=&lt;&lt;currentField&gt;&gt;/&gt;\n{{$:/core/images/delete-button}}\n&lt;/$button&gt;\n&lt;/td&gt;\n&lt;/tr&gt;\n&lt;/$list&gt;\n&lt;/$list&gt;\n&lt;/tbody&gt;\n&lt;/table&gt;\n&lt;/div&gt;\n\n&lt;$fieldmangler&gt;\n&lt;div class=\&quot;tc-edit-field-add\&quot;&gt;\n&lt;em class=\&quot;tc-edit\&quot;&gt;\n&lt;&lt;lingo Fields/Add/Prompt&gt;&gt;\n&lt;/em&gt;\n&lt;span class=\&quot;tc-edit-field-add-name\&quot;&gt;\n&lt;$edit-text tiddler=\&quot;$:/temp/newfieldname\&quot; tag=\&quot;input\&quot; default=\&quot;\&quot; placeholder={{$:/language/EditTemplate/Fields/Add/Name/Placeholder}} focusPopup=&lt;&lt;qualify \&quot;$:/state/popup/field-dropdown\&quot;&gt;&gt; class=\&quot;tc-edit-texteditor tc-popup-handle\&quot;/&gt;\n&lt;/span&gt;\n&lt;$button popup=&lt;&lt;qualify \&quot;$:/state/popup/field-dropdown\&quot;&gt;&gt; class=\&quot;tc-btn-invisible tc-btn-dropdown\&quot; tooltip={{$:/language/EditTemplate/Field/Dropdown/Hint}} aria-label={{$:/language/EditTemplate/Field/Dropdown/Caption}}&gt;{{$:/core/images/down-arrow}}&lt;/$button&gt;\n&lt;$reveal state=&lt;&lt;qualify \&quot;$:/state/popup/field-dropdown\&quot;&gt;&gt; type=\&quot;nomatch\&quot; text=\&quot;\&quot; default=\&quot;\&quot;&gt;\n&lt;div class=\&quot;tc-block-dropdown tc-edit-type-dropdown\&quot;&gt;\n&lt;$linkcatcher to=\&quot;$:/temp/newfieldname\&quot;&gt;\n&lt;div class=\&quot;tc-dropdown-item\&quot;&gt;\n&lt;&lt;lingo Fields/Add/Dropdown/User&gt;&gt;\n&lt;/div&gt;\n&lt;$list filter=\&quot;[!is[shadow]!is[system]fields[]search:title{$:/temp/newfieldname}sort[]] -created -creator -draft.of -draft.title -modified -modifier -tags -text -title -type\&quot;  variable=\&quot;currentField\&quot;&gt;\n&lt;$link to=&lt;&lt;currentField&gt;&gt;&gt;\n&lt;&lt;currentField&gt;&gt;\n&lt;/$link&gt;\n&lt;/$list&gt;\n&lt;div class=\&quot;tc-dropdown-item\&quot;&gt;\n&lt;&lt;lingo Fields/Add/Dropdown/System&gt;&gt;\n&lt;/div&gt;\n&lt;$list filter=\&quot;[fields[]search:title{$:/temp/newfieldname}sort[]] -[!is[shadow]!is[system]fields[]]\&quot; variable=\&quot;currentField\&quot;&gt;\n&lt;$link to=&lt;&lt;currentField&gt;&gt;&gt;\n&lt;&lt;currentField&gt;&gt;\n&lt;/$link&gt;\n&lt;/$list&gt;\n&lt;/$linkcatcher&gt;\n&lt;/div&gt;\n&lt;/$reveal&gt;\n&lt;span class=\&quot;tc-edit-field-add-value\&quot;&gt;\n&lt;$edit-text tiddler=\&quot;$:/temp/newfieldvalue\&quot; tag=\&quot;input\&quot; default=\&quot;\&quot; placeholder={{$:/language/EditTemplate/Fields/Add/Value/Placeholder}} class=\&quot;tc-edit-texteditor\&quot;/&gt;\n&lt;/span&gt;\n&lt;span class=\&quot;tc-edit-field-add-button\&quot;&gt;\n&lt;$macrocall $name=\&quot;new-field\&quot;/&gt;\n&lt;/span&gt;\n&lt;/div&gt;\n&lt;/$fieldmangler&gt;\n&quot;,
+            &quot;title&quot;: &quot;$:/plugins/.mr/shiraz/viewtemplate/view-fields&quot;,
+            &quot;tags&quot;: &quot;kookma&quot;,
+            &quot;modifier&quot;: &quot;Mohammad&quot;,
+            &quot;modified&quot;: &quot;20181109191654923&quot;,
+            &quot;list-after&quot;: &quot;$:/core/ui/ViewTemplate/tags&quot;,
+            &quot;description&quot;: &quot;Toggle field handling in view mode&quot;
+        },
+        &quot;$:/plugins/.mr/shiraz/demo/detials&quot;: {
+            &quot;created&quot;: &quot;20181101170023905&quot;,
+            &quot;creator&quot;: &quot;Mohammad&quot;,
+            &quot;text&quot;: &quot;The `details` macro is used to resemble the details tag in html5. It gets three parameters\n\n* sum: summary\n* text: the text to be disclosed\n* class: a css class to be used for div element showing the disclosed text\n** All alert-classes can be used\n\n&lt;$macrocall $name=\&quot;wikitext-example-without-html\&quot;\nsrc=\&quot;\&quot;\&quot;\n&lt;&lt;details sum:\&quot;Default\&quot; \&quot;This is a test!\&quot;&gt;&gt;\n&lt;&lt;details sum:\&quot;primary\&quot; \&quot;This is a test!\&quot; class:\&quot;alert-primary\&quot;&gt;&gt;\n&lt;&lt;details sum:\&quot;secondary\&quot; \&quot;This is a test!\&quot; class:\&quot;alert-secondary\&quot;&gt;&gt;\n&lt;&lt;details sum:\&quot;success\&quot; \&quot;This is a test!\&quot; class:\&quot;alert-success\&quot;&gt;&gt;\n&lt;&lt;details sum:\&quot;info\&quot; \&quot;This is a test!\&quot; class:\&quot;alert-info\&quot;&gt;&gt;\n&lt;&lt;details sum:\&quot;warning\&quot; \&quot;This is a test!\&quot; class:\&quot;alert-warning\&quot;&gt;&gt;\n&lt;&lt;details sum:\&quot;danger\&quot; \&quot;This is a test!\&quot; class:\&quot;alert-danger\&quot;&gt;&gt;\n&lt;&lt;details sum:\&quot;light\&quot; \&quot;This is a test!\&quot; class:\&quot;alert-light\&quot;&gt;&gt;\n&lt;&lt;details sum:\&quot;dark\&quot; \&quot;This is a test!\&quot; class:\&quot;alert-dark\&quot;&gt;&gt;\n\&quot;\&quot;\&quot;/&gt;\n\n&quot;,
+            &quot;title&quot;: &quot;$:/plugins/.mr/shiraz/demo/detials&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modifier&quot;: &quot;Mohammad&quot;,
+            &quot;modified&quot;: &quot;20181109193943640&quot;,
+            &quot;caption&quot;: &quot;Details macro&quot;
+        },
+        &quot;$:/plugins/.mr/shiraz/readme&quot;: {
+            &quot;created&quot;: &quot;20181108100430291&quot;,
+            &quot;creator&quot;: &quot;Mohammad&quot;,
+            &quot;text&quot;: &quot;! Shiraz\nShiraz is a small TW5 plugin contains several macros, stylesheets, templates, snippets and acts as a starter kit. Some of its features are given below\n\n!!Macro\n* abbreviation (abbr) and details macro\n* alert boxes (bootstrap alert classes)\n* classic notes (danger, warning, info)\n* gradient (for dividing section in text)\n* footnote (creates footnotes)\n* tc, bc (text with foreground and background colors)\n* documentation macro to show code, rendered result, and underlying html code)\n\n!! Reveal gradually\nReveal gradually is a set of tools for making walkthrough, guided help, linked list. \n\n* Steps\n* Wizard\n\n!!Customized css\n* notes\n* float class for images\n* Resolved floating images (overflow and cross tiddler borders)\n* Customized control buttons (colorfull and shown as mouse hover)\n\n!!~ToDo\nA todo list ([[ToDos|$:/plugins/.mr/shiraz/demo/todo]]) is set of macro and template to create tasks, list and manipulate them!\n\n!!Customized table classes\n* Colored header\n* Striped row table\n* Striped column table\n* Borderless table\n* Hoverable table\n\n!!Others\n* Show fields in view mode (from Ton Gerner)\n* Notebook tiddler\n* Standout markup\n* Sticky footer\n* Utility macros (.lorem, vspace, hspace,...)\n\n!!Howto\n* [[Tutorial|$:/plugins/.mr/shiraz/tutorial]] shows a demo of some of Shiraz features\n* To use Shiraz in your own wiki install the Shiraz plugin\n\n!! Install\nSimply drag and drop the below tiddler to your wiki\n\n* $:/plugins/.mr/shiraz\n\n!! Acknowledgements\nThis pluging wouldn't be possible without the great help of Tiddlywiki community. Their help and supports are hight [[acknowledged|$:/plugins/.mr/shiraz/acknowledgements]].\n\n&quot;,
+            &quot;title&quot;: &quot;$:/plugins/.mr/shiraz/readme&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modifier&quot;: &quot;Mohammad&quot;,
+            &quot;modified&quot;: &quot;20181109201140272&quot;
+        },
+        &quot;$:/plugins/.mr/shiraz/acknowledgements&quot;: {
+            &quot;created&quot;: &quot;20181109163653798&quot;,
+            &quot;creator&quot;: &quot;Mohammad&quot;,
+            &quot;text&quot;: &quot;!! Acknowledgements\n\nMany people help directly or indirectly to bring this plugin into work. Their help and comments and ideas through [[Tiddlywiki forum|http://groups.google.com/group/TiddlyWiki]] are highly appreciated, among them are:\n\n* Jeremy Ruston\n* Eric Shulman\n* Mario Pietsch\n* Simon Huber\n* Anthony Muscio\n* Mark S\n* Thomas Elmiger\n* Rizwan Ibnishak\n* Tobias Beer\n* Jed Carty\n* Josiah (~TiddlyTweeter)\n* Birth C\n\nAnd many more ...\n\n\n!!! Codes \nCodes from these projects are incorporated\n\n* Documentation macros from [[Tiddlywiki.com|https://tiddlywiki.com/]]\n* The //view filed// code is incorporated from [[Ton Gerner|http://tongerner.tiddlyspot.com/]]\n* Task management template from [[Tiddlywiki.com|https://tiddlywiki.com/]]&quot;,
+            &quot;title&quot;: &quot;$:/plugins/.mr/shiraz/acknowledgements&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modified&quot;: &quot;20181109210126247&quot;,
+            &quot;modifier&quot;: &quot;Mohammad&quot;
         }
     }
 }</pre>
-</div>
-<div caption="Sticky footer" created="20180907065146246" creator="Mohammad" modified="20181108202137727" modifier="Mohammad" sticky-footer="''Hello'', this is a sticky footer. //&lt;&lt;now&gt;&gt;//" tags="sticky-footer" title="$:/plugins/.mr/shiraz/demo/sticky-footer">
-<pre>!! Fixed/Sticky Footer Example
-
-There is two tiddlers to implement the sticky footer
-&lt;&lt;list-links &quot;[search:title[sticky-footer]]&quot; type:&quot;ol&quot;&gt;&gt;
-
-!! How to use
-Each tiddler has a `sticky-footer` field will show a sticky footer at the bottom of that tiddler with the contents come from `sticky-footer` filed.
-
-!! Mechanism
-The mechanism is to use a css [[$:/plugins/.mr/shiraz/stylesheet/sticky-footer]] that defines the stylesheet and a [[viewtemplate tiddler|$:/plugins/.mr/shiraz/viewtemplate/sticky-footer]] tagged with `$:/tags/ViewTemplate` to conditionally apply the footer to tiddlers has the `sticky-footer` field.
-
-!! Example
-[[This tiddler|$:/plugins/.mr/shiraz/demo/sticky-footer]] has a `sticky-footer` filed, see the footer at the tiddler bottom.
-</pre>
 </div>
 <div author="Andreas Hahn" bag="default" core-version="&gt;=5.1.8" dependents="" description="Tinka - an easy plugin packer" list="readme usage license" plugin-type="plugin" revision="0" source="http://tinkaplugin.github.io" title="$:/plugins/ahahn/tinka" type="application/json" version="0.4.0">
 <pre>{
@@ -10008,15 +9999,6 @@ The mechanism is to use a css [[$:/plugins/.mr/shiraz/stylesheet/sticky-footer]]
         }
     }
 }</pre>
-</div>
-<div caption=".mr/shiraz - Help Tab" created="20181108133859545" creator="Mohammad" modified="20181108133859545" modifier="Mohammad" tags="$:/tags/SideBar" title="$:/plugins/ahahn/tinka/temp/.mr/shiraz - Help Tab">
-<pre>&lt;$set name=&quot;pluginPrefix&quot; value=&quot;$:/plugins/.mr/shiraz&quot; &gt;
-&lt;$set name=&quot;currentTiddler&quot; value=&quot;$:/plugins/ahahn/tinka/temp/.mr/shiraz - Help Tab&quot; &gt;
-
-&lt;$transclude tiddler=&quot;$:/plugins/ahahn/tinka/pluginSidePanel&quot; /&gt;
-
-&lt;/$set&gt;
-&lt;/$set&gt;</pre>
 </div>
 <div core-version="&gt;=5.1.14" created="20150902052640307" creator="Andrew Harrison" dependents="$:/language/Buttons/Choose/Caption $:/language/Buttons/Choose/Hint $:/language/Buttons/Favorites/Caption $:/language/Buttons/Favorites/Hint $:/language/SideBar/Favorites/Caption $:/plugins/ajh/favorites/icon $:/plugins/ajh/favorites/readme $:/plugins/ajh/favorites/SideBar $:/plugins/ajh/favorites/image $:/plugins/ajh/favorites/stylesheet $:/plugins/ajh/favorites/template" description="Favorites" list="readme" modified="20170803012318453" modifier="Andrew Harrison" plugin-type="plugin" source="http://favorites.tiddlyspot.com" title="$:/plugins/ajh/favorites" type="application/json" version="3.0.11">
 <pre>{
@@ -10666,7 +10648,10 @@ exports.hljs = hljs;</pre>
 <div created="20181108133857639" creator="Mohammad" modified="20181108133857639" modifier="Mohammad" title="$:/state/popup-$:/state/plugin-info-77467299-$:/plugins/.mr/shiraz">
 <pre>yes</pre>
 </div>
-<div created="20181107093348984" creator="Mohammad" modified="20181108133105521" modifier="Mohammad" title="$:/state/showeditpreview">
+<div created="20181109200826944" creator="Mohammad" modified="20181109200831359" modifier="Mohammad" title="$:/state/popup-$:/state/plugin-info-77467299-$:/plugins/tongerner/timestamp-button">
+<pre>yes</pre>
+</div>
+<div created="20181107093348984" creator="Mohammad" modified="20181109194853174" modifier="Mohammad" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
 <div created="20181108092942094" creator="Mohammad" modified="20181108094608802" modifier="Mohammad" title="$:/state/sidebar">
@@ -10675,10 +10660,10 @@ exports.hljs = hljs;</pre>
 <div created="20181106072702112" creator="Mohammad" modified="20181106072702112" modifier="Mohammad" title="$:/state/tab--1498284803">
 <pre>$:/core/ui/AdvancedSearch/Filter</pre>
 </div>
-<div created="20181108120623524" creator="Mohammad" modified="20181108174517304" modifier="Mohammad" title="$:/state/tab-1120978665">
-<pre>$:/plugins/.mr/shiraz/demo/toc</pre>
+<div created="20181108120623524" creator="Mohammad" modified="20181109201350192" modifier="Mohammad" title="$:/state/tab-1120978665">
+<pre>$:/plugins/.mr/shiraz/demo/abbr</pre>
 </div>
-<div created="20181108095629192" creator="Mohammad" modified="20181108185536223" modifier="Mohammad" title="$:/state/tab-1125801007">
+<div created="20181108095629192" creator="Mohammad" modified="20181109200338033" modifier="Mohammad" title="$:/state/tab-1125801007">
 <pre>$:/plugins/.mr/shiraz/demo/abbr</pre>
 </div>
 <div created="20181107090004159" creator="Mohammad" modified="20181107131035616" modifier="Mohammad" title="$:/state/tab-1461764885">
@@ -10690,16 +10675,16 @@ exports.hljs = hljs;</pre>
 <div created="20181108092232736" creator="Mohammad" modified="20181108092251695" modifier="Mohammad" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/All</pre>
 </div>
-<div created="20181106072637738" creator="Mohammad" modified="20181108191915396" modifier="Mohammad" title="$:/state/tab/sidebar--595412856">
+<div created="20181106072637738" creator="Mohammad" modified="20181109200301826" modifier="Mohammad" title="$:/state/tab/sidebar--595412856">
 <pre>Shiraz Tiddlers</pre>
 </div>
-<div created="20181108121330125" creator="Mohammad" modified="20181108121331923" modifier="Mohammad" title="$:/state/toggle-view-fields">
+<div created="20181108121330125" creator="Mohammad" modified="20181109191654923" modifier="Mohammad" title="$:/state/toggle-view-fields">
 <pre>hide</pre>
 </div>
 <div created="20180830143124836" creator="M" modified="20180830143126038" modifier="Mohamma" title="$:/status/UserName">
 <pre>Mohammad</pre>
 </div>
-<div list="$:/plugins/.mr/shiraz/readme $:/plugins/.mr/shiraz/tutorial" title="$:/StoryList">
+<div created="20181109210036153" creator="Mohammad" list="$:/ControlPanel $:/plugins/.mr/shiraz/readme $:/plugins/.mr/shiraz/acknowledgements $:/plugins/.mr/shiraz/tutorial" modified="20181109210135191" modifier="Mohammad" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20181106072703474" creator="Mohammad" modified="20181108173608076" modifier="Mohammad" title="$:/temp/advancedsearch">
@@ -10718,7 +10703,7 @@ exports.hljs = hljs;</pre>
         },
         &quot;$:/info/url/full&quot;: {
             &quot;title&quot;: &quot;$:/info/url/full&quot;,
-            &quot;text&quot;: &quot;file:///C:/Users/Mohammad/Downloads/Shiraz.html&quot;
+            &quot;text&quot;: &quot;file:///G:/TW/TW-kookma/shiraz%20plugin.html&quot;
         },
         &quot;$:/info/url/host&quot;: {
             &quot;title&quot;: &quot;$:/info/url/host&quot;,
@@ -10738,7 +10723,7 @@ exports.hljs = hljs;</pre>
         },
         &quot;$:/info/url/pathname&quot;: {
             &quot;title&quot;: &quot;$:/info/url/pathname&quot;,
-            &quot;text&quot;: &quot;/C:/Users/Mohammad/Downloads/Shiraz.html&quot;
+            &quot;text&quot;: &quot;/G:/TW/TW-kookma/shiraz%20plugin.html&quot;
         },
         &quot;$:/info/url/search&quot;: {
             &quot;title&quot;: &quot;$:/info/url/search&quot;,
@@ -10759,7 +10744,7 @@ exports.hljs = hljs;</pre>
     }
 }</pre>
 </div>
-<div created="20181107090148774" creator="Mohammad" modified="20181108184948739" modifier="Mohammad" title="$:/temp/search">
+<div created="20181107090148774" creator="Mohammad" modified="20181109193905393" modifier="Mohammad" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20181108110625545" creator="Mohammad" modified="20181108120601876" modifier="Mohammad" title="$:/temp/tinka/cpTabs--1043537212">

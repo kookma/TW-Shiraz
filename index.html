@@ -187,6 +187,8 @@ Error message and password prompt
 
 <li>$:/plugins/.mr/shiraz</li>
 
+<li>$:/plugins/.mr/shiraz/demo/sticky-footer</li>
+
 <li>$:/plugins/ahahn/tinka</li>
 
 <li>$:/plugins/ajh/favorites</li>
@@ -9778,6 +9780,22 @@ For learning and using kookma Shiraz see [[Tutorial|$:/plugins/.mr/kookma/tutori
     }
 }</pre>
 </div>
+<div caption="Sticky footer" created="20180907065146246" creator="Mohammad" modified="20181110035345314" modifier="Mohammad" sticky-footer="''Hello'', this is a sticky footer. //&lt;&lt;now&gt;&gt;//" tags="sticky-footer" title="$:/plugins/.mr/shiraz/demo/sticky-footer">
+<pre>!! Fixed/Sticky Footer Example
+
+There is two tiddlers to implement the sticky footer
+&lt;&lt;list-links &quot;[search:title[sticky-footer]]&quot; type:&quot;ol&quot;&gt;&gt;
+
+!! How to use
+Each tiddler has a `sticky-footer` field will show a sticky footer at the bottom of that tiddler with the contents come from `sticky-footer` filed.
+
+!! Mechanism
+The mechanism is to use a css [[$:/plugins/.mr/shiraz/stylesheet/sticky-footer]] that defines the stylesheet and a [[viewtemplate tiddler|$:/plugins/.mr/shiraz/viewtemplate/sticky-footer]] tagged with `$:/tags/ViewTemplate` to conditionally apply the footer to tiddlers has the `sticky-footer` field.
+
+!! Example
+[[This tiddler|$:/plugins/.mr/shiraz/demo/sticky-footer]] has a `sticky-footer` filed, see the footer at the tiddler bottom.
+</pre>
+</div>
 <div author="Andreas Hahn" bag="default" core-version="&gt;=5.1.8" dependents="" description="Tinka - an easy plugin packer" list="readme usage license" plugin-type="plugin" revision="0" source="http://tinkaplugin.github.io" title="$:/plugins/ahahn/tinka" type="application/json" version="0.4.0">
 <pre>{
     &quot;tiddlers&quot;: {
@@ -10684,7 +10702,7 @@ exports.hljs = hljs;</pre>
 <div created="20180830143124836" creator="M" modified="20180830143126038" modifier="Mohamma" title="$:/status/UserName">
 <pre>Mohammad</pre>
 </div>
-<div created="20181109210036153" creator="Mohammad" list="$:/ControlPanel $:/plugins/.mr/shiraz/readme $:/plugins/.mr/shiraz/acknowledgements $:/plugins/.mr/shiraz/tutorial" modified="20181109210135191" modifier="Mohammad" title="$:/StoryList">
+<div created="20181110035339446" creator="Mohammad" list="$:/plugins/.mr/shiraz/demo/sticky-footer $:/plugins/.mr/shiraz/readme $:/plugins/.mr/shiraz/tutorial" modified="20181110035339446" modifier="Mohammad" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20181106072703474" creator="Mohammad" modified="20181108173608076" modifier="Mohammad" title="$:/temp/advancedsearch">
@@ -10703,7 +10721,7 @@ exports.hljs = hljs;</pre>
         },
         &quot;$:/info/url/full&quot;: {
             &quot;title&quot;: &quot;$:/info/url/full&quot;,
-            &quot;text&quot;: &quot;file:///G:/TW/TW-kookma/shiraz%20plugin.html&quot;
+            &quot;text&quot;: &quot;file:///G:/TW/TW-kookma/github/index.html&quot;
         },
         &quot;$:/info/url/host&quot;: {
             &quot;title&quot;: &quot;$:/info/url/host&quot;,
@@ -10723,7 +10741,7 @@ exports.hljs = hljs;</pre>
         },
         &quot;$:/info/url/pathname&quot;: {
             &quot;title&quot;: &quot;$:/info/url/pathname&quot;,
-            &quot;text&quot;: &quot;/G:/TW/TW-kookma/shiraz%20plugin.html&quot;
+            &quot;text&quot;: &quot;/G:/TW/TW-kookma/github/index.html&quot;
         },
         &quot;$:/info/url/search&quot;: {
             &quot;title&quot;: &quot;$:/info/url/search&quot;,
@@ -10735,11 +10753,11 @@ exports.hljs = hljs;</pre>
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1536&quot;
+            &quot;text&quot;: &quot;1600&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;864&quot;
+            &quot;text&quot;: &quot;900&quot;
         }
     }
 }</pre>

@@ -1,0 +1,11 @@
+created: 20190901192929450
+modified: 20190915201421965
+tags: 
+title: $:/plugins/kookma/shiraz/readme
+type: text/vnd.tiddlywiki
+
+Shiraz is a small framework inclusing stylesheets and macros to create stylish contents in Tiddlywiki. It has modified CSS classes from Bootstrap 4.1.3. Shiraz has customized elements like alerts, cards, panels, images, tables, badges, texts, ...
+
+For tutorial and download see
+
+https://kookma.github.io/Shiraz/

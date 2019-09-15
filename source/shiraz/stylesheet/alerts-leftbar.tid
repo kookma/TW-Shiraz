@@ -1,0 +1,13 @@
+created: 20181208184228896
+creator: Mohammad
+modified: 20190904041813124
+modifier: Mohammad
+tags: $:/tags/Stylesheet
+title: $:/plugins/kookma/shiraz/stylesheet/alerts-leftbar
+type: text/css
+
+.leftbar{
+  border-width:0px !important;
+  border-radius:0px !important;
+  border-left-width: 5px !important;
+}

@@ -1,0 +1,23 @@
+created: 20181130201725271
+creator: Mohammad
+modified: 20190906182803964
+modifier: Mohammad
+tags: $:/tags/Stylesheet
+title: $:/plugins/kookma/shiraz/stylesheet/bs/btn-size
+type: text/css
+
+/* Button and btn classes Mohammad*/
+
+.btn-lg{
+  padding: 0.5rem 1rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  border-radius: 0.3rem;
+}
+
+.btn-sm{
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+}

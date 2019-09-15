@@ -1,0 +1,33 @@
+created: 20190901192929449
+modified: 20190915201707150
+tags: 
+title: $:/plugins/kookma/shiraz/history
+type: text/vnd.tiddlywiki
+
+!! Revision 2.0.0 beta 1 
+<<<
+* Date: [16th Sep 2019]
+* Shiraz 2 a new rewrite of Shiraz 1.0.2
+<<<
+
+!! Revision 1.0.2 
+<<<
+* Date: [8th Nov 2018]
+* New demo for making Table of Contents
+* New macros: details, abbr, hspace
+* Change name to Shiraz
+<<<
+
+!! Revision 1.0.1 
+<<<
+* Date: [1st Nov 2018]
+* A rewrite and cleanup the code
+<<<
+
+!! Revision 1.0.0
+<<<
+* Date: [5th Oct 2018]
+* New favorites plugin
+* New timestamp plugin
+* New notebook tiddler
+<<<

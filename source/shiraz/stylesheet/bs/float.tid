@@ -1,0 +1,19 @@
+created: 20180823142040855
+creator: Mohammad
+modified: 20190904041813009
+modifier: Mohammad
+tags: $:/tags/Stylesheet
+title: $:/plugins/kookma/shiraz/stylesheet/bs/float
+type: text/css
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-none {
+  float: none;
+}

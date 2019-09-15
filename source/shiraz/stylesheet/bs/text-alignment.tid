@@ -1,0 +1,33 @@
+created: 20180822051223866
+creator: Mohammad
+modified: 20190904041813398
+modifier: Mohammad
+tags: $:/tags/Stylesheet
+title: $:/plugins/kookma/shiraz/stylesheet/bs/text-alignment
+type: text/css
+
+.text-justify {
+  text-align: justify !important;
+}
+
+.text-nowrap {
+  white-space: nowrap !important;
+}
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-center {
+  text-align: center !important;
+}

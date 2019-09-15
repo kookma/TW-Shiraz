@@ -1,0 +1,11 @@
+created: 20181010052504360
+creator: Mohammad
+modified: 20190903182558795
+modifier: Mohammad
+tags: $:/tags/Macro
+title: $:/plugins/kookma/shiraz/macros/mono
+type: text/vnd.tiddlywiki
+
+\define mono(text)
+<code class="mono">$text$</code>
+\end

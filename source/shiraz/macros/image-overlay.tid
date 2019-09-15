@@ -1,0 +1,25 @@
+created: 20181117203737197
+creator: Mohammad
+modified: 20190915183435397
+modifier: Mohammad
+tags: $:/tags/Macro
+title: $:/plugins/kookma/shiraz/macros/image-overlay
+type: text/vnd.tiddlywiki
+
+\define image-overlay(img, width:"30%", align:"left", caption:"", title:"", text:"", fadein:"left", alt:"")
+<div class="image-overlay-container image-align-$align$" style="width:$width$;">
+    <h3 class="image-overlay-title">$caption$</h3>
+    <div class="image-overlay-content">
+      <div class="image-overlay-content-overlay"></div>
+      <$image class="image-overlay-content-image" source=<<__img__>> alt=<<__alt__>>/>
+      <$set name="fdcls" filter="$fadein$ +[splitbefore[ ]] +[addprefix[image-overlay-fadeIn-]]">
+      <div class=<<_cls-content-details>> >
+        <h3 class="image-overlay-content-title">$title$</h3>
+        <p class="image-overlay-content-text">$text$</p>
+      </div>
+      </$set>
+  </div>
+</div>
+\end
+
+\define _cls-content-details() image-overlay-content-details $(fdcls)$

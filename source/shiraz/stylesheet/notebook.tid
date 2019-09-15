@@ -1,0 +1,36 @@
+created: 20180412105446259
+creator: Mohammad
+modified: 20190904041813163
+modifier: Mohammad
+tags: $:/tags/Stylesheet
+title: $:/plugins/kookma/shiraz/stylesheet/notebook
+type: text/css
+
+/* Added Oct 15, 2018. Mohammad 
+Notebook background by pure css3
+Ref:
+[1] http://lea.verou.me/css3patterns
+[2] https://codepen.io/designcouch/pen/vlpiC
+*/
+
+[data-tags ~= "notebook"] .tc-tiddler-body {
+  /*background-color:#ffffff;*/
+  padding-left: 35px;
+ /* border-left: 2px solid #abced4; */
+  background-image: 
+  linear-gradient(#eee .01em, transparent .1em); 
+  background-size: 100%  1.5em;
+  position:relative;
+}   
+/* 1.2em is the space between horizontal lines*/
+  [data-tags ~= "notebook"] .tc-tiddler-body::before {
+    content:'';
+    display:block;
+    position:absolute;
+    z-index:1;
+    top:0;
+    left:25px;
+    height:100%;
+    width:2px;
+    background:#abced4;
+  }

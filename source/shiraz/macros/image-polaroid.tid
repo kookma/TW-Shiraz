@@ -1,12 +1,12 @@
 created: 20181117203654803
 creator: Mohammad
-modified: 20190915142409041
+modified: 20190918184204081
 modifier: Mohammad
 tags: $:/tags/Macro
 title: $:/plugins/kookma/shiraz/macros/image-polaroid
 type: text/vnd.tiddlywiki
 
-\define image-polaroid(img, width:"30%", align:"left", caption:"", tooltip:"", alt:"")
+\define image-polaroid(img, width:"30%", align:"none", caption:"", tooltip:"", alt:"")
 <figure class="image-polaroid image-align-$align$" style="width:$width$;">
   <$image source="""$img$""" tooltip="""$tooltip$"""/>
   <figcaption class="image-polaroid-caption">$caption$</figcaption>

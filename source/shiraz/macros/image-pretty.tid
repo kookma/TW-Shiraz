@@ -1,12 +1,12 @@
 created: 20181117203541398
 creator: Mohammad
-modified: 20190915142403131
+modified: 20190918184226498
 modifier: Mohammad
 tags: $:/tags/Macro
 title: $:/plugins/kookma/shiraz/macros/image-pretty
 type: text/vnd.tiddlywiki
 
-\define image-pretty(img, width:"30%", align:"left", caption:"", alt:"")
+\define image-pretty(img, width:"30%", align:"none", caption:"", tooltip:"", alt:"")
 <figure class="image-pretty image-align-$align$" style="width:$width$;">
   <$image source=<<__img__>> tooltip=<<__tooltip__>> alt=<<__alt__>> /> 
   <figcaption class="image-pretty-caption">$caption$</figcaption>

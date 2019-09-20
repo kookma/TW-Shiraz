@@ -1,12 +1,12 @@
 created: 20181119183704246
 creator: Mohammad
-modified: 20190915142412862
+modified: 20190918175136601
 modifier: Mohammad
 tags: $:/tags/Macro
 title: $:/plugins/kookma/shiraz/macros/image-basic
 type: text/vnd.tiddlywiki
 
-\define image-basic(img, width:"30%", align:"left", caption:"", tooltip:"", alt:"")
+\define image-basic(img, width:"30%", align:"none", caption:"", tooltip:"", alt:"")
 <figure class="image-simple image-align-$align$" style="width:$width$;">
   <$image source=<<__img__>> tooltip=<<__tooltip__>> alt=<<__alt__>> /> 
   <figcaption>$caption$</figcaption>

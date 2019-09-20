@@ -1,12 +1,12 @@
 created: 20181117203737197
 creator: Mohammad
-modified: 20190915183435397
+modified: 20190918184155341
 modifier: Mohammad
 tags: $:/tags/Macro
 title: $:/plugins/kookma/shiraz/macros/image-overlay
 type: text/vnd.tiddlywiki
 
-\define image-overlay(img, width:"30%", align:"left", caption:"", title:"", text:"", fadein:"left", alt:"")
+\define image-overlay(img, width:"30%", align:"none", caption:"", title:"", text:"", fadein:"left", alt:"")
 <div class="image-overlay-container image-align-$align$" style="width:$width$;">
     <h3 class="image-overlay-title">$caption$</h3>
     <div class="image-overlay-content">

@@ -1,8 +1,25 @@
 created: 20190901192929449
-modified: 20190915201707150
+modified: 20190920173136243
 tags: 
 title: $:/plugins/kookma/shiraz/history
 type: text/vnd.tiddlywiki
+
+!! Revision 2.0.0 beta 2 
+<<<
+* Date: [20th Sep 2019]
+* [NEW] new image macros, new image CSS
+* [NEW] new hover class for table-hover
+* all image alignment default value changed to none
+* [NEW] bootstrap clearfix class was added
+* [FIXED] table classes for colorful header have been rewritten to use some of contextual classes
+** class `centered` renamed to `center`
+* [FIXED] alerts documentation improved
+* [FIXED] images documentation improved
+* [FIXED] tables documentation improved
+* [FIXED] badges documentation improved
+* [FIXED] text-utilities documentation improved
+* [NEW] Advanced examples added, documentation in progress
+<<<
 
 !! Revision 2.0.0 beta 1 
 <<<

@@ -1,0 +1,11 @@
+created: 20181101154956345
+creator: Mohammad
+modified: 20190920045732334
+modifier: Mohammad
+tags: $:/tags/Macro
+title: $:/plugins/kookma/shiraz/macros/text-utility
+type: text/vnd.tiddlywiki
+
+\define tc(text:"", color:"red") <span style="color:$color$;">$text$</span>
+\define bc(text:"", color:"yellow") <span style="background-color:$color$;">$text$</span>
+\define mono(text:"") <code class="mono">$text$</code>

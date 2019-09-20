@@ -1,12 +1,12 @@
 created: 20181117040544570
 creator: Mohammad
-modified: 20190915144024544
+modified: 20190918184239163
 modifier: Mohammad
 tags: $:/tags/Macro
 title: $:/plugins/kookma/shiraz/macros/image-slidein
 type: text/vnd.tiddlywiki
 
-\define image-slidein(img, width:"30%", align:"left", caption:"", tooltip:"", slidein:"left", alt:"")
+\define image-slidein(img, width:"30%", align:"none", caption:"", tooltip:"", slidein:"left", alt:"")
 <figure class="image-slidein mr-cap-$slidein$ image-align-$align$" style="width:$width$;">
   <$image source=<<__img__>> tooltip=<<__tooltip__>> alt=<<__alt__>>/>
   <figcaption>$caption$</figcaption>

@@ -1,6 +1,6 @@
 created: 20181117040213926
 creator: Mohammad
-modified: 20190904041813183
+modified: 20190918190851859
 modifier: Mohammad
 tags: $:/tags/Stylesheet
 title: $:/plugins/kookma/shiraz/stylesheet/image-slidein
@@ -9,9 +9,9 @@ type: text/css
 .image-slidein { 
   display: block; 
   position: relative; 
-  float: left; 
+  /*float: left;*/
   overflow: hidden; 
-  margin: 0 20px 20px 0;
+ /* margin: 0 20px 20px 0;*/
 }
 
 .image-slidein img {

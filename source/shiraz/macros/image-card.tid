@@ -1,12 +1,12 @@
 created: 20190913094619863
 creator: Mohammad
-modified: 20190915190641010
+modified: 20190918184142639
 modifier: Mohammad
 tags: $:/tags/Macro
 title: $:/plugins/kookma/shiraz/macros/image-card
 type: text/vnd.tiddlywiki
 
-\define image-card(img, width:"30%", align:"left", title:"Empty", text:"Empty", footer:"Empty", pos:"top", alt:"")
+\define image-card(img, width:"30%", align:"none", title:"Empty", text:"Empty", footer:"Empty", pos:"top", alt:"")
 <$reveal tag="div" type="match" default="top" text=<<__pos__>> >
 <$macrocall $name=image-card-top img=<<__img__>> title=<<__title__>> text=<<__text__>>
   footer=<<__footer__>> width=<<__width__>> align=<<__align__>> alt=<<__alt__>> />
@@ -17,7 +17,7 @@ type: text/vnd.tiddlywiki
 </$reveal>
 \end
 
-\define image-card-top(img, width:"30%", align:"left", title:"Empty", text:"Empty", footer:"Empty", alt:"")
+\define image-card-top(img, width:"30%", align:"none", title:"Empty", text:"Empty", footer:"Empty", alt:"")
 <div class="card image-align-$align$" style="width:$width$;">
   <$image class="card-img-top" source=<<__img__>> alt=<<__alt__>> />
   <div class="card-body">
@@ -34,7 +34,7 @@ type: text/vnd.tiddlywiki
 </div>
 \end
 
-\define image-card-bottom(img, width:"30%", align:"left", title:"Empty", text:"Empty", footer:"Empty", alt:"")
+\define image-card-bottom(img, width:"30%", align:"none", title:"Empty", text:"Empty", footer:"Empty", alt:"")
 <div class="card image-align-$align$" style="width:$width$;">
   <div class="card-body">
     <$reveal tag="div" type="nomatch" default="Empty" text=<<__title__>> >

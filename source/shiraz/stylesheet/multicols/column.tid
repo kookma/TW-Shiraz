@@ -1,0 +1,46 @@
+created: 20190627204703061
+creator: Mohammad
+modified: 20191020141836225
+modifier: Mohammad
+tags: $:/tags/Stylesheet
+title: $:/plugins/kookma/shiraz/stylesheet/multicols/column
+type: text/css
+
+/* multicolumn layouts using column selector
+- used as a tiddler tag to create two columns tiddler
+- used with div element to create two columns layout
+*/
+[data-tags~="twocolumns"] .tc-tiddler-body {
+	column-count:2; 
+	column-gap:1em; 
+	column-width:200px;
+	margin-top:2em;
+}
+/* remove the extra space from first paragraph */
+[data-tags~="twocolumns"] .tc-tiddler-body > :first-child { margin-top: 0;}
+
+/* Multi-columns classes 
+   multi-column tiddler content (not supported in Internet Explorer) */
+
+.twocolumns { 
+	display:block;
+	column-count:2;
+	column-width:50%;
+}
+
+.threecolumns {
+	display:block;
+	column-count:3;
+	column-width:33%;
+}
+.fourcolumns {
+	display:block;
+	column-count:4;
+	column-width:25%;
+}
+/* Remove the extra space specially when there is a heading as first child.*/
+.twocolumns   > :first-child,
+.threecolumns > :first-child,
+.fourcolumns  > :first-child {
+	margin-top: 0;
+}

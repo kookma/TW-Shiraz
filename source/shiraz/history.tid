@@ -1,8 +1,18 @@
 created: 20190901192929449
-modified: 20190920173136243
+modified: 20191018073639355
 tags: 
 title: $:/plugins/kookma/shiraz/history
 type: text/vnd.tiddlywiki
+
+!! Revision 2.0.0 beta 2 
+<<<
+* Date: [18th Oct 2019]
+* Multicolumn layout
+* the below macros with `text` input parameter modified and now uses `src` instead of `text` as this is more meaningful.
+** `alert`
+** `alert-leftbar`
+
+<<<
 
 !! Revision 2.0.0 beta 2 
 <<<

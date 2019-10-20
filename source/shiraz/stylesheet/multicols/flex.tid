@@ -1,0 +1,29 @@
+created: 20191014193910006
+modified: 20191018054433745
+tags: $:/tags/Stylesheet
+title: $:/plugins/kookma/shiraz/stylesheet/multicols/flex
+type: text/css
+
+/* multicolumn layout using flex for div elements*/
+.flex-row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.flex-col {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.flex-col {
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+}

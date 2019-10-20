@@ -1,7 +1,6 @@
 created: 20190918193736314
 creator: Mohammad
-modified: 20190918194207793
-modifier: Mohammad
+modified: 20191019075823058
 tags: $:/tags/Stylesheet
 title: $:/plugins/kookma/shiraz/stylesheet/image-alignment
 type: text/css
@@ -16,6 +15,7 @@ type: text/css
     margin: 0.5em 1.4em 1.3em 0;
 }
 .image-align-center{
+  display:block;
   margin: 0.5em auto 1.3em; 
 }
 

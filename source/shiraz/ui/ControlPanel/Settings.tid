@@ -1,0 +1,16 @@
+caption: Shiraz
+created: 20191018054657077
+modified: 20191018054844683
+tags: $:/tags/ControlPanel/SettingsTab $:/tags/MoreSideBar
+title: $:/plugins/kookma/shiraz/ui/ControlPanel/Settings
+type: text/vnd.tiddlywiki
+
+These settings let you customise the behaviour of Shiraz plugin.
+
+---
+
+;Show Shiraz setting in more sidebar
+:<$checkbox tiddler="$:/plugins/kookma/shiraz/ui/ControlPanel/Settings" tag="$:/tags/MoreSideBar"> Show setting in more sidebar</$checkbox>
+
+;Options
+:<$checkbox tiddler="$:/plugins/kookma/utility/pagecontrol/view-fields-button" tag="$:/tags/PageControls"> Enable show fields</$checkbox>

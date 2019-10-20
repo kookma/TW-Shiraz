@@ -1,15 +1,14 @@
 created: 20181124042103310
 creator: Mohammad
-modified: 20190903182410934
-modifier: Mohammad
+modified: 20191018073412108
 tags: $:/tags/Macro
 title: $:/plugins/kookma/shiraz/macros/badge
 type: text/vnd.tiddlywiki
 
-\define badge(type:"primary" text:"")
-<span class="badge badge-$type$">$text$</span>
+\define badge(type:"primary" src:"")
+<span class="badge badge-$type$">$src$</span>
 \end
 
-\define badge-pill(type:"primary" text:"")
-<span class="badge badge-pill badge-$type$">$text$</span>
+\define badge-pill(type:"primary" src:"")
+<span class="badge badge-pill badge-$type$">$src$</span>
 \end

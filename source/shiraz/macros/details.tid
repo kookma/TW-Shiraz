@@ -1,16 +1,15 @@
 created: 20181101185833098
 creator: Mohammad
-modified: 20190904101401686
-modifier: Mohammad
+modified: 20191018074155899
 tags: $:/tags/Macro
 title: $:/plugins/kookma/shiraz/macros/details
 type: text/vnd.tiddlywiki
 
-\define details(sum:"summary", text:"text", class:"", status:"")
+\define details(sum:"summary", src:"source", class:"", status:"")
 <details $status$>
  <summary>$sum$</summary>
   <div class="$class$">
-   $text$
+   $src$
   </div>
 </details>
 \end

@@ -1,0 +1,12 @@
+created: 20191018063242993
+modified: 20191019083106073
+tags: $:/tags/Macro
+title: $:/plugins/kookma/shiraz/macros/multicol
+type: text/vnd.tiddlywiki
+
+\define multicol(src, ncol:"two", class:"")
+<div class="$ncol$columns $class$">
+
+$src$
+</div>
+\end

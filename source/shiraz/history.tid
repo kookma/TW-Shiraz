@@ -1,5 +1,5 @@
 created: 20190901192929449
-modified: 20191028143418468
+modified: 20191028145026840
 tags: 
 title: $:/plugins/kookma/shiraz/history
 type: text/vnd.tiddlywiki
@@ -10,6 +10,7 @@ type: text/vnd.tiddlywiki
 * The slide macro for details disclosure has been added
 * Several examples for details and slider macro have been added
 * The multicol macro now supports fixed width column which results in responsive multicolumns layout
+* Stylesheet for story river in two columns added
 * The notebook style for creating notebook tiddler has been added
 * Documentation improved
 

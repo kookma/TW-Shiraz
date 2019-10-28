@@ -1,21 +1,14 @@
 created: 20170629183034888
 creator: Mohammad
-modified: 20191018071347789
+modified: 20191026041335509
 tags: $:/tags/Macro
 title: $:/plugins/kookma/shiraz/macros/space
 type: text/vnd.tiddlywiki
 
-\define vspace(height)
+\define vspace(height:"25px")
 <p style="margin-bottom: $height$;"></p>
 \end
 
-\define hspace(width)
+\define hspace(width:"25px")
 <span style="margin-left: $width$;"></span>
 \end
-
-!! Utility macros
-This tiddler contains the user defined macros. Edit to see the code.
-
-|table-borderless|k
-|''vspace(height)'' |create a vertical space using an empty paragraph |
-|''hspace(width)'' |create horizontal space using an empty span |

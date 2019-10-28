@@ -1,6 +1,6 @@
 created: 20181101185908941
 creator: Mohammad
-modified: 20191013153056509
+modified: 20191024060715963
 tags: $:/tags/Stylesheet
 title: $:/plugins/kookma/shiraz/stylesheet/details
 type: text/css
@@ -8,12 +8,10 @@ type: text/css
 /*details html5 macro*/
 details > summary {
   padding: 2px 6px;
-  background-color: #efebe9;
   font-weight:500;
   outline:none;
 }
 details > div {
-  background-color: #fffef9;
   padding: 2px 6px;
   margin: 0;
 }

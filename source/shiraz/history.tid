@@ -1,21 +1,32 @@
 created: 20190901192929449
-modified: 20191018073639355
+modified: 20191028143418468
 tags: 
 title: $:/plugins/kookma/shiraz/history
 type: text/vnd.tiddlywiki
 
-!! Revision 2.0.0 beta 2 
-<<<
+!! Revision 2.0.0 beta 5
+* Date: [28th Oct 2019]
+* The details macro modified for summary style
+* The slide macro for details disclosure has been added
+* Several examples for details and slider macro have been added
+* The multicol macro now supports fixed width column which results in responsive multicolumns layout
+* The notebook style for creating notebook tiddler has been added
+* Documentation improved
+
+!! Revision 2.0.0 beta 4
+* Date: [21th Oct 2019]
+* text [[transform macro|demo/text/transform-macro]] has been added
+* [[Shiraz Advanced Tutorial]] has been started and gradually will be completed
+* Examples for using Shiraz classes have been added
+
+!! Revision 2.0.0 beta 3 
 * Date: [18th Oct 2019]
 * Multicolumn layout
 * the below macros with `text` input parameter modified and now uses `src` instead of `text` as this is more meaningful.
 ** `alert`
 ** `alert-leftbar`
 
-<<<
-
 !! Revision 2.0.0 beta 2 
-<<<
 * Date: [20th Sep 2019]
 * [NEW] new image macros, new image CSS
 * [NEW] new hover class for table-hover
@@ -29,32 +40,23 @@ type: text/vnd.tiddlywiki
 * [FIXED] badges documentation improved
 * [FIXED] text-utilities documentation improved
 * [NEW] Advanced examples added, documentation in progress
-<<<
 
 !! Revision 2.0.0 beta 1 
-<<<
 * Date: [16th Sep 2019]
 * Shiraz 2 a new rewrite of Shiraz 1.0.2
-<<<
 
 !! Revision 1.0.2 
-<<<
 * Date: [8th Nov 2018]
 * New demo for making Table of Contents
 * New macros: details, abbr, hspace
 * Change name to Shiraz
-<<<
 
 !! Revision 1.0.1 
-<<<
 * Date: [1st Nov 2018]
 * A rewrite and cleanup the code
-<<<
 
 !! Revision 1.0.0
-<<<
 * Date: [5th Oct 2018]
 * New favorites plugin
 * New timestamp plugin
 * New notebook tiddler
-<<<

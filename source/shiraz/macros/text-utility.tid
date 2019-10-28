@@ -1,6 +1,6 @@
 created: 20181101154956345
 creator: Mohammad
-modified: 20191018074305470
+modified: 20191021055523858
 tags: $:/tags/Macro
 title: $:/plugins/kookma/shiraz/macros/text-utility
 type: text/vnd.tiddlywiki
@@ -8,3 +8,4 @@ type: text/vnd.tiddlywiki
 \define tc(src:"", color:"red") <span style="color:$color$;">$src$</span>
 \define bc(src:"", color:"yellow") <span style="background-color:$color$;">$src$</span>
 \define mono(src:"", class:"") <code class="mono $class$">$src$</code>
+\define transform(case:"", src:"", class:"") <span class="text-$case$ $class$">$src$</span>

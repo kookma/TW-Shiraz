@@ -1,11 +1,11 @@
 created: 20181122175345419
 creator: Mohammad
-modified: 20191013153056555
+modified: 20191029141511318
 tags: $:/tags/Stylesheet
 title: $:/plugins/kookma/shiraz/stylesheet/bs/card-column
 type: text/css
 
-/* Extracted from bootstrap 4.1.3 */
+/* Extracted from bootstrap 4.3.1 */
 .card-columns .card {
   margin-bottom: 0.75rem;
 }

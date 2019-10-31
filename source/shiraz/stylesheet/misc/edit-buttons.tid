@@ -1,0 +1,11 @@
+created: 20191029091851469
+creator: Mohammad
+modified: 20191029155901011
+tags: 
+title: $:/plugins/kookma/shiraz/stylesheet/misc/edit-buttons
+type: text/css
+
+/*Edit buttons as traffic lights*/
+.tc-tiddler-controls .tc-image-delete-button {fill:#ebb;}
+.tc-tiddler-controls .tc-image-cancel-button {fill:#ed9;}
+.tc-tiddler-controls .tc-image-done-button {fill:#beb;}

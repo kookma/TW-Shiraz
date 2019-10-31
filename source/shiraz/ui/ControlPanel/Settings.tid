@@ -1,6 +1,7 @@
 caption: Shiraz
 created: 20191018054657077
-modified: 20191024060349296
+list-after: $:/core/ui/ControlPanel/Settings/TiddlyWiki
+modified: 20191029155854395
 tags: $:/tags/ControlPanel/SettingsTab $:/tags/MoreSideBar
 title: $:/plugins/kookma/shiraz/ui/ControlPanel/Settings
 type: text/vnd.tiddlywiki
@@ -14,3 +15,10 @@ These settings let you customise the behaviour of Shiraz plugin.
 
 ;Options
 :<$checkbox tiddler="$:/plugins/kookma/shiraz/stylesheet/multicols/storyriver" tag="$:/tags/Stylesheet"> Multicolumn story river</$checkbox>
+:<$checkbox tiddler="$:/plugins/kookma/shiraz/stylesheet/misc/ui-buttons" tag="$:/tags/Stylesheet"> Colorful UI buttons</$checkbox>
+:<$checkbox tiddler="$:/plugins/kookma/shiraz/stylesheet/misc/tiddler-button-visibility" tag="$:/tags/Stylesheet"> Tiddler visibility on mouse hover</$checkbox>
+:<$checkbox tiddler="$:/plugins/kookma/shiraz/stylesheet/misc/edit-buttons" tag="$:/tags/Stylesheet"> Traffic lights for edit toolbar buttons</$checkbox>
+
+
+
+

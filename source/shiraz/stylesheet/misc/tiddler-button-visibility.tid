@@ -1,0 +1,17 @@
+created: 20191029094209435
+creator: Mohammad
+modified: 20191029094534744
+tags: 
+title: $:/plugins/kookma/shiraz/stylesheet/misc/tiddler-button-visibility
+type: text/css
+
+/* Mouseover toolbar visibility: courtesy from Tobias Beer*/
+.tc-tiddler-frame .tc-titlebar button {
+  opacity: 0;
+  transition: opacity .5s ease-in-out;
+}
+.tc-tiddler-frame:hover .tc-titlebar button {
+  zoom: 1;
+  filter: alpha(opacity=100);
+  opacity: 1;
+}

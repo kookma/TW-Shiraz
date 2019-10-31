@@ -1,0 +1,22 @@
+created: 20191029092047069
+creator: Mohammad
+modified: 20191029114047130
+tags: 
+title: $:/plugins/kookma/shiraz/stylesheet/misc/ui-buttons
+type: text/css
+
+/* These css rules makes TW UI buttons in beatiful color */
+
+/*page control buttons*/
+.tc-page-controls .tc-image-new-button { fill: #5EB95E; } /*New tiddler button*/
+.tc-page-controls .tc-image-options-button { fill:#8058A5; } /*Open control pannel*/
+
+/*tiddler buttons in beautiful color*/
+.tc-tiddler-controls .tc-image-edit-button { fill:#F37B1D; }/*edit tiddler*/
+.tc-tiddler-controls .tc-image-info-button { fill: #0e90d2; } /*Info button*/
+
+/*tiddler buttons in edit mode as traffic lights*/
+.tc-tiddler-controls .tc-image-delete-button {fill:#ebb;}
+.tc-tiddler-controls .tc-image-cancel-button {fill:#ed9;}
+.tc-tiddler-controls .tc-image-done-button {fill:#beb;}
+

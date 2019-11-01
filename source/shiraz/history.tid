@@ -1,8 +1,13 @@
 created: 20190901192929449
-modified: 20191031134604521
+modified: 20191101141619033
 tags: 
 title: $:/plugins/kookma/shiraz/history
 type: text/vnd.tiddlywiki
+
+!! Revision 2.0.0 beta 6
+* Date: [1st Nov 2019]
+* [New] apply custom style to a tiddler using user class
+* [New] several examples describing how to apply custom styles to a tiddler
 
 !! Revision 2.0.0 beta 6
 * Date: [31st Oct 2019]

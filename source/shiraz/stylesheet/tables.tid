@@ -1,7 +1,5 @@
-caption: Striped rows and columns
 created: 20180413092232257
-creator: Mohammad
-modified: 20191013153056468
+modified: 20191204153335391
 tags: $:/tags/Stylesheet
 title: $:/plugins/kookma/shiraz/stylesheet/tables
 type: text/css
@@ -68,4 +66,23 @@ April 13, 2018
 .thead-danger thead td, .thead-danger th{background-color: #dc3545; color: #fff;}
 .thead-info thead td, .thead-info th{background-color: #17a2b8; color: #fff;}
 .thead-dark thead td, .thead-dark th{background-color: #343a40; color: #fff;}
-.thead-light thead td, .thead-dark th{background-color: #f8f9fa; color: #212529;}
+.thead-light thead td, .thead-light th{background-color: #f8f9fa; color: #212529;}
+
+/* Table with colored header correct to fill svgs with white color */
+.thead-primary > thead> tr > td svg, .thead-primary > thead> tr > th svg,
+.thead-secondary > thead> tr > td svg, .thead-secondary > thead> tr > th svg,
+.thead-success > thead> tr > td svg, .thead-success > thead> tr > th svg,
+.thead-warning > thead> tr > td svg, .thead-warning > thead> tr > th svg,
+.thead-danger > thead> tr > td svg, .thead-danger > thead> tr > th svg,
+.thead-info > thead> tr > td svg, .thead-info > thead> tr > th svg,
+.thead-dark > thead> tr > td svg, .thead-dark > thead> tr > th svg
+ {fill:#ffffff; padding:0 0 3px 0; }
+
+
+.thead-primary th .tc-tiddlylink, .thead-primary th a,
+.thead-secondary th .tc-tiddlylink, .thead-primary th a,
+.thead-success th .tc-tiddlylink, .thead-primary th a,
+.thead-warning th .tc-tiddlylink, .thead-primary th a,
+.thead-danger th .tc-tiddlylink, .thead-primary th a,
+.thead-info th .tc-tiddlylink, .thead-primary th a,
+.thead-dark th .tc-tiddlylink, .thead-primary th a{color:#ffffff}

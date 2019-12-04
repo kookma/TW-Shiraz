@@ -1,0 +1,13 @@
+created: 20191128215812372
+modified: 20191202182203200
+title: $:/plugins/kookma/shiraz/macros/dtables-toggle-edit-view
+type: text/vnd.tiddlywiki
+
+\define toggle-edit-view()
+<$reveal type="nomatch" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit">
+<$button class="tc-btn-invisible tc-tiddlylink" setTitle=<<tempTableEdit>> setIndex="mode" setTo="edit">{{$:/core/images/edit-button}}</$button>
+</$reveal>
+<$reveal type="match" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit">
+<$button class="tc-btn-invisible tc-tiddlylink" setTitle=<<tempTableEdit>> setIndex="mode" setTo="view">{{$:/core/images/done-button}}</$button>
+</$reveal>
+\end

@@ -1,8 +1,25 @@
 created: 20190901192929449
-modified: 20191101143011284
+modified: 20191204083818937
 tags: 
 title: $:/plugins/kookma/shiraz/history
 type: text/vnd.tiddlywiki
+
+!! Revision 2.0.0 beta 10
+* Date: [4th Dec 2019]
+* [NEW] macro `table-id` for creating dynamic tables from datat tiddlers
+* [NEW] macro `table-fd` for creating dynamic tables from tiddler fields
+* [NEW] double confirmatiion for delete tiddlers in dynamic tables
+* [FIXED] colorful table header classes supports white svg in header
+
+
+!! Revision 2.0.0 beta 9
+* Date: [22th Nov 2019]
+* [FIXED] Issue with setting checkboxes has been fixed
+
+!! Revision 2.0.0 beta 8
+* Date: [20th Nov 2019]
+* [FIXED] Documentation improved
+
 
 !! Revision 2.0.0 beta 7
 * Date: [1st Nov 2019]

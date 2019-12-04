@@ -1,0 +1,9 @@
+created: 20191125202817441
+modified: 20191204075451103
+tags: $:/tags/DynamicTable/Template
+title: $:/plugins/kookma/shiraz/template/dtable-body/created
+type: text/vnd.tiddlywiki
+
+<td>
+<$view tiddler=<<currentRecord>> field=<<currentColumn>> format="date" template="YYYY.0MM.0DD"/>
+</td>

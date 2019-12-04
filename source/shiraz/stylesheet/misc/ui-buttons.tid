@@ -1,6 +1,5 @@
 created: 20191029092047069
-creator: Mohammad
-modified: 20191029114047130
+modified: 20191130072546058
 tags: 
 title: $:/plugins/kookma/shiraz/stylesheet/misc/ui-buttons
 type: text/css
@@ -14,9 +13,3 @@ type: text/css
 /*tiddler buttons in beautiful color*/
 .tc-tiddler-controls .tc-image-edit-button { fill:#F37B1D; }/*edit tiddler*/
 .tc-tiddler-controls .tc-image-info-button { fill: #0e90d2; } /*Info button*/
-
-/*tiddler buttons in edit mode as traffic lights*/
-.tc-tiddler-controls .tc-image-delete-button {fill:#ebb;}
-.tc-tiddler-controls .tc-image-cancel-button {fill:#ed9;}
-.tc-tiddler-controls .tc-image-done-button {fill:#beb;}
-

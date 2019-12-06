@@ -1,5 +1,5 @@
 created: 20191203102700746
-modified: 20191204161324955
+modified: 20191206141312740
 tags: $:/tags/Macro
 title: $:/plugins/kookma/shiraz/macros/dtables-table-id
 type: text/vnd.tiddlywiki
@@ -18,7 +18,7 @@ type: text/vnd.tiddlywiki
  sortType=<<__sortOp__>>
 >
 <!--check input filter parameter-->
-<$list filter="[subfilter<inputFilter>limit[1]]" emptyMessage="Input filter to table-id is empty or wrong.">
+<$list filter="[subfilter<inputFilter>limit[1]]" emptyMessage="Input filter to table-id is empty or wrong." variable=ignore>
 <$set name=columns value=<<__indexes__>> emptyValue="[subfilter<inputFilter>indexes[]]" >
 <$set name=sortneg tiddler=<<tempTableSort>> index="negate">
 <!--calculate the number of columns in edit and view mode -->
@@ -30,7 +30,7 @@ type: text/vnd.tiddlywiki
 <tr>
 <$list filter=<<columnFilter>> variable=currentColumn>
 <!--create header-->
-<$set name="headerLookup" filter="[all[tiddlers+shadows]tag[$:/tags/DynamicTable/Template]suffix<headersuffix>limit[1]get[title]]" value=<<headerLookup>> emptyValue="$:/plugins/kookma/shiraz/template/dtable-header/default">
+<$set name="headerLookup" filter="[all[tiddlers+shadows]tag[$:/tags/DynamicTable/Template]suffix<headersuffix>limit[1]get[title]]" value=<<headerLookup>> emptyValue="$:/plugins/kookma/shiraz/templates/dtable-header/default">
  <$transclude tiddler=<<headerLookup>> field="text" mode="inline"/>
 </$set>
 </$list>
@@ -47,7 +47,7 @@ type: text/vnd.tiddlywiki
           ~[all[tiddlers+shadows]tag[$:/tags/DynamicTable/Template]suffix<commonsuffix>]
           +[limit[1]get[title]]"
   value=<<bodyLookup>> 
-  emptyValue="$:/plugins/kookma/shiraz/template/dtable-indexbody/default">
+  emptyValue="$:/plugins/kookma/shiraz/templates/dtable-indexbody/default">
 <$transclude tiddler=<<bodyLookup>> field="text" mode="inline"/>
 </$set>
 </$list>

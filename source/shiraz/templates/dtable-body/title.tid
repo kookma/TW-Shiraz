@@ -1,0 +1,11 @@
+created: 20170128100357203
+modified: 20191205134031091
+tags: $:/tags/DynamicTable/Template
+title: $:/plugins/kookma/shiraz/templates/dtable-body/title
+type: text/vnd.tiddlywiki
+
+<td>
+<$link to=<<currentRecord>>>
+<$text text=<<currentRecord>> /> 
+</$link>
+</td>

@@ -1,0 +1,16 @@
+created: 20181101185908941
+modified: 20191205133931981
+tags: $:/tags/Stylesheet
+title: $:/plugins/kookma/shiraz/styles/details
+type: text/css
+
+/*details html5 macro*/
+details > summary {
+  padding: 2px 6px;
+  font-weight:500;
+  outline:none;
+}
+details > div {
+  padding: 2px 6px;
+  margin: 0;
+}

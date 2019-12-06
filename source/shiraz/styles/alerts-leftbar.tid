@@ -1,0 +1,11 @@
+created: 20181208184228896
+modified: 20191205133931788
+tags: $:/tags/Stylesheet
+title: $:/plugins/kookma/shiraz/styles/alerts-leftbar
+type: text/css
+
+.leftbar{
+  border-width:0px !important;
+  border-radius:0px !important;
+  border-left-width: 5px !important;
+}

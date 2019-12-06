@@ -1,0 +1,11 @@
+created: 20190919042042391
+modified: 20191205133931810
+tags: $:/tags/Stylesheet
+title: $:/plugins/kookma/shiraz/styles/bs/clearfix
+type: text/css
+
+.clearfix::after {
+  display: block;
+  clear: both;
+  content: "";
+}

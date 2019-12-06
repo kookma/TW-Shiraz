@@ -1,5 +1,5 @@
 created: 20191203102929722
-modified: 20191204083648295
+modified: 20191205200310712
 tags: 
 title: $:/plugins/kookma/shiraz/macros/dtables-table-utility
 type: text/vnd.tiddlywiki
@@ -9,7 +9,7 @@ $(columns)$ tbl-delete
 \end
 
 \define headersuffix() dtable-header/$(currentColumn)$
-\define commonsuffix() $:/plugins/kookma/shiraz/template/dtable-body/$(currentColumn)$
+\define commonsuffix() $:/plugins/kookma/shiraz/templates/dtable-body/$(currentColumn)$
 
 \define tempTable() 
 $:/temp/dynamictables/$(currentTable)$

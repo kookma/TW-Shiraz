@@ -1,0 +1,17 @@
+created: 20140523214749659
+modified: 20191205133931899
+tags: 
+title: $:/plugins/kookma/shiraz/styles/multicols/storyriver
+type: text/css
+
+/* create story river in two column layout */
+.tc-story-river {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tc-tiddler-frame
+{
+  max-width: 49%; margin-right: 1%;
+  /*max-width: 32%; margin-right: 1%; */
+}

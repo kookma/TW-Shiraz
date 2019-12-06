@@ -1,0 +1,17 @@
+created: 20180822044831813
+modified: 20191205133931799
+tags: $:/tags/Stylesheet
+title: $:/plugins/kookma/shiraz/styles/bs/my-adjustment
+type: text/css
+
+/* My adjustments to bootstrap 4.1.3 css classes */
+a {
+  color: #007bff;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+/* Link is hacked to be compatible with bootstrap 
+classes remove it if the TW core objects break
+*/
+

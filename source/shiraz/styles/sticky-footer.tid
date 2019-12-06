@@ -1,0 +1,18 @@
+created: 20180907070611557
+modified: 20191205133932018
+tags: $:/tags/Stylesheet
+title: $:/plugins/kookma/shiraz/styles/sticky-footer
+type: text/css
+
+.sticky-footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0.5rem;
+  background-color: #efefef;
+  text-align: center;
+  margin-top: 5px;
+  box-sizing: border-box;
+  width: 100%;
+}

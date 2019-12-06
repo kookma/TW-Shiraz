@@ -1,0 +1,15 @@
+created: 20181010192406005
+modified: 20191205133931921
+tags: $:/tags/Stylesheet
+title: $:/plugins/kookma/shiraz/styles/mono
+type: text/css
+
+.mono {
+	color:unset;
+	background-color: #f7f7f9;
+	border: 1px solid #e1e1e8;
+	white-space: pre-wrap;
+	padding: 0 3px 2px;
+	border-radius: 3px;
+	font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace;
+}

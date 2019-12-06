@@ -1,0 +1,24 @@
+created: 20191202210913762
+modified: 20191205134031078
+tags: $:/tags/DynamicTable/Template
+title: $:/plugins/kookma/shiraz/templates/dtable-fieldbody/email
+type: text/vnd.tiddlywiki
+
+\define display-email-address()
+<a class="tc-tiddlylink-external" href="mailto:$(currentRecord)$!!$(currentColumn)$" rel="noopener noreferrer" target="_blank">
+<$transclude tiddler=<<currentRecord>> field=<<currentColumn>> mode="inline" />
+</a>
+\end
+
+<$reveal type="nomatch" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td">
+<<display-email-address>>
+</$reveal>
+<$reveal type="match" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td">
+<!--check if the current column is not selected for sorting-->
+<$list filter="[<tempTableSort>getindex[sortIndex]match<currentColumn>]" variable=ignore
+emptyMessage="""<$edit-text tiddler=<<currentRecord>> field=<<currentColumn>> tag="input" class="shiraz-dtable-textbox"/>"""
+>
+<<display-email-address>>
+</$list>
+</$reveal>
+

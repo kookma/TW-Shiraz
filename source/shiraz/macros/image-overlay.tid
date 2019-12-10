@@ -1,10 +1,11 @@
 created: 20181117203737197
-modified: 20191205094804967
+modified: 20191209114410608
 tags: $:/tags/Macro
 title: $:/plugins/kookma/shiraz/macros/image-overlay
 type: text/vnd.tiddlywiki
 
 \define image-overlay(img, width:"30%", align:"none", caption:"", title:"", text:"", fadein:"left", alt:"")
+\import $:/plugins/kookma/shiraz/macros/image-overlay-utility
 <div class="image-overlay-container image-align-$align$" style="width:$width$;">
     <h3 class="image-overlay-title">$caption$</h3>
     <div class="image-overlay-content">
@@ -19,5 +20,3 @@ type: text/vnd.tiddlywiki
   </div>
 </div>
 \end
-
-\define _cls-content-details() image-overlay-content-details $(fdcls)$

@@ -1,0 +1,69 @@
+created: 20191203102700746
+modified: 20191209112939986
+tags: $:/tags/Macro
+title: $:/plugins/kookma/shiraz/macros/dtables/table-id
+type: text/vnd.tiddlywiki
+
+\define table-id(filter, indexes:"", sortOp:"sort", tblCaption:"", tblClass:"", stateTiddler:"stateDT")
+\import $:/plugins/kookma/shiraz/macros/dtables/table-id-utility
+\import $:/plugins/kookma/shiraz/macros/dtables/table-utility
+\import $:/plugins/kookma/shiraz/macros/dtables/display-extrecord
+\import $:/plugins/kookma/shiraz/macros/dtables/toggle-edit-view
+\import $:/plugins/kookma/shiraz/macros/dtables/confirm-delete
+
+<!--above commands import utility macros-->
+<$vars 
+ inputFilter="[subfilter<__filter__>!has[draft.of]]"
+ currentTable=<<qualify $stateTiddler$>>
+ sortType=<<__sortOp__>>
+>
+<!--check input filter parameter-->
+<$list filter="[subfilter<inputFilter>limit[1]]" emptyMessage="Input filter to table-id is empty or wrong." variable=ignore>
+<$set name=columns value=<<__indexes__>> emptyValue="[subfilter<inputFilter>indexes[]]" >
+<$set name=sortneg tiddler=<<tempTableSort>> index="negate">
+<!--calculate the number of columns in edit and view mode -->
+<$set name=ncols filter="[subfilter<columnFilter>] -[[tbl-delete]] [<tempTableEdit>getindex[mode]match[edit]] +[count[]]" >
+<table class=<<__tblClass__>> style="caption-side:top">
+<caption style="text-align:left;"><span style="padding-right:5px;"><<toggle-edit-view>></span> $tblCaption$</caption>
+<thead>
+<<confirm-delete>>
+<tr>
+<$list filter=<<columnFilter>> variable=currentColumn>
+<!--create header-->
+<$set name="headerLookup" filter="[all[tiddlers+shadows]tag[$:/tags/DynamicTable/Template]suffix<headersuffix>limit[1]get[title]]" value=<<headerLookup>> emptyValue="$:/plugins/kookma/shiraz/templates/dtable-header/default">
+ <$transclude tiddler=<<headerLookup>> field="text" mode="inline"/>
+</$set>
+</$list>
+</tr>
+</thead>
+<tbody>
+<$wikify name="items" text=<<getitems>> > 
+<$list filter=<<tableFilter>> variable="currentItem" >
+<$list filter="[<currentItem>split[°≡°]last[]]" variable="currentRecord">
+<tr>
+<$list filter=<<columnFilter>> variable=currentColumn>
+<$set name="bodyLookup" 
+  filter="[all[tiddlers+shadows]tag[$:/tags/DynamicTable/Template]suffix<bodysuffix>]
+          ~[all[tiddlers+shadows]tag[$:/tags/DynamicTable/Template]suffix<commonsuffix>]
+          +[limit[1]get[title]]"
+  value=<<bodyLookup>> 
+  emptyValue="$:/plugins/kookma/shiraz/templates/dtable-indexbody/default">
+<$transclude tiddler=<<bodyLookup>> field="text" mode="inline"/>
+</$set>
+</$list>
+</tr>
+<!-- reveal expanded record-->
+<$reveal type="match" state=<<tempPathExpand>> text="show" tag="tr">
+<<display-extended-record>>
+</$reveal>
+</$list>
+</$list>
+</$wikify>
+</tbody>
+</table>
+</$set>
+</$set>
+</$set>
+</$list><!--check input filter parameter-->
+</$vars>
+\end

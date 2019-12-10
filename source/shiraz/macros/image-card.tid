@@ -1,10 +1,11 @@
 created: 20190913094619863
-modified: 20191205094804976
+modified: 20191209114115159
 tags: $:/tags/Macro
 title: $:/plugins/kookma/shiraz/macros/image-card
 type: text/vnd.tiddlywiki
 
 \define image-card(img, width:"30%", align:"none", title:"Empty", text:"Empty", footer:"Empty", pos:"top", alt:"")
+\import $:/plugins/kookma/shiraz/macros/image-card-utility
 <$reveal tag="div" type="match" default="top" text=<<__pos__>> >
 <$macrocall $name=image-card-top img=<<__img__>> title=<<__title__>> text=<<__text__>>
   footer=<<__footer__>> width=<<__width__>> align=<<__align__>> alt=<<__alt__>> />

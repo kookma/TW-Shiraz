@@ -1,0 +1,36 @@
+created: 20191203102929722
+modified: 20191209112932203
+tags: 
+title: $:/plugins/kookma/shiraz/macros/dtables/table-utility
+type: text/vnd.tiddlywiki
+
+\define columnFilter()
+$(columns)$ tbl-delete
+\end
+
+\define headersuffix() dtable-header/$(currentColumn)$
+\define commonsuffix() $:/plugins/kookma/shiraz/templates/dtable-body/$(currentColumn)$
+
+\define tempTable() 
+$:/temp/dynamictables/$(currentTable)$
+\end
+
+\define tempTableSort()
+$(tempTable)$/sortby
+\end
+
+\define tempTagPopup()
+$(tempTable)$/$(currentRecord)$/$(currentTiddler)$
+\end
+
+\define tempTableExpand()
+$(tempTable)$/expand
+\end
+
+\define tempPathExpand()
+$(tempTableExpand)$##$(currentRecord)$
+\end
+
+\define tempTableEdit()
+$(tempTable)$/edit-view-status
+\end

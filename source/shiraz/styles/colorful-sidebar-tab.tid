@@ -1,0 +1,13 @@
+created: 20191209105546612
+modified: 20191209122727108
+tags: $:/tags/Stylesheet
+title: $:/plugins/kookma/shiraz/styles/colorful-sidebar-tab
+type: text/css
+
+.tc-sidebar-lists .tc-tab-buttons button.tc-tab-selected {
+    background: none;
+    border: none;
+    border-bottom: solid 1px #737373 !important;
+    font-weight: bold;
+    color: #DB4C3F !important;
+}

@@ -1,0 +1,20 @@
+created: 20191201180448547
+modified: 20191209112925394
+title: $:/plugins/kookma/shiraz/macros/dtables/table-id-utility
+type: text/vnd.tiddlywiki
+
+\define tableFilter()
+[enlist<items>]+[$(sortneg)$sort[]]
+\end
+
+\define bodysuffix() dtable-indexbody/$(currentColumn)$
+
+\define getitems()
+<$set name=Index tiddler=<<tempTableSort>> index="sortIndex">
+<$list filter="[subfilter<inputFilter>!has[draft.of]]" >
+
+   <$text text="[["/>{{{ [<currentTiddler>getindex<Index>addsuffix[°≡°]] }}}<<currentTiddler>><$text text="]]"/>
+</$list>
+</$set>
+\end
+

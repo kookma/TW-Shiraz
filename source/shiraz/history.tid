@@ -1,24 +1,36 @@
 created: 20190901192929449
-modified: 20191209123233140
+modified: 20200131113725798
 tags: 
 title: $:/plugins/kookma/shiraz/history
 type: text/vnd.tiddlywiki
 
-!! Revision 2.0.0 beta 13
+!! Revision 2.0.14
+* Date: [31st Jan 202]
+* [NEW] table footer to be used for any type of summary
+* [NEW] mathematics macros to claculate the below values for a column
+** count
+** minall
+** maxall
+** sum
+** product
+** mean (arithematic average)
+** median 
+
+!! Revision 2.0.13
 * Date: [9th Dec 2019]
 * [NEW] Colorful sidebar tab is now part of Shiraz (formerly distributed with Utility)
 * [NEW] macro `list-search` similar to `list-links` with search capability
 
 
-!! Revision 2.0.0 beta 12
+!! Revision 2.0.12
 * Date: [7th Dec 2019]
 * [FIXED] missing stylesheets (some css were droped in beta 11) 
 
-!! Revision 2.0.0 beta 11
+!! Revision 2.0.11
 * Date: [6th Dec 2019]
 * [FIXED] issue of two level transclusion for displaying text (when using tbl-expand)
 
-!! Revision 2.0.0 beta 10
+!! Revision 2.0.10
 * Date: [4th Dec 2019]
 * [NEW] macro `table-id` for creating dynamic tables from data tiddlers
 * [NEW] macro `table-fd` for creating dynamic tables from tiddler fields

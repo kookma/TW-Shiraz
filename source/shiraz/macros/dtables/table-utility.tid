@@ -1,5 +1,5 @@
 created: 20191203102929722
-modified: 20191209112932203
+modified: 20200131160607887
 tags: 
 title: $:/plugins/kookma/shiraz/macros/dtables/table-utility
 type: text/vnd.tiddlywiki
@@ -9,11 +9,18 @@ $(columns)$ tbl-delete
 \end
 
 \define headersuffix() dtable-header/$(currentColumn)$
+\define footersuffix() dtable-footer/$(currentColumn)$
 \define commonsuffix() $:/plugins/kookma/shiraz/templates/dtable-body/$(currentColumn)$
 
 \define tempTable() 
-$:/temp/dynamictables/$(currentTable)$
+$:/state/dynamictables/$(currentTable)$
 \end
+
+
+\define tempTableFooter() 
+$:/shiraz/dynamic-tables/$(currentTable)$/footer
+\end
+
 
 \define tempTableSort()
 $(tempTable)$/sortby
@@ -34,3 +41,8 @@ $(tempTableExpand)$##$(currentRecord)$
 \define tempTableEdit()
 $(tempTable)$/edit-view-status
 \end
+
+<!-- Remakes
+- remove footersuffix macro, seems it has no use case
+
+-->

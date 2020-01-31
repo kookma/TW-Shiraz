@@ -1,10 +1,10 @@
 created: 20191125182419652
-modified: 20191209112939994
+modified: 20200131164752502
 tags: $:/tags/Macro
 title: $:/plugins/kookma/shiraz/macros/dtables/table-fd
 type: text/vnd.tiddlywiki
 
-\define table-fd(filter, fields:"", sortOp:"sort", tblClass:"", tblCaption:"", stateTiddler:"stateDT")
+\define table-fd(filter, fields:"", sortOp:"sort", tblClass:"", tblCaption:"", tblFooter:"0", stateTiddler:"stateDT")
 \import $:/plugins/kookma/shiraz/macros/dtables/table-fd-utility
 \import $:/plugins/kookma/shiraz/macros/dtables/table-utility
 \import $:/plugins/kookma/shiraz/macros/dtables/display-extrecord
@@ -35,6 +35,24 @@ type: text/vnd.tiddlywiki
 </$list>
 </tr>
 </thead>
+
+<!--------xxxxxxxxxxxxxxxxxxxxxxxxxxxxx need more polishing--->
+<!-- reveal footer -->
+<$reveal type="gt" default=<<__tblFooter__>> text="0" tag="tfoot">
+<$list filter="[range[1,$tblFooter$]addprefix[footer-]]" variable=footerRow>
+<tr>
+<$list filter=<<columnFilter>> variable=currentColumn>
+<$set name="footerLookup" filter="[all[tiddlers+shadows]tag[$:/tags/DynamicTable/Template]suffix<footersuffix>limit[1]get[title]]" value=<<footerLookup>> emptyValue="$:/plugins/kookma/shiraz/templates/dtable-footer/default">
+<$transclude tiddler=<<footerLookup>> field="text" mode="inline"/>
+</$set>
+</$list>
+</tr>
+</$list>
+</$reveal>
+
+<!--------xxxxxxxxxxxxxxxxxxxxxxxxxxxxx--->
+
+
 <tbody>
 <$list filter=<<tableFilter>> variable="currentRecord">
 <tr>

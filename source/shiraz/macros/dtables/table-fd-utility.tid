@@ -1,10 +1,41 @@
 created: 20191201180156564
-modified: 20191209112910449
+modified: 20200131164737573
 title: $:/plugins/kookma/shiraz/macros/dtables/table-fd-utility
 type: text/vnd.tiddlywiki
 
 \define tableFilter()
-$(inputFilter)$+[$(sortneg)$$(sortType)${$(tempTableSort)$##sortIndex}]
+$(inputFilter)$+[search:$fields${temp/search-table}]+[$(sortneg)$$(sortType)${$(tempTableSort)$##sortIndex}]
 \end
 
 \define bodysuffix() dtable-fieldbody/$(currentColumn)$
+
+\define minall() <$text text={{{ [subfilter<inputFilter>has<currentColumn>get<currentColumn>minall[]] }}}/>
+\define maxall() <$text text={{{ [subfilter<inputFilter>has<currentColumn>get<currentColumn>maxall[]] }}}/>
+\define count() <$text text={{{ [subfilter<inputFilter>has<currentColumn>get<currentColumn>count[]] }}}/>
+\define sum() <$text text={{{ [subfilter<inputFilter>has<currentColumn>get<currentColumn>sum[]]   }}}/>
+\define product() <$text text={{{ [subfilter<inputFilter>has<currentColumn>get<currentColumn>product[]]   }}}/>
+\define mean()
+<$vars
+  xcount ={{{[subfilter<inputFilter>has<currentColumn>get<currentColumn>count[]]}}}
+	xsum   ={{{ [subfilter<inputFilter>has<currentColumn>get<currentColumn>sum[]]   }}} >
+  <$text text={{{ [<xsum>divide<xcount>]   }}}/>
+</$vars>
+\end
+
+\define median()
+<$vars xcount ={{{[subfilter<inputFilter>has<currentColumn>get<currentColumn>count[]]}}} >
+	<$list filter="[<xcount>remainder[2]match[0]]" variable=ignore>
+	<!-- even number --> 
+	<$vars mid0={{{ [<xcount>divide[2]] }}} 
+         mid1={{{ [<xcount>divide[2]add[1]] }}} >		 
+ <$text text={{{[subfilter<inputFilter>has<currentColumn>get<currentColumn>sort[]first<mid0>last[]][subfilter<inputFilter>has<currentColumn>get<currentColumn>sort[]first<mid1>last[]]+[sum[]divide[2]]}}} />
+ </$vars>
+ </$list>
+ <$list filter="[<xcount>remainder[2]!match[0]]" variable=ignore>
+	<!-- odd number --> 
+	<$vars mid={{{ [<xcount>divide[2]ceil[]] }}} >
+  <$text text={{{ [subfilter<inputFilter>has<currentColumn>get<currentColumn>sort[]first<mid>last[]]}}} />
+	</$vars>
+ </$list>
+</$vars>
+\end

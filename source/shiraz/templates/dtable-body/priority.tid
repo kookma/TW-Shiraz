@@ -1,0 +1,12 @@
+created: 20200206183739894
+modified: 20200206204138623
+tags: $:/tags/DynamicTable/Template
+title: $:/plugins/kookma/shiraz/templates/dtable-body/priority
+type: text/vnd.tiddlywiki
+
+<$reveal type="nomatch" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td">
+<$transclude tiddler=<<currentRecord>> field="priority" mode="inline" />
+</$reveal>
+<$reveal type="match" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td">
+<$select tiddler=<<currentRecord>> field="priority" default=""><option value=''>Select...</option><option value='very high'>very high</option><option value='high'>high</option><option value='normal'>normal</option><option value='low'>low</option><option value='very low'>very low</option><option value=''>no priority</option></$select>
+<$reveal>

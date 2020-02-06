@@ -1,5 +1,5 @@
 created: 20191128184537594
-modified: 20191205133931976
+modified: 20200205171413561
 tags: $:/tags/Stylesheet
 title: $:/plugins/kookma/shiraz/styles/dynamic-tables
 type: text/css
@@ -39,4 +39,8 @@ table thead .tbl-delete-confirm > th > button {
   fill: white;
 }
 
-
+/* customize the table footer used for numerical summary*/
+.shiraz-dtable-footer tr td{
+	background:#f0f0f0; 
+	border:none;
+}

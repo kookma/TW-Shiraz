@@ -1,10 +1,10 @@
 created: 20191125182419652
-modified: 20200131164752502
+modified: 20200206200340343
 tags: $:/tags/Macro
 title: $:/plugins/kookma/shiraz/macros/dtables/table-fd
 type: text/vnd.tiddlywiki
 
-\define table-fd(filter, fields:"", sortOp:"sort", tblClass:"", tblCaption:"", tblFooter:"0", stateTiddler:"stateDT")
+\define table-fd(filter, fields:"", sortOp:"sort", class:"", caption:"", footerRows:"0", stateTiddler:"stateDT")
 \import $:/plugins/kookma/shiraz/macros/dtables/table-fd-utility
 \import $:/plugins/kookma/shiraz/macros/dtables/table-utility
 \import $:/plugins/kookma/shiraz/macros/dtables/display-extrecord
@@ -14,6 +14,7 @@ type: text/vnd.tiddlywiki
 <$vars 
  inputFilter="[subfilter<__filter__>!has[draft.of]]"
  currentTable=<<qualify $stateTiddler$>>
+ stateTiddler=<<__stateTiddler__>>
  sortType=<<__sortOp__>>
 >
 <!--check input filter parameter-->
@@ -22,8 +23,8 @@ type: text/vnd.tiddlywiki
 <$set name=sortneg tiddler=<<tempTableSort>> index="negate">
 <!--calculate the number of columns in edit and view mode -->
 <$set name=ncols filter="[subfilter<columnFilter>] -[[tbl-delete]] [<tempTableEdit>getindex[mode]match[edit]] +[count[]]" >
-<table class=<<__tblClass__>> style="caption-side:top">
-<caption style="text-align:left;"><span style="padding-right:5px;"><<toggle-edit-view>></span> $tblCaption$</caption>
+<table class=<<__class__>> style="caption-side:top">
+<caption style="text-align:left;"><span style="padding-right:5px;"><<toggle-edit-view>></span> $caption$</caption>
 <thead>
 <<confirm-delete>>
 <tr>
@@ -38,8 +39,8 @@ type: text/vnd.tiddlywiki
 
 <!--------xxxxxxxxxxxxxxxxxxxxxxxxxxxxx need more polishing--->
 <!-- reveal footer -->
-<$reveal type="gt" default=<<__tblFooter__>> text="0" tag="tfoot">
-<$list filter="[range[1,$tblFooter$]addprefix[footer-]]" variable=footerRow>
+<$reveal type="gt" default=<<__footerRows__>> text="0" tag="tfoot" class="shiraz-dtable-footer">
+<$list filter="[range[1,$footerRows$]addprefix[footer-]]" variable=footerRow>
 <tr>
 <$list filter=<<columnFilter>> variable=currentColumn>
 <$set name="footerLookup" filter="[all[tiddlers+shadows]tag[$:/tags/DynamicTable/Template]suffix<footersuffix>limit[1]get[title]]" value=<<footerLookup>> emptyValue="$:/plugins/kookma/shiraz/templates/dtable-footer/default">
@@ -55,7 +56,8 @@ type: text/vnd.tiddlywiki
 
 <tbody>
 <$list filter=<<tableFilter>> variable="currentRecord">
-<tr>
+<$wikify name="rowStyle" text="""<$transclude tiddler=<<tempTableStyle>> index=<<currentRecord>> />""" mode="inline">
+<tr style=<<rowStyle>>>
 <$list filter=<<columnFilter>> variable=currentColumn>
 <$set name="bodyLookup" 
   filter="[all[tiddlers+shadows]tag[$:/tags/DynamicTable/Template]suffix<bodysuffix>]
@@ -71,6 +73,7 @@ type: text/vnd.tiddlywiki
 <$reveal type="match" state=<<tempPathExpand>> text="show" tag="tr">
 <<display-extended-record>>
 </$reveal>
+</$wikify>
 </$list>
 </tbody>
 </table>

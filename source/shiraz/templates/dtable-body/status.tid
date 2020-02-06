@@ -1,0 +1,12 @@
+created: 20200206171854272
+modified: 20200206204103764
+tags: $:/tags/DynamicTable/Template
+title: $:/plugins/kookma/shiraz/templates/dtable-body/status
+type: text/vnd.tiddlywiki
+
+<$reveal type="nomatch" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td">
+<$transclude tiddler=<<currentRecord>> field="status" mode="inline" />
+</$reveal>
+<$reveal type="match" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td">
+<$select tiddler=<<currentRecord>> field="status" default=""><option value=''>Select...</option><option value='open'>open</option><option value='not started'>not started</option><option value='in-work'>in-work</option><option value='on-hold'>on-hold</option><option value='complete'>complete</option><option value='rework'>rework</option><option value='closed'>closed</option></$select>
+</$reveal>

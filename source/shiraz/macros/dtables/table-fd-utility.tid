@@ -1,5 +1,5 @@
 created: 20191201180156564
-modified: 20200131164737573
+modified: 20200205184636056
 title: $:/plugins/kookma/shiraz/macros/dtables/table-fd-utility
 type: text/vnd.tiddlywiki
 
@@ -14,7 +14,7 @@ $(inputFilter)$+[search:$fields${temp/search-table}]+[$(sortneg)$$(sortType)${$(
 \define count() <$text text={{{ [subfilter<inputFilter>has<currentColumn>get<currentColumn>count[]] }}}/>
 \define sum() <$text text={{{ [subfilter<inputFilter>has<currentColumn>get<currentColumn>sum[]]   }}}/>
 \define product() <$text text={{{ [subfilter<inputFilter>has<currentColumn>get<currentColumn>product[]]   }}}/>
-\define mean()
+\define average()
 <$vars
   xcount ={{{[subfilter<inputFilter>has<currentColumn>get<currentColumn>count[]]}}}
 	xsum   ={{{ [subfilter<inputFilter>has<currentColumn>get<currentColumn>sum[]]   }}} >
@@ -39,3 +39,6 @@ $(inputFilter)$+[search:$fields${temp/search-table}]+[$(sortneg)$$(sortType)${$(
  </$list>
 </$vars>
 \end
+
+<!-- This tiddler contains specific macros to table-fd. There is similar tiddler with silimalr macro acts on table-id
+-->

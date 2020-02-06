@@ -1,5 +1,5 @@
 created: 20191201180448547
-modified: 20200131165612599
+modified: 20200205184624010
 title: $:/plugins/kookma/shiraz/macros/dtables/table-id-utility
 type: text/vnd.tiddlywiki
 
@@ -23,7 +23,7 @@ type: text/vnd.tiddlywiki
 \define count() <$text text={{{ [subfilter<inputFilter>getindex<currentColumn>count[]] }}}/>
 \define sum() <$text text={{{ [subfilter<inputFilter>getindex<currentColumn>sum[]]   }}}/>
 \define product() <$text text={{{ [subfilter<inputFilter>getindex<currentColumn>product[]]   }}}/>
-\define mean()
+\define average()
 <$vars
   xcount ={{{[subfilter<inputFilter>getindex<currentColumn>count[]]}}}
 	xsum   ={{{ [subfilter<inputFilter>getindex<currentColumn>sum[]]   }}} >
@@ -48,3 +48,6 @@ type: text/vnd.tiddlywiki
  </$list>
 </$vars>
 \end
+
+<!-- This tiddler contains specific macros to table-id. There is similar tiddler with silimalr macro acts on table-fd
+-->

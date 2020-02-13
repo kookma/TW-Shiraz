@@ -1,8 +1,20 @@
 created: 20190901192929449
-modified: 20200206210825457
+modified: 20200213055459783
 tags: 
 title: $:/plugins/kookma/shiraz/history
 type: text/vnd.tiddlywiki
+
+!! Revision 2.0.16
+* Date: [13th Feb 2020]
+* [NEW] dynamic tables (table-fd and table-id) merged into table-dynamic
+* [NEW] dynamic-table macro handles at the same time tables created from dataTiddler and tiddler fields
+* [NEW] dynamic-table macro has editButton to show/hide the edit toggle button
+* [NEW] warning message with dismiss button when non dataTiddlers are used to create table from indexes. This warns users from risk of accidentally overwriting text field of tiddlers
+* [NEW] several new column templates including color, type, status, due-date, priority
+* [NEW] searchable dynamic tables
+* [FIXED] button size issue. The two css for btn and btn-size were merged
+* [FIXED] the issue with sorting numerical values in columns from indexes by adding description to doecumentation.
+
 
 !! Revision 2.0.15
 * Date: [6th Feb 2020]

@@ -1,0 +1,17 @@
+created: 20170212102107998
+modified: 20200209200215708
+tags: $:/tags/Table/HeaderTemplate
+tbl-column-list: tbl-delete
+title: $:/plugins/kookma/shiraz/templates/header/tbl-delete
+type: text/vnd.tiddlywiki
+
+<$list filter="[<tempTableEdit>getindex[mode]match[edit]]" variable=ignore>
+<th style="width:28px;text-align:center;">
+  <span>
+  <$button class="tc-btn-invisible">
+    <$action-setfield $tiddler="$:/temp/tables/delete-all" text=<<currentTable>>/>
+    {{$:/core/images/delete-button}}
+  </$button>
+  </span>
+</th>
+</$list>

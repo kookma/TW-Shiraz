@@ -2,7 +2,7 @@
 	"title": "$:/plugins/kookma/shiraz",
 	"description": "shiraz",
 	"author": "Mohammad Rahmani",
-	"version": "2.0.15",
+	"version": "2.0.16",
 	"core-version": ">=5.1.21",
 	"source": "https://github.com/kookma/TW-shiraz",
 	"list": "readme history license",

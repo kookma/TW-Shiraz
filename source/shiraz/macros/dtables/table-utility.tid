@@ -1,48 +1,53 @@
-created: 20191203102929722
-modified: 20200206200501320
-tags: 
+created: 20200209195541061
+modified: 20200209200743453
+tags: $:/tags/Table/Macro
 title: $:/plugins/kookma/shiraz/macros/dtables/table-utility
 type: text/vnd.tiddlywiki
 
-\define columnFilter()
-$(columns)$ tbl-delete
+\define tableFilter_fields()   $(inputFilter)$+[$(sortneg)$$(sortType)${$(tempTableSort)$##sortIndex}]
+\define tableFilter_indexes()  [enlist<items>]+[$(sortneg)$$(sortType)$[]]
+
+\define getitems()
+<$set name=Index tiddler=<<tempTableSort>> index="sortIndex">
+<$list filter="[subfilter<inputFilter>!has[draft.of]]" >
+<$text text="[["/>{{{ [<currentTiddler>getindex<Index>addsuffix[°≡°]] }}}<<currentTiddler>><$text text="]]"/>
+</$list>
+</$set>
 \end
 
-\define headersuffix() dtable-header/$(currentColumn)$
-\define footersuffix() dtable-footer/$(currentColumn)$
-\define commonsuffix() $:/plugins/kookma/shiraz/templates/dtable-body/$(currentColumn)$
-
-\define tempTable() 
-$:/state/dynamictables/$(currentTable)$
+\define display_one_record()
+<$wikify name="rowStyle" text="""<$transclude tiddler=<<tempTableStyle>> index=<<currentRecord>> />""" mode="inline">
+<tr style=<<rowStyle>>>
+<$list filter=<<columnFilter>> variable=currentColumn>
+<$set name="bodyLookup" 
+  filter="[all[tiddlers+shadows]tag[$:/tags/Table/BodyTemplate]contains:tbl-column-list<currentColumn>]
+          +[limit[1]get[title]]"
+  value=<<bodyLookup>> 
+  emptyValue="$:/plugins/kookma/shiraz/templates/body/default">
+<$transclude tiddler=<<bodyLookup>> field="text" mode="inline"/>
+</$set>
+</$list>
+</tr>
+<!-- reveal expanded record-->
+<$reveal type="match" state=<<tempPathExpand>> text="show" tag="tr">
+<<display-extended-record>>
+</$reveal>
+</$wikify>
 \end
 
-\define keepstate() $:/keepstate/dynamictables/$(currentTiddler)$/$(stateTiddler)$
-\define tempTableFooter() $(keepstate)$/footer
-\define tempTableStyle()  $(keepstate)$/style
-
-\define tempTableSort()
-$(tempTable)$/sortby
+\define display_body_fields()
+<$list filter=<<tableFilter_fields>> variable="currentRecord">
+<<display_one_record>>
+</$list>
 \end
 
-\define tempTagPopup()
-$(tempTable)$/$(currentRecord)$/$(currentTiddler)$
+\define display_body_indexes()
+<$wikify name="items" text=<<getitems>> > 
+<$list filter=<<tableFilter_indexes>> variable="currentItem" >
+<$list filter="[<currentItem>split[°≡°]last[]]" variable="currentRecord">
+ <<display_one_record>>
+</$list>
+</$list>
+</$wikify>
 \end
 
-\define tempTableExpand()
-$(tempTable)$/expand
-\end
-
-\define tempPathExpand()
-$(tempTableExpand)$##$(currentRecord)$
-\end
-
-\define tempTableEdit()
-$(tempTable)$/edit-view-status
-\end
-
-
-
-<!-- Remakes
-- remove footersuffix macro, seems it has no use case
-- tempTableFooter is a state tiddler keeps the table footer for numerical summary and remained between sessions
--->

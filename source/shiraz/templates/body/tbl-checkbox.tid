@@ -1,0 +1,12 @@
+created: 20200206150644636
+modified: 20200209200215576
+tags: $:/tags/Table/BodyTemplate
+tbl-column-list: tbl-checkbox
+title: $:/plugins/kookma/shiraz/templates/body/tbl-checkbox
+type: text/vnd.tiddlywiki
+
+<td style="width:28px;text-align:center;">
+<$checkbox tiddler=<<currentRecord>> tag="done"
+checkactions="""<$action-setfield $tiddler=<<tempTableStyle>> $index=<<currentRecord>> $value="color:#155724;background-color:#d4edda;" /><$action-setfield $tiddler=<<currentRecord>> status="complete"/>"""
+uncheckactions="""<$action-setfield $tiddler=<<tempTableStyle>> $index=<<currentRecord>> /><$action-setfield $tiddler=<<currentRecord>> status="rework"/>""" />
+</td>

@@ -1,0 +1,51 @@
+created: 20200206183739894
+modified: 20200210224318361
+tags: $:/tags/Table/BodyTemplate
+tbl-column-list: priority
+title: $:/plugins/kookma/shiraz/templates/body/priority
+type: text/vnd.tiddlywiki
+
+\define circle(color, fill)
+<svg width="12" height="12" >
+<circle cx="6" cy="6" r="5" stroke=<<__color__>>  fill=<<__fill__>> stroke-width="1"/>
+</svg>
+\end
+
+\define showCell()
+<$list filter="[<currentRecord>get<currentColumn>match[very high]]" variable=ignore>
+<$macrocall $name="circle" color="#dc3545" fill="#f8d7da"/>
+</$list>
+<$list filter="[<currentRecord>get<currentColumn>match[high]]" variable=ignore>
+<$macrocall $name="circle" color="#ff8c00" fill="#fff3cd"/>
+</$list>
+<$list filter="[<currentRecord>get<currentColumn>match[normal]]" variable=ignore>
+<$macrocall $name="circle" color="#17a2b8" fill="#d1ecf1"/>
+</$list>
+<$list filter="[<currentRecord>get<currentColumn>match[low]]" variable=ignore>
+<$macrocall $name="circle" color="#007bff" fill="#cce5ff"/>
+</$list>
+<$list filter="[<currentRecord>get<currentColumn>match[very low]]" variable=ignore>
+<$macrocall $name="circle" color="#6c757d" fill="#e2e3e5"/>
+</$list>
+&nbsp; <$transclude tiddler=<<currentRecord>> field=<<currentColumn>> mode="inline" />
+\end
+\define showCell_Locked() <span style="font-style:oblique;"><<showCell>></span>
+
+\define select_priority()
+<$select tiddler=<<currentRecord>> field=<<currentColumn>> default=""><option value=''>Select...</option><option value='very high'>very high</option><option value='high'>high</option><option value='normal'>normal</option><option value='low'>low</option><option value='very low'>very low</option><option value=''>no priority</option></$select>
+\end
+
+
+<$reveal type="nomatch" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td">
+<<showCell>>
+</$reveal>
+<$reveal type="match" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td">
+<!--check if the current column is not selected for sorting-->
+<$list filter="[<tempTableSort>getindex[sortIndex]match<currentColumn>]" variable=ignore
+emptyMessage=<<select_priority>>   >
+ <<showCell_Locked>>
+</$list>
+<$reveal>
+
+<!-- Part of Task Manager
+  this template ALWAYS works on fields -->

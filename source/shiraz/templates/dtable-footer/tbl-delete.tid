@@ -1,9 +1,0 @@
-created: 20200130174835714
-modified: 20200205162602945
-tags: $:/tags/DynamicTable/Template
-title: $:/plugins/kookma/shiraz/templates/dtable-footer/tbl-delete
-type: text/vnd.tiddlywiki
-
-<$list filter="[<tempTableEdit>getindex[mode]match[edit]]" variable=ignore>
-<td></td>
-</$list>

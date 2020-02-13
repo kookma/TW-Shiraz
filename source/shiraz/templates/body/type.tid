@@ -1,0 +1,12 @@
+created: 20200210063953546
+modified: 20200213054119871
+tags: $:/tags/Table/BodyTemplate
+tbl-column-list: type
+title: $:/plugins/kookma/shiraz/templates/body/type
+type: text/vnd.tiddlywiki
+
+\define showCell() <$transclude tiddler=<<currentRecord>> field=<<currentColumn>> mode="inline" />
+<td>
+<<showCell>>
+</td>
+<!-- Note that the showCell here overrides the global showCell from table-dynamic macro -->

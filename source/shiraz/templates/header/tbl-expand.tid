@@ -1,0 +1,14 @@
+created: 20200209072944418
+modified: 20200209200215694
+tags: $:/tags/Table/HeaderTemplate
+tbl-column-list: tbl-expand
+title: $:/plugins/kookma/shiraz/templates/header/tbl-expand
+type: text/vnd.tiddlywiki
+
+<th style="width:28px;">
+  <$list filter="[<tempTableExpand>indexes[]limit[1]]">
+      <$button class="tc-btn-invisible">{{$:/core/images/fold-button}}
+        <$action-setfield $tiddler=<<tempTableExpand>> text=""/>
+      </$button>
+  </$list>
+</th>

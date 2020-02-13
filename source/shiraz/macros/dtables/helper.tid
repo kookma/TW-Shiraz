@@ -1,0 +1,28 @@
+created: 20191203102929722
+modified: 20200211161124704
+tags: $:/tags/Table/Macro
+title: $:/plugins/kookma/shiraz/macros/dtables/helper
+type: text/vnd.tiddlywiki
+
+\define columnFilter()    $(columns)$ tbl-delete
+
+\define tempTable()       $:/state/dynamictables/$(currentTable)$
+
+\define tempTableSort()   $(tempTable)$/sortby
+\define tempTagPopup()    $(tempTable)$/$(currentRecord)$/$(currentTiddler)$
+\define tempTableExpand() $(tempTable)$/expand
+\define tempPathExpand()  $(tempTableExpand)$##$(currentRecord)$
+\define tempTableEdit()   $(tempTable)$/edit-view-status
+
+\define keepstate()       $:/keepstate/dynamictables/$(currentTable)$
+
+\define tempTableFooter() $(keepstate)$/footer
+\define tempTableStyle()  $(keepstate)$/style
+\define tempWarningMsg()  $(keepstate)$/warning
+
+<!-- 
+ Those tiddlers based on keepstate are permanent.
+ These are tiddlers hold the data and setting for footer, styles and warning (needs to be hold).
+ These state and temporary tiddlers are independent of currentTiddler (host tiddler) and on changing
+ the title of host tiddler will not disconnected to table
+-->

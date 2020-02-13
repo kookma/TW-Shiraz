@@ -1,5 +1,5 @@
 created: 20180822044340070
-modified: 20191205133931852
+modified: 20200212184432497
 tags: $:/tags/Stylesheet
 title: $:/plugins/kookma/shiraz/styles/bs/btn
 type: text/css
@@ -244,4 +244,20 @@ fieldset:disabled a.btn {
 .btn-link:disabled, .btn-link.disabled {
   color: #6c757d;
   pointer-events: none;
+}
+
+/* button size */
+
+.btn-lg{
+  padding: 0.5rem 1rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  border-radius: 0.3rem;
+}
+
+.btn-sm{
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  border-radius: 0.2rem;
 }

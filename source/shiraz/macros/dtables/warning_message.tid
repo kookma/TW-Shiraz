@@ -1,0 +1,47 @@
+created: 20200210083402839
+modified: 20200213054655800
+tags: $:/tags/Table/Macro
+title: $:/plugins/kookma/shiraz/macros/dtables/warning_message
+type: text/vnd.tiddlywiki
+
+\define show_tiddler_types()
+<details>
+  <summary>List tiddlers with wrong type</summary>
+	<dl>
+  <$list filter="[subfilter<inputFilter>]">
+	<$list filter="[<currentTiddler>get[type]match[application/x-tiddler-dictionary]][<currentTiddler>get[type]match[application/json]]" variable=ignore
+	emptyMessage="""<dt><$link/></dt><dd><$view field=type/></dd>""">
+	</$list>
+	</$list>
+	</dl>
+</details>
+\end
+
+
+\define show_warning_message()
+Dynamic editable table from ''indexes'' expects all input tiddlers are of dataTiddler (json or dictionary) types. Using tiddlers of non //json// or //x-tiddler-dictionary// types as input can unintentionally overwrite the data in the text field of those tiddlers.<br>
+<br>
+Check the tiddler types to find which tiddlers are not of dataTiddler types!<br>
+<<show_tiddler_types>>
+\end
+
+
+\define check_tiddlers_type_for_table_from_indexes(isEditable)
+  <$list filter="[<fieldOrIndex>]-field" variable=ignore><!-- only dataTiddler -->
+	<$list filter="[<__isEditable__>match[yes]]" variable=ignore> <!-- only editable table -->
+	<$list filter="[<tempWarningMsg>is[missing]]" variable=ignore><!-- dismiss if tempWarningMsg is set -->
+	<$list filter="[subfilter<inputFilter>each[type]get[type]]-[[application/x-tiddler-dictionary]]-[[application/json]]" variable=ignore>
+	 <div style="color: white;background-color:#ff0033;padding:8px;text-align:center;width:100%;">
+	 Danger: Editable dynamic table from idexes with mixed types of tiddlers! &nbsp;
+	 <$button class="tc-btn-invisible tc-tiddlylink" style="fill:white;" tooltip="Dismiss alert and continue with the current selection!">{{$:/core/images/close-button}}
+   <$action-setfield $tiddler=<<tempWarningMsg>> text="dissmiss"/>
+   </$button>
+	 </div>
+	 <div style="border:1px solid #ff0033;padding:8px;">
+	 <<show_warning_message>>
+	 </div>
+  </$list>
+	</$list>
+	</$list>
+	</$list>
+\end	

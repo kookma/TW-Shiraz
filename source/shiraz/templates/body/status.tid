@@ -1,0 +1,26 @@
+created: 20200206171854272
+modified: 20200210173029800
+tags: $:/tags/Table/BodyTemplate
+tbl-column-list: status
+title: $:/plugins/kookma/shiraz/templates/body/status
+type: text/vnd.tiddlywiki
+
+\define showCell() <$transclude tiddler=<<currentRecord>> field=<<currentColumn>> mode="inline" />
+\define showCell_Locked() <span style="font-style:oblique;"><<showCell>></span>
+\define select_status()
+<$select tiddler=<<currentRecord>> field=<<currentColumn>> default=""><option value=''>Select...</option><option value='open'>open</option><option value='not started'>not started</option><option value='in-work'>in-work</option><option value='on-hold'>on-hold</option><option value='complete'>complete</option><option value='rework'>rework</option><option value='closed'>closed</option></$select>
+\end
+
+<$reveal type="nomatch" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td">
+<<showCell>>
+</$reveal>
+<$reveal type="match" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td">
+<!--check if the current column is not selected for sorting-->
+<$list filter="[<tempTableSort>getindex[sortIndex]match<currentColumn>]" variable=ignore
+emptyMessage=<<select_status>>   >
+ <<showCell_Locked>>
+</$list>
+</$reveal>
+
+<!-- Part of Task Manager
+  this template ALWAYS works on fields -->

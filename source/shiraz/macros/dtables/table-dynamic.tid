@@ -1,0 +1,74 @@
+created: 20200209100939116
+modified: 20200211170416923
+tags: $:/tags/Macro
+title: $:/plugins/kookma/shiraz/macros/dtables/table-dynamic
+type: text/vnd.tiddlywiki
+
+\define table-dynamic(filter, fields:"", indexes:"", sortOp:"sort", caption:"", class:"", footerRows:"0", stateTiddler:"", editButton:"yes")
+\import [tag[$:/tags/Table/Macro]]
+
+<!--above commands import utility macros-->
+<$vars 
+ inputFilter="[subfilter<__filter__>!has[draft.of]]"
+ sortType=<<__sortOp__>>
+> 
+<$set name=currentTable value=<<__stateTiddler__>> emptyValue=<<currentTiddler>> >
+<!-- check what type of columns are sent, fileds or indexes (data tiddlers as records) -->
+<$set name=fieldOrIndex filter="[<__fields__>!is[blank]]" value="field" emptyValue="index">
+<<check_tiddlers_type_for_table_from_indexes isEditable:"$editButton$">>
+<$set name=columns filter="[<fieldOrIndex>]-index" value=<<__fields__>> emptyValue=<<__indexes__>> >
+<!--check input filter parameter-->
+<$list filter="[subfilter<inputFilter>limit[1]]" emptyMessage="filter input is empty" variable=ignore>
+<$set name=sortneg tiddler=<<tempTableSort>> index="negate">
+<!--calculate the number of columns in edit and view mode -->
+<$set name=ncols filter="[subfilter<columnFilter>] -[[tbl-delete]] [<tempTableEdit>getindex[mode]match[edit]] +[count[]]" >
+<div class="tbl-container" style="max-width:100%;">
+<table class=<<__class__>> style="caption-side:top">
+<!-- reveal caption and edit button -------------------->
+<caption style="text-align:left;">
+<$list filter="[<__editButton__>match[yes]]" variavle=ignore>
+<span style="padding-right:5px;padding-left:3px;"><<toggle-edit-view>></span></$list>
+$caption$</caption>
+
+<!-- create header -------------------->
+<thead>
+<<confirm-delete>>
+<tr>
+<$list filter=<<columnFilter>> variable=currentColumn>
+<$set name="headerLookup" filter="[all[tiddlers+shadows]tag[$:/tags/Table/HeaderTemplate]contains:tbl-column-list<currentColumn>limit[1]get[title]]" value=<<headerLookup>> emptyValue="$:/plugins/kookma/shiraz/templates/header/default">
+ <$transclude tiddler=<<headerLookup>> field="text" mode="inline"/>
+</$set>
+</$list>
+</tr>
+</thead>
+
+<!-- create footer -------------------->
+<$reveal type="gt" default=<<__footerRows__>> text="0" tag="tfoot" class="shiraz-dtable-footer">
+<$list filter="[range[1,$footerRows$]addprefix[footer-]]" variable=footerRow>
+<tr>
+<$list filter=<<columnFilter>> variable=currentColumn>
+<$set name="footerLookup" filter="[all[tiddlers+shadows]tag[$:/tags/Table/FooterTemplate]contains:tbl-column-list<currentColumn>limit[1]get[title]]" value=<<footerLookup>> emptyValue="$:/plugins/kookma/shiraz/templates/footer/default">
+<$transclude tiddler=<<footerLookup>> field="text" mode="inline"/>
+</$set>
+</$list>
+</tr>
+</$list>
+</$reveal>
+
+<!-- reveal main body of table (generate records) -------------------->
+<tbody>
+<$set name=tableBody filter="[<fieldOrIndex>]-index" value="display_body_fields" emptyValue="display_body_indexes" >
+<$macrocall $name=<<tableBody>> />
+</$set>
+</tbody>
+</table>
+</div><!-- container-->
+</$set>
+</$set>
+</$list><!--check input filter parameter-->
+</$set>
+</$set>
+</$set>
+</$vars>
+\end
+

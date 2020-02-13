@@ -1,0 +1,28 @@
+created: 20200210160016959
+modified: 20200211164850630
+tags: $:/tags/Table/BodyTemplate
+tbl-column-list: color
+title: $:/plugins/kookma/shiraz/templates/body/color
+type: text/vnd.tiddlywiki
+
+\define showCell()
+<style>
+.dt:not(:disabled):dt(.disabled) {cursor: pointer;}
+a.dt.disabled,fieldset:disabled a.dt {pointer-events: none;}
+</style>
+<$link overrideClass="dt disabled" to="">
+<$edit-text tag=input type=color tiddler=<<currentRecord>> field=color/>
+</$link>
+\end
+
+\define edit_color() <$edit-text tag=input type=color tiddler=<<currentRecord>> field=<<currentColumn>>/>
+<$reveal type="nomatch" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td">
+<<showCell>>
+</$reveal>
+<$reveal type="match" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td">
+<!--check if the current column is not selected for sorting-->
+<$list filter="[<tempTableSort>getindex[sortIndex]match<currentColumn>]" variable=ignore
+emptyMessage=<<edit_color>> >
+ <<showCell_Locked>>
+</$list>
+</$reveal>

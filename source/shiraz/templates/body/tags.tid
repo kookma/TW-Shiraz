@@ -1,0 +1,33 @@
+created: 20191125193831767
+modified: 20200211160740674
+tags: $:/tags/Table/BodyTemplate
+tbl-column-list: tags
+title: $:/plugins/kookma/shiraz/templates/body/tags
+type: text/vnd.tiddlywiki
+
+<$reveal type="nomatch" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td">
+<$list filter="[title<currentRecord>tags[]]">
+<span class="tc-tag-list-item" >
+<$set name="transclusion" value=<<currentTiddler>>>
+<$macrocall $name="tag-pill-body" tag=<<currentTiddler>> icon={{!!icon}} colour={{!!color}} palette={{$:/palette}} element-tag="""$button""" element-attributes="""popup=<<tempTagPopup>> dragFilter='[all[current]tagging[]]' tag='span'"""/>
+<$reveal state=<<tempTagPopup>> style="position:absolute; z-index:9999;" type="popup" position="below" animate="yes" class="tc-drop-down">
+<$set name="tv-show-missing-links" value="yes">
+<$transclude tiddler="$:/core/ui/ListItemTemplate"/>
+</$set>
+<$list filter="[all[shadows+tiddlers]tag[$:/tags/TagDropdown]!has[draft.of]]" variable="listItem"> 
+<$transclude tiddler=<<listItem>>/> 
+</$list>
+<hr>
+<$macrocall $name="list-tagged-draggable" tag=<<currentTiddler>>/>
+</$reveal>
+</$set>
+</span>
+</$list>
+</$reveal>
+<$reveal type="match" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td">
+<!--check if the current column is not selected for sorting-->
+<$list filter="[<tempTableSort>getindex[sortIndex]match<currentColumn>]" variable=ignore
+emptyMessage=<<editCell>> >
+ <<showCell_Locked>>
+</$list>
+</$reveal>

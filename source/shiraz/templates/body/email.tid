@@ -1,0 +1,29 @@
+created: 20191202210913762
+modified: 20200210073940870
+tags: $:/tags/Table/BodyTemplate
+tbl-column-list: email
+title: $:/plugins/kookma/shiraz/templates/body/email
+type: text/vnd.tiddlywiki
+
+\define display-email-address()
+<a class="tc-tiddlylink-external" href="mailto:$(currentRecord)$!!$(currentColumn)$" rel="noopener noreferrer" target="_blank">
+<<showCell>>
+</a>
+\end
+\define display-email-address_Locked()
+<a class="tc-tiddlylink-external" href="mailto:$(currentRecord)$!!$(currentColumn)$" rel="noopener noreferrer" target="_blank">
+<<showCell_Locked>>
+</a>
+\end
+
+<$reveal type="nomatch" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td">
+<<display-email-address>>
+</$reveal>
+<$reveal type="match" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td">
+<!--check if the current column is not selected for sorting-->
+<$list filter="[<tempTableSort>getindex[sortIndex]match<currentColumn>]" variable=ignore
+emptyMessage=<<editCell>> >
+<<display-email-address_Locked>>
+</$list>
+</$reveal>
+

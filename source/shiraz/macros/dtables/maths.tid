@@ -1,0 +1,36 @@
+created: 20200209153246553
+modified: 20200213061845270
+tags: $:/tags/Table/Macro
+title: $:/plugins/kookma/shiraz/macros/dtables/maths
+type: text/vnd.tiddlywiki
+
+\define minall() <$text text={{{ [subfilter<inputFilter>$(getFieldOrIndex)$<currentColumn>minall[]] }}}/>
+\define maxall() <$text text={{{ [subfilter<inputFilter>$(getFieldOrIndex)$<currentColumn>maxall[]] }}}/>
+\define count() <$text text={{{ [subfilter<inputFilter>$(getFieldOrIndex)$<currentColumn>count[]] }}}/>
+\define sum() <$text text={{{ [subfilter<inputFilter>$(getFieldOrIndex)$<currentColumn>sum[]]   }}}/>
+\define product() <$text text={{{ [subfilter<inputFilter>$(getFieldOrIndex)$<currentColumn>product[]]   }}}/>
+\define average(pn:0)
+<$vars
+  xcount ={{{[subfilter<inputFilter>$(getFieldOrIndex)$<currentColumn>count[]]}}}
+	xsum   ={{{ [subfilter<inputFilter>$(getFieldOrIndex)$<currentColumn>sum[]]   }}} >
+  <$text text={{{ [<xsum>divide<xcount>fixed[$pn$]]   }}}/>
+</$vars>
+\end
+
+\define median(pn:0)
+<$vars xcount ={{{[subfilter<inputFilter>$(getFieldOrIndex)$<currentColumn>count[]]}}} >
+	<$list filter="[<xcount>remainder[2]match[0]]" variable=ignore>
+	<!-- even number --> 
+	<$vars mid0={{{ [<xcount>divide[2]] }}} 
+         mid1={{{ [<xcount>divide[2]add[1]] }}} >		 
+ <$text text={{{[subfilter<inputFilter>$(getFieldOrIndex)$<currentColumn>sort[]first<mid0>last[]][subfilter<inputFilter>$(getFieldOrIndex)$<currentColumn>sort[]first<mid1>last[]]+[sum[]divide[2]fixed[$pn$]]}}} />
+ </$vars>
+ </$list>
+ <$list filter="[<xcount>remainder[2]!match[0]]" variable=ignore>
+	<!-- odd number --> 
+	<$vars mid={{{ [<xcount>divide[2]ceil[]] }}} >
+  <$text text={{{ [subfilter<inputFilter>$(getFieldOrIndex)$<currentColumn>sort[]first<mid>last[]]}}} />
+	</$vars>
+ </$list>
+</$vars>
+\end

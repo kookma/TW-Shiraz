@@ -1,11 +1,11 @@
 created: 20200209100939116
-modified: 20200211170416923
+modified: 20200213110808110
 tags: $:/tags/Macro
 title: $:/plugins/kookma/shiraz/macros/dtables/table-dynamic
 type: text/vnd.tiddlywiki
 
 \define table-dynamic(filter, fields:"", indexes:"", sortOp:"sort", caption:"", class:"", footerRows:"0", stateTiddler:"", editButton:"yes")
-\import [tag[$:/tags/Table/Macro]]
+\import [all[shadows+tiddlers]tag[$:/tags/Table/Macro]]
 
 <!--above commands import utility macros-->
 <$vars 

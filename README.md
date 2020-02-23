@@ -3,7 +3,7 @@ Shiraz is a small TW5 plugin contains several macros, stylesheets, templates, sn
 (Tiddlywiki)[https://tiddlywiki.com/].
 
 # Tutorial
-* Open the https://kookma.github.io/Shiraz/
+* Open the https://kookma.github.io/TW-Shiraz/
 * Go to tutorial and see a demo of most features
 
 # Installation

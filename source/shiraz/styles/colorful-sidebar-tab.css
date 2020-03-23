@@ -1,0 +1,7 @@
+.tc-sidebar-lists .tc-tab-buttons button.tc-tab-selected {
+    background: none;
+    border: none;
+    border-bottom: solid 1px #737373 !important;
+    font-weight: bold;
+    color: #DB4C3F !important;
+}

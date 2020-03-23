@@ -1,0 +1,63 @@
+.image-slidein { 
+  display: block; 
+  position: relative; 
+  /*float: left;*/
+  overflow: hidden; 
+ /* margin: 0 20px 20px 0;*/
+}
+
+.image-slidein img {
+    width: 100%;
+    height: auto;
+}
+
+.image-slidein figcaption { 
+  position: absolute; 
+  background: rgba(0,0,0,0.75); 
+  color: white; 
+  padding: 10px 20px; 
+  opacity: 0;
+  -webkit-transition: all 0.6s ease;
+  -moz-transition:    all 0.6s ease;
+  -o-transition:      all 0.6s ease;
+}
+.image-slidein:hover figcaption {
+  opacity: 1;
+}
+.image-slidein:before { 
+  content: "?"; 
+  position: absolute; 
+  font-weight: 800; 
+  background: rgba(255,255,255,0.75); 
+  text-shadow: 0 0 5px white;
+  color: black;
+  width: 24px;
+  height: 24px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius:    12px;
+  border-radius:         12px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 24px;
+  -moz-transition: all 0.6s ease;
+  opacity: 0.75;	
+}
+.image-slidein:hover:before {
+  opacity: 0;
+}
+
+.mr-cap-left:before {  bottom: 10px; left: 10px; }
+.mr-cap-left figcaption { bottom: 0; left: -30%; }
+.mr-cap-left:hover figcaption { left: 0; }
+
+.mr-cap-right:before { bottom: 10px; right: 10px; }
+.mr-cap-right figcaption { bottom: 0; right: -30%; }
+.mr-cap-right:hover figcaption { right: 0; }
+
+.mr-cap-top:before { top: 10px; left: 10px; }
+.mr-cap-top figcaption { left: 0; top: -30%; }
+.mr-cap-top:hover figcaption { top: 0; }
+
+.mr-cap-bottom:before { bottom: 10px; left: 10px; }
+.mr-cap-bottom figcaption { left: 0; bottom: -30%;}
+.mr-cap-bottom:hover figcaption { bottom: 0; }

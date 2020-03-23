@@ -1,0 +1,36 @@
+/*Credits: 
+Nishant Srivastava https://codepen.io/nisrulz/pen/bpQWLW
+Mohammad Rahmani: https://github.com/kookma
+*/
+.dbadge {
+ display: inline-block;
+ margin: 0.0em;
+}
+.dbadge > span {
+  color: #ffffff;
+  font-size: 0.8em;
+  font-weight: 400;
+  line-height: 1;
+  padding: .2em .6em;
+  text-align: center;
+  vertical-align: baseline;
+  white-space: nowrap;}
+
+.dbadge-subject{
+  background-color: #656565;
+  border-bottom-left-radius: 0.25em;
+  border-top-left-radius: 0.25em;}
+.dbadge-status {
+  border-bottom-right-radius: 0.25em;
+  border-top-right-radius: 0.25em;}
+
+.dbadge-primary {
+    background-color: #337ab7;}
+.dbadge-success {
+    background-color: #5cb85c;}
+.dbadge-info {
+    background-color: #5bc0de;}
+.dbadge-warning {
+    background-color: #f0ad4e;}
+.dbadge-danger {
+    background-color: #d9534f;}

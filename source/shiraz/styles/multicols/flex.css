@@ -1,0 +1,51 @@
+/* multicolumn layout using flexbox courtesy from Bootstrap 4.3.1*/
+.flex-row {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+/*   margin-right: -15px;
+   margin-left: -15px;*/
+}
+
+.flex-col,
+.flex-col-1, 
+.flex-col-2, 
+.flex-col-3,
+.flex-col-4 {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* for small screen width>=576px
+https://getbootstrap.com/docs/4.3/layout/grid/
+*/
+@media (min-width: 576px) {
+.flex-col   {flex: 1 1 0; max-width: 100%;}
+.flex-col-1 {flex: 0 0 25%; max-width:25%}
+.flex-col-2 {flex: 0 0 50%; max-width:50%}
+.flex-col-3 {flex: 0 0 75%; max-width:75%}
+.flex-col-4 {flex: 0 0 100%; max-width:100%}
+}
+
+.flex-col   > :first-child,
+.flex-col-1 > :first-child,
+.flex-col-2 > :first-child,
+.flex-col-3 > :first-child,
+.flex-col-4 > :first-child {
+  margin-top: 0;}
+
+
+/* Alignment */
+.flex-align-items-center {
+  align-items: center !important;
+}
+.flex-justify-content-center {
+  justify-content: center !important;
+}
+
+.flex-no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}

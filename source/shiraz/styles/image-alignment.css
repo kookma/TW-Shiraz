@@ -1,0 +1,17 @@
+/*Image aligning classes*/
+.image-align-right{
+    float:right;
+    margin:0.5em 0 1.3em 1.4em;
+}
+.image-align-left{
+    float:left;
+    margin: 0.5em 1.4em 1.3em 0;
+}
+.image-align-center{
+  display:block;
+  margin: 0.5em auto 1.3em; 
+}
+
+.image-float-none {
+  float: none !important;
+}

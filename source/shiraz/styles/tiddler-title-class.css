@@ -1,0 +1,27 @@
+.title-primary .tc-title {
+  color: #007bff;
+}
+.title-secondary .tc-title {
+  color: #6c757d;
+}
+.title-success .tc-title {
+  color: #28a745;
+}
+.title-info .tc-title {
+  color: #17a2b8;
+}
+.title-warning .tc-title {
+  color: #ffc107;
+}
+.title-danger .tc-title {
+  color: #dc3545;
+}
+.title-light .tc-title {
+  color: #f8f9fa;
+}
+.title-dark .tc-title {
+  color: #343a40;
+}
+.title-white .tc-title {
+  color: #fff;
+}

@@ -1,0 +1,9 @@
+.mono {
+	color:unset;
+	background-color: #f7f7f9;
+	border: 1px solid #e1e1e8;
+	white-space: pre-wrap;
+	padding: 0 3px 2px;
+	border-radius: 3px;
+	font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace;
+}

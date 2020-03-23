@@ -1,0 +1,15 @@
+/* Resolve issue for floating objects which cross the tiddler frame!
+The below code should force the tiddler to always wrap around floating elements, so that they are always inside
+Ref: https://groups.google.com/d/msg/tiddlywiki/5bZwwj6cyac/2LzFeA7AAwAJ
+*/
+
+.tc-tiddler-body:before, .tc-tiddler-body:after {
+    content: "";
+    display: table;
+}
+.tc-tiddler-body:after {
+    clear: both;
+}
+.tc-tiddler-body {
+    zoom: 1;
+}

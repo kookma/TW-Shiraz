@@ -1,0 +1,11 @@
+/* create story river in two column layout */
+.tc-story-river {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tc-tiddler-frame
+{
+  max-width: 49%; margin-right: 1%;
+  /*max-width: 32%; margin-right: 1%; */
+}

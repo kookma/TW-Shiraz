@@ -1,0 +1,43 @@
+/* multicolumn layouts with fixed column number works on the whole tiddler */
+.multicol .tc-tiddler-body {
+  column-width: 14em;
+  column-rule: 1px solid #ccc;
+}
+/* two columns responsive*/
+.multicol2 .tc-tiddler-body {
+	column-count:2; 
+	column-width:15em;
+}
+/* three columns responsive*/
+.multicol3 .tc-tiddler-body {
+	column-count:3; 
+	column-width:10em;
+}
+
+
+/* remove the extra space from first paragraph */
+.multicol .tc-tiddler-body > :first-child, 
+.multicol2 .tc-tiddler-body > :first-child, 
+.multicol3 .tc-tiddler-body > :first-child { margin-top: 0;}
+
+/*-------------------------------------------------------------------------------*/
+/* Classes for using with macro and div elements */
+.sh-multicol {
+  column-width: 14em;
+  column-rule: 1px solid #ccc;
+}
+/* two columns responsive*/
+.sh-multicol2 {
+	column-count:2; 
+	column-width:15em;
+}
+/* three columns responsive*/
+.sh-multicol3 {
+	column-count:3; 
+	column-width:10em;
+}
+
+/* remove the extra space from first paragraph */
+.sh-multicol  > :first-child,
+.sh-multicol2 > :first-child,
+.sh-multicol3 > :first-child { margin-top: 0;}

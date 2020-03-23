@@ -7,12 +7,4 @@ Shiraz is a small TW5 plugin contains several macros, stylesheets, templates, sn
 * Go to tutorial and see a demo of most features
 
 # Installation
-## Packaged plugin
-- Drag and drop $:/plugins/kookma/shiraz into your wiki
-- Save and reload your wiki
-
-## Client-Server installation (separate files)
-- For Node.js (server version) download the commander folder from source folder and paste in your Tiddlywiki plugins folder
-- For local installation put the commander folder into your local plugins folder under your wiki folder
-
-_It is highly recommended to backup your data before trying any new plugin! Do it before installing Shiraz_
+For dtails on how install Shiraz plugin in your wiki, have a look at https://kookma.github.io/TW-Shiraz/#Install

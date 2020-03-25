@@ -1,26 +1,28 @@
 created: 20190322161929431
 description: Slider macro shows (hides) its content.
-modified: 20200323093719842
+modified: 20200325085502996
 tags: $:/tags/Macro
 title: $:/plugins/kookma/shiraz/macros/slider
 type: text/vnd.tiddlywiki
 
-\define slider(label, src, labelClass, srcClass)
+\define slider(label, src, labelClass, srcClass, status:"closed")
 <$set name="revealState" value=<<qualify "$:/state/shiraz/slider-macro/$(currentTiddler)$/$label$">>>
+
 <h2 class="$labelClass$">
-  <$reveal type="nomatch" state=<<revealState>> text="yes">
-    <$button class="tc-btn-invisible tc-tiddlylink" set=<<revealState>> setTo="yes">
-      {{$:/core/images/right-arrow}}
+  <$reveal type="nomatch" state=<<revealState>> text="open" default="$status$">
+    <$button class="tc-btn-invisible tc-tiddlylink" set=<<revealState>> setTo="open">
+     <span class="kk-sh-slider"><$transclude tiddler="$:/core/images/right-arrow" /></span>
     </$button>
   </$reveal>
-  <$reveal type="match" state=<<revealState>> text="yes">
-    <$button class="tc-btn-invisible tc-tiddlylink" set=<<revealState>> setTo="no">
-      {{$:/core/images/down-arrow}}
+  <$reveal type="match" state=<<revealState>> text="open" default="$status$">
+    <$button class="tc-btn-invisible tc-tiddlylink" set=<<revealState>> setTo="closed">
+      <span class="kk-sh-slider"><$transclude tiddler="$:/core/images/down-arrow" /></span>
     </$button>
-  </$reveal> 
+  </$reveal>
   $label$
 </h2>
-<$reveal type="match" state=<<revealState>> text="yes" class="$srcClass$">
+
+<$reveal type="match" state=<<revealState>> text="open" default="$status$" class="$srcClass$">
 
 $src$
 </$reveal>

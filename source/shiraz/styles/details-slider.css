@@ -1,0 +1,15 @@
+/*details html5 macro*/
+details > summary {
+  padding: 2px 6px;
+  font-weight:500;
+  outline:none;
+}
+details > div {
+  padding: 2px 6px;
+  margin: 0;
+}
+
+button .kk-sh-slider svg{
+width: 0.8em;
+height: 0.8em;
+vertical-align: middle;}

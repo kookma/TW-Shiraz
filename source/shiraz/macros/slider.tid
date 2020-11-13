@@ -1,12 +1,12 @@
 created: 20190322161929431
 description: Slider macro shows (hides) its content.
-modified: 20200325085502996
+modified: 20201113161937207
 tags: $:/tags/Macro
 title: $:/plugins/kookma/shiraz/macros/slider
 type: text/vnd.tiddlywiki
 
 \define slider(label, src, labelClass, srcClass, status:"closed")
-<$set name="revealState" value=<<qualify "$:/state/shiraz/slider-macro/$(currentTiddler)$/$label$">>>
+<$set name="revealState" value="""$:/state/shiraz/slider-macro/$(currentTiddler)$/$label$""">
 
 <h2 class="$labelClass$">
   <$reveal type="nomatch" state=<<revealState>> text="open" default="$status$">

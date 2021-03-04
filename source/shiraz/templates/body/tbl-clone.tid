@@ -1,0 +1,16 @@
+created: 20201203153613838
+modified: 20210225164757608
+tags: $:/tags/Table/BodyTemplate
+tbl-column-list: tbl-clone
+title: $:/plugins/kookma/shiraz/templates/body/tbl-clone
+type: text/vnd.tiddlywiki
+
+\define cloneTiddler() <$action-createtiddler $basetitle=<<currentRecord>> $template=<<currentRecord>> />
+
+<$list filter="[<tempTableEdit>getindex[mode]match[edit]]" variable=ignore>
+<td style="width:28px;text-align:center;">
+  <$button actions=<<cloneTiddler>> class="tc-btn-invisible">
+	  {{$:/core/images/clone-button}}
+	</$button>
+</td>
+</$list>

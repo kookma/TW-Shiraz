@@ -1,13 +1,13 @@
 created: 20181101185833098
-modified: 20200323093719704
+modified: 20210304154353016
 tags: $:/tags/Macro
 title: $:/plugins/kookma/shiraz/macros/details
 type: text/vnd.tiddlywiki
 
-\define details(sum:"summary", src:"source", status:"", class:"", style:"")
+\define details(label:"", src:"source", status:"", labelClass:"", srcClass:"")
 <details $status$>
- <summary style="$style$">$sum$</summary>
-  <div class="$class$">
+ <summary class="$labelClass$">$label$</summary>
+  <div class="$srcClass$">
 	
    $src$
   </div>

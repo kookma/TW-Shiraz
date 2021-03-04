@@ -33,8 +33,31 @@ table thead .tbl-delete-confirm > th > button {
   fill: white;
 }
 
-/* customize the table footer used for numerical summary*/
-.shiraz-dtable-footer tr td{
-	background:#f0f0f0; 
-	border:none;
+/* -- pagination --*/
+.shiraz-dtable-page-footer td{
+	margin: 0 0 0 0;
+	padding: 4px 7px 4px 7px;
+	vertical-align: middle !important;
 }
+
+.shiraz-dtable-page-footer select{
+	padding:0;
+	margin:0;
+	border:none;	
+}
+
+.shiraz-dtable-page-footer {
+	text-align:center;
+}
+
+.shiraz-dtable-page-prev{
+	float:left;
+}
+
+.shiraz-dtable-page-next{
+	float:right;
+}
+
+.shiraz-dtable-page-footer button svg {height:0.7em;}
+.shiraz-dtable-page-footer button {outline: none;}
+.shiraz-dtable-page-footer button:disabled {display:none;}

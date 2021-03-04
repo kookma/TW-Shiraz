@@ -1,5 +1,5 @@
 created: 20200209195541061
-modified: 20200323093719755
+modified: 20210304203821819
 tags: $:/tags/Table/Macro
 title: $:/plugins/kookma/shiraz/macros/dtables/table-utility
 type: text/vnd.tiddlywiki
@@ -35,19 +35,23 @@ type: text/vnd.tiddlywiki
 </$wikify>
 \end
 
-\define display_body_fields()
-<$list filter=<<tableFilter_fields>> variable="currentRecord">
+\define display_body_fields()  
+<$set name=finalFilter filter="[<pagination>match[yes]]" value="[subfilter<tableFilter_fields>first<high>] -[subfilter<tableFilter_fields>first<low>]" emptyValue="[subfilter<tableFilter_fields>]">
+<$list filter="[subfilter<finalFilter>]" variable="currentRecord">
 <<display_one_record>>
 </$list>
+</$set>
 \end
 
 \define display_body_indexes()
 <$wikify name="items" text=<<getitems>> > 
-<$list filter=<<tableFilter_indexes>> variable="currentItem" >
+<$set name=finalFilter filter="[<pagination>match[yes]]" value="[subfilter<tableFilter_indexes>first<high>] -[subfilter<tableFilter_indexes>first<low>]" emptyValue="[subfilter<tableFilter_indexes>]">
+<$list filter="[subfilter<finalFilter>]" variable="currentItem">
 <$list filter="[<currentItem>split[°≡°]last[]]" variable="currentRecord">
  <<display_one_record>>
 </$list>
 </$list>
+</$set>
 </$wikify>
 \end
 

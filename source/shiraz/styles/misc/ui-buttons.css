@@ -1,0 +1,9 @@
+/* These css rules makes TW UI buttons in beatiful color */
+
+/*page control buttons*/
+.tc-page-controls .tc-image-new-button { fill: #5EB95E; } /*New tiddler button*/
+.tc-page-controls .tc-image-options-button { fill:#8058A5; } /*Open control pannel*/
+
+/*tiddler buttons in beautiful color*/
+.tc-tiddler-controls .tc-image-edit-button { fill:#F37B1D; }/*edit tiddler*/
+.tc-tiddler-controls .tc-image-info-button { fill: #0e90d2; } /*Info button*/

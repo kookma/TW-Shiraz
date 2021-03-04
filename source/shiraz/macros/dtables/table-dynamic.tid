@@ -1,16 +1,17 @@
 created: 20200209100939116
-modified: 20200323093719750
+modified: 20210226184101765
 tags: $:/tags/Macro
 title: $:/plugins/kookma/shiraz/macros/dtables/table-dynamic
 type: text/vnd.tiddlywiki
 
-\define table-dynamic(filter, fields:"", indexes:"", sortOp:"sort", caption:"", class:"", footerRows:"0", stateTiddler:"", editButton:"yes")
+\define table-dynamic(filter, fields:"", indexes:"", sortOp:"sort", caption:"", class:"", footerRows:"0", stateTiddler:"", editButton:"yes", pagination:"no")
 \import [all[shadows+tiddlers]tag[$:/tags/Table/Macro]]
 
 <!--above commands import utility macros-->
 <$vars 
  inputFilter="[subfilter<__filter__>!has[draft.of]]"
  sortType=<<__sortOp__>>
+ pagination=<<__pagination__>>
 > 
 <$set name=currentTable value=<<__stateTiddler__>> emptyValue=<<currentTiddler>> >
 <!-- check what type of columns are sent, fileds or indexes (data tiddlers as records) -->
@@ -21,7 +22,7 @@ type: text/vnd.tiddlywiki
 <$list filter="[subfilter<inputFilter>limit[1]]" emptyMessage="filter input is empty" variable=ignore>
 <$set name=sortneg tiddler=<<tempTableSort>> index="negate">
 <!--calculate the number of columns in edit and view mode -->
-<$set name=ncols filter="[subfilter<columnFilter>] -[[tbl-delete]] [<tempTableEdit>getindex[mode]match[edit]] +[count[]]" >
+<$set name=ncols filter="[<tempTableEdit>getindex[mode]match[edit]]" value={{{ [subfilter<columnFilter>count[]] }}} emptyValue= {{{ [subfilter<columnFilter>count[]subtract[2]] }}}>
 <div class="tbl-container" style="max-width:100%;">
 <table class=<<__class__>> style="caption-side:top">
 <!-- reveal caption and edit button -------------------->
@@ -44,6 +45,7 @@ $caption$</caption>
 
 <!-- create footer -------------------->
 <$reveal type="gt" default=<<__footerRows__>> text="0" tag="tfoot" class="shiraz-dtable-footer">
+<tr><td colspan=<<ncols>> style="font-weight:bold;background-color:transparent;">Numerical summary</td></tr>
 <$list filter="[range[1,$footerRows$]addprefix[footer-]]" variable=footerRow>
 <tr>
 <$list filter=<<columnFilter>> variable=currentColumn>
@@ -58,7 +60,23 @@ $caption$</caption>
 <!-- reveal main body of table (generate records) -------------------->
 <tbody>
 <$set name=tableBody filter="[<fieldOrIndex>]-index" value="display_body_fields" emptyValue="display_body_indexes" >
+<!-- setup pagination variables -->
+<$vars total-entries={{{[subfilter<inputFilter>count[]] }}}
+			 page-number={{{[<pageStateTiddler>get[text]] ~[[1]]}}} 
+			 entries-per-page={{{ [<entryPerPageStateTiddler>get[text]] ~[[25]]   }}}  >
+<$vars low={{{ [<page-number>subtract[1]multiply<entries-per-page>] }}}  
+       high={{{[<page-number>multiply<entries-per-page>]            }}} >	 
 <$macrocall $name=<<tableBody>> />
+<!--on demand display the pagination row-->
+<$reveal type="match" default=<<pagination>> text="yes" tag="tr" class="shiraz-dtable-page-footer">
+<td colspan=<<ncols>> >
+<<prev-button>>
+Displaying <$text text={{{[<low>add[1]]}}}/> through <$text text={{{ [<high>compare:number:lt<total-entries>then<high>else<total-entries>] }}}/> of <<total-entries>> Results | <<limit-entries>>
+<<next-button>>
+</td>
+</$reveal><!-- end of pagination ui -->
+</$vars>
+</$vars>
 </$set>
 </tbody>
 </table>

@@ -1,0 +1,16 @@
+created: 20201203155440168
+modified: 20210304180419476
+tags: $:/tags/Table/HeaderTemplate
+tbl-column-list: tbl-clone
+title: $:/plugins/kookma/shiraz/templates/header/tbl-clone
+type: text/vnd.tiddlywiki
+
+<$list filter="[<tempTableEdit>getindex[mode]match[edit]]" variable=ignore>
+<th style="width:28px;text-align:center;">
+<span>
+<$button class="tc-btn-invisible" disabled=yes tooltip="disabled button" style="cursor:default">
+{{$:/core/images/clone-button}}
+</$button>
+</span>
+</th>
+</$list>

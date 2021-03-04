@@ -1,11 +1,12 @@
 {
-	"title": "$:/plugins/kookma/shiraz",
-	"description": "Shiraz",
-	"author": "Mohammad Rahmani",
-	"version": "2.1.1",
-	"core-version": ">=5.1.21",
-	"source": "https://github.com/kookma/TW-Shiraz",
-	"list": "readme history license",
-	"dependents": "",
-	"plugin-type": "plugin"
+    "title": "$:/plugins/kookma/shiraz",
+    "name": "Shiraz",
+    "description": "extended markups, styles, images, tables, and macros",
+    "author": "Mohammad Rahmani",
+    "version": "2.2.0",
+    "core-version": ">=5.1.21",
+    "source": "https://github.com/kookma/TW-Shiraz",
+    "list": "readme license history",
+    "dependents": "",
+    "plugin-type": "plugin"
 }

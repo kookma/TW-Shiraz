@@ -1,10 +1,10 @@
 created: 20191203102929722
-modified: 20200323093719728
+modified: 20210226171501383
 tags: $:/tags/Table/Macro
 title: $:/plugins/kookma/shiraz/macros/dtables/helper
 type: text/vnd.tiddlywiki
 
-\define columnFilter()    $(columns)$ tbl-delete
+\define columnFilter()    $(columns)$ tbl-clone tbl-delete
 
 \define tempTable()       $:/state/dynamictables/$(currentTable)$
 
@@ -19,6 +19,9 @@ type: text/vnd.tiddlywiki
 \define tempTableFooter() $(keepstate)$/footer
 \define tempTableStyle()  $(keepstate)$/style
 \define tempWarningMsg()  $(keepstate)$/warning
+
+\define pageStateTiddler()          $(keepstate)$/page-number
+\define entryPerPageStateTiddler()  $(keepstate)$/entry-per-page
 
 <!-- 
  Those tiddlers based on keepstate are permanent.

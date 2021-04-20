@@ -29,8 +29,8 @@
   }
 
 }
-
-.notebook:before {
+/*prevent applying left border in edit mode */
+.notebook:not([data-tiddler-title^="Draft of"]):before {
     content: '';
     position: absolute;
     top: 0; bottom: 0; left: 0;

@@ -1,11 +1,12 @@
 created: 20210225163850252
-modified: 20210422150531494
+modified: 20210510180258564
 tags: 
 title: $:/plugins/kookma/shiraz/history
 type: text/vnd.tiddlywiki
 
 Full change log:  [[https://kookma.github.io/TW-Shiraz/#ChangeLog]]
 
+* ''2.3.0'' -- 2021.05.10 -- switch palette for dim/dark and light palette selection
 * ''2.2.2'' -- 2021.04.22 -- several issues fixed for pagination, notebook and image classes
 * ''2.2.0'' -- 2021.02.26 -- upated to TW 5.1.23 and pagination added to dynamic tables
 * ''2.1.1'' -- 2020.03.25 -- slider macro with initial status

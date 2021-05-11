@@ -1,7 +1,7 @@
 caption: Shiraz
 created: 20191018054657077
 list-after: $:/core/ui/ControlPanel/Settings/TiddlyWiki
-modified: 20210225164757743
+modified: 20210510165103103
 tags: $:/tags/ControlPanel/SettingsTab $:/tags/MoreSideBar
 title: $:/plugins/kookma/shiraz/ui/ControlPanel/Settings
 type: text/vnd.tiddlywiki
@@ -20,6 +20,7 @@ These settings let you customise the behaviour of Shiraz plugin.
 :<$checkbox tiddler="$:/plugins/kookma/shiraz/styles/misc/edit-buttons" tag="$:/tags/Stylesheet"> Traffic lights for edit toolbar buttons</$checkbox>
 :<$checkbox tiddler="$:/plugins/kookma/shiraz/styles/colorful-sidebar-tab" tag="$:/tags/Stylesheet"> Colorify sidebar tabs</$checkbox>
 
-
+;Set dark and light palette
+{{$:/plugins/kookma/shiraz/ui/set-dark-light-palette}}
 
 

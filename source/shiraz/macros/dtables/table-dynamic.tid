@@ -1,10 +1,12 @@
 created: 20200209100939116
-modified: 20210226184101765
+modified: 20210511045600771
 tags: $:/tags/Macro
 title: $:/plugins/kookma/shiraz/macros/dtables/table-dynamic
 type: text/vnd.tiddlywiki
 
-\define table-dynamic(filter, fields:"", indexes:"", sortOp:"sort", caption:"", class:"", footerRows:"0", stateTiddler:"", editButton:"yes", pagination:"no")
+\define table-dynamic(filter, fields:"", indexes:"", sortOp:"sort", caption:"", class:"",
+                      footerRows:"0", stateTiddler:"", editButton:"yes", pagination:"no", emptyMessage:"filter input is empty")
+
 \import [all[shadows+tiddlers]tag[$:/tags/Table/Macro]]
 
 <!--above commands import utility macros-->
@@ -19,7 +21,7 @@ type: text/vnd.tiddlywiki
 <<check_tiddlers_type_for_table_from_indexes isEditable:"$editButton$">>
 <$set name=columns filter="[<fieldOrIndex>]-index" value=<<__fields__>> emptyValue=<<__indexes__>> >
 <!--check input filter parameter-->
-<$list filter="[subfilter<inputFilter>limit[1]]" emptyMessage="filter input is empty" variable=ignore>
+<$list filter="[subfilter<inputFilter>limit[1]]" emptyMessage=<<__emptyMessage__>> variable=ignore>
 <$set name=sortneg tiddler=<<tempTableSort>> index="negate">
 <!--calculate the number of columns in edit and view mode -->
 <$set name=ncols filter="[<tempTableEdit>getindex[mode]match[edit]]" value={{{ [subfilter<columnFilter>count[]] }}} emptyValue= {{{ [subfilter<columnFilter>count[]subtract[2]] }}}>

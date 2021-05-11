@@ -1,0 +1,58 @@
+created: 20210510155820574
+dark-palette: $:/palettes/SolarFlare
+light-palette: $:/palettes/Vanilla
+modified: 20210510175948213
+tags: 
+title: $:/plugins/kookma/shiraz/ui/set-dark-light-palette
+type: text/vnd.tiddlywiki
+
+\define selectPelette(title, default, tiddler, field)
+<label class="kk-switch-label">$title$</label>
+<$select tiddler=<<__tiddler__>> field=<<__field__>> default="">
+<$list filter="[all[tiddlers+shadows]tag[$:/tags/Palette]]" >
+<option value=<<currentTiddler>> >
+<$view field='name'>
+  <$view field='title'/>
+</$view>
+</option>
+</$list>
+</$list>
+\end
+
+<div style="margin-left:40px">
+
+<$macrocall $name=selectPelette 
+  title="Dark palette" filter=<<filterNight>> 
+	default="$:/palettes/SolarizedDark" field="dark-palette" 
+	tiddler="$:/plugins/kookma/shiraz/ui/Button/SwitchPalette"/><br>
+
+<$macrocall $name=selectPelette 
+  title="Light palette" filter=<<filterDay>> 
+	default="$:/palettes/Vanilla" field="light-palette" 
+	tiddler="$:/plugins/kookma/shiraz/ui/Button/SwitchPalette"/>
+
+<label class="kk-switch-label">Reset to default</label>
+<$button> {{$:/core/images/erase}}
+<$action-setfield 
+  $tiddler="$:/plugins/kookma/shiraz/ui/Button/SwitchPalette" 
+	$field=dark-palette 
+	$value={{!!dark-palette}} />
+<$action-setfield 
+  $tiddler="$:/plugins/kookma/shiraz/ui/Button/SwitchPalette" 
+	$field=light-palette 
+	$value={{!!light-palette}} />	
+	
+<$action-setfield 
+  $tiddler="$:/palette" 
+	$field=text
+	$value={{!!light-palette}} />		
+	
+</$button>
+</div>
+
+<style>
+.kk-switch-label {
+  width:105px;
+  display: inline-block;
+}
+</style>

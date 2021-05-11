@@ -3,7 +3,7 @@
     "name": "Shiraz",
     "description": "extended markups, styles, images, tables, and macros",
     "author": "Mohammad Rahmani",
-    "version": "2.2.2",
+    "version": "2.3.0",
     "core-version": ">=5.1.23",
     "source": "https://github.com/kookma/TW-Shiraz",
     "list": "readme license history",

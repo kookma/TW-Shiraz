@@ -1,15 +1,17 @@
 created: 20181101185833098
-modified: 20210304154353016
+modified: 20210510201011084
 tags: $:/tags/Macro
 title: $:/plugins/kookma/shiraz/macros/details
 type: text/vnd.tiddlywiki
 
 \define details(label:"", src:"source", status:"", labelClass:"", srcClass:"")
+<$vars  source = {{{ [<__src__>get[text]else<__src__>] }}} >
 <details $status$>
  <summary class="$labelClass$">$label$</summary>
   <div class="$srcClass$">
 	
-   $src$
+   <<source>>
   </div>
 </details>
+</$vars>
 \end

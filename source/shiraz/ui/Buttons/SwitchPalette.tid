@@ -1,0 +1,33 @@
+created: 20201210171047824
+dark-palette: $:/palettes/SolarFlare
+description: Toggle between light/dark colour palette
+light-palette: $:/palettes/Vanilla
+modified: 20210518040210266
+tags: $:/tags/PageControls
+title: $:/plugins/kookma/shiraz/ui/Buttons/SwitchPalette
+type: text/vnd.tiddlywiki
+
+\whitespace trim
+<$vars 
+darkPalette={{$:/plugins/kookma/shiraz/ui/Buttons/SwitchPalette!!dark-palette}}
+lightPalette={{$:/plugins/kookma/shiraz/ui/Buttons/SwitchPalette!!light-palette}}
+> 
+<$button tooltip="Switch colours" aria-label="Switch colours" class=<<tv-config-toolbar-class>>>
+  <$list filter="[<tv-config-toolbar-icons>match[yes]]">
+    {{$:/plugins/kookma/shiraz/images/color-switch}}
+  </$list>
+
+  <$list filter="[<tv-config-toolbar-text>match[yes]]">
+    <span class="tc-btn-text">Switch colours</span>
+  </$list>
+
+  <$reveal type="match" state="$:/palette" text=<<darkPalette>>  > 
+    <$action-setfield $tiddler="$:/palette"    text=<<lightPalette>> />
+  </$reveal>
+  <$reveal type="nomatch" state="$:/palette" text=<<darkPalette>>  >
+    <$action-setfield $tiddler="$:/palette"         text=<<darkPalette>>  >
+  </$reveal>
+</$button>
+</$vars>
+
+{{$:/plugins/kookma/shiraz/ui/Buttons/SwitchPalette!!dark-palette}}

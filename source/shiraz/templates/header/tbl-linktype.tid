@@ -1,0 +1,11 @@
+created: 20210517200330994
+modified: 20210518185154370
+tags: $:/tags/Table/HeaderTemplate
+tbl-column-list: tbl-linktype
+title: $:/plugins/kookma/shiraz/templates/header/tbl-linktype
+type: text/vnd.tiddlywiki
+
+<th  style="width:32px;text-align:center;cursor:default;">Linktype</th>
+<!-- 
+tb-linktype is not sortable not editable
+-->

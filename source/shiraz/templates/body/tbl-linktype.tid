@@ -1,0 +1,13 @@
+created: 20210501184147078
+modified: 20210518184756053
+tags: $:/tags/Table/BodyTemplate
+tbl-column-list: tbl-linktype
+title: $:/plugins/kookma/shiraz/templates/body/tbl-linktype
+type: text/vnd.tiddlywiki
+
+<td>
+<$text text={{{ [all[current]links[]match<currentRecord>then[link]] :else[all[current]backlinks[]match<currentRecord>then[backlink]else[tagging]] }}} />
+</td>
+<!-- 
+tb-linktype is not sortable not editable
+-->

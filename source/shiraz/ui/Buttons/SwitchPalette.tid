@@ -2,14 +2,15 @@ created: 20201210171047824
 dark-palette: $:/palettes/SolarFlare
 description: Toggle between light/dark colour palette
 light-palette: $:/palettes/Vanilla
-modified: 20210518040210266
+list-after: $:/plugins/kookma/utility/ui/Buttons/ViewFields
+modified: 20210520061343748
 tags: $:/tags/PageControls
 title: $:/plugins/kookma/shiraz/ui/Buttons/SwitchPalette
 type: text/vnd.tiddlywiki
 
 \whitespace trim
 <$vars 
-darkPalette={{$:/plugins/kookma/shiraz/ui/Buttons/SwitchPalette!!dark-palette}}
+darkPalette ={{$:/plugins/kookma/shiraz/ui/Buttons/SwitchPalette!!dark-palette}}
 lightPalette={{$:/plugins/kookma/shiraz/ui/Buttons/SwitchPalette!!light-palette}}
 > 
 <$button tooltip="Switch colours" aria-label="Switch colours" class=<<tv-config-toolbar-class>>>
@@ -21,13 +22,11 @@ lightPalette={{$:/plugins/kookma/shiraz/ui/Buttons/SwitchPalette!!light-palette}
     <span class="tc-btn-text">Switch colours</span>
   </$list>
 
-  <$reveal type="match" state="$:/palette" text=<<darkPalette>>  > 
-    <$action-setfield $tiddler="$:/palette"    text=<<lightPalette>> />
+  <$reveal type="match" state="$:/palette"  text=<<darkPalette>>  > 
+    <$action-setfield $tiddler="$:/palette" text=<<lightPalette>> />
   </$reveal>
   <$reveal type="nomatch" state="$:/palette" text=<<darkPalette>>  >
-    <$action-setfield $tiddler="$:/palette"         text=<<darkPalette>>  >
+    <$action-setfield $tiddler="$:/palette"  text=<<darkPalette>>  >
   </$reveal>
 </$button>
 </$vars>
-
-{{$:/plugins/kookma/shiraz/ui/Buttons/SwitchPalette!!dark-palette}}

@@ -1,5 +1,5 @@
 created: 20210224171009495
-modified: 20210226184545624
+modified: 20210808052511528
 tags: $:/tags/Stylesheet
 title: $:/plugins/kookma/shiraz/styles/dynamic-tables-var
 type: text/vnd.tiddlywiki
@@ -7,16 +7,16 @@ type: text/vnd.tiddlywiki
 /* these are dynamic or variable properties based on the tiddlywiki palette */
 
 .shiraz-dtable-page-footer select{
-  background-color: <<colour table-header-background>>;
-  color:<<colour foreground>>;
+  background-color: <<color table-header-background>>;
+  color:<<color foreground>>;
 }
 
 .shiraz-dtable-page-footer > td{
-background-color: <<colour table-header-background>>;
+background-color: <<color table-header-background>>;
 }
 
 /* customize the table footer used for numerical summary*/
 .shiraz-dtable-footer tr td{
-	background-color: <<colour table-footer-background>>;
+	background-color: <<color table-footer-background>>;
   border:none;
 }

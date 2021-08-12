@@ -1,7 +1,7 @@
 caption: Shiraz
 created: 20191018054657077
 list-after: $:/core/ui/ControlPanel/Settings/TiddlyWiki
-modified: 20210518040210196
+modified: 20210808064559781
 tags: $:/tags/ControlPanel/SettingsTab $:/tags/MoreSideBar
 title: $:/plugins/kookma/shiraz/ui/ControlPanel/Settings
 type: text/vnd.tiddlywiki
@@ -19,11 +19,8 @@ These settings let you customise the behaviour of Shiraz plugin.
 :<$checkbox tiddler="$:/plugins/kookma/shiraz/styles/misc/tiddler-button-visibility" tag="$:/tags/Stylesheet"> Tiddler visibility on mouse hover</$checkbox>
 :<$checkbox tiddler="$:/plugins/kookma/shiraz/styles/misc/edit-buttons" tag="$:/tags/Stylesheet"> Traffic lights for edit toolbar buttons</$checkbox>
 :<$checkbox tiddler="$:/plugins/kookma/shiraz/styles/colorful-sidebar-tab" tag="$:/tags/Stylesheet"> Colorify sidebar tabs</$checkbox>
-:<$checkbox tiddler="$:/plugins/kookma/shiraz/ui/Buttons/SwitchPalette" tag="$:/tags/PageControls"> Show switch palette on page controls</$checkbox>
 
-<$list filter="[[$:/plugins/kookma/shiraz/ui/Buttons/SwitchPalette]contains:tags[$:/tags/PageControls]]">
-
-;Set dark and light palette
+;Set dark and light palettes
 {{$:/plugins/kookma/shiraz/ui/set-dark-light-palette}}
-</$list>
+
 

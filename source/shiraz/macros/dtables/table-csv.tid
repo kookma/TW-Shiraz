@@ -1,0 +1,62 @@
+created: 20210806160408697
+modified: 20210812041057494
+tags: $:/tags/Macro
+title: $:/plugins/kookma/shiraz/macros/dtables/table-csv
+type: text/vnd.tiddlywiki
+
+\define table-csv(tiddler:"", delimiter:",", sortType:"alphanumeric", format:"", caption:"", class:"", header:"yes", stateTiddler:"", id:"" )
+\whitespace trim
+\import [[$:/plugins/kookma/shiraz/macros/dtables/table-csv-utility]]
+
+<$vars src          = {{{ [<__tiddler__>is[tiddler]then<__tiddler__>else<currentTiddler>] }}} 
+       stateTiddler = {{{ [<__stateTiddler__>!is[blank]then<__stateTiddler__>else[01]]    }}} >
+<$vars sortCol      = {{{ [<tempTableSort>getindex[sortIndex]] }}} 
+       sortNegate   = {{{ [<tempTableSort>getindex[negate]] }}}  
+       delimiter    = {{{ [<__delimiter__>match[\t]then[°≡°]else<__delimiter__>] }}}
+       dataBlockStartDelimiter ={{{ [<__id__>is[blank]then[<!---]] ~[[<!---]addsuffix<__id__>] }}}
+       dataBlockEndDelimiter   = "--->"  >
+
+<!-- extract the data block -->
+<$vars dblock0 = {{{ [<src>get[text]splitregexp<dataBlockStartDelimiter>butfirst[1]] }}} >
+<$vars dblock1 = {{{ [<dblock0>splitregexp<dataBlockEndDelimiter>butlast[1]] }}} >
+<$vars dblock  = {{{ [<delimiter>!match[°≡°]then<dblock1>] :else[<dblock1>search-replace:g:regexp[\t],[°≡°]] }}} >
+
+<!-- create table -->
+<table class="$class$">
+<$list filter="[<__caption__>!is[blank]]" variable=ignorw><caption>$caption$</caption></$list>
+<!--check if there is a header row-->
+<$list filter="[<__header__>match[yes]then[1]else[0]]" variable=header_row>
+<!-- process all extracted rows-->
+<$set name=allRows filter="""[<dblock>splitregexp[\n]!is[blank]]""">
+<!--create table header-->
+<$list filter="[enlist:raw<allRows>first<header_row>]" variable=row >
+<tr><$list filter="[<row>splitregexp<delimiter>!is[blank]trim[]]" variable=currentColumn><<column-header-template>></$list></tr>
+</$list>
+<!--create table body-->
+<$vars sortPos  = {{{ [enlist:raw<allRows>first<header_row>splitregexp<delimiter>!is[blank]trim[]]  +[allbefore:include<sortCol>count[]]   }}} >
+<$vars sortType = {{{ [enlist:raw<__sortType__>nth<sortPos>else[alphanumeric]] }}}  >
+<$list filter=<<mainFilter>> variable=row><!-- parse all other rows -->
+<tr><$list filter="[<row>splitregexp<delimiter>!is[blank]trim[]]" variable=entry counter=pos>
+<td><$macrocall $name={{{ [enlist:raw<__format__>nth<pos>else[text]] }}} /></td>
+</$list></tr>
+</$list><!-- end of parse all other rows -->
+</$vars>
+</$vars><!-- sorPs-->
+</$set> <!-- end of process all extracted rows-->
+</$list><!-- end of check header -->
+</table>
+
+</$vars>
+</$vars>
+</$vars><!-- dblock0-->
+</$vars><!-- sortCol-->
+</$vars>
+\end
+
+<!--
+- the default format is text, if format is not set for any column
+- the default sort type is alphanumeric, if the sort type is not sent 
+- tab delimited data cannot be processed as enlist list them as sparate title on tab and do not keep them as a single row, so befor processing the \tab is replaced with a rarely used combination like `°≡°`
+- leading and trailing blanks (spaces) are always trimmed
+- when use column header, you cannot have two column with the same header, this causes problem with sort routine
+-->

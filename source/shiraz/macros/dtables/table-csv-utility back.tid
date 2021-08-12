@@ -1,0 +1,56 @@
+created: 20210810032522304
+modified: 20210810032528476
+tags: 
+title: $:/plugins/kookma/shiraz/macros/dtables/table-csv-utility back
+type: text/vnd.tiddlywiki
+
+\whitespace trim
+
+\define mainFilter() [enlist:raw<items>butfirst<row>] :sort:$(sortType)$:$(sortNegate)$[split<delimiter>!is[blank]trim[]nth<sortPos>]
+\define tempTableSort() xx$:/state/tablecsv/$(currentTiddler)$/$(stateTiddler)$
+
+\define text()  <$text text=<<entry>> />
+\define code()  <code><<text>></code>
+\define transclude() <$transclude tiddler=<<entry>> field=title/>
+\define date()  <$view field=title tiddler=<<entry>> format=date template="0DD.0MM.YYYY"/>
+\define email() <a class="tc-tiddlylink-external" href="mailto:$(entry)$" rel="noopener noreferrer" target="_blank"><<text>></a>
+\define rate()
+<$list filter="[<entry>split[]match[*]]" variable=ignore>
+<span class="shiraz-star"><$transclude tiddler="$:/core/images/star-filled" /></span>
+</$list>
+\end
+
+\define checkbox()
+<!-- show task item -->
+<$list filter="[<entry>trim[]match[x]]" variable=ignore><input type=checkbox disabled/></$list>
+<!-- show done item -->
+<$list filter="[<entry>trim[]match[-]]" variable=ignore><input type=checkbox checked disabled/></$list>
+\end
+
+
+
+\define column-header-template()
+<$reveal type="nomatch" stateTitle=<<tempTableSort>> stateIndex="sortIndex" text=<<currentColumn>> tag="th">
+<$button setTitle=<<tempTableSort>> setIndex="sortIndex" setTo=<<currentColumn>> class="tc-btn-invisible tc-tiddlylink" >
+<$action-setfield $tiddler=<<tempTableSort>> $index="hasnegate" $value="false"/>
+<$action-setfield $tiddler=<<tempTableSort>> $index="negate" $value=""/>
+<span style="text-transform: capitalize;"><$text text=<<currentColumn>>/></span>
+</$button>
+</$reveal>
+<$reveal type="match" stateTitle=<<tempTableSort>> stateIndex="sortIndex" text=<<currentColumn>> tag="th">
+<$list filter="[<tempTableSort>getindex[hasnegate]match[false]]" variable=ignore><!--set negate for sort-->
+<$button setTitle=<<tempTableSort>> setIndex="hasnegate" setTo="true" class="tbl-sort-svg tc-btn-invisible tc-tiddlylink" >
+<$action-setfield $tiddler=<<tempTableSort>> $index="negate" $value="reverse"/>
+<span style="text-transform: capitalize;"><$text text=<<currentColumn>>/></span> {{$:/core/images/down-arrow}}
+</$button>
+</$list>
+<$list filter="[<tempTableSort>getindex[hasnegate]match[true]]" variable=ignore><!--remove negate for sort-->
+<$button setTitle=<<tempTableSort>> setIndex="hasnegate" setTo="false" class="tbl-sort-svg tc-btn-invisible tc-tiddlylink" >
+<$action-setfield $tiddler=<<tempTableSort>> $index="negate" $value=""/>
+<span style="text-transform: capitalize;"><$text text=<<currentColumn>>/></span> {{$:/core/images/up-arrow}}
+</$button>
+</$list>
+</$reveal>
+\end
+
+<!-- these macro are used by table-csv to display entries -->

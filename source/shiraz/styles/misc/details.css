@@ -1,0 +1,11 @@
+/* Styles for summary cursor
+url: https://css-tricks.com/two-issues-styling-the-details-element-and-how-to-solve-them/
+*/
+
+summary {
+  cursor: pointer;
+}
+
+summary > * {
+  display: inline;
+}

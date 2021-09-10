@@ -1,5 +1,5 @@
 created: 20210806160408697
-modified: 20210910081613369
+modified: 20210910114432541
 tags: $:/tags/Macro
 title: $:/plugins/kookma/shiraz/macros/csvtables/table-csv
 type: text/vnd.tiddlywiki
@@ -7,7 +7,7 @@ type: text/vnd.tiddlywiki
 \define table-csv(tiddler:"", delimiter:",", sortType:"alphanumeric", format:"", caption:"", class:"", header:"yes", stateTiddler:"", id:"" )
 \whitespace trim
 \import [[$:/plugins/kookma/shiraz/macros/csvtables/table-csv-utility]]
-\import [prefix[$:/plugins/kookma/shiraz/macros/csvtables/formats]]
+\import [all[tiddlers+shadows]prefix[$:/plugins/kookma/shiraz/macros/csvtables/formats]]
 
 <$vars src          = {{{ [<__tiddler__>is[tiddler]then<__tiddler__>else<currentTiddler>] }}} 
        stateTiddler = {{{ [<__stateTiddler__>!is[blank]then<__stateTiddler__>else[01]]    }}} >

@@ -1,0 +1,12 @@
+created: 20210910071657253
+modified: 20210910081659382
+tags: 
+title: $:/plugins/kookma/shiraz/macros/csvtables/formats-basic
+type: text/vnd.tiddlywiki
+
+\define text()  <$text text=<<entry>> />
+\define code()  <code><<text>></code>
+\define transclude() <$transclude tiddler=<<entry>> field=title/>
+
+
+<!-- these macro are used by table-csv to display entries -->

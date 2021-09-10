@@ -1,0 +1,34 @@
+created: 20210910071727034
+modified: 20210910072526774
+tags: 
+title: $:/plugins/kookma/shiraz/macros/csvtables/formats-task
+type: text/vnd.tiddlywiki
+
+\define checkbox()
+<!-- show done item -->
+<$list filter="[<entry>trim[]match[x]]" variable=ignore><input type=checkbox checked disabled/></$list>
+<!-- show task item -->
+<$list filter="[<entry>trim[]match[-]]" variable=ignore><input type=checkbox disabled/></$list>
+\end
+
+
+\define todo-action(param)
+<!-- toggle a line done (x) / undone (-) -->
+  <$vars in=<<row>> out={{{[<row>splitregexp<delimiter>rest[]join[,]addprefix[$param$,]]}}} >
+    <$action-setfield $tiddler=<<src>> text={{{ [<src>get[text]search-replace:g:<in>,<out>] }}}/>
+  </$vars>
+\end
+
+\define todo()
+<!-- show task item -->
+<$list filter="[<entry>trim[]match[-]]" variable=ignore>
+<$button class="tc-btn-invisible" actions=<<todo-action "x">>><input type=checkbox/></$button>
+</$list>
+<!-- show done item -->
+<$list filter="[<entry>trim[]match[x]]" variable=ignore>
+<$button class="tc-btn-invisible" actions=<<todo-action "-">>><input type=checkbox checked/></$button>
+</$list>
+
+\end
+
+<!-- these macro are used by table-csv to display entries -->

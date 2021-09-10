@@ -1,0 +1,11 @@
+created: 20210910072339252
+modified: 20210910081720853
+tags: 
+title: $:/plugins/kookma/shiraz/macros/csvtables/formats-date
+type: text/vnd.tiddlywiki
+
+\define date()       <$view field=title tiddler={{{[<entry>splitregexp[\D+]!is[blank]join[]]}}} format=date template="YYYY-0MM-0DD"/>
+\define shortdate()  <$view field=title tiddler={{{[<entry>splitregexp[\D+]!is[blank]join[]]}}} format=date template="mmm DDth, YYYY"/>
+\define longdate()   <$view field=title tiddler={{{[<entry>splitregexp[\D+]!is[blank]join[]]}}} format=date template="DDD, MMM 0DD, YYYY"/>
+
+<!-- these macro are used by table-csv to display entries -->

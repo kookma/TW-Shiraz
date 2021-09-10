@@ -1,0 +1,18 @@
+created: 20210910072420649
+modified: 20210910081742051
+tags: 
+title: $:/plugins/kookma/shiraz/macros/csvtables/formats-misc
+type: text/vnd.tiddlywiki
+
+\define email() <a class="tc-tiddlylink-external" href="mailto:$(entry)$" rel="noopener noreferrer" target="_blank"><<text>></a>
+
+\define rate()
+<$list filter="[<entry>split[]match[*]]" variable=ignore>
+<span class="shiraz-star"><$transclude tiddler="$:/core/images/star-filled" /></span>
+</$list>
+\end
+
+\define katex()  <$latex text=<<entry>> displayMode="true"></$latex>
+\define katex-inline()  <$latex text=<<entry>> displayMode="false"></$latex>
+
+<!-- these macro are used by table-csv to display entries -->

@@ -1,0 +1,8 @@
+.falign .katex-display > .katex {text-align:left;}
+.ralign .katex-display > .katex {text-align:right;}
+.table-mathbox  tr td{vertical-align: baseline;} /* baseline aligned text and fomula in table cell*/
+
+/*
+Only used with csv table + katex
+See $:/plugins/kookma/shiraz/macros/csvtables/formats-math
+*/

@@ -1,5 +1,5 @@
 created: 20210910072420649
-modified: 20210910081742051
+modified: 20210913204706883
 tags: 
 title: $:/plugins/kookma/shiraz/macros/csvtables/formats-misc
 type: text/vnd.tiddlywiki
@@ -11,8 +11,5 @@ type: text/vnd.tiddlywiki
 <span class="shiraz-star"><$transclude tiddler="$:/core/images/star-filled" /></span>
 </$list>
 \end
-
-\define katex()  <$latex text=<<entry>> displayMode="true"></$latex>
-\define katex-inline()  <$latex text=<<entry>> displayMode="false"></$latex>
 
 <!-- these macro are used by table-csv to display entries -->

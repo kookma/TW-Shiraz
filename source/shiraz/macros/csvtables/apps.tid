@@ -1,0 +1,19 @@
+created: 20210913061439446
+modified: 20210914163550428
+tags: $:/tags/Macro
+title: $:/plugins/kookma/shiraz/macros/csvtables/apps
+type: text/vnd.tiddlywiki
+
+\define nomenclature(id:nomenclature)
+<<table-csv id:"$id$" format:"katex-inline transclude pu"  class:"table-borderless" header:no>>
+\end
+
+\define mathbox(id:"", format:"", delimiter:",")
+<<table-csv id:"$id$" format:"transclude katex $format$"  class:"table-borderless table-mathbox" header:no delimiter:"""$delimiter$""">>
+\end
+
+
+<!-- 
+- these macros uses the table-csv to display nice looking outputs
+- apps means application
+-->

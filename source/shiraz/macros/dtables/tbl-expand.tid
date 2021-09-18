@@ -1,0 +1,16 @@
+created: 20191203155802107
+modified: 20210918193738145
+tags: $:/tags/Table/Macro
+title: $:/plugins/kookma/shiraz/macros/dtables/tbl-expand
+type: text/vnd.tiddlywiki
+
+\define display-expanded-record()
+<td colspan=<<ncols>> class="shiraz-dtable-expanded-record">
+<$tiddler tiddler=<<currentRecord>> >
+<$list filter="[<tempTableEdit>getindex[mode]match[edit]]" variable=ignore
+  emptyMessage="""<$transclude tiddler=<<currentRecord>> field=text mode=block/>""" >
+  <$edit-text class="tbl-inpt-edit" tiddler=<<currentRecord>> field="text" tag=textarea/>
+</$list>
+</$tiddler>
+</td>
+\end

@@ -1,11 +1,12 @@
 created: 20210225163850252
-modified: 20210910113427193
+modified: 20210918195716110
 tags: 
 title: $:/plugins/kookma/shiraz/history
 type: text/vnd.tiddlywiki
 
 Full change log:  [[https://kookma.github.io/TW-Shiraz/#ChangeLog]]
 
+* ''2.4.4'' -- 2021.09.19 -- added css class for tbl-expand customization
 * ''2.4.2'' -- 2021.09.10 -- quick table with bunch of column formatting
 * ''2.3.3'' -- 2021.05.20 -- small bug fixes in switch palette
 * ''2.3.1'' -- 2021.05.19 -- tbl-linktype template to be used for generating node-explorer

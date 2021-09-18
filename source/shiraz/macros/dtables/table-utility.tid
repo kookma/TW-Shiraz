@@ -1,5 +1,5 @@
 created: 20200209195541061
-modified: 20210808052511227
+modified: 20210918193243499
 tags: $:/tags/Table/Macro
 title: $:/plugins/kookma/shiraz/macros/dtables/table-utility
 type: text/vnd.tiddlywiki
@@ -30,7 +30,7 @@ type: text/vnd.tiddlywiki
 </tr>
 <!-- reveal expanded record-->
 <$reveal type="match" state=<<tempPathExpand>> text="show" tag="tr">
-<<display-extended-record>>
+<<display-expanded-record>>
 </$reveal>
 </$wikify>
 \end

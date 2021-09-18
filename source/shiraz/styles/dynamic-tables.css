@@ -62,3 +62,6 @@ table thead .tbl-delete-confirm > th > button {
 .shiraz-dtable-page-footer button svg {height:0.7em;}
 .shiraz-dtable-page-footer button {outline: none; line-height:normal;}
 .shiraz-dtable-page-footer button:disabled {display:none;}
+
+/* to format the expanded record (tiddler body) - for local customization like KaTeX numbering */
+.shiraz-dtable-expanded-record{ }

@@ -1,10 +1,10 @@
 created: 20170128100657312
-modified: 20210808052511660
+modified: 20211117172100619
 tags: $:/tags/Table/BodyTemplate
 tbl-column-list: created modified
 title: $:/plugins/kookma/shiraz/templates/body/date
 type: text/vnd.tiddlywiki
 
-<td>
+<td class="shiraz-dtable-date">
 <$view tiddler=<<currentRecord>> field=<<currentColumn>> format="date" template="YYYY.0MM.0DD"/>
 </td>

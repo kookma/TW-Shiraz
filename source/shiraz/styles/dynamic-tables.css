@@ -65,3 +65,8 @@ table thead .tbl-delete-confirm > th > button {
 
 /* to format the expanded record (tiddler body) - for local customization like KaTeX numbering */
 .shiraz-dtable-expanded-record{ }
+
+/*to adjust the column width for date/due-date fields*/
+.shiraz-dtable-date{
+	width:7em;
+}

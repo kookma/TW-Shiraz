@@ -1,14 +1,18 @@
 created: 20200206191120454
-modified: 20210808052511673
+modified: 20211117172046922
 tags: $:/tags/Table/BodyTemplate
 tbl-column-list: due-date
 title: $:/plugins/kookma/shiraz/templates/body/due-date
 type: text/vnd.tiddlywiki
 
-\define showCell() <$transclude tiddler=<<currentRecord>> field=<<currentColumn>> mode="inline" />
+\define showCell()
+<$set tiddler=<<currentRecord>> field=<<currentColumn>> name=due-date>
+<$text text={{{[<due-date>split[-]split[.]join[]format:date[YYYY.0MM.0DD]]}}} />
+</$set>
+\end
 \define showCell_Locked() <span style="font-style:oblique;"><<showCell>></span>
 \define edit_date() <$edit-text tag=input type=date tiddler=<<currentRecord>> field=<<currentColumn>>/>
-<$reveal type="nomatch" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td">
+<$reveal type="nomatch" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td" class="shiraz-dtable-date">
 <<showCell>>
 </$reveal>
 <$reveal type="match" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td">

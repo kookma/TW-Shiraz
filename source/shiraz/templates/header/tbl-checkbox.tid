@@ -1,5 +1,5 @@
 created: 20200206151157578
-modified: 20210808052511775
+modified: 20220109164156311
 tags: $:/tags/Table/HeaderTemplate
 tbl-column-list: tbl-checkbox
 title: $:/plugins/kookma/shiraz/templates/header/tbl-checkbox
@@ -20,6 +20,6 @@ type: text/vnd.tiddlywiki
 </$list>
 \end
 
-<th style="width:28px;">
+<th style="width:28px;min-width:28px;">
 <$checkbox checkactions=<<chk-checkactions>> uncheckactions=<<chk-uncheckactions>> />
 </th>

@@ -1,10 +1,10 @@
 created: 20210806160408697
-modified: 20210910114432541
+modified: 20220725145558979
 tags: $:/tags/Macro
 title: $:/plugins/kookma/shiraz/macros/csvtables/table-csv
 type: text/vnd.tiddlywiki
 
-\define table-csv(tiddler:"", delimiter:",", sortType:"alphanumeric", format:"", caption:"", class:"", header:"yes", stateTiddler:"", id:"" )
+\define table-csv(tiddler:"", delimiter:",", sortType:"alphanumeric", format:"", caption:"", class:"", header:"yes", stateTiddler:"", id:"", dclass:"dblock" )
 \whitespace trim
 \import [[$:/plugins/kookma/shiraz/macros/csvtables/table-csv-utility]]
 \import [all[tiddlers+shadows]prefix[$:/plugins/kookma/shiraz/macros/csvtables/formats]]
@@ -14,13 +14,13 @@ type: text/vnd.tiddlywiki
 <$vars sortCol      = {{{ [<tempTableSort>getindex[sortIndex]] }}} 
        sortNegate   = {{{ [<tempTableSort>getindex[negate]] }}}  
        delimiter    = {{{ [<__delimiter__>match[\t]then[°≡°]else<__delimiter__>] }}}
-       dataBlockStartDelimiter ={{{ [<__id__>is[blank]then[<!---]] ~[[<!---]addsuffix<__id__>] }}}
-       dataBlockEndDelimiter   = "--->"  >
+       dataBlockStartDelimiter ={{{ [<__id__>is[blank]then[@@.$dclass$]] ~[[@.$dclass$.]addsuffix<__id__>] }}}
+       dataBlockEndDelimiter   = "@@"  >
 
 <!-- extract the data block -->
-<$vars dblock0 = {{{ [<src>get[text]splitregexp<dataBlockStartDelimiter>butfirst[1]] }}} >
-<$vars dblock1 = {{{ [<dblock0>splitregexp<dataBlockEndDelimiter>butlast[1]] }}} >
-<$vars dblock  = {{{ [<delimiter>!match[°≡°]then<dblock1>] :else[<dblock1>search-replace:g:regexp[\t],[°≡°]] }}} >
+<$let dblock0 = {{{ [<src>get[text]splitregexp<dataBlockStartDelimiter>butfirst[1]] }}}
+      dblock1 = {{{ [<dblock0>splitregexp<dataBlockEndDelimiter>butlast[1]] }}}
+      dblock  = {{{ [<delimiter>!match[°≡°]then<dblock1>] :else[<dblock1>search-replace:g:regexp[\t],[°≡°]] }}} >
 
 <!-- create table -->
 <table class="$class$">
@@ -28,13 +28,13 @@ type: text/vnd.tiddlywiki
 <!--check if there is a header row-->
 <$list filter="[<__header__>match[yes]then[1]else[0]]" variable=header_row>
 <!-- process all extracted rows-->
-<$set name=allRows filter="""[<dblock>splitregexp[\n]!is[blank]]""">
+<$vars allRows="[<dblock>splitregexp[\n]!is[blank]]">
 <!--create table header-->
-<$list filter="[enlist:raw<allRows>first<header_row>]" variable=row >
+<$list filter="[subfilter<allRows>first<header_row>]" variable=row >
 <tr><$list filter="[<row>splitregexp<delimiter>!is[blank]trim[]]" variable=currentColumn><<column-header-template>></$list></tr>
 </$list>
 <!--create table body-->
-<$vars sortPos  = {{{ [enlist:raw<allRows>first<header_row>splitregexp<delimiter>!is[blank]trim[]]  +[allbefore:include<sortCol>count[]]   }}} >
+<$vars sortPos  = {{{ [subfilter<allRows>first<header_row>splitregexp<delimiter>!is[blank]trim[]]  +[allbefore:include<sortCol>count[]]   }}} >
 <$vars sortType = {{{ [enlist:raw<__sortType__>nth<sortPos>else[alphanumeric]] }}}  >
 <$list filter=<<mainFilter>> variable=row><!-- parse all other rows -->
 <tr><$list filter="[<row>splitregexp<delimiter>!is[blank]trim[]]" variable=entry counter=pos>
@@ -43,13 +43,11 @@ type: text/vnd.tiddlywiki
 </$list><!-- end of parse all other rows -->
 </$vars>
 </$vars><!-- sorPs-->
-</$set> <!-- end of process all extracted rows-->
+</$vars> <!-- end of process all extracted rows-->
 </$list><!-- end of check header -->
 </table>
 
-</$vars>
-</$vars>
-</$vars><!-- dblock0-->
+</$let><!-- dblock0-->
 </$vars><!-- sortCol-->
 </$vars>
 \end

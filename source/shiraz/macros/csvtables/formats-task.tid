@@ -1,5 +1,5 @@
 created: 20210910071727034
-modified: 20210910072526774
+modified: 20220724122008067
 tags: 
 title: $:/plugins/kookma/shiraz/macros/csvtables/formats-task
 type: text/vnd.tiddlywiki
@@ -13,10 +13,13 @@ type: text/vnd.tiddlywiki
 
 
 \define todo-action(param)
-<!-- toggle a line done (x) / undone (-) -->
-  <$vars in=<<row>> out={{{[<row>splitregexp<delimiter>rest[]join[,]addprefix[$param$,]]}}} >
+<!-- toggle a line done (x) / undone (-) . the lbr is used to prevent replace "x, Hi" with "x, Hi Jeremy"-->
+<$vars lbr="
+">
+  <$vars in={{{ [<row>addsuffix<lbr>] }}} out={{{[<row>splitregexp<delimiter>rest[]join[,]addprefix[$param$,]addsuffix<lbr>]}}} >
     <$action-setfield $tiddler=<<src>> text={{{ [<src>get[text]search-replace:g:<in>,<out>] }}}/>
   </$vars>
+</$vars>	
 \end
 
 \define todo()

@@ -1,0 +1,10 @@
+.dblock,
+.todo {
+	display:none;
+}
+
+/*
+Only used with csv table
+See $:/plugins/kookma/shiraz/macros/csvtables/table-csv
+Calss .todo is used to create a data block for todo. Any other name can be used here.
+*/

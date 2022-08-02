@@ -1,5 +1,5 @@
 created: 20210913061042429
-modified: 20210914124704452
+modified: 20220722160253916
 tags: 
 title: $:/plugins/kookma/shiraz/macros/csvtables/formats-math
 type: text/vnd.tiddlywiki
@@ -10,7 +10,8 @@ type: text/vnd.tiddlywiki
 \define equation()  <$latex text={{{ [<entry>addprefix[\begin{equation}]addsuffix[\end{equation}]] }}} displayMode="true"></$latex>
 
 <!-- 
-- these macro are used by table-csv to display entries
+- these macros are used by table-csv to display entries KaTeX
+- pu stands for physical uints
 - the math formating require the official KaTeX plugin is installed!
 - see $:/plugins/kookma/shiraz/styles/csvtable-katex
 -->

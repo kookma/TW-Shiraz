@@ -1,12 +1,12 @@
 created: 20210806160339977
-modified: 20210910081553596
+modified: 20220724180943956
 tags: 
 title: $:/plugins/kookma/shiraz/macros/csvtables/table-csv-utility
 type: text/vnd.tiddlywiki
 
 \whitespace trim
 
-\define mainFilter() [enlist:raw<allRows>butfirst<header_row>] :sort:$(sortType)$:$(sortNegate)$[split<delimiter>!is[blank]trim[]nth<sortPos>]
+\define mainFilter() [subfilter<allRows>butfirst<header_row>] :sort:$(sortType)$:$(sortNegate)$[split<delimiter>!is[blank]trim[]nth<sortPos>]
 \define tempTableSort() $:/state/tablecsv/$(currentTiddler)$/$(stateTiddler)$
 
 

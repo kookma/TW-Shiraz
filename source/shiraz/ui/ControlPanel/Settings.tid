@@ -1,7 +1,7 @@
 caption: Shiraz
 created: 20191018054657077
 list-after: $:/core/ui/ControlPanel/Settings/TiddlyWiki
-modified: 20210808064559781
+modified: 20220801115256994
 tags: $:/tags/ControlPanel/SettingsTab $:/tags/MoreSideBar
 title: $:/plugins/kookma/shiraz/ui/ControlPanel/Settings
 type: text/vnd.tiddlywiki
@@ -15,9 +15,9 @@ These settings let you customise the behaviour of Shiraz plugin.
 
 ;Options
 :<$checkbox tiddler="$:/plugins/kookma/shiraz/styles/multicols/storyriver" tag="$:/tags/Stylesheet"> Multicolumn story river</$checkbox>
-:<$checkbox tiddler="$:/plugins/kookma/shiraz/styles/misc/ui-buttons" tag="$:/tags/Stylesheet"> Colorful UI buttons</$checkbox>
-:<$checkbox tiddler="$:/plugins/kookma/shiraz/styles/misc/tiddler-button-visibility" tag="$:/tags/Stylesheet"> Tiddler visibility on mouse hover</$checkbox>
-:<$checkbox tiddler="$:/plugins/kookma/shiraz/styles/misc/edit-buttons" tag="$:/tags/Stylesheet"> Traffic lights for edit toolbar buttons</$checkbox>
+:<$checkbox tiddler="$:/plugins/kookma/shiraz/styles/ui/colorify-buttons" tag="$:/tags/Stylesheet"> Colorful UI buttons</$checkbox>
+:<$checkbox tiddler="$:/plugins/kookma/shiraz/styles/ui/view-toolbar-button-visibility" tag="$:/tags/Stylesheet"> Tiddler visibility on mouse hover</$checkbox>
+:<$checkbox tiddler="$:/plugins/kookma/shiraz/styles/ui/edit-toolbar-buttons" tag="$:/tags/Stylesheet"> Traffic lights for edit toolbar buttons</$checkbox>
 :<$checkbox tiddler="$:/plugins/kookma/shiraz/styles/colorful-sidebar-tab" tag="$:/tags/Stylesheet"> Colorify sidebar tabs</$checkbox>
 
 ;Set dark and light palettes

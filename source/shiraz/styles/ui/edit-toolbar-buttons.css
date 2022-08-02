@@ -1,0 +1,4 @@
+/*Tiddler edit toolbar buttons as traffic lights*/
+.tc-tiddler-controls .tc-image-delete-button {fill:#ebb;}
+.tc-tiddler-controls .tc-image-cancel-button {fill:#ed9;}
+.tc-tiddler-controls .tc-image-done-button {fill:#beb;}

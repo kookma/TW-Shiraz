@@ -1,0 +1,10 @@
+/* These css rules makes page control buttons in beatiful color */
+
+/*page control buttons*/
+.tc-page-controls .tc-image-new-button { fill: #5EB95E; } /*New tiddler button*/
+.tc-page-controls .tc-image-options-button { fill:#8058A5; } /*Open control pannel*/
+
+/* These css rules makes tiddler viewtoolbar buttons in beatiful color */
+
+.tc-tiddler-controls .tc-image-edit-button{fill:#f37b1d}
+.tc-tiddler-controls .tc-image-info-button{fill:#0e90d2}

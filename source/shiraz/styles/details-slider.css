@@ -9,7 +9,23 @@ details > div {
   margin: 0;
 }
 
+
+/* Styles for summary cursor
+url: https://css-tricks.com/two-issues-styling-the-details-element-and-how-to-solve-them/
+*/
+
+summary {
+  cursor: pointer;
+}
+
+summary > * {
+  display: inline;
+}
+
+
 button .kk-sh-slider svg{
 width: 0.8em;
 height: 0.8em;
-vertical-align: middle;}
+vertical-align: middle;
+}
+

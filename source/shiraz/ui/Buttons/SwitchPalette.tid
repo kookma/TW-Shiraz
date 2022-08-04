@@ -3,7 +3,8 @@ created: 20201210171047824
 dark-palette: $:/palettes/SolarFlare
 description: Toggle between light/dark color palette
 light-palette: $:/palettes/Vanilla
-modified: 20210808064214879
+list-after: 
+modified: 20220803185853934
 tags: $:/tags/PageControls
 title: $:/plugins/kookma/shiraz/ui/Buttons/SwitchPalette
 type: text/vnd.tiddlywiki

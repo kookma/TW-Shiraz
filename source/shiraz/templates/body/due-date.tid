@@ -1,7 +1,7 @@
 created: 20200206191120454
-modified: 20211117172046922
+modified: 20220817161038394
 tags: $:/tags/Table/BodyTemplate
-tbl-column-list: due-date
+tbl-column-list: due-date due
 title: $:/plugins/kookma/shiraz/templates/body/due-date
 type: text/vnd.tiddlywiki
 

@@ -1,5 +1,5 @@
 created: 20191125193831767
-modified: 20210808052511699
+modified: 20220818061710208
 tags: $:/tags/Table/BodyTemplate
 tbl-column-list: tags
 title: $:/plugins/kookma/shiraz/templates/body/tags
@@ -9,7 +9,7 @@ type: text/vnd.tiddlywiki
 <$list filter="[title<currentRecord>tags[]]">
 <span class="tc-tag-list-item" >
 <$set name="transclusion" value=<<currentTiddler>>>
-<$macrocall $name="tag-pill-body" tag=<<currentTiddler>> icon={{!!icon}} color={{!!color}} palette={{$:/palette}} element-tag="""$button""" element-attributes="""popup=<<tempTagPopup>> dragFilter='[all[current]tagging[]]' tag='span'"""/>
+<$macrocall $name="tag-pill-body" tag=<<currentTiddler>> icon={{!!icon}} colour={{!!color}} palette={{$:/palette}} element-tag="""$button""" element-attributes="""popup=<<tempTagPopup>> dragFilter='[all[current]tagging[]]' tag='span'"""/>
 <$reveal state=<<tempTagPopup>> style="position:absolute; z-index:9999;" type="popup" position="below" animate="yes" class="tc-drop-down">
 <$set name="tv-show-missing-links" value="yes">
 <$transclude tiddler="$:/core/ui/ListItemTemplate"/>

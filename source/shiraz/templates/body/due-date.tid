@@ -1,6 +1,4 @@
 code-body: yes
-created: 20200206191120454
-modified: 20220824172408143
 tags: $:/tags/Table/BodyTemplate
 tbl-column-list: due-date due
 title: $:/plugins/kookma/shiraz/templates/body/due-date

@@ -1,7 +1,5 @@
 caption: Shiraz
-created: 20191018054657077
 list-after: $:/core/ui/ControlPanel/Settings/TiddlyWiki
-modified: 20220801115256994
 tags: $:/tags/ControlPanel/SettingsTab $:/tags/MoreSideBar
 title: $:/plugins/kookma/shiraz/ui/ControlPanel/Settings
 type: text/vnd.tiddlywiki

@@ -1,5 +1,6 @@
+code-body: yes
 created: 20200206191120454
-modified: 20220817161038394
+modified: 20220824172408143
 tags: $:/tags/Table/BodyTemplate
 tbl-column-list: due-date due
 title: $:/plugins/kookma/shiraz/templates/body/due-date
@@ -11,7 +12,13 @@ type: text/vnd.tiddlywiki
 </$set>
 \end
 \define showCell_Locked() <span style="font-style:oblique;"><<showCell>></span>
-\define edit_date() <$edit-text tag=input type=date tiddler=<<currentRecord>> field=<<currentColumn>>/>
+\define edit_date() 
+<$list filter="[[$:/plugins/kookma/pikaday]!is[missing]] :filter[lookup:no[$:/config/Plugins/Disabled/]match[no]]"
+  emptyMessage='<$edit-text tag=input type=date tiddler=<<currentRecord>> field=<<currentColumn>>/>'
+	variable=null >
+  <<editCell>>
+</$list>
+\end
 <$reveal type="nomatch" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td" class="shiraz-dtable-date">
 <<showCell>>
 </$reveal>

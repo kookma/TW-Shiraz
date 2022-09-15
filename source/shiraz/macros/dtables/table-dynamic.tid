@@ -22,7 +22,7 @@ type: text/vnd.tiddlywiki
 <$list filter="[subfilter<inputFilter>limit[1]]" emptyMessage=<<__emptyMessage__>> variable=ignore>
 <$set name=sortneg tiddler=<<tempTableSort>> index="negate">
 <!--calculate the number of columns in edit and view mode -->
-<$set name=ncols filter="[<tempTableEdit>getindex[mode]match[edit]]" value={{{ [subfilter<columnFilter>count[]] }}} emptyValue= {{{ [subfilter<columnFilter>count[]subtract[2]] }}}>
+<$set name=ncols filter="[<tempTableEdit>getindex[mode]match[edit]]" value={{{ [subfilter<columnFilter>count[]] }}} emptyValue= {{{ [subfilter<columnFilter>count[]subtract[1]] }}}>
 <div class="tbl-container" style="max-width:100%;">
 <table class=<<__class__>> style="caption-side:top">
 <!-- reveal caption and edit button -------------------->

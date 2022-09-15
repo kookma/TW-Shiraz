@@ -2,7 +2,7 @@ tags: $:/tags/Table/Macro
 title: $:/plugins/kookma/shiraz/macros/dtables/helper
 type: text/vnd.tiddlywiki
 
-\define columnFilter()    $(columns)$ tbl-clone tbl-delete
+\define columnFilter()    $(columns)$ tbl-delete
 
 \define tempTable()       $:/state/dynamictables/$(currentTable)$
 

@@ -5,11 +5,15 @@ title: $:/plugins/kookma/shiraz/templates/body/due-date
 type: text/vnd.tiddlywiki
 
 \define showCell()
+<$let fmt="[UTC]YYYY.0MM.0DD">
 <$set tiddler=<<currentRecord>> field=<<currentColumn>> name=due-date>
-<$text text={{{[<due-date>split[-]split[.]join[]format:date[YYYY.0MM.0DD]]}}} />
+<$text text={{{[<due-date>split[-]split[.]join[]format:date<fmt>]}}} />
 </$set>
+</$let>
 \end
+
 \define showCell_Locked() <span style="font-style:oblique;"><<showCell>></span>
+
 \define edit_date() 
 <$list filter="[[$:/plugins/kookma/pikaday]!is[missing]] :filter[lookup:no[$:/config/Plugins/Disabled/]match[no]]"
   emptyMessage='<$edit-text tag=input type=date tiddler=<<currentRecord>> field=<<currentColumn>>/>'
@@ -17,6 +21,7 @@ type: text/vnd.tiddlywiki
   <<editCell>>
 </$list>
 \end
+
 <$reveal type="nomatch" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td" class="shiraz-dtable-date">
 <<showCell>>
 </$reveal>

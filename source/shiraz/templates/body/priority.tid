@@ -10,28 +10,27 @@ type: text/vnd.tiddlywiki
 \end
 
 \define showCell()
-<$list filter="[<currentRecord>get<currentColumn>match[very high]]" variable=ignore>
-<$macrocall $name="circle" color="#dc3545" fill="#f8d7da"/>
+<$list filter="[<currentRecord>get<currentColumn>match[5]]" variable=ignore>
+<$macrocall $name="circle" color="#dc3545" fill="#f8d7da"/>&nbsp; very high
 </$list>
-<$list filter="[<currentRecord>get<currentColumn>match[high]]" variable=ignore>
-<$macrocall $name="circle" color="#ff8c00" fill="#fff3cd"/>
+<$list filter="[<currentRecord>get<currentColumn>match[4]]" variable=ignore>
+<$macrocall $name="circle" color="#ff8c00" fill="#fff3cd"/>&nbsp; high
 </$list>
-<$list filter="[<currentRecord>get<currentColumn>match[normal]]" variable=ignore>
-<$macrocall $name="circle" color="#17a2b8" fill="#d1ecf1"/>
+<$list filter="[<currentRecord>get<currentColumn>match[3]]" variable=ignore>
+<$macrocall $name="circle" color="#17a2b8" fill="#d1ecf1"/>&nbsp; normal
 </$list>
-<$list filter="[<currentRecord>get<currentColumn>match[low]]" variable=ignore>
-<$macrocall $name="circle" color="#007bff" fill="#cce5ff"/>
+<$list filter="[<currentRecord>get<currentColumn>match[2]]" variable=ignore>
+<$macrocall $name="circle" color="#007bff" fill="#cce5ff"/>&nbsp; low
 </$list>
-<$list filter="[<currentRecord>get<currentColumn>match[very low]]" variable=ignore>
-<$macrocall $name="circle" color="#6c757d" fill="#e2e3e5"/>
+<$list filter="[<currentRecord>get<currentColumn>match[1]]" variable=ignore>
+<$macrocall $name="circle" color="#6c757d" fill="#e2e3e5"/>&nbsp; very low
 </$list>
-&nbsp; <$transclude tiddler=<<currentRecord>> field=<<currentColumn>> />
 \end
 
 \define showCell_Locked() <span style="font-style:oblique;"><<showCell>></span>
 
 \define select_priority()
-<$select tiddler=<<currentRecord>> field=<<currentColumn>> default=""><option value=''>Select...</option><option value='very high'>very high</option><option value='high'>high</option><option value='normal'>normal</option><option value='low'>low</option><option value='very low'>very low</option><option value=''>no priority</option></$select>
+<$select tiddler=<<currentRecord>> field=<<currentColumn>> default=""><option value=''>Select...</option><option value='5'>very high</option><option value='4'>high</option><option value='3'>normal</option><option value='2'>low</option><option value='1'>very low</option><option value=''>no priority</option></$select>
 \end
 
 

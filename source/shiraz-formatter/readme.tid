@@ -1,0 +1,12 @@
+tags: 
+title: $:/plugins/kookma/shiraz-formatter/readme
+type: text/vnd.tiddlywiki
+
+; Shiraz Formatter
+Editor toolbar buttons to format text and insert snippets.
+
+;Code and demo
+For learning plugin features, syntax, tutorial and examples see the plugin demo and code pages
+
+* Demo: https://kookma.github.io/TW-Shiraz/
+* Code: https://github.com/kookma/TW-Shiraz

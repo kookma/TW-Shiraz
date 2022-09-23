@@ -5,15 +5,17 @@ title: $:/plugins/kookma/shiraz/macros/list-search
 type: text/vnd.tiddlywiki
 
 \define list-search( filter:"[!is[system]]", search:"search:title", template:"$:/core/ui/ListItemTemplate",
- class:"", stateTiddler:"", placeholder:"keywords")
+ class:"my-3", stateTiddler:"", placeholder:"keywords")
 <$set name="state" filter="[[$:/temp/list-search]addsuffix[/$stateTiddler$]addsuffix<qualify>]">
 <div class=<<__class__>> >
-<$edit-text tiddler=<<state>> type="search" tag="input" default="" placeholder="$placeholder$"/>
+<$keyboard key="escape" actions='<$action-deletetiddler $tiddler=<<state>>/>' >
+<$edit-text tiddler=<<state>> type="search" tag="input" default="" placeholder="$placeholder$" class="w-100"/>
+</$keyboard>
 </div>
-<$reveal state=<<state>> type="match" text="" class=<<__class__>> tag=div>
+<$reveal stateTitle=<<state>> stateField=text type="match" text="" class=<<__class__>> tag=div>
 <$list filter="$filter$" template=<<__template__>>/>
 </$reveal>
-<$reveal state=<<state>> type="nomatch" text="" class=<<__class__>> tag=div>
+<$reveal stateTitle=<<state>> stateField=text type="nomatch" text="" class=<<__class__>> tag=div>
 <$set name=term tiddler=<<state>> field="text">
 <$list filter="$filter$+[$search$<term>]" template=<<__template__>>/>
 </$set>

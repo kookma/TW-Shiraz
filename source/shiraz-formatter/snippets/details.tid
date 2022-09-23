@@ -1,0 +1,6 @@
+caption: Details
+tags: $:/tags/TextEditor/Snippet
+title: $:/plugins/kookma/shiraz-formatter/snippets/details
+type: text/vnd.tiddlywiki
+
+<<details label:"" src:"" status:"" labelClass:"" srcClass:"">>

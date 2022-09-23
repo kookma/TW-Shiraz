@@ -1,0 +1,6 @@
+caption: Alert leftbar
+tags: $:/tags/TextEditor/Snippet
+title: $:/plugins/kookma/shiraz-formatter/snippets/alert-leftbar
+type: text/vnd.tiddlywiki
+
+<<alert-leftbar typ:"primary" src:"" width:"100%", class:"">>

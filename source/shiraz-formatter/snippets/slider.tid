@@ -1,0 +1,6 @@
+caption: Slider
+tags: $:/tags/TextEditor/Snippet
+title: $:/plugins/kookma/shiraz-formatter/snippets/slider
+type: text/vnd.tiddlywiki
+
+<<slider label:"" src:"" labelClass:"" srcClass:"">>

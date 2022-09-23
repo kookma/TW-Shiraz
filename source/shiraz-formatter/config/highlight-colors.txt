@@ -1,0 +1,14 @@
+yellow
+lime
+cyan
+pink
+
+lightyellow
+palegreen
+lightcyan
+lavender
+
+red
+blue
+green
+gold

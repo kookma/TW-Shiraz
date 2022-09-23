@@ -1,0 +1,33 @@
+.tc-editor-toolbar button.kk-formatter-btn + .tc-popup .tc-drop-down {
+	min-width:20px;
+}
+
+.tc-editor-toolbar button.kk-formatter-btn + .tc-popup .tc-drop-down > p {
+	margin: 0;
+	padding: 0 10px;
+}
+
+.tc-editor-toolbar button.kk-formatter-btn + .tc-popup .tc-drop-down a.tc-tiddlylink {
+	font-weight: normal;
+}
+
+/* new */
+.tc-editor-toolbar button.kk-formatter-btn + .tc-popup .tc-drop-down button.tc-btn-invisible{
+	width:fit-content;
+	margin:1px;
+	padding:0;
+	display:inline-block;
+	background-color:unset;
+}
+
+.tc-editor-toolbar button.kk-formatter-btn + .tc-popup .tc-drop-down button.tc-btn-invisible svg{
+	width:1.5em;
+	height:1.5em;
+}
+
+.kk-formatter-dropdown{
+	display:flex;
+	flex-wrap:wrap;
+	max-width:6.6em;
+}
+

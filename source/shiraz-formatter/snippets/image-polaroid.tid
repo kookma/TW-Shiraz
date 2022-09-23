@@ -1,0 +1,6 @@
+caption: Image polaroid
+tags: $:/tags/TextEditor/Snippet
+title: $:/plugins/kookma/shiraz-formatter/snippets/image-polaroid
+type: text/vnd.tiddlywiki
+
+<<image-polaroid img:"" width:"" align:"center" caption:"" tooltip:"" alt:"">>

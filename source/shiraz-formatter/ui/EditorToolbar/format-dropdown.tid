@@ -1,0 +1,104 @@
+code-body: yes
+tags: 
+title: $:/plugins/kookma/shiraz-formatter/ui/EditorToolbar/format-dropdown
+type: text/vnd.tiddlywiki
+
+\define btn-highlight-actions()
+<$list filter="[<modifier>match[alt]then[hlp]] [<modifier>match[shift]then[hls]] :else[<modifier>!match[ctrl]then[hl]]" variable="hlmac"><!--set the highlight macro -->
+<$action-sendmessage
+	$message="tm-edit-text-operation"
+	$param="wrap-selection"
+	prefix={{{ [<hlmac>addprefix[<<]addsuffix[ "]] }}}
+  suffix='" "$(color)$">>'
+/>
+</$list>
+<$list filter="[<modifier>match[ctrl]]" variable=null>
+<$action-sendmessage $message="tm-edit-tiddler" $param="$:/plugins/kookma/shiraz-formatter/config/highlight-colors"/>
+</$list>
+<$action-deletetiddler $tiddler=<<dropdown-state>>/>
+\end
+
+\define btn-text-actions()
+<$list filter="[<modifier>!match[ctrl]]" variable=null><!--set the highlight macro -->
+<$action-sendmessage
+	$message="tm-edit-text-operation"
+	$param="wrap-selection"
+	prefix='<<tc "'
+  suffix='" "$(color)$">>'
+/>
+</$list>
+<$list filter="[<modifier>match[ctrl]]" variable=null>
+<$action-sendmessage $message="tm-edit-tiddler" $param="$:/plugins/kookma/shiraz-formatter/config/text-colors"/>
+</$list>
+<$action-deletetiddler $tiddler=<<dropdown-state>>/>
+\end
+
+<!-- helper macro -->
+\define save-selection()
+<$action-sendmessage
+ $message="tm-edit-text-operation"
+ $param="save-selection"
+ tiddler=<<qualify "$:/temp/text">>
+/>
+\end
+
+\define btn-uppercase-actions()
+<<save-selection>>
+<$action-sendmessage
+ $message="tm-edit-text-operation"
+ $param="replace-selection"
+ text={{{[<qualify "$:/temp/text">get[text]uppercase[]]}}}
+/>
+\end
+
+\define btn-lowercase-actions()
+<<save-selection>>
+<$action-sendmessage
+ $message="tm-edit-text-operation"
+ $param="replace-selection"
+ text={{{[<qualify "$:/temp/text">get[text]lowercase[]]}}}
+/>
+\end
+
+\define btn-titlecase-actions()
+<<save-selection>>
+<$action-sendmessage
+ $message="tm-edit-text-operation"
+ $param="replace-selection"
+ text={{{[<qualify "$:/temp/text">get[text]titlecase[]]}}}
+/>
+\end
+
+<!-- Display the highlight color -->
+<div class="kk-formatter-dropdown">
+<div class="kk-sh-formatter-label">Highlight color</div>
+<$list filter="[enlist{$:/plugins/kookma/shiraz-formatter/config/highlight-colors}]" variable=color>
+<$button actions=<<btn-highlight-actions>> class="tc-btn-invisible" tooltip=<<color>> >
+<$macrocall $name=rect color=<<color>> />
+</$button>
+</$list>
+</div>
+<hr/>
+<!-- Display the text colors -->
+<div class="kk-formatter-dropdown">
+<div class="kk-sh-formatter-label">Text color</div>
+<$list filter="[enlist{$:/plugins/kookma/shiraz-formatter/config/text-colors}]" variable=color>
+<$button actions=<<btn-text-actions>> class="tc-btn-invisible" tooltip=<<color>> >
+<$macrocall $name=rect color=<<color>> />
+</$button>
+</$list>
+</div>
+<hr/>
+<!-- Display the font transform buttons  -->
+<div class="kk-formatter-dropdown">
+<div style="width:100%;margin-bottom:10px;">Change case</div>
+<$button actions=<<btn-lowercase-actions>> class="tc-btn-invisible kk-sh-letter" tooltip="lower case" >
+''aa''
+</$button>
+<$button actions=<<btn-uppercase-actions>> class="tc-btn-invisible kk-sh-letter" tooltip="upper case" >
+''AA''
+</$button>
+<$button actions=<<btn-titlecase-actions>> class="tc-btn-invisible kk-sh-letter" tooltip="title case" >
+''Aa''
+</$button>
+</div>

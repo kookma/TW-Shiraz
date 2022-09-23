@@ -1,0 +1,14 @@
+caption: Card
+tags: $:/tags/TextEditor/Snippet
+title: $:/plugins/kookma/shiraz-formatter/snippets/card
+type: text/vnd.tiddlywiki
+
+<<card 
+header:"Header"
+title:"Title"
+subtitle:"subtitle"
+text:"content"
+footer:"footer"
+width:"18rem"
+class:"text-dark"
+>>

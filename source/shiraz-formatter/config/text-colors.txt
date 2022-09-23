@@ -1,0 +1,14 @@
+red
+blue
+green
+purple
+
+teal
+navy
+maroon
+SlateGray
+
+brown
+royalblue
+darkkhaki
+goldenrod

@@ -1,0 +1,7 @@
+caption: List search
+code-body: yes
+tags: $:/tags/TextEditor/Snippet
+title: $:/plugins/kookma/shiraz-formatter/snippets/list-search
+type: text/vnd.tiddlywiki
+
+<<list-search filter:"[tag[??]]" search:"" template:"" class:"alert alert-info" placeholder:"", stateTiddler:"">>

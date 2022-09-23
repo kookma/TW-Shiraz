@@ -1,0 +1,12 @@
+tags: $:/tags/Stylesheet
+title: $:/plugins/kookma/shiraz-formatter/styles/button-color
+type: text/vnd.tiddlywiki
+
+.tc-editor-toolbar button.kk-formatter-btn + .tc-popup .tc-drop-down button.tc-btn-invisible.kk-sh-letter {
+	background-color: <<colour tiddler-controls-foreground>>;
+	color: <<colour tiddler-controls-foreground-selected>>;
+	fill: <<colour tiddler-controls-foreground-selected>>;
+	border-radius: 4px;
+	padding: 3px 4px;
+	margin: 2px 0 2px 4px;
+}

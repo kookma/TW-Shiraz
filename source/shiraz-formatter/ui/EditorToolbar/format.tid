@@ -1,0 +1,11 @@
+button-classes: kk-formatter-btn
+caption: formatter
+condition: [<targetTiddler>type[]] [<targetTiddler>get[type]prefix[text/]] [<targetTiddler>get[type]match[application/javascript]] [<targetTiddler>get[type]match[application/json]] [<targetTiddler>get[type]match[application/x-tiddler-dictionary]] [<targetTiddler>get[type]match[image/svg+xml]] +[first[]]
+description: Shiraz formatter button
+dropdown: $:/plugins/kookma/shiraz-formatter/ui/EditorToolbar/format-dropdown
+icon: $:/core/images/paint
+list-after: $:/core/ui/EditorToolbar/mono-line
+shortcuts: 
+tags: $:/tags/EditorToolbar
+title: $:/plugins/kookma/shiraz-formatter/ui/EditorToolbar/format
+type: text/vnd.tiddlywiki

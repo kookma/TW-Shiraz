@@ -1,0 +1,12 @@
+{
+    "title": "$:/plugins/kookma/shiraz-formatter",
+    "name": "Shiraz Formatter",
+    "description": "Editor buttons and snippets for Shiraz",
+    "author": "Mohammad Rahmani",
+    "version": "0.1.0",
+    "core-version": ">=5.2.2",
+    "source": "https://github.com/kookma/TW-Shiraz",
+    "list": "readme license history",
+    "plugin-type": "plugin",
+    "dependents": ""
+}

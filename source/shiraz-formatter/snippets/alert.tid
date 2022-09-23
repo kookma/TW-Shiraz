@@ -1,0 +1,6 @@
+caption: Alert
+tags: $:/tags/TextEditor/Snippet
+title: $:/plugins/kookma/shiraz-formatter/snippets/alert
+type: text/vnd.tiddlywiki
+
+<<alert type:"primary" src:"" width:"100%", class:"">>

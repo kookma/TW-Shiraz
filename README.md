@@ -8,3 +8,9 @@ Shiraz is a small TW5 plugin contains several macros, stylesheets, templates, sn
 
 # Installation
 For dtails on how install Shiraz plugin in your wiki, have a look at https://kookma.github.io/TW-Shiraz/#Install
+
+# Shiraz subplugins
+Subplugins are addons extend the Shiraz features or simplify the use of Shiraz. There are these subplugins available for (https://github.com/kookma/TW-Shiraz) GitHub repo
+
+* Formatter adds text formating and snippets to Shiraz see: https://kookma.github.io/TW-Shiraz/shiraz-formatter.html
+

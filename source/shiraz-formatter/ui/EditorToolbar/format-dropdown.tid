@@ -3,6 +3,18 @@ tags:
 title: $:/plugins/kookma/shiraz-formatter/ui/EditorToolbar/format-dropdown
 type: text/vnd.tiddlywiki
 
+\define circle(color)
+<svg width="1.5em" height="1.5em" >
+<circle cx="0.75em" cy="0.75em" r="0.74em" stroke=""  fill=<<__color__>>/>
+</svg>
+\end
+
+\define rect(color)
+<svg width="1.5em" height="1.5em">
+  <rect width="1.5em" height="1.5em" fill=<<__color__>>/>
+</svg>
+\end
+
 \define btn-highlight-actions()
 <$list filter="[<modifier>match[alt]then[hlp]] [<modifier>match[shift]then[hls]] :else[<modifier>!match[ctrl]then[hl]]" variable="hlmac"><!--set the highlight macro -->
 <$action-sendmessage
@@ -65,7 +77,7 @@ type: text/vnd.tiddlywiki
 <$action-sendmessage
  $message="tm-edit-text-operation"
  $param="replace-selection"
- text={{{[<qualify "$:/temp/text">get[text]titlecase[]]}}}
+ text={{{[<qualify "$:/temp/text">get[text]lowercase[]titlecase[]]}}}
 />
 \end
 

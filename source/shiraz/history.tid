@@ -4,6 +4,7 @@ type: text/vnd.tiddlywiki
 
 Full change log:  [[https://kookma.github.io/TW-Shiraz/#ChangeLog]]
 
+* ''2.6.1'' -- 2022.09.27 -- new subplug Formatter, better task manager
 * ''2.5.0'' -- 2022.08.02 -- new data block, updated to Tiddlywiki 5.2.3
 * ''2.4.4'' -- 2021.09.19 -- added css class for tbl-expand customization
 * ''2.4.2'' -- 2021.09.10 -- quick table with bunch of column formatting

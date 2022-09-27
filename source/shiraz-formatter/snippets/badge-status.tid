@@ -1,4 +1,5 @@
 caption: Badge status
+code-body: yes
 tags: $:/tags/TextEditor/Snippet
 title: $:/plugins/kookma/shiraz-formatter/snippets/badge-status
 type: text/vnd.tiddlywiki

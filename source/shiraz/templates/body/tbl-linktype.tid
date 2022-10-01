@@ -1,10 +1,16 @@
-tags: $:/tags/Table/BodyTemplate
+created: 20220930164307437
+modified: 20221001171049927
+tags: $:/tags/Table/BodyTemplate show-content
 tbl-column-list: tbl-linktype
 title: $:/plugins/kookma/shiraz/templates/body/tbl-linktype
 type: text/vnd.tiddlywiki
 
 <td>
-<$text text={{{ [all[current]links[]match<currentRecord>then[link]] [all[current]backlinks[]match<currentRecord>then[backlink]] [all[current]tagging[]match<currentRecord>then[tagging]] ~[[transclusion]] }}} />
+<$text text={{{ 
+[all[current]links[]match<currentRecord>then[link]]
+[all[current]backlinks[]match<currentRecord>then[backlink]]
+[all[current]tagging[]match<currentRecord>then[tagging]]
+~[[transclusion]] }}} />
 </td>
 <!-- 
 tb-linktype is not sortable not editable. The priority is as below:

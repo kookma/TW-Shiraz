@@ -1,5 +1,4 @@
 caption: Shiraz
-list-after: $:/core/ui/ControlPanel/Settings/TiddlyWiki
 tags: $:/tags/ControlPanel/SettingsTab $:/tags/MoreSideBar
 title: $:/plugins/kookma/shiraz/ui/ControlPanel/Settings
 type: text/vnd.tiddlywiki

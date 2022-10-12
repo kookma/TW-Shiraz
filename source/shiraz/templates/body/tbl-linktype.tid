@@ -1,5 +1,5 @@
 created: 20220930164307437
-modified: 20221001171049927
+modified: 20221010181908224
 tags: $:/tags/Table/BodyTemplate show-content
 tbl-column-list: tbl-linktype
 title: $:/plugins/kookma/shiraz/templates/body/tbl-linktype
@@ -10,7 +10,7 @@ type: text/vnd.tiddlywiki
 [all[current]links[]match<currentRecord>then[link]]
 [all[current]backlinks[]match<currentRecord>then[backlink]]
 [all[current]tagging[]match<currentRecord>then[tagging]]
-~[[transclusion]] }}} />
+~[<currentRecord>search:text<currentTiddler>then[backtransclusion]else[transclusion]] }}} />
 </td>
 <!-- 
 tb-linktype is not sortable not editable. The priority is as below:

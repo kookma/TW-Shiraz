@@ -3,13 +3,15 @@ tbl-column-list: tbl-linktype
 title: $:/plugins/kookma/shiraz/templates/body/tbl-linktype
 type: text/vnd.tiddlywiki
 
-\define subtiddler-pattern() ^$(currentTiddler)$\s*/
+\define subtiddler-pattern-i() ^$(currentTiddler)$\s*/
+\define subtiddler-pattern-ii() ^$(currentTiddler)$\s*:
 <td>
 <$text text={{{ 
 [all[current]links[]match<currentRecord>then[link]]
 [all[current]backlinks[]match<currentRecord>then[backlink]]
 [all[current]tagging[]match<currentRecord>then[tagging]]
-[<currentRecord>regexp<subtiddler-pattern>then[subtiddler]]
+[<currentRecord>regexp<subtiddler-pattern-i>then[subtiddler]]
+[<currentRecord>regexp<subtiddler-pattern-ii>then[subtiddler]]
 ~[<currentRecord>search:text<currentTiddler>then[backtransclusion]else[transclusion]] }}} />
 </td>
 <!-- 

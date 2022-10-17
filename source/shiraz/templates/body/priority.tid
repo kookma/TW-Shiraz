@@ -1,3 +1,4 @@
+code-body: yes
 tags: $:/tags/Table/BodyTemplate
 tbl-column-list: priority
 title: $:/plugins/kookma/shiraz/templates/body/priority
@@ -11,19 +12,19 @@ type: text/vnd.tiddlywiki
 
 \define showCell()
 <$list filter="[<currentRecord>get<currentColumn>match[5]]" variable=ignore>
-<$macrocall $name="circle" color="#dc3545" fill="#f8d7da"/>&nbsp; very high
+<$macrocall $name="circle" color="#dc3545" fill="#f8d7da"/>&nbsp;very high
 </$list>
 <$list filter="[<currentRecord>get<currentColumn>match[4]]" variable=ignore>
-<$macrocall $name="circle" color="#ff8c00" fill="#fff3cd"/>&nbsp; high
+<$macrocall $name="circle" color="#ff8c00" fill="#fff3cd"/>&nbsp;high
 </$list>
 <$list filter="[<currentRecord>get<currentColumn>match[3]]" variable=ignore>
-<$macrocall $name="circle" color="#17a2b8" fill="#d1ecf1"/>&nbsp; normal
+<$macrocall $name="circle" color="#17a2b8" fill="#d1ecf1"/>&nbsp;normal
 </$list>
 <$list filter="[<currentRecord>get<currentColumn>match[2]]" variable=ignore>
-<$macrocall $name="circle" color="#007bff" fill="#cce5ff"/>&nbsp; low
+<$macrocall $name="circle" color="#007bff" fill="#cce5ff"/>&nbsp;low
 </$list>
 <$list filter="[<currentRecord>get<currentColumn>match[1]]" variable=ignore>
-<$macrocall $name="circle" color="#6c757d" fill="#e2e3e5"/>&nbsp; very low
+<$macrocall $name="circle" color="#6c757d" fill="#e2e3e5"/>&nbsp;very low
 </$list>
 \end
 
@@ -34,7 +35,7 @@ type: text/vnd.tiddlywiki
 \end
 
 
-<$reveal type="nomatch" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td">
+<$reveal type="nomatch" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td" class="shiraz-dtable-priority">
 <<showCell>>
 </$reveal>
 <$reveal type="match" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td">

@@ -1,14 +1,14 @@
 /* edit-text box for dynamic table */
 .shiraz-dtable-textbox {
-    width:100%;
-    padding-left: 5px;
-    border: none;
+	width:100%;
+	padding-left: 5px;
+	border: none;
 }
 
 .shiraz-dtable-textbox:focus {
-    outline: none;
-    border: 1px solid #5778d8;
-    background: transparent;
+	outline: none;
+	border: 1px solid #5778d8;
+	background: transparent;
 }
 
 .tbl-inpt-edit { width: 100%; background-color: transparent; border: none; color: #000000;}
@@ -20,17 +20,17 @@ th .tc-tiddlylink, th a { text-shadow: none; margin: 0 0 0 0; padding: 0 0 0 0; 
 
 /* DELETE CONFIRMATION */
 table thead .tbl-delete-confirm > th {
-  color: white;
-  background-color:#ff0033;
-  padding: 8px;
-  margin: 0px;
-  text-align:center;
+	color: white;
+	background-color:#ff0033;
+	padding: 8px;
+	margin: 0px;
+	text-align:center;
 	font-weight:normal;
 }
 
 table thead .tbl-delete-confirm > th > button {
-  color: white;
-  fill: white;
+	color: white;
+	fill: white;
 }
 
 /* -- pagination --*/
@@ -67,6 +67,17 @@ table thead .tbl-delete-confirm > th > button {
 .shiraz-dtable-expanded-record{ }
 
 /*to adjust the column width for date/due-date fields*/
-.shiraz-dtable-date{
-	width:7em;
+.shiraz-dtable-date,
+.shiraz-dtable-status{
+	width:6em;
+}
+.shiraz-dtable-priority{
+		width:6.5em;
+}
+/* this ensure short title in small width table */
+.shiraz-dtable-title{
+	max-width: 15rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }

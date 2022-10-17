@@ -4,7 +4,7 @@ type: text/vnd.tiddlywiki
 
 Full change log:  [[https://kookma.github.io/TW-Shiraz/#ChangeLog]]
 
-* ''2.6.7'' -- 2022.10.13 -- improved node explorer
+* ''2.6.9'' -- 2022.10.17 -- improved Node Explorer, and task Explorer
 * ''2.6.1'' -- 2022.09.27 -- new subplug Formatter, better task manager
 * ''2.5.0'' -- 2022.08.02 -- new data block, updated to Tiddlywiki 5.2.3
 * ''2.4.4'' -- 2021.09.19 -- added css class for tbl-expand customization

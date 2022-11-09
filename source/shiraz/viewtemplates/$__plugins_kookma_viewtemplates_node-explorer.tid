@@ -1,0 +1,49 @@
+code-body: yes
+created: 20210501201700405
+modified: 20221012130824923
+tags: $:/tags/ViewTemplate
+title: $:/plugins/kookma/viewtemplates/node-explorer
+type: text/vnd.tiddlywiki
+
+\define back-transclusion-pattern() {{\s*$(currentTiddler)$((\s*\|{2}[^{^}]+)|(!{2}[^\{^\}]+)|)}}
+\define escapechars-pattern() ([\?\.\*\+\(\)\$\^\\])
+
+<!-- transclusion of current tiddler by other tiddlers -->
+\define back-transclusion-filter()
+[all[current]search-replace:g:regexp<escapechars-pattern>,[\$1]]
+:map:flat[all[tiddlers]regexp:text<back-transclusion-pattern>]
+:filter[!is[blank]]
+\end
+
+<!-- transclusion of other tiddlers in the current tiddler -->
+\define transclusion-filter()
+[all[current]get[text]splitregexp[\n]unique[]split[{{]butfirst[]]
+:filter[!prefix[{]search:title[}}]]
+:map[split[}}]first[]trim[]]
+:map[split[!!]first[]trim[]]
+:map[split[||]first[]trim[]]
+:filter[!is[blank]]
+\end
+
+\define mainFilter()
+[all[current]links[]] 
+[all[current]backlinks[]]
+[all[current]tagging[]]
+[all[tiddlers]regexp[^$(currentTiddler)$\s*/]]
+[all[tiddlers]regexp[^$(currentTiddler)$\s*:]]
+[subfilter<transclusion-filter>]
+[subfilter<back-transclusion-filter>]
+:and[!is[system]]
+\end
+
+<$list filter="[all[current]get[node-explorer]!match[hide]] [all[current]!has[node-explorer]] :and[!is[system]]" variable=null>
+<$list filter="[subfilter<mainFilter>] +[count[]compare:number:gteq[1]]" variable=null>
+
+<$macrocall $name=table-dynamic 
+  filter=<<mainFilter>> 
+  fields="tbl-expand title tbl-linktype tags created" 
+  class="w-100" editButton=no
+  caption="''Node Explorer''"
+/>
+</$list>
+</$list>

@@ -7,6 +7,7 @@ type: text/vnd.tiddlywiki
 
 \define back-transclusion-pattern() {{\s*$(currentTiddler)$((\s*\|{2}[^{^}]+)|(!{2}[^\{^\}]+)|)}}
 \define escapechars-pattern() ([\?\.\*\+\(\)\$\^\\])
+\define code-pattern() `[\s\S]+`
 
 <!-- transclusion of current tiddler by other tiddlers -->
 \define back-transclusion-filter()
@@ -17,7 +18,7 @@ type: text/vnd.tiddlywiki
 
 <!-- transclusion of other tiddlers in the current tiddler -->
 \define transclusion-filter()
-[all[current]get[text]splitregexp[\n]unique[]split[{{]butfirst[]]
+[all[current]get[text]search-replace:g:regexp<code-pattern>,[]splitregexp[\n]unique[]split[{{]butfirst[]]
 :filter[!prefix[{]search:title[}}]]
 :map[split[}}]first[]trim[]]
 :map[split[!!]first[]trim[]]

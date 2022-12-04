@@ -13,7 +13,7 @@ These settings let you customise the behaviour of Shiraz plugin.
 ;Options
 :<$checkbox tiddler="$:/plugins/kookma/shiraz/styles/multicols/storyriver" tag="$:/tags/Stylesheet"> Multicolumn story river</$checkbox>
 :<$checkbox tiddler="$:/plugins/kookma/shiraz/styles/ui/colorify-buttons" tag="$:/tags/Stylesheet"> Colorful UI buttons</$checkbox>
-:<$checkbox tiddler="$:/plugins/kookma/shiraz/styles/ui/view-toolbar-button-visibility" tag="$:/tags/Stylesheet"> Tiddler visibility on mouse hover</$checkbox>
+:<$checkbox tiddler="$:/plugins/kookma/shiraz/styles/ui/view-toolbar-button-visibility" tag="$:/tags/Stylesheet"> Show and hide tiddler's View Toolbar on mouse hover</$checkbox>
 :<$checkbox tiddler="$:/plugins/kookma/shiraz/styles/ui/edit-toolbar-buttons" tag="$:/tags/Stylesheet"> Traffic lights for edit toolbar buttons</$checkbox>
 :<$checkbox tiddler="$:/plugins/kookma/shiraz/styles/colorful-sidebar-tab" tag="$:/tags/Stylesheet"> Colorify sidebar tabs</$checkbox>
 

@@ -1,0 +1,12 @@
+{
+    "title": "$:/plugins/kookma/shiraz-callout",
+    "name": "Shiraz Callout",
+    "description": "Admonitions for Shiraz",
+    "author": "Mohammad Rahmani",
+    "version": "0.5.0",
+    "core-version": ">=5.2.3",
+    "source": "https://github.com/kookma/TW-Shiraz",
+    "list": "",
+    "plugin-type": "plugin",
+    "dependents": "$:/plugin/kookma/shiraz"
+}

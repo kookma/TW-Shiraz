@@ -1,0 +1,25 @@
+tags: $:/tags/Macro
+title: $:/plugins/kookma/shiraz-callout/macros/callout
+type: text/vnd.tiddlywiki
+
+\define callout(type:"note", src, title, width:"100%", class)
+<$let theme-class   = {{{ [[$:/palette]get[text]get[color-scheme]else[light]addprefix[theme-]] }}} 
+      callout-title = {{{ [<__title__>!is[blank]] :else[<__type__>titlecase[]]  }}}
+      icon-tiddler  = {{{ [all[tiddlers+shadows]tag[$:/tags/ShirazCallout/Image]contains:callout-type<__type__>]
+                          :else[[$:/plugins/kookma/shiraz-callout/images/note]] }}}
+      source        = {{{ [<__src__>get[text]else<__src__>] }}} >
+<div class=<<theme-class>> style="width:$width$;">
+<div data-callout=<<__type__>> class="callout $class$" $status$>
+<div class="callout-title">
+<div class="callout-icon"><$transclude tiddler=<<icon-tiddler>> field=text/></div>
+<div class="callout-title-inner"><<callout-title>></div>
+</div>
+<$list filter="[<__src__>!is[blank]]" variable=ignore>
+<div class="callout-content">
+<$transclude tiddler=<<source>> field=title mode=block />
+</div>
+</$list>
+</div>
+</div>
+</$let>
+\end

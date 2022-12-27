@@ -1,0 +1,19 @@
+.callout {
+  --callout-color: 68, 138, 255;
+}
+.callout {
+  border-left-color: rgb(var(--callout-color));
+  background-color: var(--background-secondary);
+}
+.callout-title {
+  background-color: rgba(var(--callout-color), 0.1);
+}
+.callout-icon {
+ color: rgb(var(--callout-color));
+}
+.callout-title-inner {
+  font-weight: 700;
+}
+
+
+

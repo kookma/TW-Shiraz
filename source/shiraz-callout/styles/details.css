@@ -1,0 +1,27 @@
+details.callout summary {
+  cursor: pointer;
+}
+/* Chevron animation */
+details.callout .callout-fold svg {
+  transition: transform ease-in-out 150ms;
+}
+details.callout .callout-fold svg {
+  transform: rotate(-90deg);
+}
+
+details.callout[open] .callout-fold svg{
+  transform: rotate(0deg);
+}
+
+/* Reveal content animation */
+details.callout  summary {
+  transition: margin ease-out 300ms;
+}
+
+details.callout[open] summary {
+  margin-bottom: 10px;
+}
+/* this compensates the summary extra bottom margin */
+details.callout[open] .callout-content{
+	margin-top:-10px;
+}

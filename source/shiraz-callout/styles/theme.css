@@ -1,0 +1,7 @@
+.theme-light {
+  --background-secondary: #f2f3f5;
+}
+
+.theme-dark {
+  --background-secondary: #161616;
+}

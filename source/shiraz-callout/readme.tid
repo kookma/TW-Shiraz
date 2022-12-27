@@ -1,0 +1,12 @@
+tags: 
+title: $:/plugins/kookma/shiraz-callout/readme
+type: text/vnd.tiddlywiki
+
+; Shiraz callout
+Callout is used to describe a short piece of text set in a different format than the rest of the page and intended to attract attention. Shiraz callout contains collapsible and non-collapsible callout elements.
+
+;Code and demo
+For learning plugin features, syntax, tutorial and examples see the plugin demo and code pages
+
+* Demo: https://kookma.github.io/TW-Shiraz/shiraz-callout.html
+* Code: https://github.com/kookma/TW-Shiraz

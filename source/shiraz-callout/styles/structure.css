@@ -1,0 +1,23 @@
+.callout {
+	border-left-width: 4px;
+	border-left-style: solid;
+	border-radius: 2px;
+	margin: 1em 0;
+}
+.callout-title {
+	padding: 10px;
+	display: flex;
+	gap: 10px;
+}
+.callout-icon {
+	flex: 0 0 auto;
+	display: flex;
+	align-self: center;
+}
+.callout-title-inner {
+	flex: 1 1 0;
+}
+.callout-content {
+	overflow-x: auto;
+	padding: 0px 15px;
+}

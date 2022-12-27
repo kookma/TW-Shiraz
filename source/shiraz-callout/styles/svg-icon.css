@@ -1,0 +1,5 @@
+/* enlarge svg icon of callout */
+.callout-icon svg{
+height:1.2em;
+width:1.2em;
+}

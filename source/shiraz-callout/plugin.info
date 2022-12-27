@@ -3,10 +3,11 @@
     "name": "Shiraz Callout",
     "description": "Admonitions for Shiraz",
     "author": "Mohammad Rahmani",
-    "version": "0.5.1",
-    "core-version": ">=5.2.3",
-    "source": "https://github.com/kookma/TW-Shiraz",
-    "list": "",
-    "plugin-type": "plugin",
-    "dependents": "$:/plugin/kookma/shiraz"
+    "version": "0.5.2",
+	"core-version": ">=5.2.3",
+	"source": "https://github.com/kookma/TW-Shiraz",
+	"list": "readme license history",
+	"plugin-type": "plugin",
+	"parent-plugin":"$:/plugins/kookma/shiraz",
+	"dependents": ""
 }

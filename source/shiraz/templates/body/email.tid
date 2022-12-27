@@ -1,17 +1,22 @@
+code-body: yes
 tags: $:/tags/Table/BodyTemplate
 tbl-column-list: email
 title: $:/plugins/kookma/shiraz/templates/body/email
 type: text/vnd.tiddlywiki
 
 \define display-email-address()
-<a class="tc-tiddlylink-external" href="mailto:$(currentRecord)$!!$(currentColumn)$" rel="noopener noreferrer" target="_blank">
+<$let href={{{[<currentRecord>get<currentColumn>addprefix[mailto:]]}}} >
+<a class="tc-tiddlylink-external" href=<<href>> rel="noopener noreferrer" target="_blank">
 <<showCell>>
 </a>
+</$let>
 \end
 \define display-email-address_Locked()
-<a class="tc-tiddlylink-external" href="mailto:$(currentRecord)$!!$(currentColumn)$" rel="noopener noreferrer" target="_blank">
+<$let href={{{[<currentRecord>get<currentColumn>addprefix[mailto:]]}}} >
+<a class="tc-tiddlylink-external" href=<<href>> rel="noopener noreferrer" target="_blank">
 <<showCell_Locked>>
 </a>
+</$let>
 \end
 
 <$reveal type="nomatch" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td">

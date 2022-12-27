@@ -1,10 +1,10 @@
 /*details html5 macro*/
-details > summary {
+details.kk-shiraz-details > summary {
   padding: 2px 6px;
   font-weight:500;
   outline:none;
 }
-details > div {
+details.kk-shiraz-details > div {
   padding: 2px 6px;
   margin: 0;
 }
@@ -14,11 +14,11 @@ details > div {
 url: https://css-tricks.com/two-issues-styling-the-details-element-and-how-to-solve-them/
 */
 
-summary {
+details.kk-shiraz-details summary {
   cursor: pointer;
 }
 
-summary > * {
+details.kk-shiraz-details summary > * {
   display: inline;
 }
 

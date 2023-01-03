@@ -1,4 +1,4 @@
-callout-type: note
+callout-type: note primary
 tags: $:/tags/ShirazCallout/Image
 title: $:/plugins/kookma/shiraz-callout/images/note
 type: text/vnd.tiddlywiki

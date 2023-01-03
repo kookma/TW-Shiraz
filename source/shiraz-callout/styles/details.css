@@ -9,19 +9,19 @@ details.callout .callout-fold svg {
   transform: rotate(-90deg);
 }
 
-details.callout[open] .callout-fold svg{
+details.callout[open] > summary .callout-fold svg{
   transform: rotate(0deg);
 }
 
 /* Reveal content animation */
-details.callout  summary {
+details.callout > summary {
   transition: margin ease-out 300ms;
 }
 
-details.callout[open] summary {
+details.callout[open] > summary {
   margin-bottom: 10px;
 }
 /* this compensates the summary extra bottom margin */
-details.callout[open] .callout-content{
+details.callout[open] > .callout-content{
 	margin-top:-10px;
 }

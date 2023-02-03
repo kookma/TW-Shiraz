@@ -1,11 +1,11 @@
-tags: $:/tags/Table/BodyTemplate show-content
+tags: $:/tags/Table/BodyTemplate
 tbl-column-list: tbl-linktype
 title: $:/plugins/kookma/shiraz/templates/body/tbl-linktype
 type: text/vnd.tiddlywiki
 
 \define subtiddler-pattern() (^$(currentTiddler)$\s*/|^$(currentTiddler)$\s*:)
 
-<td>
+<td class="shiraz-dtable-col-fixedsize">
 <$text text={{{ 
 [all[current]links[]match<currentRecord>then[link]]
 [all[current]backlinks[]match<currentRecord>then[backlink]]

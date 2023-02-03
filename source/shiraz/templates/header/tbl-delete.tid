@@ -4,7 +4,7 @@ title: $:/plugins/kookma/shiraz/templates/header/tbl-delete
 type: text/vnd.tiddlywiki
 
 <$list filter="[<tempTableEdit>getindex[mode]match[edit]]" variable=ignore>
-<th style="width:28px;text-align:center;">
+<th class="shiraz-dtable-svg">
   <span>
   <$button class="tc-btn-invisible">
     <$action-setfield $tiddler="$:/temp/tables/delete-all" text=<<currentTable>>/>

@@ -3,7 +3,7 @@ tbl-column-list: tbl-linktype
 title: $:/plugins/kookma/shiraz/templates/header/tbl-linktype
 type: text/vnd.tiddlywiki
 
-<th  style="width:32px;text-align:center;cursor:default;">Linktype</th>
+<th  style="cursor:default;">Linktype</th>
 <!-- 
 tb-linktype is not sortable not editable
 -->

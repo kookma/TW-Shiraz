@@ -63,17 +63,25 @@ table thead .tbl-delete-confirm > th > button {
 .shiraz-dtable-page-footer button {outline: none; line-height:normal;}
 .shiraz-dtable-page-footer button:disabled {display:none;}
 
-/* to format the expanded record (tiddler body) - for local customization like KaTeX numbering */
+/* format the expanded record (tiddler body) - for local customization like KaTeX numbering */
 .shiraz-dtable-expanded-record{ }
 
-/*to adjust the column width for date/due-date fields*/
-.shiraz-dtable-date,
-.shiraz-dtable-status{
-	width:6em;
+/* adjust the column width for date/due-date/status/linktype fields*/
+.shiraz-dtable-col-fixedsize{
+	width:5.5rem;
+	white-space: nowrap;
 }
 .shiraz-dtable-priority{
-		width:6.5em;
+	width:6.5rem;
+	white-space: nowrap;
 }
+/* adjust the size of column with svg icons like: tbl-expand, tbl-clone, tbl-delete, tbl-checkbox */
+.shiraz-dtable-svg{
+	width:28px;
+	max-width:28px;
+}
+
+
 /* this ensure short title in small width table */
 .shiraz-dtable-title{
 	max-width: 15rem;

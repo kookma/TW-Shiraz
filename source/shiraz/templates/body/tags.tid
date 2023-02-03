@@ -5,21 +5,7 @@ type: text/vnd.tiddlywiki
 
 <$reveal type="nomatch" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td">
 <$list filter="[title<currentRecord>tags[]]">
-<span class="tc-tag-list-item" >
-<$set name="transclusion" value=<<currentTiddler>>>
-<$macrocall $name="tag-pill-body" tag=<<currentTiddler>> icon={{!!icon}} colour={{!!color}} palette={{$:/palette}} element-tag="""$button""" element-attributes="""popup=<<tempTagPopup>> dragFilter='[all[current]tagging[]]' tag='span'"""/>
-<$reveal state=<<tempTagPopup>> style="position:absolute; z-index:9999;" type="popup" position="below" animate="yes" class="tc-drop-down">
-<$set name="tv-show-missing-links" value="yes">
-<$transclude tiddler="$:/core/ui/ListItemTemplate"/>
-</$set>
-<$list filter="[all[shadows+tiddlers]tag[$:/tags/TagDropdown]!has[draft.of]]" variable="listItem"> 
-<$transclude tiddler=<<listItem>>/> 
-</$list>
-<hr>
-<$macrocall $name="list-tagged-draggable" tag=<<currentTiddler>>/>
-</$reveal>
-</$set>
-</span>
+<$transclude tiddler="$:/core/ui/TagTemplate"/><!-- this is the core shadow tiddler -->
 </$list>
 </$reveal>
 <$reveal type="match" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td">

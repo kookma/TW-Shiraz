@@ -4,7 +4,7 @@ title: $:/plugins/kookma/shiraz/templates/header/tbl-clone
 type: text/vnd.tiddlywiki
 
 <$list filter="[<tempTableEdit>getindex[mode]match[edit]]" variable=ignore>
-<th style="width:28px;text-align:center;">
+<th class="shiraz-dtable-svg">
 <span>
 <$button class="tc-btn-invisible" disabled=yes tooltip="disabled button" style="cursor:default">
 {{$:/core/images/clone-button}}

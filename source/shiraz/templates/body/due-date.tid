@@ -22,7 +22,7 @@ type: text/vnd.tiddlywiki
 </$list>
 \end
 
-<$reveal type="nomatch" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td" class="shiraz-dtable-date">
+<$reveal type="nomatch" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td" class="shiraz-dtable-col-fixedsize">
 <<showCell>>
 </$reveal>
 <$reveal type="match" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td">

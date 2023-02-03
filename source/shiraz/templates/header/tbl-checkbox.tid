@@ -20,7 +20,7 @@ type: text/vnd.tiddlywiki
 </$list>
 \end
 
-<th style="width:28px;min-width:28px;">
+<th class="shiraz-dtable-svg">
 <$checkbox checkactions=<<chk-checkactions>> uncheckactions=<<chk-uncheckactions>> />
 </th>
 

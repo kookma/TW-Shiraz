@@ -4,8 +4,8 @@ title: $:/plugins/kookma/shiraz/templates/body/tags
 type: text/vnd.tiddlywiki
 
 <$reveal type="nomatch" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td">
-<$list filter="[title<currentRecord>tags[]]">
-<$transclude tiddler="$:/core/ui/TagTemplate"/><!-- this is the core shadow tiddler -->
+<$list filter="[<currentRecord>tags[]]">
+<$transclude tiddler="$:/plugins/kookma/shiraz/templates/body/tag-helper"/>
 </$list>
 </$reveal>
 <$reveal type="match" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td">

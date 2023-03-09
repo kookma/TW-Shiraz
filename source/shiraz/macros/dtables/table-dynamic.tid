@@ -27,7 +27,7 @@ type: text/vnd.tiddlywiki
 <table class=<<__class__>> style="caption-side:top">
 <!-- reveal caption and edit button -------------------->
 <caption style="text-align:left;">
-<$list filter="[<__editButton__>match[yes]]" variavle=ignore>
+<$list filter="[<__editButton__>match[yes]]" variable=ignore>
 <span style="padding-right:5px;padding-left:3px;"><<toggle-edit-view>></span></$list>
 $caption$</caption>
 

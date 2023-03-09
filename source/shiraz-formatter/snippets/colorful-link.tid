@@ -1,0 +1,6 @@
+caption: Colorful link
+tags: $:/tags/TextEditor/Snippet
+title: $:/plugins/kookma/shiraz-formatter/snippets/colorful-link
+type: text/vnd.tiddlywiki
+
+<$link overrideClass="btn btn-danger" to="target">My Link</$link>

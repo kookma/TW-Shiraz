@@ -6,7 +6,7 @@ type: text/vnd.tiddlywiki
 
 \define list-search( filter:"[!is[system]]", search:"search:title", template:"$:/core/ui/ListItemTemplate",
  class:"my-3", stateTiddler:"", placeholder:"keywords")
-<$set name="state" filter="[[$:/temp/list-search]addsuffix[/$stateTiddler$]addsuffix<qualify>]">
+<$set name="state" filter="[[$:/temp/list-search/]addsuffix<__stateTiddler__>addsuffix<qualify>]">
 <div class=<<__class__>> >
 <$keyboard key="escape" actions='<$action-deletetiddler $tiddler=<<state>>/>' >
 <$edit-text tiddler=<<state>> type="search" tag="input" default="" placeholder="$placeholder$" class="w-100"/>
@@ -17,7 +17,7 @@ type: text/vnd.tiddlywiki
 </$reveal>
 <$reveal stateTitle=<<state>> stateField=text type="nomatch" text="" class=<<__class__>> tag=div>
 <$set name=term tiddler=<<state>> field="text">
-<$list filter="$filter$+[$search$<term>]" template=<<__template__>>/>
+<$list filter="[subfilter<__filter__>]+[$search$<term>]" template=<<__template__>>/>
 </$set>
 </$reveal>
 </$set>

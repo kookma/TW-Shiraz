@@ -1,3 +1,14 @@
+/* main editor toolbar settings for dynamic table */
+.shiraz-dtable-maineditor .tc-editor-toolbar button svg{
+	height:0.9em;  /* make toolbar buttons smaller */
+	width:0.9em
+}
+/* make third party plugins like KaTeX button smaller */
+.shiraz-dtable-maineditor .tc-editor-toolbar button .katex{
+	font-size: 0.9em;
+	line-height:1em;
+}
+
 /* edit-text box for dynamic table */
 .shiraz-dtable-textbox {
 	width:100%;

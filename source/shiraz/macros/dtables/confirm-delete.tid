@@ -5,7 +5,7 @@ type: text/vnd.tiddlywiki
 \define confirm-delete()
 <!-- reveals deletion confirmation -->
 <$list filter="[subfilter<inputFilter>limit[1]]" variable=ignore>
-<$reveal class="tbl-delete-confirm" type="match" state="$:/temp/tables/delete-all!!text" text=<<currentTable>> tag="tr">
+<$reveal class="tbl-delete-confirm" type="match" stateTitle="$:/temp/tables/delete-all" stateField="text" text=<<currentTable>> tag="tr">
 <th colspan=<<ncols>> >
 <$list filter="[[$:/temp/tables/delete-all]get[confirm]match[yes]]" 
   variable=ignore emptyMessage=<<ask-for-delete>> >

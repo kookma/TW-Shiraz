@@ -25,3 +25,8 @@ details.callout[open] > summary {
 details.callout[open] > .callout-content{
 	margin-top:-10px;
 }
+
+/* To remove the default arrow that comes with the <summary> tag in Safari */
+details[data-callout] summary::-webkit-details-marker {
+  display: none;
+}

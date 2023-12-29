@@ -3,7 +3,7 @@
     "name": "Shiraz Callout",
     "description": "Admonitions for Shiraz",
     "author": "Mohammad Rahmani",
-    "version": "0.7.0",
+    "version": "0.8.0",
 	"core-version": ">=5.2.3",
 	"source": "https://github.com/kookma/TW-Shiraz",
 	"list": "readme license history",

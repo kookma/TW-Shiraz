@@ -1,21 +1,25 @@
 caption: {{$:/plugins/kookma/shiraz/images/palette-switch}} {{$:/language/Buttons/Shiraz/Caption}}
-dark-palette: $:/palettes/SolarFlare
-description: Toggle between light/dark color palette
+dark-palette: $:/palettes/Nord
+description: Toggle between light/warm/dark color palette
 light-palette: $:/palettes/Vanilla
 list-after: 
 tags: $:/tags/PageControls
 title: $:/plugins/kookma/shiraz/ui/Buttons/SwitchPalette
 type: text/vnd.tiddlywiki
+warm-palette: $:/palettes/SolarFlare
 
+\define switchActions() <$action-listops $tiddler="$:/palette" $field=text $subfilter="+[cycle<palettes>]" />
 \whitespace trim
-<$vars 
-darkPalette ={{$:/plugins/kookma/shiraz/ui/Buttons/SwitchPalette!!dark-palette}}
-lightPalette={{$:/plugins/kookma/shiraz/ui/Buttons/SwitchPalette!!light-palette}}
+<$let 
+palettes={{{ [<thisTiddler >get[light-palette]]
+             [<thisTiddler >get[warm-palette]]
+						 [<thisTiddler >get[dark-palette]] +[join[ ]] }}}
 > 
 <$button 
   tooltip={{$:/language/Buttons/Shiraz/Hint}} 
   aria-label={{$:/language/Buttons/Shiraz/Caption}} 
   class=<<tv-config-toolbar-class>>
+	actions=<<switchActions>>
 >
   <$list filter="[<tv-config-toolbar-icons>match[yes]]">
     {{$:/plugins/kookma/shiraz/images/palette-switch}}
@@ -24,12 +28,5 @@ lightPalette={{$:/plugins/kookma/shiraz/ui/Buttons/SwitchPalette!!light-palette}
   <$list filter="[<tv-config-toolbar-text>match[yes]]">
     <span class="tc-btn-text">switch palettes</span>
   </$list>
-
-  <$reveal type="match" state="$:/palette"  text=<<darkPalette>>  > 
-    <$action-setfield $tiddler="$:/palette" text=<<lightPalette>> />
-  </$reveal>
-  <$reveal type="nomatch" state="$:/palette" text=<<darkPalette>>  >
-    <$action-setfield $tiddler="$:/palette"  text=<<darkPalette>>  >
-  </$reveal>
 </$button>
-</$vars>
+</$let>

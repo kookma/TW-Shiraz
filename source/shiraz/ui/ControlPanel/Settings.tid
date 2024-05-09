@@ -20,7 +20,7 @@ These settings let you customise the behaviour of Shiraz plugin.
 :<$checkbox tiddler="$:/plugins/kookma/shiraz/styles/colorful-sidebar-tab" tag="$:/tags/Stylesheet"> Colorify sidebar tabs</$checkbox>
 
 ;Set dark and light palettes
-{{$:/plugins/kookma/shiraz/ui/set-dark-light-palette}}
+{{$:/plugins/kookma/shiraz/ui/set-palette}}
 
 ; Choose Local Editor for Dynamic Table
 :<$checkbox tiddler=<<dynamictables-editortype>> field="text" checked="main-editor" unchecked="simple-textarea" default="simple-textarea"> Use Tiddlywiki main editor </$checkbox>

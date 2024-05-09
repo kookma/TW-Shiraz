@@ -6,12 +6,12 @@ type: text/vnd.tiddlywiki
 
 <$reveal type="nomatch" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td">
 <$list filter="[<currentRecord>tags[]]  :except[subfilter<sv-exclude-tags>]">
-<$transclude tiddler="$:/plugins/kookma/shiraz/templates/body/tag-helper"/>
+<$transclude tiddler="$:/plugins/kookma/shiraz/templates/body/tag-template"/>
 </$list>
 </$reveal>
 <$reveal type="match" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td">
 <!--check if the current column is not selected for sorting-->
-<$list filter="[<tempTableSort>getindex[sortIndex]match<currentColumn>]" variable=ignore
+<$list filter="[<tempTableSort>getindex[sortIndex]match<currentColumn>]" variable="transclusion"
 emptyMessage=<<editCell>> >
  <<showCell_Locked>>
 </$list>

@@ -5,9 +5,9 @@ type: text/vnd.tiddlywiki
 \define confirm-delete()
 <!-- reveals deletion confirmation -->
 <$list filter="[subfilter<inputFilter>limit[1]]" variable=ignore>
-<$reveal class="tbl-delete-confirm" type="match" stateTitle="$:/temp/tables/delete-all" stateField="text" text=<<currentTable>> tag="tr">
+<$reveal class="tbl-delete-confirm" type="match" default={{{ [[$:/temp/tables/delete-all]has:index<currentTable>then[yes]]  }}} text="yes" tag="tr">
 <th colspan=<<ncols>> >
-<$list filter="[[$:/temp/tables/delete-all]get[confirm]match[yes]]" 
+<$list filter="[[$:/temp/tables/delete-all]getindex<currentTable>match[delete-confirmed]]" 
   variable=ignore emptyMessage=<<ask-for-delete>> >
   <<perform-delete>>
 </$list>
@@ -20,11 +20,11 @@ type: text/vnd.tiddlywiki
 <$set name=ntids filter="[subfilter<inputFilter>count[]]">
    Delete all <<ntids>> records?
 	<$button class="tc-btn-invisible">
-     <$action-setfield $tiddler="$:/temp/tables/delete-all" $field="confirm" $value="yes"/>
+     <$action-setfield $tiddler="$:/temp/tables/delete-all" $index=<<currentTable>> $value="delete-confirmed"/>
       {{$:/core/images/delete-button}} yes
     </$button> or 
     <$button class="tc-btn-invisible">
-      <$action-deletetiddler $tiddler="$:/temp/tables/delete-all"/>
+      <$action-setfield $tiddler="$:/temp/tables/delete-all" $index=<<currentTable>>/>
       {{$:/core/images/close-button}} no
     </$button>
 </$set>				
@@ -33,14 +33,14 @@ type: text/vnd.tiddlywiki
 \define perform-delete()
    Warning! this action cannot be undone!
 	<$button class="tc-btn-invisible">
-     <$action-deletetiddler $tiddler="$:/temp/tables/delete-all"/>
+	   <$action-setfield $tiddler="$:/temp/tables/delete-all" $index=<<currentTable>>/>
      <$list filter=<<inputFilter>> variable="currentRecord">
         <$action-deletetiddler $tiddler=<<currentRecord>>/>
      </$list>
 		 {{$:/core/images/delete-button}}  delete
     </$button> or 
     <$button class="tc-btn-invisible">
-      <$action-deletetiddler $tiddler="$:/temp/tables/delete-all"/>
+      <$action-setfield $tiddler="$:/temp/tables/delete-all" $index=<<currentTable>>/>
 			{{$:/core/images/close-button}} cancel 
     </$button>
 \end

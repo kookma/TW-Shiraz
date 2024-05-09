@@ -1,0 +1,76 @@
+dark-palette: $:/palettes/Nord
+light-palette: $:/palettes/Vanilla
+tags: 
+title: $:/plugins/kookma/shiraz/ui/set-palette
+type: text/vnd.tiddlywiki
+warm-palette: $:/palettes/SolarFlare
+
+\define switchpaletteTid() $:/plugins/kookma/shiraz/ui/Buttons/SwitchPalette
+\define filterDay() [all[tiddlers+shadows]tag[$:/tags/Palette]] :filter[get[color-scheme]match[light]]  -[enlist<filterWarm>]
+\define filterNight() [all[tiddlers+shadows]tag[$:/tags/Palette]] :filter[get[color-scheme]match[dark]] -[enlist<filterWarm>]
+\define filterWarm() 
+$:/palettes/DesertSand
+$:/palettes/SolarFlare
+$:/palettes/SolarizedLight
+\end
+
+\define selectPelette(title, filter, default, tiddler, field)
+<label class="kk-switch-label">$title$</label>
+<$select tiddler=<<__tiddler__>> field=<<__field__>> default="">
+<$list filter=<<__filter__>> >
+<option value=<<currentTiddler>> >
+<$view field='name'>
+  <$view field='title'/>
+</$view>
+</option>
+</$list>
+</$list>
+\end
+
+<div style="margin-left:40px">
+
+<$macrocall $name=selectPelette 
+  title="Light palette" filter=<<filterDay>> 
+	default="$:/palettes/Vanilla" field="light-palette" 
+	tiddler=<<switchpaletteTid>> />	
+	
+<$macrocall $name=selectPelette 
+  title="Warm palette" filter=<<filterWarm>> 
+	default="$:/palettes/SolarFlare" field="warm-palette" 
+	tiddler=<<switchpaletteTid>> />
+
+<$macrocall $name=selectPelette 
+  title="Dark palette" filter=<<filterNight>> 
+	default="$:/palettes/Nord" field="dark-palette" 
+	tiddler=<<switchpaletteTid>> /><br>
+
+<label class="kk-switch-label">Reset to default</label>
+<$button> {{$:/core/images/erase}}
+
+<$action-setfield 
+  $tiddler=<<switchpaletteTid>> 
+	$field=dark-palette 
+  $value={{!!dark-palette}} />
+
+<$action-setfield 
+  $tiddler=<<switchpaletteTid>> 
+	$field=warm-palette 
+	$value={{!!warm-palette}} />	
+	
+<$action-setfield 
+  $tiddler=<<switchpaletteTid>> 
+	$field=light-palette 
+	$value={{!!light-palette}} />	
+	
+<$action-setfield 
+  $tiddler="$:/palette" 
+	$field=text
+	$value={{!!light-palette}} />		
+</$button>
+</div>
+<style>
+.kk-switch-label{
+  width:105px;
+  display: inline-block;
+}
+</style>	

@@ -8,13 +8,22 @@ title: $:/plugins/kookma/shiraz/ui/Buttons/SwitchPalette
 type: text/vnd.tiddlywiki
 warm-palette: $:/palettes/SolarFlare
 
-\define switchActions() <$action-listops $tiddler="$:/palette" $field=text $subfilter="+[cycle<palettes>]" />
+\define switchActions() <$action-setfield $tiddler="$:/palette" $field="text" $value=<<next-palette>> />
 \whitespace trim
 <$let 
-palettes={{{ [<thisTiddler >get[light-palette]]
-             [<thisTiddler >get[warm-palette]]
-						 [<thisTiddler >get[dark-palette]] +[join[ ]] }}}
-> 
+selected-palettes={{{
+  [<thisTiddler>get[light-palette]]
+  [<thisTiddler>get[warm-palette]]
+	[<thisTiddler>get[dark-palette]] +[join[ ]] }}}
+	
+default-palette={{{
+  [<thisTiddler>get[light-palette]]
+	[[$:/palettes/Vanilla]] +[first[]] }}}					 
+next-palette={{{
+  [[$:/palette]get[text]]
+ +[cycle<selected-palettes>] +[last[]]
+ :else[<default-palette>] }}}				
+>
 <$button 
   tooltip={{$:/language/Buttons/Shiraz/Hint}} 
   aria-label={{$:/language/Buttons/Shiraz/Caption}} 

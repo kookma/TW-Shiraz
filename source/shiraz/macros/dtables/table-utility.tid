@@ -8,7 +8,7 @@ type: text/vnd.tiddlywiki
 \define getitems()
 <$set name=Index tiddler=<<tempTableSort>> index="sortIndex">
 <$list filter="[subfilter<inputFilter>!has[draft.of]]" >
-<$text text="[["/>{{{ [<currentTiddler>getindex<Index>addsuffix[°≡°]] }}}<<currentTiddler>><$text text="]]"/>
+<$text text= {{{ [<currentTiddler>getindex<Index>] "°≡°" [<currentTiddler>] +[join[]format:titlelist[]] }}} />
 </$list>
 </$set>
 \end

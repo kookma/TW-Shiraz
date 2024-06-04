@@ -10,7 +10,7 @@ type: text/vnd.tiddlywiki
 </svg>
 \end
 
-\define showCell()
+\define show-cell()
 <$list filter="[<currentRecord>get<currentColumn>match[5]]" variable=ignore>
 <$macrocall $name="circle" color="#dc3545" fill="#f8d7da"/>&nbsp;very high
 </$list>
@@ -28,7 +28,7 @@ type: text/vnd.tiddlywiki
 </$list>
 \end
 
-\define showCell_Locked() <span style="font-style:oblique;"><<showCell>></span>
+\define show-cell-locked() <span class="shiraz-dtable-locked-cell"><<show-cell>></span>
 
 \define select_priority()
 <$select tiddler=<<currentRecord>> field=<<currentColumn>> default=""><option value=''>Select...</option><option value='5'>very high</option><option value='4'>high</option><option value='3'>normal</option><option value='2'>low</option><option value='1'>very low</option><option value=''>no priority</option></$select>
@@ -36,13 +36,13 @@ type: text/vnd.tiddlywiki
 
 
 <$reveal type="nomatch" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td" class="shiraz-dtable-priority">
-<<showCell>>
+<<show-cell>>
 </$reveal>
 <$reveal type="match" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td">
 <!--check if the current column is not selected for sorting-->
 <$list filter="[<tempTableSort>getindex[sortIndex]match<currentColumn>]" variable=ignore
 emptyMessage=<<select_priority>>   >
- <<showCell_Locked>>
+ <<show-cell-locked>>
 </$list>
 <$reveal>
 

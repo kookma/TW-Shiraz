@@ -4,5 +4,6 @@ type: text/vnd.tiddlywiki
 
 Full change log  https://kookma.github.io/TW-Shiraz/shiraz-callout.html#ChangeLog
 
+* ''0.8.0'' -- 2024.12.29 -- updated to TW 5.3.3
 * ''0.5.2'' -- 2023.12.27 -- first stable public release
 * ''0.1.0'' -- 2022.12.18 -- initial implementation

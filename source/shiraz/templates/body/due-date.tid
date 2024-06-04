@@ -4,7 +4,7 @@ tbl-column-list: due-date due
 title: $:/plugins/kookma/shiraz/templates/body/due-date
 type: text/vnd.tiddlywiki
 
-\define showCell()
+\procedure show-cell()
 <$let fmt="[UTC]YYYY.0MM.0DD">
 <$set tiddler=<<currentRecord>> field=<<currentColumn>> name=due-date>
 <$text text={{{[<due-date>split[-]split[.]join[]format:date<fmt>]}}} />
@@ -12,24 +12,24 @@ type: text/vnd.tiddlywiki
 </$let>
 \end
 
-\define showCell_Locked() <span style="font-style:oblique;"><<showCell>></span>
+\procedure show-cell-locked() <span class="shiraz-dtable-locked-cell"><<show-cell>></span>
 
-\define edit_date() 
+\procedure edit_date() 
 <$list filter="[[$:/plugins/kookma/pikaday]!is[missing]] :filter[lookup:no[$:/config/Plugins/Disabled/]match[no]]"
   emptyMessage='<$edit-text tag=input type=date tiddler=<<currentRecord>> field=<<currentColumn>>/>'
 	variable=null >
-  <<editCell>>
+  <<edit-cell>>
 </$list>
 \end
 
-<$reveal type="nomatch" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td" class="shiraz-dtable-col-fixedsize">
-<<showCell>>
+<$reveal type="nomatch" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td" class="shiraz-dtable-date">
+<<show-cell>>
 </$reveal>
 <$reveal type="match" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td">
 <!--check if the current column is not selected for sorting-->
 <$list filter="[<tempTableSort>getindex[sortIndex]match<currentColumn>]" variable=ignore
 emptyMessage=<<edit_date>> >
- <<showCell_Locked>>
+ <<show-cell-locked>>
 </$list>
 </$reveal>
 

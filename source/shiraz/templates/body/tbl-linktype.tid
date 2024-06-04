@@ -1,17 +1,18 @@
+code-body: yes
 tags: $:/tags/Table/BodyTemplate
 tbl-column-list: tbl-linktype
 title: $:/plugins/kookma/shiraz/templates/body/tbl-linktype
 type: text/vnd.tiddlywiki
 
-\define subtiddler-pattern() (^$(currentTiddler)$\s*/|^$(currentTiddler)$\s*:)
-
 <td class="shiraz-dtable-col-fixedsize">
+<$let subtiddler-pattern=`(^${[<currentTiddler>escaperegexp[]]}$\s*/|^${[<currentTiddler>escaperegexp[]]}$\s*:)` >
 <$text text={{{ 
 [all[current]links[]match<currentRecord>then[link]]
 [all[current]backlinks[]match<currentRecord>then[backlink]]
 [all[current]tagging[]match<currentRecord>then[tagging]]
 [<currentRecord>regexp<subtiddler-pattern>then[subtiddler]]
 ~[<currentRecord>search:text<currentTiddler>then[backtransclusion]else[transclusion]] }}} />
+</$let>
 </td>
 <!-- 
 tb-linktype is not sortable not editable. The priority is as below:

@@ -2,23 +2,25 @@ tags: $:/tags/Table/Macro
 title: $:/plugins/kookma/shiraz/macros/dtables/show-edit-cell
 type: text/vnd.tiddlywiki
 
-\define showCell()
-  <$list filter="[<fieldOrIndex>]-index">
-    <$transclude tiddler=<<currentRecord>> field=<<currentColumn>> mode="inline" />
-  </$list>
-  <$list filter="[<fieldOrIndex>]-field">
-    <$transclude tiddler=<<currentRecord>> index=<<currentColumn>> mode="inline" />
-  </$list>
+\procedure show-cell()
+	<%if [<dataType>match[field]] %>
+		<$transclude tiddler=<<currentRecord>> field=<<currentColumn>> mode="inline" />
+	<%else%>
+		<$transclude tiddler=<<currentRecord>> index=<<currentColumn>> mode="inline" />
+	<%endif%>
 \end	
-\define editCell()
-  <$list filter="[<fieldOrIndex>]-index">
-    <$edit-text tiddler=<<currentRecord>> field=<<currentColumn>> tag="input" class="shiraz-dtable-textbox"/>
-  </$list>
-  <$list filter="[<fieldOrIndex>]-field">
-    <$edit-text tiddler=<<currentRecord>> index=<<currentColumn>> tag="input" class="shiraz-dtable-textbox"/>
-  </$list>
+\procedure edit-cell()
+	<%if [<dataType>match[field]] %>
+		<$edit-text tiddler=<<currentRecord>> field=<<currentColumn>> tag="input" class="shiraz-dtable-textbox"/>
+	<%else%>
+		<$edit-text tiddler=<<currentRecord>> index=<<currentColumn>> tag="input" class="shiraz-dtable-textbox"/>
+	<%endif%>
 \end
 
-\define showCell_Locked()
- <span style="font-style:oblique;"><<showCell>></span>
+\procedure show-cell-locked()
+	<span class="shiraz-dtable-locked-cell"><<show-cell>></span>
 \end 
+
+<!--TODO
+The show-cell-locked can be customized.
+-->

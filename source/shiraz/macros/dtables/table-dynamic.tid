@@ -1,3 +1,4 @@
+code-body: yes
 tags: $:/tags/Macro
 title: $:/plugins/kookma/shiraz/macros/dtables/table-dynamic
 type: text/vnd.tiddlywiki
@@ -34,7 +35,7 @@ $caption$</caption>
 <!-- create header -------------------->
 <thead>
 <<confirm-delete>>
-<tr>
+<tr class="shiraz-dtable-header">
 <$list filter=<<columnFilter>> variable=currentColumn>
 <$set name="headerLookup" filter="[all[tiddlers+shadows]tag[$:/tags/Table/HeaderTemplate]contains:tbl-column-list<currentColumn>limit[1]get[title]]" value=<<headerLookup>> emptyValue="$:/plugins/kookma/shiraz/templates/header/default">
  <$transclude tiddler=<<headerLookup>> field="text" mode="inline"/>

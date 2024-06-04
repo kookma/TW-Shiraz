@@ -100,3 +100,22 @@ table thead .tbl-delete-confirm > th > button {
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }
+
+/* Newly added 2024.05.31 */
+.shiraz-default-cursore{ /* for tbl-linktype */
+	cursor:default;
+}
+.shiraz-dtable-locked-cell{
+	/* for styling the locked cell */
+	font-style:oblique;
+}
+.shiraz-cell-centered { /* centered table cell */
+	text-align: center;
+	vertical-align: middle;
+}
+
+/* button caption style on dynamic table header
+this style can be overriden locally by user */
+table thead .shiraz-dtable-header  th button {
+    text-transform: capitalize; /* Capitalize the first letter of every word */
+}

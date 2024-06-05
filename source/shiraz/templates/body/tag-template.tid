@@ -1,4 +1,5 @@
 code-body: yes
+modified: 20240605180905065
 tags: 
 title: $:/plugins/kookma/shiraz/templates/body/tag-template
 type: text/vnd.tiddlywiki
@@ -7,7 +8,7 @@ type: text/vnd.tiddlywiki
 This is NOT a dynamic table body tempalte. This template itself used by $:/plugins/kookma/shiraz/templates/body/tags
 On update Shiraz to a new release of TiddlyWiki, check the latest TiddlyWiki $:/core/ui/TagTemplate core tiddler.
 
-Remarks: In $:/core/ui/TagTemplate every:  <<qualify "$:/state/popup/tag">> has been changed to: `${[<qualify "$:/state/popup/tag">][<currentTable>][<currentRecord>]+[join[/]]}$`
+Remarks: In $:/core/ui/TagTemplate every:  <<qualify "$:/state/popup/tag">> has been changed to: {{{ [<qualify "$:/state/popup/tag">][<currentTable>][<currentRecord>]+[join[/]] }}}
 This solution allows to to get unique popups in a list widget (here in dyanmic table, tags column template)
 See https://tiddlywiki.com to learn how substituted attributes work! 
 -->
@@ -22,9 +23,9 @@ See https://tiddlywiki.com to learn how substituted attributes work!
 		colour={{{ [<currentTiddler>] :cascade[all[shadows+tiddlers]tag[$:/tags/TiddlerColourFilter]!is[draft]get[text]] }}}
 		palette={{$:/palette}}
 		element-tag="$button"
-		element-attributes="""popup=`${[<qualify "$:/state/popup/tag">][<currentTable>][<currentRecord>]+[join[/]]}$` dragFilter="[all[current]tagging[]]" tag='span'"""
+		element-attributes="""popup={{{ [<qualify "$:/state/popup/tag">][<currentTable>][<currentRecord>]+[join[/]] }}} dragFilter="[all[current]tagging[]]" tag='span'"""
 	/>
-	<$reveal state=`${[<qualify "$:/state/popup/tag">][<currentTable>][<currentRecord>]+[join[/]]}$` type="popup" position="below" animate="yes" class="tc-drop-down">
+	<$reveal state={{{ [<qualify "$:/state/popup/tag">][<currentTable>][<currentRecord>]+[join[/]] }}} type="popup" position="below" animate="yes" class="tc-drop-down">
 		<$set name="tv-show-missing-links" value="yes">
 			<$transclude tiddler="$:/core/ui/ListItemTemplate"/>
 		</$set>

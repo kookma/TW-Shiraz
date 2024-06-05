@@ -1,10 +1,12 @@
+modified: 20240605180905065
 tags: 
 title: $:/plugins/kookma/shiraz/history
 type: text/vnd.tiddlywiki
 
 Full change log:  [[https://kookma.github.io/TW-Shiraz/#ChangeLog]]
 
-* ''2.9.4'' -- 2024.05.31 -- update to Tiddlywiki 5.3.3, use some new features of 5.3.3
+* ''2.9.5'' -- 2024.06.05 -- minor bug fixes. Reverted to work with TW 5.2.7+
+* ''2.9.4'' -- 2024.05.31 -- update to use some new features of 5.3.3
 * ''2.7.1'' -- 2022.12.17 -- update to Tiddlywiki 5.2.4, few bug fixes
 * ''2.6.9'' -- 2022.10.17 -- improved Node Explorer, and task Explorer
 * ''2.6.1'' -- 2022.09.27 -- new subplug Formatter, better task manager

@@ -1,5 +1,0 @@
-tags: $:/tags/Macro
-title: $:/plugins/kookma/shiraz/macros/image-overlay-utility
-type: text/vnd.tiddlywiki
-
-\define _cls-content-details() image-overlay-content-details $(fdcls)$

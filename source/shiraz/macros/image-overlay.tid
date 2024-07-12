@@ -3,14 +3,13 @@ title: $:/plugins/kookma/shiraz/macros/image-overlay
 type: text/vnd.tiddlywiki
 
 \define image-overlay(img, width:"30%", align:"none", caption:"", title:"", text:"", fadein:"left", alt:"")
-\import $:/plugins/kookma/shiraz/macros/image-overlay-utility
 <div class="image-overlay-container image-align-$align$" style="width:$width$;">
     <h3 class="image-overlay-title">$caption$</h3>
     <div class="image-overlay-content">
       <div class="image-overlay-content-overlay"></div>
       <$image class="image-overlay-content-image" source=<<__img__>> alt=<<__alt__>>/>
       <$set name="fdcls" filter="$fadein$ +[splitbefore[ ]] +[addprefix[image-overlay-fadeIn-]]">
-      <div class=<<_cls-content-details>> >
+      <div class={{{ image-overlay-content-details [<fdcls>] :and[join[ ]] }}} >
         <h3 class="image-overlay-content-title">$title$</h3>
         <p class="image-overlay-content-text">$text$</p>
       </div>

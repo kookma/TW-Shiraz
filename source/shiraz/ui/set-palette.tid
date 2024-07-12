@@ -1,6 +1,5 @@
 dark-palette: $:/palettes/Nord
 light-palette: $:/palettes/Vanilla
-tags: 
 title: $:/plugins/kookma/shiraz/ui/set-palette
 type: text/vnd.tiddlywiki
 warm-palette: $:/palettes/SolarFlare

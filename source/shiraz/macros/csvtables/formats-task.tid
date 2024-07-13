@@ -13,7 +13,7 @@ type: text/vnd.tiddlywiki
 <!-- toggle a line done (x) / undone (-) . the lbr is used to prevent replace "x, Hi" with "x, Hi Jeremy"-->
 <$vars lbr="
 ">
-  <$vars in={{{ [<row>addsuffix<lbr>] }}} out={{{[<row>splitregexp<delimiter>rest[]join[,]addprefix[$param$,]addsuffix<lbr>]}}} >
+  <$vars in={{{ [<row>addsuffix<lbr>] }}} out={{{[<row>splitregexp<delimiter>rest[]join<delimiter>addprefix<delimiter>addprefix[$param$]addsuffix<lbr>]}}} >
     <$action-setfield $tiddler=<<src>> text={{{ [<src>get[text]search-replace:g:<in>,<out>] }}}/>
   </$vars>
 </$vars>	

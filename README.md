@@ -2,9 +2,11 @@
 Shiraz is a small TW5 plugin contains several macros, stylesheets, templates, snippets and acts as a starter kit for 
 [Tiddlywiki](https://tiddlywiki.com/).
 
-Shiraz 3 is a new Shiraz release based on TiddlyWiki 5.3.5+ and Bootstrap 5.3.3+. Shiraz 3 requires TiddlyWiki core version 5.3.5 or newer and is not full backward compatible.
+**Shiraz 3** is a new Shiraz release based on TiddlyWiki 5.3.5+ and Bootstrap 5.3.3+. Shiraz 3 requires TiddlyWiki core version 5.3.5 or newer and is not full backward compatible.
 
-IMPORTANT NOTE: Do not upgrade a TiddlyWiki with Shiraz 2 to Shiraz 3. They are not fully compatible.
+> **IMPORTANT NOTE**: Do not upgrade a TiddlyWiki with Shiraz 2 to Shiraz 3. They are not fully compatible.
+
+> **Shiraz 3** prerelease published on Auguset 1st, 2024.
 
 # Tutorial
 * Open the https://kookma.github.io/TW-Shiraz/

@@ -1,0 +1,24 @@
+tags: $:/tags/Global
+title: $:/plugins/kookma/shiraz/tables/procs/ct-apps
+type: text/vnd.tiddlywiki
+
+\procedure nomenclature(id:"nomenclature", delimiter:",")
+<$transclude $variable=table-csv id=<<id>> format="katex-inline transclude pu" class="table-borderless" header="no" delimiter=<<delimiter>> />
+\end
+
+\procedure mathbox(id:"", format:"", delimiter:",")
+<$transclude $variable=table-csv id=<<id>> format=`transclude katex $(format)$` class="table-borderless table-mathbox" header="no" delimiter=<<delimiter>> />
+\end
+
+\procedure subscripts(id:"subscripts", delimiter:",")
+<$transclude $variable=table-csv id=<<id>> format="katex-inline transclude pu" class="table-borderless" header="no" delimiter=<<delimiter>> />
+\end
+
+\procedure superscripts(id:"superscripts", delimiter:",")
+<$transclude $variable=table-csv id=<<id>> format="katex-inline transclude" class="table-borderless" header="no" delimiter=<<delimiter>> />
+\end
+
+<!-- 
+- These procedures use the table-csv to display nice looking outputs
+- apps means application
+-->

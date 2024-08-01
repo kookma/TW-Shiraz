@@ -1,0 +1,10 @@
+tags: $:/tags/Global
+title: $:/plugins/kookma/shiraz/procedures/image-pretty
+type: text/vnd.tiddlywiki
+
+\procedure image-pretty(img, width:"30%", align:"none", caption:"", tooltip:"", alt:"")
+<figure class=`image-pretty image-align-$(align)$` style=`width:$(width)$;`>
+  <$image source=<<img>> tooltip=<<tooltip>> alt=<<alt>> /> 
+  <figcaption class="image-pretty-caption"><<caption>></figcaption>
+</figure> 
+\end

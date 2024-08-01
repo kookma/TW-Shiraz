@@ -1,0 +1,19 @@
+code-body: yes
+created: 20240719144444743
+modified: 20240719144444743
+title: $:/plugins/kookma/shiraz/tables/segments/dt-thead
+type: text/vnd.tiddlywiki
+
+<$transclude $variable="check_tiddlers_type_for_table_from_indexes"/>
+<$transclude $variable="confirm-delete"/>
+<tr class="shiraz-dtable-header">
+<$list filter=<<coulmnFilter>> variable="currentColumn" >
+<$set name="headerLookup"
+      filter="[all[tiddlers+shadows]tag[$:/tags/Table/HeaderTemplate]!is[draft]contains:tbl-column-list<currentColumn>limit[1]get[title]]"
+      value=<<headerLookup>>
+      emptyValue="$:/plugins/kookma/shiraz/tables/templates/header/default"
+>
+  <$transclude $tiddler=<<headerLookup>> $field="text" $mode="inline"/>
+</$set>
+</$list>
+</tr>

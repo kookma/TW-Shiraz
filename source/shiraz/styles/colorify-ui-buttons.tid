@@ -1,0 +1,23 @@
+created: 20240730090657372
+modified: 20240730190854276
+tags: $:/tags/Stylesheet
+title: $:/plugins/kookma/shiraz/styles/colorify-ui-buttons
+type: text/vnd.tiddlywiki
+
+\rules only conditional
+<%if [[$:/config/Shiraz]getindex[colorify-ui-buttons]match[yes]] %>
+
+/*Tiddler edit toolbar buttons as traffic lights*/
+.tc-tiddler-controls .tc-image-done-button {fill:#BBEEBB;}
+.tc-tiddler-controls .tc-image-cancel-button {fill:#EEDD99;}
+.tc-tiddler-edit-title .tc-tiddler-controls .tc-image-delete-button,
+.tc-tiddler-edit-frame .tc-tiddler-controls .tc-image-fa-trash-alt {fill:#EEBBBB;} /* for trashbin plugin: move to trashbin button/*
+/* These css rules makes page control buttons in beatiful color */
+/*page control buttons*/
+.tc-page-controls .tc-image-new-button     { fill: #5EB95E; } /*New tiddler button*/
+.tc-page-controls .tc-image-options-button { fill:#8058A5; } /*Open control pannel*/
+/* These css rules makes tiddler viewtoolbar buttons in beatiful color */
+.tc-tiddler-controls .tc-image-edit-button{fill:#F37B1D}
+.tc-tiddler-controls .tc-image-info-button{fill:#0E90D2}
+
+<%endif%>

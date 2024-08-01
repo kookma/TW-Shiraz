@@ -1,0 +1,9 @@
+/* This extra rules makes link color in alert consistent with alert color. It uses CSS variable
+You may add other components 
+*/
+.alert > a.tc-tiddlylink,
+.alert > a.tc-tiddlylink-external,
+.alert > a.tc-tiddlylink-missing,
+.alert > a.tc-tiddlylink-shadow {
+	color: var(--bs-alert-link-color);
+}

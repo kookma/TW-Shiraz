@@ -1,0 +1,36 @@
+tags: $:/tags/Table/Procedure show-content
+title: $:/plugins/kookma/shiraz/tables/procs/dt-warning-message
+type: text/vnd.tiddlywiki
+
+\function mixedtype.criteria() [subfilter<inputFilter>!type[application/x-tiddler-dictionary]!type[application/json]]
+
+\procedure show_tiddler_types()
+<div style="text-align:left">
+<br>Tiddlers with wrong type:
+<ul>
+<$list filter="[mixedtype.criteria[]]" >
+<li><$link/>&nbsp;(type: <$view field=type/>)</li>
+</$list>
+</ul>
+</div>
+\end show_tiddler_types
+
+\procedure dismissButton()
+<$button class="tc-btn-invisible tc-tiddlylink" style="fill:white;" tooltip="Dismiss alert and continue with the current selection!">
+{{$:/core/images/close-button}}
+<$action-setfield $tiddler=<<stateWarningMsg>> text="dissmiss"/>
+</$button>
+\end dismissButton
+
+\procedure check_tiddlers_type_for_table_from_indexes()
+<%if [<dataType>match[index]] [<editButton>match[yes]] :and[count[]match[2]] %><!-- only table from data tiddlers and editable-->
+	<%if [mixedtype.criteria[]limit[1]] [<stateWarningMsg>is[missing]] :and[count[]match[2]] %>
+		<tr class="tbl-delete-confirm">
+			<th colspan=<<columnsCount>> >
+				''Danger'': Editable dynamic tables created from indexes with mixed types of tiddlers.&nbsp;<<dismissButton>>
+				<<show_tiddler_types>>
+			</th>
+		</tr>
+	<%endif%>
+<%endif%>
+\end	check_tiddlers_type_for_table_from_indexes

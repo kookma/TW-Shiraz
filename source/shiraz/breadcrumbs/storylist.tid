@@ -1,0 +1,16 @@
+code-body: yes
+created: 20240730082246405
+modified: 20240730082432652
+tags: 
+title: $:/plugins/kookma/shiraz/breadcrumbs/storylist
+type: text/vnd.tiddlywiki
+
+<nav aria-label="breadcrumb" style="font-size:smaller;">
+<ol class="breadcrumb">
+<$list filter="[list[$:/StoryList]]" variable=item>
+<$list filter="[<currentTiddler>match<item>]" emptyMessage='<li class="breadcrumb-item"><$link to=<<item>>/></li>'>
+<li class="breadcrumb-item active" aria-current="page"><$text text=<<currentTiddler>>/></li>
+</$list>
+</$list>
+</ol>
+</nav>

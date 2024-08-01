@@ -1,0 +1,19 @@
+tags: $:/tags/Global
+title: $:/plugins/kookma/shiraz/procedures/image-overlay
+type: text/vnd.tiddlywiki
+
+\procedure image-overlay(img, width:"30%", align:"none", caption:"", title:"", text:"", fadein:"left", alt:"")
+<div class=`image-overlay-container image-align-$(align)$` style=`width:$(width)$;`>
+    <h3 class="image-overlay-title"><<caption>></h3>
+    <div class="image-overlay-content">
+      <div class="image-overlay-content-overlay"></div>
+      <$image class="image-overlay-content-image" source=<<img>> alt=<<alt>>/>
+      <$set name="fdcls" filter=`$(fadein)$ +[splitbefore[ ]] +[addprefix[image-overlay-fadeIn-]]`>
+      <div class=`image-overlay-content-details $(fdcls)$` >
+        <h3 class="image-overlay-content-title"><<title>></h3>
+        <p class="image-overlay-content-text"><<text>></p>
+      </div>
+      </$set>
+  </div>
+</div>
+\end

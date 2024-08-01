@@ -1,0 +1,13 @@
+created: 20240722164907016
+modified: 20240722164935918
+tags: $:/tags/Global
+title: $:/plugins/kookma/shiraz/procedures/badge
+type: text/vnd.tiddlywiki
+
+\procedure badge(type:"primary" src:"")
+<span data-bs-theme=<<color-scheme>> class=`badge text-bg-$(type)$`><$transclude $variable="src" /></span>
+\end
+
+\procedure badge-pill(type:"primary" src:"")
+<span data-bs-theme=<<color-scheme>> class=`badge badge-pill text-bg-$(type)$`><$transclude $variable="src" /></span>
+\end

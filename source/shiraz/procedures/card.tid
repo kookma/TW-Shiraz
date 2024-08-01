@@ -1,0 +1,27 @@
+created: 20240724140841459
+modified: 20240731140046411
+tags: $:/tags/Global
+title: $:/plugins/kookma/shiraz/procedures/card
+type: text/vnd.tiddlywiki
+
+\procedure card(header:"", title:"", subtitle:"", text:"", footer:"", width:"100%", class:"")
+<div data-bs-theme=<<color-scheme>> class=`card mb-3 $(class)$` style=`width:$(width)$;`>
+	<%if [<header>!is[blank]] %>
+			<div class="card-header"><<header>></div>
+	<%endif%>
+	<div class="card-body">
+		<%if [<title>!is[blank]] %>
+				<div class="h5 card-title"><<title>></div>
+		<%endif%>
+		<%if [<subtitle>!is[blank]] %>
+				<div class="h6 card-subtitle mb-2 text-muted"><<subtitle>></div>
+		<%endif%>
+		<%if [<text>!is[blank]] %>
+				<div class="card-text"><<text>></div>
+		<%endif%>
+	</div>
+	<%if [<footer>!is[blank]] %>
+			<div class="card-footer text-muted"><<footer>></div>
+	<%endif%>
+</div>
+\end card

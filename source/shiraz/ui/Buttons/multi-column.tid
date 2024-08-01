@@ -1,0 +1,21 @@
+caption: {{shilaz/images/multicolumns}} {{$:/language/Buttons/Multicolumn/Caption}}
+created: 20240723100124577
+description: {{$:/language/Buttons/Multicolumn/Hint}}
+list-before: $:/core/ui/Buttons/close
+modified: 20240730092010786
+tags: $:/tags/ViewToolbar
+title: $:/plugins/kookma/shiraz/ui/Buttons/multi-column
+type: text/vnd.tiddlywiki
+
+\whitespace trim
+<$button tooltip={{$:/language/Buttons/Multicolumn/Hint}} aria-label={{$:/language/Buttons/Multicolumn/Caption}} class=<<tv-config-toolbar-class>> >
+<$action-listops $tiddler=<<currentTiddler>> $field="class" $subfilter="+[toggle[multicol2],[multicol3],[multicol],[]]" />
+<$list filter="[<tv-config-toolbar-icons>match[yes]]">
+{{shilaz/images/multicolumns}}
+</$list>
+<$list filter="[<tv-config-toolbar-text>match[yes]]">
+<span class="tc-btn-text">
+<$text text={{$:/language/Buttons/Multicolumn/Caption}}/>
+</span>
+</$list>
+</$button>

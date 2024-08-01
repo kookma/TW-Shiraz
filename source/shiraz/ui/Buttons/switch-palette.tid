@@ -1,0 +1,49 @@
+caption: {{$:/plugins/kookma/shiraz/images/switch-palette}} {{$:/language/Buttons/Shiraz/SwitchPalette/Caption}}
+created: 20240730091720238
+description: {{$:/language/Buttons/Shiraz/SwitchPalette/Hint}}
+list-after: 
+modified: 20240730164920915
+tags: $:/tags/PageControls
+title: $:/plugins/kookma/shiraz/ui/Buttons/switch-palette
+type: text/vnd.tiddlywiki
+
+\procedure configTid() $:/config/Shiraz
+\procedure switchPeletteTid() $:/plugins/kookma/shiraz/ui/switch-palette
+\function light-palette-default() [<switchPeletteTid>get[light-palette]]
+\function warm-palette-default() [<switchPeletteTid>get[warm-palette]]
+\function dark-palette-default() [<switchPeletteTid>get[dark-palette]]
+
+\procedure switchActions() <$action-setfield $tiddler="$:/palette" $field="text" $value=<<next-palette>> />
+
+\whitespace trim
+
+<$let 
+ selected-palettes={{{
+   [<configTid>getindex[light-palette]else<light-palette-default>]
+   [<configTid>getindex[warm-palette]else<warm-palette-default>]
+	 [<configTid>getindex[dark-palette]else<dark-palette-default>] :and[join[ ]] }}}
+	
+ default-palette={{{
+   [<configTid>get[light-palette]]
+	 [[$:/palettes/Vanilla]] :and[first[]] }}}					 
+ next-palette={{{
+   [[$:/palette]get[text]]
+  +[cycle<selected-palettes>] :and[last[]]
+  :else[<default-palette>] }}}				
+>
+<$button 
+			tooltip={{$:/language/Buttons/Shiraz/SwitchPalette/Hint}} 
+			aria-label={{$:/language/Buttons/Shiraz/SwitchPalette/Caption}} 
+			class=<<tv-config-toolbar-class>>
+			actions=<<switchActions>>
+>
+		<$list filter="[<tv-config-toolbar-icons>match[yes]]">
+				{{$:/plugins/kookma/shiraz/images/switch-palette}}
+		</$list>
+		<$list filter="[<tv-config-toolbar-text>match[yes]]">
+			<span class="tc-btn-text">
+				<$text text={{$:/language/Buttons/Shiraz/SwitchPalette/Caption}}/>
+			</span>
+		</$list>
+</$button>
+</$let>

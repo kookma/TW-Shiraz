@@ -1,0 +1,10 @@
+tags: $:/tags/Global
+title: $:/plugins/kookma/shiraz/procedures/image-basic
+type: text/vnd.tiddlywiki
+
+\procedure image-basic(img, width:"30%", align:"none", caption:"", tooltip:"", alt:"")
+<figure class=`image-basic image-align-$(align)$` style=`width:$(width)$;`>
+  <$image source=<<img>> tooltip=<<tooltip>> alt=<<alt>> /> 
+  <figcaption><<caption>></figcaption>
+</figure> 
+\end

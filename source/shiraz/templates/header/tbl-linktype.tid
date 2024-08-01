@@ -1,9 +1,0 @@
-tags: $:/tags/Table/HeaderTemplate
-tbl-column-list: tbl-linktype
-title: $:/plugins/kookma/shiraz/templates/header/tbl-linktype
-type: text/vnd.tiddlywiki
-
-<th class="shiraz-default-cursore">Linktype</th>
-<!-- 
-tb-linktype is not sortable not editable
--->

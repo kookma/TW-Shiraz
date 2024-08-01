@@ -1,0 +1,52 @@
+tags: $:/tags/Table/Procedure
+title: $:/plugins/kookma/shiraz/tables/procs/dt-confirm-delete
+type: text/vnd.tiddlywiki
+
+\procedure confirm-delete()
+<%if [[$:/temp/dynamictables/delete-all-records]has:index<currentTable>] %><!-- reveals deletion confirmation -->
+<tr class="tbl-delete-confirm">
+<th colspan=<<columnsCount>> >
+<$list filter="[[$:/temp/dynamictables/delete-all-records]getindex<currentTable>match[delete-confirmed]]" 
+  variable=ignore emptyMessage=<<ask-for-delete>> >
+  <<perform-delete>>
+</$list>
+</th>
+</tr>
+<%endif%>
+\end
+
+\procedure ask-for-delete()
+	\whitespace notrim
+	Delete all <$count filter="[subfilter<inputFilter>]"/> records?
+	<$button class="tc-btn-invisible" tooltip="mark for delete" actions='<$action-setfield $tiddler="$:/temp/dynamictables/delete-all-records" $index=<<currentTable>> $value="delete-confirmed"/>'>
+		{{$:/core/images/delete-button}} yes
+	</$button> or 
+	<$button class="tc-btn-invisible" tooltip="cancel delete" actions='<$action-setfield $tiddler="$:/temp/dynamictables/delete-all-records" $index=<<currentTable>>/>'>
+		{{$:/core/images/close-button}} no
+	</$button>
+\end
+
+<!--actions for perform-delete button-->
+\procedure delete-all-records-action() 
+	\import $:/plugins/kookma/trashbin/macros/move-to-trashbin
+	<$action-setfield $tiddler="$:/temp/dynamictables/delete-all-records" $index=<<currentTable>>/>
+	<$action-deletetiddler $filter="[prefix<tempTable>]"/><!-- delete all states related to current table-->
+	<%if [[$:/plugins/kookma/trashbin]is[missing]] %>
+		<$action-deletetiddler $filter=<<inputFilter>> /><!--delete permanently-->
+	<%else%>
+		<$list filter=<<inputFilter>> variable="currentRecord"><!-- move all to trashbin -->
+			<$transclude $variable="move-to-trashbin" tiddler=<<currentRecord>> />
+		</$list>
+	<%endif%>
+\end		 
+
+\procedure perform-delete()
+\whitespace notrim
+	Warning! this action cannot be undone!
+	<$button class="tc-btn-invisible" tooltip="delete all records or move to trashbin" actions=<<delete-all-records-action>> >
+		{{$:/core/images/delete-button}}  delete 
+	</$button> or 
+	<$button class="tc-btn-invisible" tooltip="cancel the operation" actions='<$action-setfield $tiddler="$:/temp/dynamictables/delete-all-records" $index=<<currentTable>>/>'>
+		{{$:/core/images/close-button}} cancel 
+	</$button>
+\end

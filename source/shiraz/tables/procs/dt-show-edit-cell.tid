@@ -1,0 +1,26 @@
+tags: $:/tags/Table/Procedure
+title: $:/plugins/kookma/shiraz/tables/procs/dt-show-edit-cell
+type: text/vnd.tiddlywiki
+
+\procedure show-cell()
+	<%if [<dataType>match[field]] %>
+		<$transclude tiddler=<<currentRecord>> field=<<currentColumn>> mode="inline" />
+	<%else%>
+		<$transclude tiddler=<<currentRecord>> index=<<currentColumn>> mode="inline" />
+	<%endif%>
+\end	
+\procedure edit-cell()
+	<%if [<dataType>match[field]] %>
+		<$edit-text tiddler=<<currentRecord>> field=<<currentColumn>> tag="input" class="shiraz-dtable-textbox"/>
+	<%else%>
+		<$edit-text tiddler=<<currentRecord>> index=<<currentColumn>> tag="input" class="shiraz-dtable-textbox"/>
+	<%endif%>
+\end
+
+\procedure show-cell-locked()
+	<span class="shiraz-dtable-locked-cell"><<show-cell>></span>
+\end 
+
+<!--TODO
+The show-cell-locked can be customized.
+-->

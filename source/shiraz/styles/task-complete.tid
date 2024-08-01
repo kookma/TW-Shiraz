@@ -1,0 +1,25 @@
+created: 20240729161402751
+modified: 20240730060901321
+tags: $:/tags/Stylesheet
+title: $:/plugins/kookma/shiraz/styles/task-complete
+type: text/vnd.tiddlywiki
+
+\rules only filteredtranscludeinline transcludeinline macrodef macrocallinline conditional
+/* 
+hsl(120, 60%, 30%);  /* A paler green
+#2ecc71;   /* Emerlad Green
+#e6e6fa;   /* Lavender Mist
+#ffca28;   /* Amber Glow
+#121212    /* Dark Grey
+#3498db;   /* Moonstone Blue 
+*/
+.tbl-record-complete,
+.tbl-record-complete svg,
+.tbl-record-complete a.tc-tiddlylink {
+  <%if [<color-scheme>match[light]]    %> color: #F2F2F7FF; fill:currentColor; 
+	<%elseif [<color-scheme>match[dark]] %> color: rgba(139, 195, 74, 1); fill: currentColor;
+	<%endif%> }
+.tbl-record-complete {
+<%if [<color-scheme>match[light]] %>    background-color: #7f8c8d; /* Slate Gray*/
+<%elseif [<color-scheme>match[dark]] %> background-color: #2a2a2a;
+<%endif%> }

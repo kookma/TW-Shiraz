@@ -1,7 +1,0 @@
-tags: $:/tags/Macro
-title: $:/plugins/kookma/shiraz/macros/dbadge
-type: text/vnd.tiddlywiki
-
-\define dbadge(subject,status, type:"primary")
-<div class="dbadge"><span class="dbadge-subject">$subject$</span><span class="dbadge-status dbadge-$type$ ">$status$</span></div>
-\end

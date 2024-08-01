@@ -1,11 +1,12 @@
-.float-left {
-  float: left;
+/* bootstrap.css line 7227*/
+.float-start {
+  float: left !important;
 }
 
-.float-right {
-  float: right;
+.float-end {
+  float: right !important;
 }
 
 .float-none {
-  float: none;
+  float: none !important;
 }

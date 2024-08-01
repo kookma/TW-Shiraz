@@ -1,0 +1,21 @@
+created: 20240731210328106
+modified: 20240731210551227
+title: $:/plugins/kookma/shiraz/tables/segments/dt-tfoot
+type: text/vnd.tiddlywiki
+
+\function frows() "[range[1,$(footerRows)$]addprefix[footer-]]" :map[substitute[]]
+<%if [<footerRows>compare:integer:gt[0]] %>
+<tr><td colspan=<<columnsCount>> class="shiraz-dtable-numerical-summary-lbl">Numerical summary:</td></tr>
+<$list filter=<<frows>> variable=footerRow>
+<tr>
+<$list filter=<<coulmnFilter>> variable=currentColumn>
+	<$set name="footerLookup"
+				filter="[all[tiddlers+shadows]tag[$:/tags/Table/FooterTemplate]!is[draft]contains:tbl-column-list<currentColumn>limit[1]get[title]]"
+				value=<<footerLookup>>
+				emptyValue="$:/plugins/kookma/shiraz/tables/templates/footer/default">
+	<$transclude $tiddler=<<footerLookup>> $field="text" $mode="inline"/>
+	</$set>
+</$list>
+</tr>
+</$list>
+<%endif%>

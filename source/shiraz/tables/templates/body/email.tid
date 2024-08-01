@@ -1,0 +1,23 @@
+tags: $:/tags/Table/BodyTemplate
+tbl-column-list: email
+title: $:/plugins/kookma/shiraz/tables/templates/body/email
+type: text/vnd.tiddlywiki
+
+\function href() [<currentRecord>get<currentColumn>addprefix[mailto:]]
+
+\procedure display-email-address() 
+	<a class="tc-tiddlylink-external" href=<<href>> rel="noopener noreferrer" target="_blank"><<show-cell>></a>
+\end
+\procedure display-email-address-locked()
+	<a class="tc-tiddlylink-external" href=<<href>> rel="noopener noreferrer" target="_blank"><<show-cell-locked>></a>
+\end
+
+<td>
+<%if [<tempTableEdit>is[missing]] :or[<tempTableEdit>getindex[mode]!match[edit]] %>
+	<<display-email-address>>
+<%elseif [<tempTableSort>getindex[sortIndex]match<currentColumn>] %><!--check if the current column is not selected for sorting-->
+	<<display-email-address-locked>>
+<%else%>
+	<<edit-cell>>
+<%endif%>
+</td>

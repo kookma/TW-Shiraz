@@ -1,0 +1,73 @@
+created: 20240730092324664
+dark-palette: $:/palettes/Nord
+light-palette: $:/palettes/Vanilla
+modified: 20240730165611375
+title: $:/plugins/kookma/shiraz/ui/switch-palette
+type: text/vnd.tiddlywiki
+warm-palette: $:/palettes/SolarFlare
+
+\procedure configTiddler() $:/config/Shiraz
+
+\function f.warm() 
+[[$:/palettes/DesertSand]]
+[[$:/palettes/SolarFlare]]
+[[$:/palettes/SolarizedLight]]
+\end
+\function f.day()   [all[tiddlers+shadows]tag[$:/tags/Palette]] :filter[get[color-scheme]match[light]]  -[f.warm[]]
+\function f.night() [all[tiddlers+shadows]tag[$:/tags/Palette]] :filter[get[color-scheme]match[dark]]   -[f.warm[]]
+
+
+\procedure selectPelette(title, filter, default, tiddler, index)
+<label class="shiraz-switch-label"><$text text=<<title>>/></label>
+<$select tiddler=<<tiddler>> index=<<index>> default=<<default>> >
+<$list filter=<<filter>> >
+<option value=<<currentTiddler>> >
+<$view field='name'>
+  <$view field='title'/>
+</$view>
+</option>
+</$list>
+</$select>
+\end selectPelette
+
+<div class="shiraz-switch-palette">
+
+<$transclude $variable=selectPelette 
+  title="Light palette" filter="[f.day[]]"
+	default={{!!light-palette}} index="light-palette" 
+	tiddler=<<configTiddler>> />	
+	
+<$transclude $variable=selectPelette  
+  title="Warm palette" filter="[f.warm[]]" 
+	default={{!!warm-palette}} index="warm-palette" 
+	tiddler=<<configTiddler>> />
+
+<$transclude $variable=selectPelette 
+  title="Dark palette" filter="[f.night[]]" 
+	default={{!!dark-palette}} index="dark-palette" 
+	tiddler=<<configTiddler>> /><br>
+
+<label class="shiraz-switch-label">Reset to default</label>
+<$button> {{$:/core/images/erase}}
+
+<$action-setfield 
+  $tiddler=<<configTiddler>> 
+	$index=dark-palette 
+  $value={{!!dark-palette}} />
+
+<$action-setfield 
+  $tiddler=<<configTiddler>> 
+	$index=warm-palette 
+	$value={{!!warm-palette}} />	
+	
+<$action-setfield 
+  $tiddler=<<configTiddler>> 
+	$index=light-palette 
+	$value={{!!light-palette}} />	
+	
+<$action-setfield 
+  $tiddler="$:/palette" 
+	$field=text
+	$value={{!!light-palette}} />		
+</$button>
+</div>

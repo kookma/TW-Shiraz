@@ -1,0 +1,15 @@
+created: 20240715140105312
+list-after: 
+modified: 20240730172950992
+tags: $:/tags/ViewTemplate
+title: $:/plugins/kookma/shiraz/breadcrumbs/viewtemplate
+type: text/vnd.tiddlywiki
+
+<%if [[$:/config/Shiraz]getindex[breadcrumbs-enabled]match[yes]] %>
+<div data-bs-theme=<<color-scheme>>  class="px-2 text-light-emphasis bg-light-subtle border border-light-subtle rounded-1">
+<$transclude $tiddler={{{ [[$:/config/Shiraz]getindex[breadcrumbs-type]else[$:/plugins/kookma/shiraz/breadcrumbs/historylist]] }}} $mode=block/>
+<div class="tc-page-controls" style="font-size:small;">
+{{$:/core/ui/Buttons/home}}{{$:/core/ui/Buttons/close-others}}{{$:/core/ui/Buttons/close-all}}
+</div>
+</div>
+<%endif%>

@@ -1,9 +1,9 @@
 /*Image aligning classes*/
-.image-align-right{
+.image-align-end{
     float:right;
     margin:0.5em 0 1.3em 1.4em;
 }
-.image-align-left{
+.image-align-start{
     float:left;
     margin: 0.5em 1.4em 1.3em 0;
 }

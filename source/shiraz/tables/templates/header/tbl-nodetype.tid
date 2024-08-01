@@ -1,0 +1,9 @@
+tags: $:/tags/Table/HeaderTemplate
+tbl-column-list: tbl-linktype tbl-nodetype
+title: $:/plugins/kookma/shiraz/tables/templates/header/tbl-nodetype
+type: text/vnd.tiddlywiki
+
+<th class="shiraz-default-cursore">Node</th>
+<!-- 
+tb-nodetype is not sortable not editable
+-->

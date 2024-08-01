@@ -22,22 +22,22 @@
 
 /*-------------------------------------------------------------------------------*/
 /* Classes for using with macro and div elements */
-.sh-multicol {
+.shiraz-multicol {
   column-width: 14em;
   column-rule: 1px solid #ccc;
 }
 /* two columns responsive*/
-.sh-multicol2 {
+.shiraz-multicol2 {
 	column-count:2; 
 	column-width:15em;
 }
 /* three columns responsive*/
-.sh-multicol3 {
+.shiraz-multicol3 {
 	column-count:3; 
 	column-width:10em;
 }
 
 /* remove the extra space from first paragraph */
-.sh-multicol  > :first-child,
-.sh-multicol2 > :first-child,
-.sh-multicol3 > :first-child { margin-top: 0;}
+.shiraz-multicol  > :first-child,
+.shiraz-multicol2 > :first-child,
+.shiraz-multicol3 > :first-child { margin-top: 0;}

@@ -1,0 +1,8 @@
+title: $:/plugins/kookma/shiraz/tables/procs/ct-formats-date
+type: text/vnd.tiddlywiki
+
+\procedure date()       <$view field=title tiddler={{{[<entry>splitregexp[\D+]!is[blank]join[]]}}} format=date template="YYYY-0MM-0DD"/>
+\procedure shortdate()  <$view field=title tiddler={{{[<entry>splitregexp[\D+]!is[blank]join[]]}}} format=date template="mmm DDth, YYYY"/>
+\procedure longdate()   <$view field=title tiddler={{{[<entry>splitregexp[\D+]!is[blank]join[]]}}} format=date template="DDD, MMM 0DD, YYYY"/>
+
+<!-- these procedures are used by table-csv to display entries -->

@@ -1,0 +1,10 @@
+tags: $:/tags/Global
+title: $:/plugins/kookma/shiraz/procedures/image-slidein
+type: text/vnd.tiddlywiki
+
+\procedure image-slidein(img, width:"30%", align:"none", caption:"", tooltip:"", slidein:"left", alt:"")
+<figure class=`image-slidein mr-cap-$(slidein)$ image-align-$(align)$` style=`width:$(width)$;`>
+  <$image source=<<img>> tooltip=<<tooltip>> alt=<<alt>>/>
+  <figcaption><<caption>></figcaption>
+</figure> 
+\end

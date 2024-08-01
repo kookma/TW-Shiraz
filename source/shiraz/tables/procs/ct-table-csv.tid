@@ -1,0 +1,73 @@
+tags: $:/tags/Global
+title: $:/plugins/kookma/shiraz/tables/procs/ct-table-csv
+type: text/vnd.tiddlywiki
+
+\procedure table-csv(tiddler:"", delimiter:",", sortType:"alphanumeric", format:"", caption:"", class:"", header:"yes", stateTiddler:"", id:"", dclass:"dblock" )
+\whitespace trim
+\import [all[tiddlers+shadows]prefix[$:/plugins/kookma/shiraz/tables/procs/ct-formats]!is[draft]]
+
+<$let  src          = {{{ [<tiddler>is[tiddler]else<currentTiddler>] }}} 
+       stateTiddler = {{{ [<stateTiddler>!is[blank]else[01]]    }}} 
+       tempTableSort= {{{ "$:/state/tablecsv/$(currentTiddler)$/$(stateTiddler)$" :and[substitute[]] }}}
+			 
+       sortCol      = {{{ [<tempTableSort>getindex[sortIndex]] }}} 
+       sortNegate   = {{{ [<tempTableSort>getindex[negate]] }}}  
+       delimiter    = {{{ [<delimiter>prefix[\]]:filter[length[]match[2]] :else[<delimiter>escaperegexp[]] }}}
+       dataBlockStartDelimiter =`${[<id>is[blank]then[@@.$(dclass)$]] :else[[@@.$(dclass)$.]addsuffix<id>]}$`
+       dataBlockEndDelimiter   = "@@"  >
+
+<!-- extract the data block and set rows filter-->
+<$let dblock0 = {{{ [<src>get[text]splitregexp<dataBlockStartDelimiter>butfirst[1]] }}}
+      dblock = {{{ [<dblock0>splitregexp<dataBlockEndDelimiter>butlast[1]] }}}
+      allRows = "[<dblock>splitregexp[\n]!is[blank]]"
+      header_row ={{{ [<header>match[yes]then[1]else[0]] }}} >
+			
+			<!-- create table -->
+			<table class=<<class>> >
+				<!--check if there is a caption-->
+				<%if [<caption>!is[blank]] %>
+					<caption>
+						<$transclude $variable=<<caption>>/>
+					</caption>
+				<%endif%>	
+				<!--check if there is a header row-->
+				<%if [<header>match[yes]] %>
+					<!--create table header-->
+					<thead>
+						<$list filter="[subfilter<allRows>first[]]" variable=row >
+							<tr class="shiraz-csvtable-header">
+								<$list filter="[<row>splitregexp<delimiter>!is[blank]trim[]]" variable=currentColumn>
+									<$transclude $tiddler="$:/plugins/kookma/shiraz/tables/procs/ct-header-template" />
+								</$list>
+						</tr>
+						</$list>
+					</thead>
+				<%endif%>
+				<!--create table body-->
+				<tbody>
+				<$let
+					sortPos    = {{{ [subfilter<allRows>first<header_row>splitregexp<delimiter>!is[blank]trim[]]  +[allbefore:include<sortCol>count[]]   }}}
+					sortType   = {{{ [enlist:raw<sortType>nth<sortPos>else[alphanumeric]] }}}
+					mainFilter = {{{ "[subfilter<allRows>butfirst<header_row>] :sort:$(sortType)$:$(sortNegate)$[split<delimiter>!is[blank]trim[]nth<sortPos>]" :and[substitute[]] }}} >
+						<$list filter=<<mainFilter>> variable=row><!-- parse all other rows -->
+							<tr>
+							<$list filter="[<row>splitregexp<delimiter>!is[blank]trim[]]" variable=entry counter=pos>
+								<td><$transclude $variable={{{ [enlist:raw<format>nth<pos>else[text]] }}} /></td><!-- get the right format procedure name to format output -->
+							</$list>
+							</tr>
+						</$list><!-- end of parse all other rows -->
+				</$let> <!-- sorPs-->
+				</tbody>
+			</table>
+
+</$let><!-- dblock0-->
+</$let><!--     src-->
+\end table-csv
+
+<!--
+- the default format is text, if format is not found or not set
+- the default sort type is alphanumeric 
+- tab delimited data can be processes using `\t` as delimiter,
+- leading and trailing blanks (spaces) are always trimmed
+- when use column header, you cannot have two column with the same header, this causes problem with sort routine
+-->

@@ -1,0 +1,33 @@
+title: $:/plugins/kookma/shiraz/tables/procs/ct-formats-task
+type: text/vnd.tiddlywiki
+
+\procedure checkbox()
+<%if [<entry>trim[]match[-]] %><!-- show task item -->
+	<input type=checkbox disabled/>
+<%elseif [<entry>trim[]match[x]] %><!-- show done item -->
+	<input type=checkbox checked disabled/>
+<%endif%>
+\end checkbox
+
+\procedure todo-action(param)
+<!-- toggle a line done (x) / undone (-) . the lbr is used to prevent replace "x, Hi" with "x, Hi Jeremy"-->
+<$let lbr="
+" 
+in=  {{{ [<row>addsuffix<lbr>] }}}
+out= {{{ [<row>splitregexp<delimiter>rest[]join<delimiter>addprefix<delimiter>addprefix<param>addsuffix<lbr>]}}} >
+    <$action-setfield $tiddler=<<src>> text={{{ [<src>get[text]search-replace:g:<in>,<out>] }}}/>
+</$let>	
+\end
+
+\procedure todo()
+<%if [<entry>trim[]match[-]] %><!-- show task item -->
+	<$button class="tc-btn-invisible" actions="""<<todo-action "x">>"""><input type=checkbox/></$button>
+<%elseif [<entry>trim[]match[x]] %><!-- show done item -->
+	<$button class="tc-btn-invisible" actions="""<<todo-action "-">>"""><input type=checkbox checked/></$button>
+<%endif%>
+\end todo
+
+<!-- these procedures are used by table-csv to display entries 
+Pay attention to the triple quotes around """<<todo-action "x">>""".
+These quotes are mandatory; if they are removed, the attribute won’t be passed correctly.”
+-->

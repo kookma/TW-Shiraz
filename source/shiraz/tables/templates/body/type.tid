@@ -1,0 +1,9 @@
+tags: $:/tags/Table/BodyTemplate
+tbl-column-list: type
+title: $:/plugins/kookma/shiraz/tables/templates/body/type
+type: text/vnd.tiddlywiki
+
+\procedure show-cell() <$transclude $tiddler=<<currentRecord>> $field=<<currentColumn>> mode="inline" />
+<td><<show-cell>></td>
+
+<!-- Note that the show-cell here overrides the global show-cell from table-dynamic macro -->

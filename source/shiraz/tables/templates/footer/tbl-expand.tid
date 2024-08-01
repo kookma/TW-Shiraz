@@ -1,0 +1,6 @@
+tags: $:/tags/Table/FooterTemplate
+tbl-column-list: tbl-expand
+title: $:/plugins/kookma/shiraz/tables/templates/footer/tbl-expand
+type: text/vnd.tiddlywiki
+
+<td class="shiraz-dtable-svg"></td>

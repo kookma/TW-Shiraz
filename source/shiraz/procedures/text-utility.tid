@@ -1,0 +1,31 @@
+created: 20240722165433244
+modified: 20240730082942324
+tags: $:/tags/Global
+title: $:/plugins/kookma/shiraz/procedures/text-utility
+type: text/vnd.tiddlywiki
+
+\procedure tc(src:"", color:"red") <span style=`color:$(color)$;`><<src>></span>
+\procedure bc(src:"", color:"yellow") <span style=`background-color:$(color)$;`><<src>></span>
+\procedure mono(src:"", class:"") <code class=`shiraz-mono $(class)$`><<src>></code>
+\procedure transform(case:"", src:"", class:"") <span class=`text-$(case)$ $(class)$`><<src>></span>
+
+<!-- simple highlight -->
+\procedure hl(src:"", color:"yellow")
+<mark class="shiraz-highlight" style=`background-color:$(color)$;`>
+<<src>>
+</mark>
+\end hl
+
+<!-- drop shadow highlight -->
+\procedure hls(src:"", color:"yellow")
+<mark class="shiraz-highlight" style=`filter: drop-shadow(0 0 0.4rem $(color)$);`>
+<<src>>
+</mark>
+\end hls
+
+<!-- pen highlight -->
+\procedure hlp(src:"", color:"yellow")
+<mark class="shiraz-highlight-pen" style=`background-image: linear-gradient(to top, $(color)$ 50%, transparent 0);`>
+<<src>>
+</mark>
+\end hlp

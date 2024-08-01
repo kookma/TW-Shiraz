@@ -1,0 +1,17 @@
+created: 20240728194815601
+modified: 20240730083002517
+tags: $:/tags/Stylesheet
+title: $:/plugins/kookma/shiraz/styles/searchbox
+type: text/vnd.tiddlywiki
+
+.shiraz-searchbox {
+	border:none;
+	border-bottom:1px solid <<color foreground>>22;
+	outline-style: none;
+	width:20em
+}
+.shiraz-searchbox::placeholder {
+	font-size: 0.9em;
+	color: <<color muted-foreground>>;
+}
+.shiraz-searchbox-label{display:block;}

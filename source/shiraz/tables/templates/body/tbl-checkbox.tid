@@ -1,0 +1,17 @@
+created: 20240729194424864
+modified: 20240729194512494
+tags: $:/tags/Table/BodyTemplate
+tbl-column-list: tbl-checkbox
+title: $:/plugins/kookma/shiraz/tables/templates/body/tbl-checkbox
+type: text/vnd.tiddlywiki
+
+\procedure check-actions()
+		<$action-setfield $tiddler=<<currentRecord>> status="complete"/>
+\end
+\procedure unchek-actions()
+		<$action-setfield $tiddler=<<currentRecord>> status="rework"/>
+\end
+
+<td td class="shiraz-dtable-svg">
+	<$checkbox tiddler=<<currentRecord>> tag="Done" checkactions=<<check-actions>> uncheckactions=<<unchek-actions>> />
+</td>

@@ -1,0 +1,13 @@
+tags: $:/tags/Table/Procedure
+title: $:/plugins/kookma/shiraz/tables/procs/dt-maths
+type: text/vnd.tiddlywiki
+
+\function count()       [<dataType>match[field]] :then[subfilter<inputFilter>get<currentColumn>count[]]   :else[subfilter<inputFilter>getindex<currentColumn>count[]]
+\function average(pn:0) [<dataType>match[field]] :then[subfilter<inputFilter>get<currentColumn>average[]]:else[subfilter<inputFilter>getindex<currentColumn>average[]] :and[fixed<pn>]
+\function median(pn:0)  [<dataType>match[field]] :then[subfilter<inputFilter>get<currentColumn>median[]] :else[subfilter<inputFilter>getindex<currentColumn>median[]]  :and[fixed<pn>]
+
+\function sum(pn:0)     [<dataType>match[field]] :then[subfilter<inputFilter>get<currentColumn>sum[]]     :else[subfilter<inputFilter>getindex<currentColumn>sum[]]     :and[fixed<pn>]
+\function product(pn:0) [<dataType>match[field]] :then[subfilter<inputFilter>get<currentColumn>product[]] :else[subfilter<inputFilter>getindex<currentColumn>product[]] :and[fixed<pn>]
+
+\function minall(pn:0) [<dataType>match[field]] :then[subfilter<inputFilter>get<currentColumn>minall[]]   :else[subfilter<inputFilter>getindex<currentColumn>minall[]]  :and[fixed<pn>]
+\function maxall(pn:0) [<dataType>match[field]] :then[subfilter<inputFilter>get<currentColumn>maxall[]]   :else[subfilter<inputFilter>getindex<currentColumn>maxall[]]  :and[fixed<pn>]

@@ -1,8 +1,0 @@
-tags: $:/tags/Table/FooterTemplate
-tbl-column-list: tbl-clone
-title: $:/plugins/kookma/shiraz/templates/footer/tbl-clone
-type: text/vnd.tiddlywiki
-
-<$list filter="[<tempTableEdit>getindex[mode]match[edit]]" variable=ignore>
-<td></td>
-</$list>

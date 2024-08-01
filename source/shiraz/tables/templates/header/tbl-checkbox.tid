@@ -1,0 +1,23 @@
+created: 20240729200839846
+modified: 20240729200934280
+tags: $:/tags/Table/HeaderTemplate
+tbl-column-list: tbl-checkbox
+title: $:/plugins/kookma/shiraz/tables/templates/header/tbl-checkbox
+type: text/vnd.tiddlywiki
+
+\procedure chk-checkactions()
+<$list filter="[subfilter<inputFilter>]" variable="currentRecord">
+	<$action-listops  $tiddler=<<currentRecord>> $tags="+[append[Done]]" />
+	<$action-setfield $tiddler=<<currentRecord>> status="complete"/>
+</$list>
+\end
+\procedure chk-uncheckactions()
+<$list filter="[subfilter<inputFilter>]" variable="currentRecord">
+	<$action-listops  $tiddler=<<currentRecord>> $tags="+[remove[Done]]" />
+	<$action-setfield $tiddler=<<currentRecord>> status="rework"/>
+</$list>
+\end
+
+<th class="shiraz-dtable-svg">
+<$checkbox checkactions=<<chk-checkactions>> uncheckactions=<<chk-uncheckactions>> />
+</th>

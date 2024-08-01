@@ -1,0 +1,12 @@
+title: $:/plugins/kookma/shiraz/tables/procs/ct-formats-misc
+type: text/vnd.tiddlywiki
+
+\procedure email() <a class="tc-tiddlylink-external" href=`mailto:$(entry)$` rel="noopener noreferrer" target="_blank"><<text>></a>
+
+\procedure rate()
+<$list filter="[<entry>split[]match[*]]" variable=ignore>
+<span class="shiraz-star"><$transclude $tiddler="$:/core/images/star-filled" /></span>
+</$list>
+\end
+
+<!-- these procedures are used by table-csv to display entries -->

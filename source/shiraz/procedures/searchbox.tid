@@ -1,0 +1,15 @@
+created: 20240728195738383
+modified: 20240730082921063
+tags: $:/tags/Macro
+title: $:/plugins/kookma/shiraz/procedures/searchbox
+type: text/vnd.tiddlywiki
+
+\procedure search-box(label, tempTiddler)
+<label class="shiraz-searchbox-label"><<label>></label>
+<$keyboard key="escape" actions="""<$action-deletetiddler $tiddler=<<tempTiddler>> />""" >
+<$edit-text tiddler=<<tempTiddler>>
+  field=text 	tag=input 	type=search
+	default=""  placeholder=" enter your search terms"
+	class="shiraz-searchbox" />
+</$keyboard>
+\end

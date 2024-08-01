@@ -1,0 +1,23 @@
+tags: $:/tags/Table/HeaderTemplate
+tbl-column-list: tbl-clone
+title: $:/plugins/kookma/shiraz/tables/templates/header/tbl-clone
+type: text/vnd.tiddlywiki
+
+\procedure clone-all-records()
+	<$list filter="[subfilter<inputFilter>]" variable="currentRecord">
+		<$action-createtiddler $basetitle=<<currentRecord>> $template=<<currentRecord>> />
+	<$list>
+\end
+<%if [<tempTableEdit>getindex[mode]match[edit]] %>
+	<th class="shiraz-dtable-svg">
+		<span>
+			<$button class="tc-btn-invisible" tooltip={{$:/language/Buttons/Clone/Hint}} aria-label={{$:/language/Buttons/Clone/Caption}} actions=<<clone-all-records>> >
+				{{$:/core/images/clone-button}}
+			</$button>
+		</span>
+	</th>
+<%endif%>
+
+<!--
+clone button is only shown in edit not
+-->

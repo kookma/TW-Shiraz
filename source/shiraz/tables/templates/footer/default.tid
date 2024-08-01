@@ -1,0 +1,15 @@
+tags: $:/tags/Table/FooterTemplate
+title: $:/plugins/kookma/shiraz/tables/templates/footer/default
+type: text/vnd.tiddlywiki
+
+<$let	idx={{{ [<currentColumn>addsuffix[/]addsuffix<footerRow>] }}} >
+	<%if [<tempTableEdit>getindex[mode]match[edit]] %>
+		<td>
+			<$edit-text tiddler=<<stateTableFooter>> index=<<idx>> tag="input" class="shiraz-dtable-textbox"/>
+		</td>
+	<%else%>
+		<td>
+			<$transclude tiddler=<<stateTableFooter>> index=<<idx>> mode="inline" />
+		</td>
+	<%endif%>
+</$let>

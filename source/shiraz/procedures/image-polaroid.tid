@@ -1,0 +1,10 @@
+tags: $:/tags/Global
+title: $:/plugins/kookma/shiraz/procedures/image-polaroid
+type: text/vnd.tiddlywiki
+
+\procedure image-polaroid(img, width:"30%", align:"none", caption:"", tooltip:"", alt:"")
+<figure class=`image-polaroid image-align-$(align)$` style=`width:$(width)$;`>
+  <$image source=<<img>> tooltip=<<tooltip>> />
+  <figcaption class="image-polaroid-caption"><<caption>></figcaption>
+</figure> 
+\end

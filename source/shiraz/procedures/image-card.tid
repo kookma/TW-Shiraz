@@ -1,0 +1,26 @@
+tags: $:/tags/Global
+title: $:/plugins/kookma/shiraz/procedures/image-card
+type: text/vnd.tiddlywiki
+
+\procedure image-card(img, width:"30%", align:"none", title:"", text:"", footer:"", pos:"top", alt:"")
+<div class=`card image-align-$(align)$` style=`width:$(width)$;`>
+	<%if [<pos>match[top]] %>
+			<$image class="card-img-top" source=<<img>> alt=<<alt>> />
+	<%endif%>
+	<div class="card-body">
+		<%if [<title>!is[blank]] %>
+				<div class="h5 card-title"><<title>></div>
+		<%endif%>
+		<%if [<text>!is[blank]] %>
+				<div class="card-text"><<text>></div>
+		<%endif%>			
+		<%if [<footer>!is[blank]] %>
+				<p class="card-text"><small class="text-muted"><<footer>></small></p>
+		<%endif%>		
+	</div>  
+	<%if [<pos>!match[top]] %>
+			<$image class="card-img-bottom" source=<<img>> alt=<<alt>> />
+	<%endif%>
+</div>
+\end image-card
+

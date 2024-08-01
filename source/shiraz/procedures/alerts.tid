@@ -1,0 +1,17 @@
+created: 20240722164602177
+modified: 20240801080039044
+tags: $:/tags/Global
+title: $:/plugins/kookma/shiraz/procedures/alerts
+type: text/vnd.tiddlywiki
+
+\procedure alert(type:"primary" src:"", width:"100%", class:"", mode:"inline") 
+<div data-bs-theme=<<color-scheme>> class=`alert alert-$(type)$ $(class)$` style=`width:$(width)$;`>
+<$transclude $variable="src" $mode=<<mode>> />
+</div>
+\end alert
+
+\procedure alert-leftbar(type:"primary", src:"", width:"100%", class:"", mode:"inline") 
+<div data-bs-theme=<<color-scheme>> class=`alert alert-$(type)$ border-$(type)$ leftbar $(class)$` style=`width:$(width)$;`>
+<$transclude $variable="src" $mode=<<mode>> />
+</div>
+\end

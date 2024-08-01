@@ -1,0 +1,11 @@
+created: 20240722165503491
+modified: 20240801094831740
+tags: $:/tags/Global
+title: $:/plugins/kookma/shiraz/procedures/multicol
+type: text/vnd.tiddlywiki
+
+\procedure multicol(src, ncol:"", class:"")
+<div class=`shiraz-multicol$(ncol)$ $(class)$`>
+<$transclude $variable="src" $mode=block/>
+</div>
+\end

@@ -1,0 +1,28 @@
+tags: $:/tags/Table/BodyTemplate
+tbl-column-list: color
+title: $:/plugins/kookma/shiraz/tables/templates/body/color
+type: text/vnd.tiddlywiki
+
+\procedure box(stroke-color, fill)
+\parameters (width:40, height:18)
+<svg width=<<width>> height=<<height>> >
+<rect width=<<width>> height=<<height>> x="0" y="0" rx="10" ry="10" stroke=<<stroke-color>>  fill=<<fill>> stroke-width="0"/>
+</svg>
+\end
+\procedure show-cell()   <$transclude $variable=box fill={{{ [<currentRecord>get[color]else[transparent]] }}}/>
+\procedure show-cell-locked()  <span class=""><<show-cell>></span>
+\procedure edit-cell() <$edit-text tag=input type=color tiddler=<<currentRecord>> field=<<currentColumn>>/>
+
+
+<td class="shiraz-cell-centered">
+<%if [<tempTableEdit>getindex[mode]!match[edit]] %>
+<<show-cell>>
+<%elseif [<tempTableSort>getindex[sortIndex]match<currentColumn>] %><!--check if the current column is not selected for sorting-->
+<<show-cell-locked>>
+<%else%>
+<<edit-cell>>
+<%endif%>
+</td>
+<!-- when tiddler has no color
+transparent is used. You can make it black by leaving it empty.
+-->

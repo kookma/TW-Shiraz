@@ -1,0 +1,9 @@
+created: 20240724140854050
+modified: 20240724140859824
+tags: $:/tags/Global
+title: $:/plugins/kookma/shiraz/procedures/dbadge
+type: text/vnd.tiddlywiki
+
+\procedure dbadge(subject, status, type:"primary")
+<div data-bs-theme=<<color-scheme>> class="dbadge"><span class="dbadge-subject"><$text text=<<subject>>/></span><span class=`dbadge-status dbadge-$(type)$`><$text text=<<status>>/></span></div>
+\end

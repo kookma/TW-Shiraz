@@ -1,0 +1,33 @@
+created: 20240719063226560
+modified: 20240731115728706
+tags: $:/tags/Global
+title: $:/plugins/kookma/shiraz/procedures/details
+type: text/vnd.tiddlywiki
+
+\define details(label:"", src:"", status:"", labelClass:"", srcClass:"")
+<details $status$>
+		<$let tv-wikilinks="no">
+			<summary data-bs-theme=<<color-scheme>> class=<<__labelClass__>> ><<__label__>></summary>
+		</$let>
+		<$let  source = {{{ [<__src__>get[text]else<__src__>] }}} >
+			<div data-bs-theme=<<color-scheme>> class=<<__srcClass__>>><$transclude $variable="source" $mode="block"/></div>
+		</$let>
+</details>
+\end
+
+<!---- FAQS using details ---->
+
+\procedure faqs-details(filter, label:"", src:"", status:"closed", labelClass:"alert alert-secondary py-1 my-2", srcClass:"alert border-secondary py-0")
+\function tmpSearchTid()   [[$:/temp/shiraz/qa/search-details]] [<currentTiddler>] +[join[/]]
+\function searchTerm()     [<tmpSearchTid>get[text]]
+
+<$keyboard key="escape" actions='<$action-setfield $tiddler=<<tmpSearchTid>> $field="text" $value=""/>'>
+<$edit-text tiddler=<<tmpSearchTid>> filed=text tag=input default="" placeholder="Search in titles" class="alert alert-info w-100"/>
+</$keyboard>
+
+<$list filter="[subfilter<filter>search:title<searchTerm>]">
+<$transclude $variable=details label=<<currentTiddler>>  src=<<currentTiddler>>
+             status=<<status>> labelClass=<<labelClass>> srcClass=<<srcClass>> />
+</$list>
+\end faqs-details
+

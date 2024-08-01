@@ -1,0 +1,19 @@
+tags: $:/tags/Table/HeaderTemplate
+tbl-column-list: tbl-delete
+title: $:/plugins/kookma/shiraz/tables/templates/header/tbl-delete
+type: text/vnd.tiddlywiki
+
+\procedure mark-for-delete() <$action-setfield $tiddler="$:/temp/dynamictables/delete-all-records" $index=<<currentTable>> $value="to-be-deleted"/>
+
+<%if [<tempTableEdit>getindex[mode]match[edit]] %>
+<th class="shiraz-dtable-svg">
+  <span>
+  <$button class="tc-btn-invisible" tooltip="delete all records or move them to trashbin" aria-label="" actions=<<mark-for-delete>> >
+	  {{$:/core/images/delete-button}}
+  </$button>
+  </span>
+</th>
+<%endif%>
+<!--
+delete button is only shown in edit not
+-->

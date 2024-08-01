@@ -1,0 +1,15 @@
+created: 20240719140123988
+modified: 20240719145729219
+tags: $:/tags/Table/HeaderTemplate
+tbl-column-list: tbl-expand
+title: $:/plugins/kookma/shiraz/tables/templates/header/tbl-expand
+type: text/vnd.tiddlywiki
+
+\procedure collapse-all-expanded() <$action-setfield $tiddler=<<tempTableExpand>> text=""/>
+<th class="shiraz-dtable-svg">
+	<%if [<tempTableExpand>indexes[]limit[1]] %>
+		<$button class="tc-btn-invisible" actions=<<collapse-all-expanded>> >
+			{{$:/core/images/fold-button}}
+		</$button>
+	<%endif%>
+</th>

@@ -1,0 +1,20 @@
+tags: $:/tags/Table/BodyTemplate
+tbl-column-list: tbl-delete
+title: $:/plugins/kookma/shiraz/tables/templates/body/tbl-delete
+type: text/vnd.tiddlywiki
+
+\procedure delete-record() <$action-sendmessage $message="tm-delete-tiddler" $param=<<currentRecord>>/>
+\procedure move-record-to-trashbin() 
+	\import $:/plugins/kookma/trashbin/macros/move-to-trashbin
+	<$macrocall $name="move-to-trashbin" tiddler=<<currentRecord>> />
+\end
+
+<%if [<tempTableEdit>getindex[mode]match[edit]] %><!-- only works in edit mode-->
+	<$let doDelete= {{{ [[$:/plugins/kookma/trashbin]!is[missing]then[move-record-to-trashbin]else[delete-record]] }}} >
+		<td class="shiraz-dtable-svg">
+			<$button class="tc-btn-invisible" tooltip="delete this record or move it to trash" aria-label="" actions='<$transclude $variable=<<doDelete>>/>' >
+				{{$:/core/images/delete-button}}
+			</$button>
+		</td>
+	</$let>
+<%endif%>

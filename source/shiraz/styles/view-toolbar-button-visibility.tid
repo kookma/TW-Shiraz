@@ -1,0 +1,19 @@
+created: 20240730092732114
+modified: 20240730113307415
+tags: $:/tags/Stylesheet
+title: $:/plugins/kookma/shiraz/styles/view-toolbar-button-visibility
+type: text/vnd.tiddlywiki
+
+\rules only conditional
+<%if [[$:/config/Shiraz]getindex[view-toolbar-buttons-visibility]match[yes]] %>
+/* Mouseover toolbar visibility: courtesy from Tobias Beer*/
+.tc-tiddler-frame .tc-titlebar button {
+  opacity: 0;
+  transition: opacity .5s ease-in-out;
+}
+.tc-tiddler-frame:hover .tc-titlebar button {
+  zoom: 1;
+  filter: alpha(opacity=100);
+  opacity: 1;
+}
+<%endif%>

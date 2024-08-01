@@ -1,0 +1,15 @@
+tags: $:/tags/Table/Procedure
+title: $:/plugins/kookma/shiraz/tables/procs/dt-toggle-edit-view
+type: text/vnd.tiddlywiki
+
+\procedure toggle-edit-view()
+\procedure clear-mark-for-delete() 	<$action-setfield $tiddler="$:/temp/dynamictables/delete-all-records" $index=<<currentTable>>/>
+<%if [<tempTableEdit>getindex[mode]match[edit]] %>
+<$button class="tc-btn-invisible tc-tiddlylink" setTitle=<<tempTableEdit>> setIndex="mode" setTo="view" actions=<<clear-mark-for-delete>> >{{$:/core/images/done-button}}</$button>
+<%else%>
+<$button class="tc-btn-invisible tc-tiddlylink" setTitle=<<tempTableEdit>> setIndex="mode" setTo="edit">{{$:/core/images/edit-button}}</$button>
+<%endif%>
+\end
+<!--clear-mark-for-delete
+clears the status of currentTable if it is marked to be deleted
+-->

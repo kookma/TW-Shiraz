@@ -1,0 +1,18 @@
+created: 20240719140525051
+modified: 20240719140632095
+tags: $:/tags/Table/BodyTemplate
+tbl-column-list: tbl-expand
+title: $:/plugins/kookma/shiraz/tables/templates/body/tbl-expand
+type: text/vnd.tiddlywiki
+
+\procedure doExpand()   <$action-setfield $tiddler=<<tempTableExpand>> $index=<<currentRecord>> $value="show" />
+\procedure doCollapse() <$action-setfield $tiddler=<<tempTableExpand>> $index=<<currentRecord>> />
+<%if [<tempTableExpand>getindex<currentRecord>match[show]] %>
+	<td><$button class="tc-btn-invisible tc-tiddlylink" actions=<<doCollapse>> >
+		{{$:/core/images/down-arrow}}
+	</$button></td>
+<%else%>
+	<td><$button class="tc-btn-invisible tc-tiddlylink" actions=<<doExpand>> >
+		{{$:/core/images/right-arrow}}
+	</$button></td>
+<%endif%>

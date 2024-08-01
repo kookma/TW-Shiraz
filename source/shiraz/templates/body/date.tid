@@ -1,8 +1,0 @@
-tags: $:/tags/Table/BodyTemplate
-tbl-column-list: created modified
-title: $:/plugins/kookma/shiraz/templates/body/date
-type: text/vnd.tiddlywiki
-
-<td class="shiraz-dtable-col-fixedsize">
-<$view tiddler=<<currentRecord>> field=<<currentColumn>> format="date" template="YYYY.0MM.0DD"/>
-</td>

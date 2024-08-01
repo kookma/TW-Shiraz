@@ -1,0 +1,12 @@
+created: 20240730165204737
+modified: 20240730171942169
+tags: 
+title: $:/plugins/kookma/shiraz/ui/breadcrumbs
+type: text/vnd.tiddlywiki
+
+\procedure configTiddler() $:/config/Shiraz
+
+<$checkbox tiddler="$:/config/Shiraz" index="breadcrumbs-enabled" checked="yes"> Display breadcrumbs</$checkbox><br/>
+<$checkbox tiddler="$:/config/Shiraz" index="breadcrumbs-type" checked="$:/plugins/kookma/shiraz/breadcrumbs/storylist"> Use $:/StoryList for breadcrumbs</$checkbox><br/>
+<$checkbox tiddler="$:/config/Shiraz" index="breadcrumbs-type" checked="$:/plugins/kookma/shiraz/breadcrumbs/historylist" default="$:/plugins/kookma/shiraz/breadcrumbs/historylist"> Use $:/HistoryList for breadcrumbs</$checkbox>
+

@@ -1,0 +1,138 @@
+/* main editor toolbar settings for dynamic table */
+.shiraz-dtable-maineditor .tc-editor-toolbar button svg{
+	height:0.9em;  /* make toolbar buttons smaller */
+	width:0.9em
+}
+/* make third party plugins like KaTeX button smaller */
+.shiraz-dtable-maineditor .tc-editor-toolbar button .katex{
+	font-size: 0.9em;
+	line-height:1em;
+}
+
+/* edit-text box for dynamic table */
+.shiraz-dtable-textbox {
+	width:100%;
+	padding-left: 5px;
+	border: none;
+}
+
+.shiraz-dtable-textbox:focus {
+	outline: none;
+	border: 1px solid #5778d8;
+	background: transparent;
+}
+
+.tbl-inpt-edit { width: 100%; background-color: transparent; border: none; color: #000000;}
+
+button.tbl-sort-svg > svg { text-shadow: none; fill:#000000; height:10px; padding:0 0 2px 0; }
+
+th .tc-tiddlylink, th a { text-shadow: none; margin: 0 0 0 0; padding: 0 0 0 0; color:unset; font-weight: bold; }
+
+
+/* DELETE CONFIRMATION */
+table thead .tbl-delete-confirm > th {
+	color: white;
+	background-color:#ff0033;
+	padding: 8px;
+	margin: 0px;
+	text-align:center;
+	font-weight:normal;
+}
+
+table thead .tbl-delete-confirm > th > button {
+	color: white;
+	fill: white;
+}
+
+/* -- pagination --*/
+.shiraz-dtable-page-footer td{
+	margin: 0 0 0 0;
+	padding: 4px 7px 4px 7px;
+}
+
+.shiraz-dtable-page-footer select{
+	padding:0;
+	margin:0;
+	border:none;	
+}
+
+.shiraz-dtable-page-footer {
+	text-align:center;
+}
+
+.shiraz-dtable-page-prev{
+	float:left;
+	margin-right:8px;
+}
+
+.shiraz-dtable-page-next{
+	float:right;
+	margin-left:8px;
+}
+
+.shiraz-dtable-page-footer button svg {height:0.7em;}
+.shiraz-dtable-page-footer button {outline: none; line-height:normal;}
+.shiraz-dtable-page-footer button:disabled {display:none;}
+
+/* format the expanded record (tiddler body) - for local customization like KaTeX numbering */
+.shiraz-dtable-expanded-record{ }
+
+/* adjust the column width for date/due-date/status/linktype fields*/
+.shiraz-dtable-col-fixedsize{
+	width:5.5rem;
+	white-space: nowrap;
+}
+.shiraz-dtable-priority{
+	width:6.5rem;
+	white-space: nowrap;
+}
+/* adjust the size of column with svg icons like: tbl-expand, tbl-clone, tbl-delete, tbl-checkbox */
+.shiraz-dtable-svg{
+	text-align: center;
+	width:28px;
+	min-width:28px;
+	max-width:28px;
+}
+
+/* this ensure short title in small width table */
+.shiraz-dtable-title{
+	max-width: 15rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/*NEW 2024.06.01 ---------------*/
+.shiraz-dtable-date{
+	width:6.5rem;
+	white-space: nowrap;
+}
+
+.shiraz-default-cursore{ /* for tbl-linktype */
+	cursor:default;
+}
+.shiraz-dtable-locked-cell{
+	/* for styling the locked cell */
+	font-style:oblique;
+}
+.shiraz-cell-centered { /* centered table cell */
+	text-align: center;
+	vertical-align: middle;
+}
+
+/* Numerical summary label */
+.shiraz-dtable-numerical-summary-lbl{
+	font-weight:bold;
+	background-color:transparent;
+}
+
+/* button caption style on dynamic table header
+this style can be overriden locally by user */
+table thead .shiraz-dtable-header  th button {
+	text-transform: capitalize; /* Capitalize the first letter of any word*/
+}
+
+/* if TW-Utility is installed, The Code button will be hidden in Dynamic table */
+.tbl-container .kk-utility-details{
+	display: none;	
+}

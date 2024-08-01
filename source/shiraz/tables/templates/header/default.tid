@@ -1,0 +1,25 @@
+tags: $:/tags/Table/HeaderTemplate
+title: $:/plugins/kookma/shiraz/tables/templates/header/default
+type: text/vnd.tiddlywiki
+
+<th>
+<%if [<tempTableSort>getindex[sortIndex]match<currentColumn>] %><!--if table is sorted based on current column -->
+	<%if [<tempTableSort>getindex[hasnegate]match[false]] %><!--set negate for sort-->
+		<$button setTitle=<<tempTableSort>> setIndex="hasnegate" setTo="true" class="tbl-sort-svg tc-btn-invisible tc-tiddlylink" >
+			<$action-setfield $tiddler=<<tempTableSort>> $index="sortFlag" $value="reverse,caseinsensitive"/>
+			<$text text=<<currentColumn>>/>&nbsp;{{$:/core/images/down-arrow}}
+		</$button>
+	<%elseif [<tempTableSort>getindex[hasnegate]match[true]] %><!--remove negate for sort-->
+		<$button setTitle=<<tempTableSort>> setIndex="hasnegate" setTo="false" class="tbl-sort-svg tc-btn-invisible tc-tiddlylink" >
+			<$action-setfield $tiddler=<<tempTableSort>> $index="sortFlag" $value=""/>
+			<$text text=<<currentColumn>>/>&nbsp;{{$:/core/images/up-arrow}}
+		</$button>
+	<%endif%><!-- end of nested if: set negate -->
+<%else%><!--if table is not sorted based on current column -->
+	<$button setTitle=<<tempTableSort>> setIndex="sortIndex" setTo=<<currentColumn>> class="tc-btn-invisible tc-tiddlylink" >
+		<$action-setfield $tiddler=<<tempTableSort>> $index="hasnegate" $value="false"/>
+		<$action-setfield $tiddler=<<tempTableSort>> $index="sortFlag" $value=""/>
+		<$text text=<<currentColumn>>/>
+	</$button>
+<%endif%>
+</th>

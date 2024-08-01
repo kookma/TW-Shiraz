@@ -1,0 +1,11 @@
+tags: $:/tags/Global
+title: $:/plugins/kookma/shiraz/procedures/spaces
+type: text/vnd.tiddlywiki
+
+\procedure vspace(height:"25px")
+<p style=`margin-bottom: $(height)$;`></p>
+\end
+
+\procedure hspace(width:"25px")
+<span style=`margin-left: $(width)$;`></span>
+\end

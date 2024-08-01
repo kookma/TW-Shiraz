@@ -1,0 +1,58 @@
+created: 20240728211911362
+modified: 20240728211927880
+tags: $:/tags/Global
+title: $:/plugins/kookma/shiraz/tables/procs/dt-table-dynamic
+type: text/vnd.tiddlywiki
+
+\procedure table-dynamic(filter, fields:"", indexes:"", sortType:"string", caption:"", class:"",
+                  footerRows:"0", stateTiddler:"", editButton:"yes", pagination:"no", emptyMessage:"filter input is empty")
+
+<!--above commands import utility macros-->
+\import [all[shadows+tiddlers]tag[$:/tags/Table/Procedure]!is[draft]]
+<$let inputFilter="[subfilter<filter>!has[draft.of]]" >
+<!--check input filter parameter-->
+<%if [subfilter<inputFilter>limit[1]] %><!--check the input filter is not empty -->
+<$let 
+ dataType =     {{{ [<fields>!is[blank]then[field]] [<indexes>!is[blank]then[index]] +[last[]] }}}
+ coulmnFilter = {{{ [<dataType>match[field]then<fields>else<indexes>] }}} 
+ columnsCount = {{{ [subfilter<coulmnFilter>count[]] }}}
+ 
+ currentTable =    {{{ [<stateTiddler>!is[blank]else<currentTiddler>]  }}}
+ tempTable   =     {{{ [<baseState>][<currentTable>]    +[join[/]] }}}
+ tempTableSort =   {{{ [<tempTable>] "sortby"           +[join[/]] }}}
+ tempTableExpand = {{{ [<tempTable>] "expand"           +[join[/]] }}}
+ tempTableEdit =   {{{ [<tempTable>] "edit-view-status" +[join[/]] }}}
+ 
+ sortIndex =    {{{ [<tempTableSort>getindex[sortIndex]]  }}} 
+ sortFlag  =    {{{ [<tempTableSort>getindex[sortFlag]]   }}}
+>
+
+<div data-bs-theme=<<color-scheme>> class="tbl-container" style="max-width:100%;">
+	<table class=<<class>> style="caption-side:top">
+		<!-- reveal caption and edit button -------------------->
+		<caption style="text-align:left;">
+			<%if [<editButton>match[yes]] %>
+				<span style="padding-right:5px;padding-left:3px;"><<toggle-edit-view>></span>
+			<%endif%>
+			<$transclude $variable="caption"/>
+		</caption>
+		<!-- create header -------------------->
+		<thead>
+			<$transclude $tiddler="$:/plugins/kookma/shiraz/tables/segments/dt-thead"/>
+		</thead>
+		<!-- reveal main body of table (generate records) -------------------->
+		<tbody>
+			<$transclude $tiddler="$:/plugins/kookma/shiraz/tables/segments/dt-tbody"/>
+		</tbody>
+		<!-- create footer -------------------->
+		<tfoot class="shiraz-dtable-footer">
+			<$transclude $tiddler="$:/plugins/kookma/shiraz/tables/segments/dt-tfoot"/>
+		</tfoot>
+	</table>
+</div><!-- container-->
+</$let>
+<%else%>
+	<$transclude $variable="emptyMessage" />
+<%endif%><!--check the input filter is not empty -->
+</$let>
+\end

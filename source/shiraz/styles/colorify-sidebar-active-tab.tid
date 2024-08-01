@@ -1,0 +1,18 @@
+created: 20240728204731138
+modified: 20240730113319061
+tags: $:/tags/Stylesheet
+title: $:/plugins/kookma/shiraz/styles/colorify-sidebar-active-tab
+type: text/vnd.tiddlywiki
+
+\rules only conditional macrocallinline
+<%if [[$:/config/Shiraz]getindex[colorify-sidebar-active-tab]match[yes]] %>
+
+.tc-sidebar-lists .tc-tab-buttons button.tc-tab-selected {
+    background: none;
+    border: none;
+    border-bottom: solid 1px <<colour primary>>; /*#737373*/
+    font-weight: bold;
+    color: <<colour primary>>; /*#DB4C3F;*/
+}
+
+<%endif%>

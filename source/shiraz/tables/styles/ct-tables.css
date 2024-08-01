@@ -1,0 +1,17 @@
+/* todo section ------------*/
+.tc-tiddler-body p.dblock,
+.tc-tiddler-preview-preview p.dblock {
+	display:none;
+}
+
+/* button caption style on dynamic table header
+this style can be overriden locally by user */
+table thead .shiraz-csvtable-header  th button {
+    text-transform: capitalize; /* Capitalize the first letter of any word*/
+}
+
+/*
+Only used with csv table
+See $:/plugins/kookma/shiraz/macros/csvtables/table-csv
+The @@ produces a p tag.
+*/

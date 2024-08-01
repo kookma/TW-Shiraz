@@ -1,0 +1,14 @@
+tags: $:/tags/Table/BodyTemplate
+tbl-column-list: tbl-clone
+title: $:/plugins/kookma/shiraz/tables/templates/body/tbl-clone
+type: text/vnd.tiddlywiki
+
+\procedure clone-record() <$action-createtiddler $basetitle=<<currentRecord>> $template=<<currentRecord>> />
+
+<%if [<tempTableEdit>getindex[mode]match[edit]] %><!-- only works in edit mode-->
+<td class="shiraz-dtable-svg">
+  <$button class="tc-btn-invisible" actions=<<clone-record>>>
+	  {{$:/core/images/clone-button}}
+	</$button>
+</td>
+<%endif%>

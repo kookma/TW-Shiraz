@@ -1,0 +1,76 @@
+created: 20240728210753609
+modified: 20240729195216390
+title: $:/plugins/kookma/shiraz/tables/segments/dt-tbody
+type: text/vnd.tiddlywiki
+
+\function tableFilter()   "[subfilter<inputFilter>]:sort:$(sortType)$:$(sortFlag)$[$(getType)$<sortIndex>else[title]]" :map[substitute[]]
+\function tableFilter_with_pagination(thisTableFilter)    [subfilter<thisTableFilter>first<high>] -[subfilter<thisTableFilter>first<low>]
+
+\procedure generate-table-body-rows()
+<$let getType={{{ [<dataType>match[field]then[get]else[getindex]] }}}><!-- get a field or get an index -->
+<$list filter="[<pagination>match[yes]] :then[function[tableFilter_with_pagination],<tableFilter>] :else[subfilter<tableFilter>]" variable="currentRecord">
+<<display-one-record>>
+</$list>
+</$let>
+\end generate-table-body-rows
+
+\procedure display-expanded-record()
+<td colspan=<<columnsCount>> class="shiraz-dtable-expanded-record">
+<$tiddler tiddler=<<currentRecord>> >
+	<!-- in edit mode select between two editors: simple textbox or TW main editor e.g. codemirror -->
+	<%if [<tempTableEdit>getindex[mode]match[edit]] %>
+		<%if [[$:/config/shiraz/dynamictables/editor-type]get[text]match[main-editor]] %><!-- use main editor -->
+			<div class="shiraz-dtable-maineditor">
+				{{||$:/core/ui/EditTemplate/body}}
+			</div>
+		<%else%><!-- use simple text-edit area -->
+			<div>
+			<$edit-text class="tbl-inpt-edit" tiddler=<<currentRecord>> field="text" tag=textarea/>
+			</div>
+		<%endif%>
+	<%else%>
+		{{||$:/core/ui/ViewTemplate/body}}
+	<%endif%>
+</$tiddler>
+</td>
+\end display-expanded-record
+
+\procedure display-one-record()
+\function tbl-row-class() [<currentRecord>get[status]match[complete]then[tbl-record-complete]]
+<tr class=<<tbl-row-class>> >
+<$list filter=<<coulmnFilter>> variable=currentColumn>
+<$set name="bodyLookup" 
+  filter="[all[tiddlers+shadows]tag[$:/tags/Table/BodyTemplate]!is[draft]contains:tbl-column-list<currentColumn>]
+          +[limit[1]get[title]]"
+  value=<<bodyLookup>> 
+  emptyValue="$:/plugins/kookma/shiraz/tables/templates/body/default">
+<$transclude tiddler=<<bodyLookup>> field="text" mode="inline"/>
+</$set>
+</$list>
+</tr>
+<!-- reveal expanded record-->
+<%if [<tempTableExpand>getindex<currentRecord>match[show]] %>
+<tr><<display-expanded-record>></tr>
+<%endif%>
+\end display-one-record
+
+
+<!-- setup pagination variables -->
+<$let total-entries={{{ [subfilter<inputFilter>count[]]                      }}}
+	page-number=      {{{ [<pageStateTiddler>get[text]] ~[[1]]                 }}} 
+	entries-per-page= {{{ [<entryPerPageStateTiddler>get[text]] ~[[25]]        }}} 
+	low=              {{{ [<page-number>subtract[1]multiply<entries-per-page>] }}}  
+	high=             {{{ [<page-number>multiply<entries-per-page>]            }}}
+>	 
+<$transclude $variable="generate-table-body-rows" />
+<!--on demand display the pagination row-->
+<%if [<pagination>match[yes]] %>
+<tr class="shiraz-dtable-page-footer">
+<td colspan=<<columnsCount>> >
+<<prev-button>>
+Displaying <$text text={{{[<low>add[1]]}}}/> through <$text text={{{ [<high>compare:number:lt<total-entries>then<high>else<total-entries>] }}}/> of <<total-entries>> Results | <<limit-entries>>
+<<next-button>>
+</td>
+</tr>
+<%endif%>
+</$let>

@@ -1,9 +1,11 @@
 caption: Shiraz
+created: 20240718203323287
+modified: 20240730172033305
 tags: $:/tags/ControlPanel/SettingsTab $:/tags/MoreSideBar
 title: $:/plugins/kookma/shiraz/ui/ControlPanel/Settings
 type: text/vnd.tiddlywiki
 
-\define dynamictables-editortype() $:/config/shiraz/dynamictables/editor-type
+\procedure dynamictables-editortype() $:/config/shiraz/dynamictables/editor-type
 
 These settings let you customise the behaviour of Shiraz plugin.
 
@@ -12,15 +14,21 @@ These settings let you customise the behaviour of Shiraz plugin.
 ;Show Shiraz setting in more sidebar
 :<$checkbox tiddler="$:/plugins/kookma/shiraz/ui/ControlPanel/Settings" tag="$:/tags/MoreSideBar"> Show setting in more sidebar</$checkbox>
 
+
 ;Options
-:<$checkbox tiddler="$:/plugins/kookma/shiraz/styles/multicols/storyriver" tag="$:/tags/Stylesheet"> Multicolumn story river</$checkbox>
-:<$checkbox tiddler="$:/plugins/kookma/shiraz/styles/ui/colorify-buttons" tag="$:/tags/Stylesheet"> Colorful UI buttons</$checkbox>
-:<$checkbox tiddler="$:/plugins/kookma/shiraz/styles/ui/view-toolbar-button-visibility" tag="$:/tags/Stylesheet"> Hide tiddler's view toolbar and show on mouse hover</$checkbox>
-:<$checkbox tiddler="$:/plugins/kookma/shiraz/styles/ui/edit-toolbar-buttons" tag="$:/tags/Stylesheet"> Traffic lights for edit toolbar buttons</$checkbox>
-:<$checkbox tiddler="$:/plugins/kookma/shiraz/styles/colorful-sidebar-tab" tag="$:/tags/Stylesheet"> Colorify sidebar tabs</$checkbox>
+:<$checkbox tiddler="$:/config/Shiraz" index="colorify-ui-buttons" checked="yes"> Colorify UI buttons</$checkbox>
+:<$checkbox tiddler="$:/config/Shiraz" index="view-toolbar-buttons-visibility" checked="yes"> Hide tiddler's view toolbar and show on mouse hover</$checkbox>
+:<$checkbox tiddler="$:/config/Shiraz" index="colorify-sidebar-active-tab" checked="yes"> Colorify active sidebar tab</$checkbox>
+
 
 ;Set dark and light palettes
-{{$:/plugins/kookma/shiraz/ui/set-palette}}
+{{$:/plugins/kookma/shiraz/ui/switch-palette}}
+
+
+;Breadcrumbes
+:{{$:/plugins/kookma/shiraz/ui/breadcrumbs}}
+
+---
 
 ; Choose Local Editor for Dynamic Table
 :<$checkbox tiddler=<<dynamictables-editortype>> field="text" checked="main-editor" unchecked="simple-textarea" default="simple-textarea"> Use Tiddlywiki main editor </$checkbox>

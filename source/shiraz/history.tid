@@ -3,7 +3,13 @@ type: text/vnd.tiddlywiki
 
 Full change log:  [[https://kookma.github.io/TW-Shiraz/#ChangeLog]]
 
-* ''2.9.7'' -- 2024.07.13 -- update to work with TiddlyWiki 5.3.5
+* ''3.0.0'' -- 2024.07.12 -- new Shiraz based on TiddlyWiki 5.3.5 and Bootstrap 5.33
+
+---
+''NOTE'': Shiraz 3.0.0 is a significant breakthrough and is not totally backward compatible. It uses Bootstrap 5.3.3, and TiddlyWiki 5.3.5 new features which is not found in earlier TiddlyWiki. It also uses new procedures with modified header.
+
+---
+
 * ''2.9.5'' -- 2024.06.05 -- minor bug fixes. Reverted to work with TW 5.2.7+
 * ''2.9.4'' -- 2024.05.31 -- update to use some new features of 5.3.3
 * ''2.7.1'' -- 2022.12.17 -- update to Tiddlywiki 5.2.4, few bug fixes

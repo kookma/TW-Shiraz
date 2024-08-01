@@ -1,0 +1,37 @@
+created: 20240731202916142
+modified: 20240731203845039
+tags: $:/tags/Stylesheet
+title: $:/plugins/kookma/shiraz/tables/styles/dt-tables-var
+type: text/vnd.tiddlywiki
+
+/* these are dynamic or variable properties based on the tiddlywiki palette */
+
+.shiraz-dtable-page-footer select{
+	background-color: <<color table-header-background>>;
+	color:<<color foreground>>;
+}
+
+.shiraz-dtable-page-footer > td{
+	background-color: <<color table-header-background>>;
+}
+
+/* customize the table footer used for numerical summary*/
+.shiraz-dtable-footer tr td{
+	background-color: <<color table-footer-background>>40;
+	border:none;
+}
+
+/* correct button color to support dark theme */
+.tbl-container table thead th button{
+	color:<<colour button-foreground>>
+}
+.tbl-container table thead th button svg {
+	fill:<<colour button-foreground>>;
+}
+
+/* for checked row in task explorer */
+.shiraz-dtable-item-completed{
+ color:<<colour foreground>>;
+ background-color:<<colour table-header-background>>;
+}
+ 

@@ -1,10 +1,10 @@
 /*details html5 macro*/
-details.kk-shiraz-details > summary {
+details.shiraz-details > summary {
   padding: 2px 6px;
   font-weight:500;
   outline:none;
 }
-details.kk-shiraz-details > div {
+details.shiraz-details > div {
   padding: 2px 6px;
   margin: 0;
 }
@@ -14,16 +14,16 @@ details.kk-shiraz-details > div {
 url: https://css-tricks.com/two-issues-styling-the-details-element-and-how-to-solve-them/
 */
 
-details.kk-shiraz-details summary {
+details.shiraz-details summary {
   cursor: pointer;
 }
 
-details.kk-shiraz-details summary > * {
+details.shiraz-details summary > * {
   display: inline;
 }
 
 
-button .kk-sh-slider svg{
+button .shiraz-slider svg{
 width: 0.8em;
 height: 0.8em;
 vertical-align: middle;

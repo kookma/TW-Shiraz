@@ -1,0 +1,23 @@
+/* These css are taken from vanilla theme and modified to work in dynamic table tag cell */
+
+/* for close svg button*/
+.shiraz-dtable-tc-edit-tags button.tc-remove-tag-button svg {
+	font-size: 0.7em;
+	vertical-align: middle;
+}
+
+/* for add button and input */
+.shiraz-dtable-tc-edit-tags > .tc-edit-add-tag {
+	font-size:0.8em;
+}
+
+/* for added tags displayed */
+.shiraz-dtable-tc-edit-tags span.tc-tag-label{
+	font-size:0.85em;
+}
+
+/* for dropdown tags */
+.shiraz-dtable-tc-edit-tags .tc-block-tags-dropdown span.tc-tag-label {
+	font-size:1.05em;
+}
+

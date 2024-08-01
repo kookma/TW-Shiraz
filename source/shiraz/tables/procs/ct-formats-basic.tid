@@ -1,0 +1,9 @@
+title: $:/plugins/kookma/shiraz/tables/procs/ct-formats-basic
+type: text/vnd.tiddlywiki
+
+\procedure text()  <$text text=<<entry>> />
+\procedure code()  <code><<text>></code>
+\procedure transclude() <$transclude tiddler=<<entry>> field="title"/>
+
+
+<!-- these procedures are used by table-csv to display entries -->

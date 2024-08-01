@@ -1,0 +1,25 @@
+created: 20240728205113961
+modified: 20240729200149385
+tags: $:/tags/Table/Procedure
+title: $:/plugins/kookma/shiraz/tables/procs/dt-helper
+type: text/vnd.tiddlywiki
+
+\procedure baseState()        $:/state/dynamictables
+\procedure persistantState()  $:/keepstate/dynamictables
+
+\function keepstate()       [[$(persistantState)$/$(currentTable)$]substitute[]]
+
+\function stateTableFooter() [[$(keepstate)$/footer]substitute[]]
+\function stateWarningMsg()  [[$(keepstate)$/warning]substitute[]]
+
+\function pageStateTiddler()          [[$(keepstate)$/page-number]substitute[]]
+\function entryPerPageStateTiddler()  [[$(keepstate)$/entry-per-page]substitute[]]
+
+
+
+<!-- 
+ Those tiddlers based on keepstate are permanent.
+ These are tiddlers hold the data and setting for footer, styles and warning (needs to be hold).
+ These state and temporary tiddlers are independent of currentTiddler (host tiddler) and on changing
+ the title of host tiddler will not disconnected to table
+-->

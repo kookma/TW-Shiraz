@@ -1,0 +1,34 @@
+author: Jeremy Ruston
+description: creates few paragraphs of dumy text
+tags: $:/tags/Global
+title: $:/plugins/kookma/shiraz/procedures/list-search
+type: text/vnd.tiddlywiki
+
+\procedure list-search( filter:"[!is[system]]", search:"[search:title<term>]",
+                        template:"$:/core/ui/ListItemTemplate", class:"", stateTiddler:"",
+                        placeholder:"keywords", searchMinlength:"1")
+<$let state={{{ [[$:/state/list-search]][<currentTiddler>][<stateTiddler>!is[blank]] +[join[/]] }}} >
+
+	<div data-bs-theme=<<color-scheme>> class=<<class>> >
+		<$keyboard key="escape" actions='<$action-deletetiddler $tiddler=<<state>>/>' >
+			<$edit-text tiddler=<<state>> type="search" tag="input" default="" placeholder=<<placeholder>> class="tc-max-width"/>
+		</$keyboard>
+	</div>
+
+	<div data-bs-theme=<<color-scheme>> class=<<class>> >
+		<$let term= {{{ [<state>get[text]] }}} >
+			<$list filter="[<term>minlength<searchMinlength>]  :then[subfilter<filter>subfilter<search>] :else[subfilter<filter>] :and[!is[missing]]" template=<<template>>/>
+		</$let>
+	</div>
+	
+</$let>
+\end list-search
+
+<!-- from Tobias Beer list-search with modification
+The old style dynamic filters are:
+1. <$list filter="$filter$+[$search$<term>]" template=<<__template__>>/>
+2. <$list filter="$filter$" template=<<__template__>>/>
+The new style is:
+1. not to use text substitution
+2. uses TW 5.3.4 new features for conditional decision
+-->

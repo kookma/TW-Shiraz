@@ -1,0 +1,20 @@
+tags: $:/tags/Table/BodyTemplate
+tbl-column-list: tbl-linktype tbl-nodetype
+title: $:/plugins/kookma/shiraz/tables/templates/body/tbl-nodetype
+type: text/vnd.tiddlywiki
+
+<td class="shiraz-dtable-col-fixedsize">
+<$let subtiddler-pattern=`(^${[<currentTiddler>escaperegexp[]]}$\s*/|^${[<currentTiddler>escaperegexp[]]}$\s*:)` >
+<$text text={{{ 
+[all[current]links[]match<currentRecord>then[link]]
+[all[current]backlinks[]match<currentRecord>then[backlink]]
+[all[current]tagging[]match<currentRecord>then[tagging]]
+[<currentRecord>regexp<subtiddler-pattern>then[subtiddler]]
+[all[current]transcludes[]match<currentRecord>then[transclude]]
+:else[[backtransclude]] }}} />
+</$let>
+</td>
+<!-- 
+tb-linktype is not sortable not editable. The priority is as below:
+link, backlink, tagging, subtiddler, transclusion, and backtransclusion
+-->

@@ -1,0 +1,16 @@
+created: 20240722165913974
+modified: 20240722170117893
+title: $:/plugins/kookma/shiraz/tables/procs/ct-formats-math
+type: text/vnd.tiddlywiki
+
+\procedure katex()  <span class="falign"><$latex text=<<entry>> displayMode="true"></$latex></span>
+\procedure katex-inline() <$latex text=<<entry>> displayMode="false"></$latex>
+\procedure pu() <$latex text=`\pu{$(entry)$}` displayMode="false"></$latex>
+\procedure equation() <$latex text=`\begin{equation}$(entry)$\end{equation}` displayMode="true"></$latex>
+
+<!-- 
+- these procedures are used by table-csv to display entries KaTeX
+- pu stands for physical uints
+- the math formating require the official KaTeX plugin is installed!
+- see $:/plugins/kookma/shiraz/tables/styles/csvtable-katex
+-->

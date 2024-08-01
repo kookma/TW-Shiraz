@@ -1,0 +1,13 @@
+tags: $:/tags/Table/BodyTemplate
+title: $:/plugins/kookma/shiraz/tables/templates/body/default
+type: text/vnd.tiddlywiki
+
+<td>
+<%if [<tempTableEdit>is[missing]] :or[<tempTableEdit>getindex[mode]!match[edit]] %>
+<<show-cell>>
+<%elseif [<tempTableSort>getindex[sortIndex]match<currentColumn>] %><!--check if the current column is not selected for sorting-->
+<<show-cell-locked>>
+<%else%>
+<<edit-cell>>
+<%endif%>
+</td>

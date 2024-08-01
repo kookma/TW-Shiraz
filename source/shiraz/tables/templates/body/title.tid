@@ -1,0 +1,8 @@
+tags: $:/tags/Table/BodyTemplate
+tbl-column-list: title
+title: $:/plugins/kookma/shiraz/tables/templates/body/title
+type: text/vnd.tiddlywiki
+
+<td class="shiraz-dtable-title">
+<$link to=<<currentRecord>>><$text text=<<currentRecord>> /></$link>
+</td>

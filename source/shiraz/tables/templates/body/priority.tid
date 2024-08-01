@@ -1,0 +1,45 @@
+tags: $:/tags/Table/BodyTemplate
+tbl-column-list: priority
+title: $:/plugins/kookma/shiraz/tables/templates/body/priority
+type: text/vnd.tiddlywiki
+
+\procedure circle(stcolor, fill)
+<svg width="12" height="12" >
+<circle cx="6" cy="6" r="5" stroke=<<stcolor>>  fill=<<fill>> stroke-width="1"/>
+</svg>
+\end
+
+\procedure show-cell()
+	<%if [<currentRecord>get<currentColumn>match[5]] %>
+		<$transclude $variable="circle" stcolor="#dc3545" fill="#f8d7da"/>&nbsp;very high
+	<%elseif [<currentRecord>get<currentColumn>match[4]] %>
+		<$transclude $variable="circle" stcolor="#ff8c00" fill="#fff3cd"/>&nbsp;high
+	<%elseif [<currentRecord>get<currentColumn>match[3]] %>
+		<$transclude $variable="circle" stcolor="#17a2b8" fill="#d1ecf1"/>&nbsp;normal
+	<%elseif [<currentRecord>get<currentColumn>match[2]] %>
+		<$transclude $variable="circle" stcolor="#007bff" fill="#cce5ff"/>&nbsp;low
+	<%elseif [<currentRecord>get<currentColumn>match[1]] %>
+		<$transclude $variable="circle" stcolor="#6c757d" fill="#e2e3e5"/>&nbsp;very low
+	<%endif%>
+\end
+
+\procedure show-cell-locked() <span class="shiraz-dtable-locked-cell"><<show-cell>></span>
+
+\procedure select_priority()
+<$select tiddler=<<currentRecord>> field=<<currentColumn>> default=""><option value=''>Select...</option><option value='5'>very high</option><option value='4'>high</option><option value='3'>normal</option><option value='2'>low</option><option value='1'>very low</option><option value=''>no priority</option></$select>
+\end
+
+<td class="shiraz-dtable-priority">
+<%if [<tempTableEdit>is[missing]] :or[<tempTableEdit>getindex[mode]!match[edit]] %>
+	<<show-cell>>
+<%elseif [<tempTableSort>getindex[sortIndex]match<currentColumn>] %><!--check if the current column is not selected for sorting-->
+	<<show-cell-locked>>
+<%else%>
+	<<select_priority>>
+<%endif%>
+</td>
+
+
+<!-- Part of Task Manager
+   this template ALWAYS works on fields
+  -->

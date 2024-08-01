@@ -1,7 +1,5 @@
-created: 20240730092324664
 dark-palette: $:/palettes/Nord
 light-palette: $:/palettes/Vanilla
-modified: 20240730165611375
 title: $:/plugins/kookma/shiraz/ui/switch-palette
 type: text/vnd.tiddlywiki
 warm-palette: $:/palettes/SolarFlare

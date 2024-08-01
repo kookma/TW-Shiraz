@@ -1,8 +1,6 @@
 caption: {{shilaz/images/multicolumns}} {{$:/language/Buttons/Multicolumn/Caption}}
-created: 20240723100124577
 description: {{$:/language/Buttons/Multicolumn/Hint}}
 list-before: $:/core/ui/Buttons/close
-modified: 20240730092010786
 tags: $:/tags/ViewToolbar
 title: $:/plugins/kookma/shiraz/ui/Buttons/multi-column
 type: text/vnd.tiddlywiki

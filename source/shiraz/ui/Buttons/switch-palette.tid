@@ -1,8 +1,6 @@
 caption: {{$:/plugins/kookma/shiraz/images/switch-palette}} {{$:/language/Buttons/Shiraz/SwitchPalette/Caption}}
-created: 20240730091720238
 description: {{$:/language/Buttons/Shiraz/SwitchPalette/Hint}}
 list-after: 
-modified: 20240730164920915
 tags: $:/tags/PageControls
 title: $:/plugins/kookma/shiraz/ui/Buttons/switch-palette
 type: text/vnd.tiddlywiki

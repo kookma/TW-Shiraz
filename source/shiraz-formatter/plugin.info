@@ -1,13 +1,16 @@
 {
-	"title": "$:/plugins/kookma/shiraz-formatter",
-	"name": "Shiraz Formatter",
-	"description": "Editor buttons and snippets for Shiraz",
-	"author": "Mohammad Rahmani",
-	"version": "0.6.0",
-	"core-version": ">=5.2.2",
-	"source": "https://github.com/kookma/TW-Shiraz",
-	"list": "readme license history",
-	"plugin-type": "plugin",
-	"parent-plugin":"$:/plugins/kookma/shiraz",
-	"dependents": ""
+    "title": "$:/plugins/kookma/shiraz-formatter",
+    "version": "0.6.0",
+    "stability": "STABILITY_1_EXPERIMENTAL",
+    "name": "Shiraz Formatter",
+    "description": "Editor buttons and snippets for Shiraz",
+    "author": "Mohammad Rahmani",
+    "source": "https://github.com/kookma/TW-Shiraz",
+    "list": "readme license history",
+    "plugin-priority": "",
+    "parent-plugin": "$:/plugins/kookma/shiraz",
+    "dependents": "",
+    "plugin-type": "plugin",
+    "core-version": ">=5.2.2",
+    "packaged-by": "Gatha on 13th September 2024, 00:26:09"
 }

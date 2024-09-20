@@ -4,5 +4,6 @@ type: text/vnd.tiddlywiki
 
 Full change log  https://kookma.github.io/TW-Shiraz/shiraz-formatter.html#ChangeLog
 
+* ''0.6.1'' -- 2024.09.13 -- updated to TiddlyWiki 5.3.5
 * ''0.5.1'' -- 2022.09.27 -- stable and improved release
 * ''0.1.0'' -- 2022.09.23 -- first public release

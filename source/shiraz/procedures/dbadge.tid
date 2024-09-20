@@ -3,5 +3,5 @@ title: $:/plugins/kookma/shiraz/procedures/dbadge
 type: text/vnd.tiddlywiki
 
 \procedure dbadge(subject, status, type:"primary")
-<div data-bs-theme=<<color-scheme>> class="dbadge"><span class="dbadge-subject"><$text text=<<subject>>/></span><span class=`dbadge-status dbadge-$(type)$`><$text text=<<status>>/></span></div>
+<div data-bs-theme=<<color-scheme>> class="dbadge"><span class="dbadge-subject"><$transclude $variable="subject"/></span><span class=`dbadge-status dbadge-$(type)$`><$transclude $variable="status"/></span></div>
 \end

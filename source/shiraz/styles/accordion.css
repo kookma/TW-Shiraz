@@ -1,0 +1,31 @@
+/* The .kk-shiraz-accordion is actually a CSS class to customize
+the summary element of the standard html details widget. It replace the marker
+with an animating svg down/up arrow.
+*/
+
+.kk-shiraz-accordion {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	cursor: pointer;
+	font-size:1.1em;
+}
+
+.kk-shiraz-accordion::-webkit-details-marker {
+	display: none;
+}
+
+.kk-shiraz-accordion::after {
+	content: '';
+	width: 24px;
+	height: 24px;
+	transition: 0.4s;
+	background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTI0IDI0SDBWMGgyNHoiIG9wYWNpdHk9Ii44NyIvPgogICAgICAgIDxwYXRoIGZpbGw9IiNBOUFDQUYiIGZpbGwtcnVsZT0ibm9uemVybyIgZD0iTTE1Ljg4IDE1LjI5TDEyIDExLjQxbC0zLjg4IDMuODhhLjk5Ni45OTYgMCAxIDEtMS40MS0xLjQxbDQuNTktNC41OWEuOTk2Ljk5NiAwIDAgMSAxLjQxIDBsNC41OSA0LjU5Yy4zOS4zOS4zOSAxLjAyIDAgMS40MS0uMzkuMzgtMS4wMy4zOS0xLjQyIDB6Ii8+CiAgICA8L2c+Cjwvc3ZnPgo=");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+details[open] > .kk-shiraz-accordion::after {
+	transform: rotate(180deg);
+}

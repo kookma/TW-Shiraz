@@ -47,7 +47,7 @@ type: text/vnd.tiddlywiki
 \function searchTerm()     [<tmpSearchTid>get[text]]
 
 <$keyboard key="escape" actions='<$action-setfield $tiddler=<<tmpSearchTid>> text=""/>' >
-	<$edit-text tiddler=<<tmpSearchTid>> filed="text" tag=input default="" placeholder="Search" class="alert alert-info tc-max-width"/>
+	<$edit-text tiddler=<<tmpSearchTid>> field="text" tag=input default="" placeholder="Search" class="alert alert-info tc-max-width"/>
 </$keyboard>
 
 <$button actions=<<expand-all>> class="btn btn-secondary btn-sm">Expand all</$button>

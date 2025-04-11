@@ -2,12 +2,14 @@ tags: $:/tags/Macro
 title: $:/plugins/kookma/shiraz/procedures/searchbox
 type: text/vnd.tiddlywiki
 
-\procedure search-box(label, tempTiddler)
+\procedure search-box(label, tempTiddler, placeholder)
+<%if [<label>!is[blank]] %>
 <label class="shiraz-searchbox-label"><<label>></label>
+<%endif%>
 <$keyboard key="escape" actions="""<$action-deletetiddler $tiddler=<<tempTiddler>> />""" >
 <$edit-text tiddler=<<tempTiddler>>
   field=text 	tag=input 	type=search
-	default=""  placeholder=" enter your search terms"
+	default=""  placeholder=<<placeholder>>
 	class="shiraz-searchbox" />
 </$keyboard>
 \end

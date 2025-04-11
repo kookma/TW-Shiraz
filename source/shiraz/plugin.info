@@ -1,7 +1,7 @@
 {
     "title": "$:/plugins/kookma/shiraz",
-    "version": "3.0.2",
-    "stability": "STABILITY_2_STABLE",
+    "version": "3.0.6",
+    "stability": "STABILITY_1_EXPERIMENTAL",
     "name": "Shiraz",
     "description": "Extended markups, tables, images, styles, and procedures",
     "author": "Mohammad Rahmani",
@@ -11,6 +11,6 @@
     "parent-plugin": "",
     "dependents": "",
     "plugin-type": "plugin",
-    "core-version": ">5.3.5",
-    "packaged-by": "Gatha on 20th September 2024, 21:33:55"
+    "core-version": ">=5.3.5",
+    "packaged-by": "Gatha on 17th February 2025, 20:12:28"
 }

@@ -11,7 +11,8 @@ type: text/vnd.tiddlywiki
 [all[current]tagging[]match<currentRecord>then[tagging]]
 [<currentRecord>regexp<subtiddler-pattern>then[subtiddler]]
 [all[current]transcludes[]match<currentRecord>then[transclude]]
-:else[[backtransclude]] }}} />
+[all[current]backtranscludes[]match<currentRecord>then[backtransclude]]
+:else[[unknown]] }}} />
 </$let>
 </td>
 <!-- 

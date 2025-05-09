@@ -5,8 +5,10 @@ type: text/vnd.tiddlywiki
 .shiraz-searchbox {
 	border:none;
 	border-bottom:1px solid <<color foreground>>22;
-	outline-style: none;
 	width:20em
+}
+.shiraz-searchbox:focus{
+	outline:none;
 }
 .shiraz-searchbox::placeholder {
 	font-size: 0.9em;

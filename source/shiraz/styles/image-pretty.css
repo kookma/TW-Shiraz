@@ -1,16 +1,18 @@
 .image-pretty {
     min-width:64px;
-    border: 1px solid #c8ccd1;
-    background-color:#f8f9fa;
+    border: 1px solid;
 }
+
 .image-pretty:hover {
     border: 1px solid #777;
 }
+
 .image-pretty img {
     padding:2px;
     width: 100%;
     height: auto;
 }
+
 .image-pretty .image-pretty-caption {
     padding:10px 15px 10px;
     text-align: center; 
@@ -18,4 +20,3 @@
     font-weight:300;
     font-size: 0.9em; 
 }
-

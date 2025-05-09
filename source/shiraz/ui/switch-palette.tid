@@ -10,6 +10,7 @@ warm-palette: $:/palettes/SolarFlare
 [[$:/palettes/DesertSand]]
 [[$:/palettes/SolarFlare]]
 [[$:/palettes/SolarizedLight]]
+[[$:/palettes/FlexokiLight]]
 \end
 \function f.day()   [all[tiddlers+shadows]tag[$:/tags/Palette]] :filter[get[color-scheme]match[light]]  -[f.warm[]]
 \function f.night() [all[tiddlers+shadows]tag[$:/tags/Palette]] :filter[get[color-scheme]match[dark]]   -[f.warm[]]

@@ -3,6 +3,7 @@ type: text/vnd.tiddlywiki
 
 Full change log:  [[https://kookma.github.io/TW-Shiraz/#ChangeLog]]
 
+* ''3.0.10'' -- 2025.07.07-- updated to TiddlyWiki 5.3.7
 * ''3.0.0'' -- 2024.07.12 -- new Shiraz based on TiddlyWiki 5.3.5 and Bootstrap 5.33
 
 ---

@@ -7,9 +7,13 @@ type: text/vnd.tiddlywiki
 	<$let tv-wikilinks="no">
 		<summary data-bs-theme=<<color-scheme>> class=<<__labelClass__>> ><<__label__>></summary>
 	</$let>
-	<$let  source = {{{ [<__src__>get[text]else<__src__>] }}} >
-		<div data-bs-theme=<<color-scheme>> class=<<__srcClass__>>><$transclude $variable="source" $mode="block"/></div>
-	</$let>
+	<div data-bs-theme=<<color-scheme>> class=<<__srcClass__>>>
+		<%if [<__src__>has[title]] %>
+			<$transclude $tiddler=<<__src__>> $mode="block"/>
+		<%else%>
+			<$transclude $variable="src" $mode="block"/>
+		<%endif%>			
+	</div>
 </details>
 \end
 

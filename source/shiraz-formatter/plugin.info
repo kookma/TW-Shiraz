@@ -1,6 +1,6 @@
 {
     "title": "$:/plugins/kookma/shiraz-formatter",
-    "version": "0.6.0",
+    "version": "0.6.2",
     "stability": "STABILITY_1_EXPERIMENTAL",
     "name": "Shiraz Formatter",
     "description": "Editor buttons and snippets for Shiraz",
@@ -12,5 +12,5 @@
     "dependents": "",
     "plugin-type": "plugin",
     "core-version": ">=5.2.2",
-    "packaged-by": "Gatha on 13th September 2024, 00:26:09"
+    "packaged-by": "Gatha on 7th July 2025, 22:39:39"
 }

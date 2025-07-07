@@ -4,7 +4,6 @@ type: text/vnd.tiddlywiki
 
 \procedure slider(label, src, status:"closed", labelClass, srcClass)
 <$let stateTiddler = {{{ [[$:/state/shiraz/slider]][<currentTiddler>][<label>] +[join[/]] }}}
-       source     = {{{ [<src>get[text]else<src>] }}} 
        condition  = {{{ [<stateTiddler>!is[missing]] :then[<stateTiddler>get[text]] :else[<status>] }}}  > 
 <h3 data-bs-theme=<<color-scheme>> class=<<labelClass>> >
 <%if  [<condition>match[open]] %>
@@ -20,7 +19,11 @@ type: text/vnd.tiddlywiki
 </h3>
 <%if  [<condition>match[open]] %>
 	<div data-bs-theme=<<color-scheme>> class=<<srcClass>> >
-		<$transclude $variable="source" $mode="block"/>
+		<%if [<src>has[title]] %>
+			<$transclude $tiddler=<<src>> $mode="block"/>
+		<%else%>
+			<$transclude $variable="src" $mode="block"/>
+		<%endif%>			
 	</div>
 <%endif%>
 </$let>
